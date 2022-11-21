@@ -7,7 +7,7 @@ export default function LearnMore() {
   return (
     <div>
       <Sidebar1/>
-      <div className='ltext1'>Learn More</div>
+      <div className='title'>Learn More</div>
       <div className='ltext2'>Why advertise on D Frame ?</div>
       <div className='ltext3'>How does the campaign pricing works?</div>
       <div className='ltext4'>What is the reach of our campaigns?</div>

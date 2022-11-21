@@ -6,19 +6,20 @@
 .dframe{
     position: absolute;
     height: 20vh;
-    width: 10vw;top: 2vh;
-    left: 3vw;
+    width: 10vw;
+    top: 2vh;
+    left: 3.5vw;
     z-index: 1;
 }
 .dftext{
     position: absolute;
     height: 5vh;
     width: 5vw;top: 18vh;
-    left: 5vw;
-    font-style: normal;
-    font-family: 'Times New Roman', Times, serif;
+    left: 5.5vw;
+    
     font-weight: 700;
     z-index: 1;
+    color: #0A194E;
 }
 .side{
     position: absolute;
@@ -30,15 +31,16 @@
 .item{
     position: inherit;
     width: 17.3vw;
-    top: 22vh;
+    top: 24vh;
     font-size: 2.5vh;
     color: white;
     
     background: #0A194E;
-   
+   z-index: 5;
     justify-content: space-around;
 
 }
+
 .a{
     position: relative;
 

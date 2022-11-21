@@ -8,6 +8,7 @@ export default function KYC1() {
       <Sidebar1/>
       
       <div>
+        <div className='title'>KYC Verification</div>
         <div className='Rectangle'>
           <div className='ktext1'>First Name: </div>
           <div className='ktext2'>Last Name:</div>

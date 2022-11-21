@@ -15,17 +15,16 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 export default function Charts2() {
   return (
-    <div className="piechart">
-    <PieChart  width={1000} height={400} >
+    <div className="piechart2">
+    <PieChart  width={300} height={250} >
       
       <Pie 
         dataKey="value"
         isAnimationActive={true}
         data={data}
-        cx={300}
-        cy={200}
-        innerRadius={80}
-        outerRadius={130}
+        
+        innerRadius={50}
+        outerRadius={100}
         label
         >
             {data.map((entry, index) => (

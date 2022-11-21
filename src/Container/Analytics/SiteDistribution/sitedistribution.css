@@ -1,35 +1,42 @@
-.tsbox1{
+.sdbox1{
     position: absolute;
     height: 50vh;
     width: 60vw;
-    top: 12vh;
+    top: 16vh;
     left: 28vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
-.tsbox2{
+.sdbox2{
     position: absolute;
     text-align: left;
     font-size: 3vh;
     height: 30vh;
     width: 55vw;
-    top: 66vh;
+    top: 68vh;
     left: 30.5vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
 
-.tschart{
+.sdchart{
     position: absolute;
     top: 7vh;
     left: 25vw;
     z-index: 1;
 
 }
-.list{
+.sdlist{
     position: relative;
     left: 5vw;
     font-size: 3.5vh;
 }
-.space{
+.space2{
     position: absolute;
-   left: 30vw;
+    left: 30vw;
+    
+}
+.btngrp{
+    position: absolute;
+    top: 8.9vh;
+    left: 17.3vw;border-radius: none;
+    color: #0A194E;
 }

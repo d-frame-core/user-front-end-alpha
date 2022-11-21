@@ -6,6 +6,7 @@ export default function Survey() {
   return (
     <div>
       <Sidebar1/>
+      <div className='title'>Survey</div>
       <div>
         <div className='surect1'>Which fruit do you like?
         <button className='subtn1'>Apple</button>

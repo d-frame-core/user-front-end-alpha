@@ -12,14 +12,14 @@ background: linear-gradient(90deg, rgba(92, 15, 255, 0.63) 0%, rgba(177, 133, 25
 width:10vw;
 top:3vh;
 right:6vw;
-font-size: 2vh;
+font-size: 2.5vh;
 }
 .user1{
     position: absolute;
     top:2vh;
     height: 5vh;
     width:5vh;
-    right: 17vw;
+    right: 15vw;
     border-radius: 50%;
 
 }
@@ -27,4 +27,9 @@ font-size: 2vh;
     position: absolute;
     top:3vh;
     right:8vw;
+}
+.arrow{
+    position: absolute;
+    right:6vw;
+    top: 3vh;
 }

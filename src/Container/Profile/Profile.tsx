@@ -28,7 +28,7 @@ export default function Profile() {
         <button className='prbtn2'>Save</button>
         <NavLink to='/kyc1'><button className='prbtn3'>3 Level Verification</button></NavLink>
       </div>
-      <div className='prtext8'>Profile</div>
+      <div className='title'>Profile</div>
       <div className='prtext2'>Full Name:</div>
       <div className='prtext3'>Email:</div>
       <div className='prtext4'>Phone Number:</div>

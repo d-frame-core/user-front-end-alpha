@@ -16,7 +16,7 @@ export default function Wallet() {
           <div className='wr5'></div>
 
             <div className='wtext'>
-              <div className='wtext8'>Wallet</div>
+              <div className='title'>Wallet</div>
               <div className='wtext1'>Total DFT Earnings</div>
               <div className='wtext2'>DFT 0.000</div>
               <div className='wtext3'>Your Wallet Address</div>

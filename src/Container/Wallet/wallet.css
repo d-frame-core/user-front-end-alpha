@@ -46,11 +46,9 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 left: 20vw;
 top: 2vh;
-font-family: 'IBM Plex Sans Devanagari';
-font-style: normal;
 font-weight: 700;
 font-size: 4vh;
-color: #1C1F37;
+
 }
 .wtext1{
     position: absolute;

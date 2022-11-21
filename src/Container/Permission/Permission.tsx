@@ -9,7 +9,7 @@ export default function Permission() {
         <Sidebar1/>
       <div className='srect1'></div>
         
-        <div className='stext0'>Permission</div>
+        <div className='title'>Permission</div>
         <form>
         <div className='stext1'>Update Email :</div>    
         <div className='stext2'>Update Number :</div>    

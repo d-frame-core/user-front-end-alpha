@@ -8,7 +8,7 @@ export default function Help() {
     
     <div>
       <Sidebar1/>
-      <div className='htext1'>Help</div>
+      <div className='title'>Help</div>
       <div className='htext2'>Read More</div>
       <div className='htext3'>Privacy Policy</div>
       <div className='htext4'>Support</div>

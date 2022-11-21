@@ -17,6 +17,9 @@ import Charts1 from './components/charts/Charts1/Charts1';
 import Rewards from './Container/Rewards/Rewards';
 import Sidebar1 from './components/sidebar1/Sidebar1';
 import Topsite from './Container/Analytics/Topsite/Topsite';
+import SiteByTime from './Container/Analytics/Sitebytime.tsx/SiteByTime';
+import Monetization from './Container/Analytics/Monetization/Monetization';
+import SiteDistribution from './Container/Analytics/SiteDistribution/SiteDistribution';
 
 function App() {
   return (
@@ -25,8 +28,8 @@ function App() {
       <Router>
         <Routes>
           
-          <Route path='/sidebar' element={<Sidebar1/>}/>
-          <Route path='' element={<Sidebar1/>}/>
+          
+          <Route path='' element={<Profile/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
           <Route path='/browserdata' element={<Browserdata/>}/>
@@ -36,6 +39,9 @@ function App() {
           <Route path='/rewards' element={<Rewards/>}/>
           <Route path='/survey' element={<Survey/>}/>
           <Route path='/topsitevisited' element={<Topsite/>}/>
+          <Route path='/monetization' element={<Monetization/>}/>
+          <Route path='/sitebytime' element={<SiteByTime/>}/>
+          <Route path='/sitedistribution' element={<SiteDistribution/>}/>
           <Route path='/help' element={<Help/>}/>
           <Route path='/permission' element={<Permission/>}/>
           <Route path='/learnmore' element={<LearnMore/>}/>
