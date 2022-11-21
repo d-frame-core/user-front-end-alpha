@@ -1,0 +1,123 @@
+.Rectangle{
+    position: absolute;
+    height: 80vh;
+    width: 75vw;
+    top: 13vh;
+    left: 20vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+.ktext1{
+position: absolute;
+height: 5vh;
+top: 10vh;
+font-size: 3vh;
+
+left: 7.5vw;
+}
+.kin1{
+    position: absolute;
+    height: 6vh;
+    width: 35vh;
+    top: 8.5vh;
+    left: 18vw;
+    border: none;
+    border-radius: 1.1vh;
+}
+.ktext2{
+    position: absolute;
+height: 5vh;
+top: 10vh;
+font-size: 3vh;
+left: 40vw;
+}
+.kin2{
+    position: absolute;
+    height: 6vh;
+    width: 35vh;
+    top: 8.5vh;
+    left: 48vw;
+    border:none;
+    border-radius: 1.1vh;
+}
+.ktext3{
+    position: absolute;
+height: 5vh;
+top: 25vh;
+font-size: 3vh;
+
+left: 7.5vw;
+}
+.kin3{
+    position: absolute;
+    height: 6vh;
+    width: 35vh;
+    top: 23.5vh;
+    left: 18vw;
+    border:none;
+    border-radius: 1.1vh;
+}
+.ktext4{
+    position: absolute;
+height: 5vh;
+font-size: 3vh;
+
+top: 25vh;
+left: 40vw;
+}
+.kin4{
+    position: absolute;
+    height: 6vh;
+    width: 35vh;
+    top: 23.5vh;
+    left: 48vw;
+    border:none;
+    border-radius: 1.1vh;
+}
+.ktext5{
+    position: absolute;
+    height: 5vh;
+    top: 38.5vh;
+    font-size: 3vh;
+
+    left: 7.5vw;
+}
+.kin5{
+    position: absolute;
+    height: 6vh;
+    width: 35vh;
+    top: 38.5vh;
+    left: 18vw;
+    border:none;
+    border-radius: 1.1vh;
+}
+.ktext6{
+    position: absolute;
+height: 5vh;
+top: 38.5vh;
+font-size: 3vh;
+
+left: 40vw;
+}
+.kin6{
+    position: absolute;
+    height: 6vh;
+    width: 35vh;
+    top: 38.5vh;
+    left: 48vw;
+    font-size: 2.4vh;
+    border:none;
+    border-radius: 1.1vh;
+}
+.ktext7{
+    position: absolute;
+    top: 3vh;
+    left: 4vw;
+    font-size: 4vh;
+}
+.label{
+    position: absolute;
+    top:65vh;
+    left: 15vw;
+    width:30vh;
+    z-index: 1;
+}

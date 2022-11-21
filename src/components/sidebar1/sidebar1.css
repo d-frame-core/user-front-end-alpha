@@ -1,0 +1,105 @@
+.Container{
+    position: absolute;
+    background: linear-gradient(180deg, rgba(92, 15, 255, 0.66) 0%, rgba(250, 1, 255, 0.33) 100%);
+    left: 0vh;
+}
+.dframe{
+    position: absolute;
+    height: 20vh;
+    width: 10vw;top: 2vh;
+    left: 3vw;
+    z-index: 1;
+}
+.dftext{
+    position: absolute;
+    height: 5vh;
+    width: 5vw;top: 18vh;
+    left: 5vw;
+    font-style: normal;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    z-index: 1;
+}
+.side{
+    position: absolute;
+    left:0vw;
+    font-size: 2vh;
+    width: 17.3vw;
+    height: 100vh;background: linear-gradient(180deg, rgba(92, 15, 255, 0.66) 0%, rgba(250, 1, 255, 0.33) 100%);
+}
+.item{
+    position: inherit;
+    width: 17.3vw;
+    top: 22vh;
+    font-size: 2.5vh;
+    color: white;
+    
+    background: #0A194E;
+   
+    justify-content: space-around;
+
+}
+.a{
+    position: relative;
+
+width: 15vw;
+height: 2.4vh;
+left: 0vw;
+font-style: normal;
+font-weight: 400;
+font-size: 2.5vh;
+z-index: 1;
+padding: 1vh;
+color: #FFFFFF;
+}
+.rect3{
+    position: absolute;
+width: 14vw;
+height: 12.2vh;
+left: 1.6vw;
+top: 80.7vh;
+z-index: 1;
+background: #1B2B65;
+border-radius: 8px;
+}
+.rect4{
+    position: absolute;
+width: 11.5vw;
+height: 4vh;
+left:2.8vw;
+top: 87.4vh;
+z-index: 2;
+background: #017EFA;
+border-radius: 6px;
+}
+.text7{
+    position: absolute;
+    width: 4vw;
+    height: 1.8vh;
+    left: 6.4vw;
+    top: 84vh;
+    font-family: 'Alata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.4vh;
+    z-index: 2;
+    color: #FFFFFF;
+}
+.text8{
+    position: absolute;
+    width: 5vw;
+    height: 1.5vh;
+    left: 6vw;
+    top: 88.5vh;
+    z-index: 4;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vh;
+    color: #FFFFFF;
+}
+
+.b{
+    position: relative;
+    left: -1vw;
+}

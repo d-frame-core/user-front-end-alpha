@@ -1,0 +1,24 @@
+.tsbox1{
+    position: absolute;
+    height: 50vh;
+    width: 70vw;
+    top: 12vh;
+    left: 24vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+.tsbox2{
+    position: absolute;
+    height: 30vh;
+    width: 70vw;
+    top: 67vh;
+    left: 24vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+
+.tschart{
+    position: absolute;
+    top: 7vh;
+    left: 25vw;
+    z-index: 1;
+
+}

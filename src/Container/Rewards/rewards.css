@@ -1,0 +1,74 @@
+body{
+    display: flexbox;
+}
+.ReRectangle{
+    position: absolute;
+    display: flex;
+    height: 46vh;
+    width: 70vw;
+    top: 16vh;
+    left: 23.5vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) -43.88%, rgba(227, 218, 246, 0.6) 56.12%);
+}
+
+.linechart{
+    position:absolute;
+    display: flex;
+    top:2vh;
+    height:10vh;
+    
+    left:6vw;
+    
+}
+.rerect3{
+    position: absolute;
+    height: 25vh;
+    width: 20vw;
+    top:68vh;
+    left:23.5vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+.rerect6{
+    position: absolute;
+    height: 25vh;
+    width: 20vw;
+    top:68vh;
+    left:48.5vw;
+    
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);}
+.rerect61{
+    position: absolute;
+    height: 25vh;
+    width: 20vw;
+    top:68vh;
+    left:73.5vw;
+    
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.retext{
+
+    position: inherit;
+    text-align: center;
+    top: 5vh;
+    width: 10vw;
+    left: 5.5vw;
+    font-size: 3vh;
+   
+    
+}
+.rebtn1,.rebtn2{
+position: absolute;
+height: 5vh;
+align-items: center;
+    width: 8vw;
+    top:18vh;
+    left: 6.5vw;
+border: none;
+    border-radius: 1.1vh;
+    background: linear-gradient(90deg, rgba(66, 0, 255, 0.4428) 0%, rgba(5, 195, 218, 0.427083) 75.52%, rgba(2, 203, 216, 0.4264) 100%);
+
+}
