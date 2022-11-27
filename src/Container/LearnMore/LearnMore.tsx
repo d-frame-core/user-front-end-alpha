@@ -1,3 +1,4 @@
+import { Container, Box, Button } from '@mui/material';
 import React from 'react'
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import './learnmore.css';
@@ -5,21 +6,29 @@ import './learnmore.css';
 
 export default function LearnMore() {
   return (
-    <div>
-      <Sidebar1/>
-      <div className='title'>Learn More</div>
-      <div className='ltext2'>Why advertise on D Frame ?</div>
-      <div className='ltext3'>How does the campaign pricing works?</div>
-      <div className='ltext4'>What is the reach of our campaigns?</div>
-      <div className='ltext5'>How do you pay for the campaigns ?</div>
-      <div className='ltext6'>FAQs</div>
+    <Container>
+    <Sidebar1/>
+    <div className='title'>Help</div>
+    <Box className='lmrect'>
+      
+        <Button sx={{width:'65vw',height:'10vh',bgcolor:'white',top:'10vh',color:'black',fontSize:'3vh'}}>
+          Why D Frame ?
+          </Button>
+        <Button sx={{width:'65vw',height:'10vh',bgcolor:'white',top:'14vh',color:'black',fontSize:'3vh'}}>
+          What is value of Your Data ?
+        </Button>
+        <Button sx={{width:'65vw',height:'10vh',bgcolor:'white',top:'18vh',color:'black',fontSize:'3vh'}}>
+          How safe is your data with us ?
+        </Button>
+        <Button sx={{width:'65vw',height:'10vh',bgcolor:'white',top:'22vh',color:'black',fontSize:'3vh'}}>
+          How will you get token ?
+        </Button>
+        <Button sx={{width:'65vw',height:'10vh',bgcolor:'white',top:'26vh',color:'black',fontSize:'3vh'}}>
+          Faqs
+        </Button>
+     
+    </Box>
 
-      <div className='lrect1'></div>
-      <div className='lrect2'></div>
-      <div className='lrect3'></div>
-      <div className='lrect4'></div>
-      <div className='lrect5'></div>
-      <div className='lrect6'></div>
-    </div>
+  </Container>
   )
 }

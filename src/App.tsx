@@ -17,9 +17,12 @@ import Charts1 from './components/charts/Charts1/Charts1';
 import Rewards from './Container/Rewards/Rewards';
 import Sidebar1 from './components/sidebar1/Sidebar1';
 import Topsite from './Container/Analytics/Topsite/Topsite';
-import SiteByTime from './Container/Analytics/Sitebytime.tsx/SiteByTime';
+import SiteByTime from './Container/Analytics/Sitebytime/SiteByTime';
 import Monetization from './Container/Analytics/Monetization/Monetization';
 import SiteDistribution from './Container/Analytics/SiteDistribution/SiteDistribution';
+import KYC2 from './Container/KYC/KYC2/KYC2';
+import KYC3 from './Container/KYC/KYC3/KYC3';
+import Success from './Container/KYC/Success';
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path='' element={<Profile/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
+          <Route path='/kyc2' element={<KYC2/>}/>
+          <Route path='/kyc3' element={<KYC3/>}/>
+          <Route path='/successful' element={<Success/>}/>
           <Route path='/browserdata' element={<Browserdata/>}/>
           <Route path='/emaildata' element={<Emaildata/>}/>
           <Route path='/calldata' element={<Calldata/>}/>

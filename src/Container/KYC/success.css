@@ -1,0 +1,29 @@
+.sucbox{
+    position: absolute;
+    top: 15vh;
+    height: 80vh;
+    left: 21vw;
+    width: 75vw;
+    font-size: 4vh;
+    font-display: flex;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+.ww{
+    position: absolute;
+    top: 35vh;
+}
+.success1{
+
+    position: relative;
+    top: 10vh;
+    height: 20vh;
+    width: 10vw;
+}
+.success2{
+
+    position:absolute;
+        height: 10vh;
+        width: 5vw;
+        top: 55vh;
+        left: 51vw;
+}

@@ -1,0 +1,26 @@
+.ky3rectangle{
+    position: absolute;
+    display: flex;
+    height: 80vh;
+    width: 75vw;
+    top: 15vh;
+    left: 21vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+.kyc3{
+    position: absolute;
+    position:absolute;
+        height: 10vh;
+        width: 5vw;
+        top: 55vh;
+        left: 40vw;
+}
+.kyc3box{
+    position: absolute;
+    top: 5vh;
+    left: 10vw;
+    height: 50vh;
+    width: 55vw;
+    background-color: white;
+    z-index: 1;
+}

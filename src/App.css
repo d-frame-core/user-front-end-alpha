@@ -1,5 +1,9 @@
+body{
+  display: flow-root;
+}
 .App {
   text-align: center;
+  display: flex;
 }
 .title{
   position: absolute;
@@ -7,6 +11,13 @@
   font-weight: 700;
   top: 2vh;
   left:20vw;
+}
+.level{
+  position: absolute;
+  font-size: 4vh;
+  top: 3vh;
+  left: 3vw;
+  font-weight: 600;
 }
 
 

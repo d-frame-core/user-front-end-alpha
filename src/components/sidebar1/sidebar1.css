@@ -34,11 +34,8 @@
     top: 24vh;
     font-size: 2.5vh;
     color: white;
-    
     background: #0A194E;
    z-index: 5;
-    justify-content: space-around;
-
 }
 
 .a{
@@ -61,6 +58,8 @@ height: 12.2vh;
 left: 1.6vw;
 top: 80.7vh;
 z-index: 1;
+text-emphasis-position:10;
+color: #FFFFFF;
 background: #1B2B65;
 border-radius: 8px;
 }
@@ -74,12 +73,18 @@ z-index: 2;
 background: #017EFA;
 border-radius: 6px;
 }
+.text6{
+    position: inherit;
+    top: 3vh;
+    font-size: 2vh;
+    left: 2vw;
+}
 .text7{
     position: absolute;
     width: 4vw;
     height: 1.8vh;
     left: 6.4vw;
-    top: 84vh;
+    top: 88vh;
     font-family: 'Alata';
     font-style: normal;
     font-weight: 400;
@@ -91,13 +96,13 @@ border-radius: 6px;
     position: absolute;
     width: 5vw;
     height: 1.5vh;
-    left: 6vw;
-    top: 88.5vh;
+    left: 5.5vw;
+    top: 94vh;
     z-index: 4;
     font-family: 'Gilroy';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vh;
+    font-size: 3vh;
     color: #FFFFFF;
 }
 

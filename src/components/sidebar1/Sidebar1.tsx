@@ -20,9 +20,10 @@ export default function Sidebar1() {
    <img src={df} className='dframe' alt=''/>
    <div className='dftext'>DFrame</div>
    <div className='rectangle'>
-            <div className='rect3'></div>
+            <div className='rect3'><div className='text6'>Need help with Dframe?</div></div>
             <div className='rect4'></div>
         </div>
+  
    <Box className='side'>
     <Grid className='item'>
       <NavLink to='/profile' style={{textDecoration:'none'}}>

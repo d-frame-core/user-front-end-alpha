@@ -1,113 +1,78 @@
-.Rectangle{
+.ky1rectangle{
     position: absolute;
+    display: flex;
     height: 80vh;
     width: 75vw;
-    top: 13vh;
-    left: 20vw;
+    top: 15vh;
+    left: 21vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+.kyc1{
+    position:absolute;
+    height: 10vh;
+    width: 5vw;
+    top: 55vh;
+    left: 18vw;
 }
 .ktext1{
 position: absolute;
 height: 5vh;
-top: 10vh;
-font-size: 3vh;
+top: 12vh;
+font-size: 3.5vh;
 
 left: 7.5vw;
 }
-.kin1{
+.i{
     position: absolute;
-    height: 6vh;
+    height: 5vh;
     width: 35vh;
-    top: 8.5vh;
-    left: 18vw;
+    left: 10vw;
     border: none;
     border-radius: 1.1vh;
 }
 .ktext2{
     position: absolute;
 height: 5vh;
-top: 10vh;
-font-size: 3vh;
+top: 12vh;
+font-size: 3.5vh;
 left: 40vw;
 }
-.kin2{
-    position: absolute;
-    height: 6vh;
-    width: 35vh;
-    top: 8.5vh;
-    left: 48vw;
-    border:none;
-    border-radius: 1.1vh;
-}
+
 .ktext3{
     position: absolute;
 height: 5vh;
-top: 25vh;
-font-size: 3vh;
+top: 27vh;
+font-size: 3.5vh;
 
 left: 7.5vw;
 }
-.kin3{
-    position: absolute;
-    height: 6vh;
-    width: 35vh;
-    top: 23.5vh;
-    left: 18vw;
-    border:none;
-    border-radius: 1.1vh;
-}
+
 .ktext4{
     position: absolute;
 height: 5vh;
-font-size: 3vh;
+font-size: 3.5vh;
 
-top: 25vh;
+top: 27vh;
 left: 40vw;
 }
-.kin4{
-    position: absolute;
-    height: 6vh;
-    width: 35vh;
-    top: 23.5vh;
-    left: 48vw;
-    border:none;
-    border-radius: 1.1vh;
-}
+
 .ktext5{
     position: absolute;
     height: 5vh;
-    top: 38.5vh;
-    font-size: 3vh;
+    top: 42vh;
+    font-size: 3.5vh;
 
     left: 7.5vw;
-}
-.kin5{
-    position: absolute;
-    height: 6vh;
-    width: 35vh;
-    top: 38.5vh;
-    left: 18vw;
-    border:none;
-    border-radius: 1.1vh;
 }
 .ktext6{
     position: absolute;
 height: 5vh;
-top: 38.5vh;
-font-size: 3vh;
+top: 42vh;
+font-size: 3.5vh;
 
 left: 40vw;
 }
-.kin6{
-    position: absolute;
-    height: 6vh;
-    width: 35vh;
-    top: 38.5vh;
-    left: 48vw;
-    font-size: 2.4vh;
-    border:none;
-    border-radius: 1.1vh;
-}
+
 .ktext7{
     position: absolute;
     top: 3vh;
@@ -120,4 +85,17 @@ left: 40vw;
     left: 15vw;
     width:30vh;
     z-index: 1;
+}
+.kybtn{
+    position: absolute;
+    height: 5vh;
+    width: 10vh;
+    top: 70vh;
+    left: 65vw;
+    background-color: rgba(91, 15, 255, 0.66);
+    color: white;
+    border: none;
+    font-size: 2vh;
+    border-radius: 1.1vh;
+    z-index: 2;
 }

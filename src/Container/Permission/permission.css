@@ -1,22 +1,12 @@
 
-.stext0{
-    position: absolute;
-left: 20vw;
-top: 2vh;
-font-family: 'IBM Plex Sans Devanagari';
-font-style: normal;
-font-weight: 700;
-font-size: 4vh;
-color: #1C1F37;
-}
+
 .srect1{
     position: absolute;
-left: 20vw;
+left: 22vw;
 right: 41.6vw;
 top: 11.7vh;
-bottom: 9vh;
 width:73vw;
-height: 79vh;
+height: 85vh;
 background: #DDE2EA;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
@@ -25,7 +15,7 @@ border-radius: 10px;
     position: absolute;
 width: 20vw;
 height: 5.4vh;
-left: 31.5vw;
+left: 32.7vw;
 top: 18vh;
 z-index: 1;
 font-family: 'Inter';
@@ -40,10 +30,10 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 }
 .stext2{
     position: absolute;
-width: 25vw;
+width: 20vw;
 height: 5.6vh;
 left: 31.5vw;
-top: 28.5vh;
+top: 30vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -57,10 +47,10 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 }
 .stext3{
     position: absolute;
-width: 25vw;
+width: 20vw;
 height: 4vh;
-left: 31.5vw;
-top: 39vh;
+left: 35.7vw;
+top: 42vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -75,9 +65,9 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 .stext4{
     position: absolute;
 width: 25vw;
-height: 5.4vh;
-left: 31.5vw;
-top: 47vh;
+height: 4vh;
+left: 36vw;
+top: 54vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -92,8 +82,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 31.5vw;
-top: 57.5vh;
+left: 33vw;
+top: 66vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -108,8 +98,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 31.5vw;
-top: 65.5vh;
+left: 33vw;
+top: 78vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -124,8 +114,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 31.5vw;
-top: 73.5vh;
+left: 34vw;
+top: 90vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -155,7 +145,7 @@ border-radius: 1vh;
     width: 34.7vw;
     height: 6vh;
     left: 45.8vw;
-top: 28vh;
+top: 30vh;
 border:none;
 font-style: normal;
 font-size: 26px;
@@ -166,35 +156,34 @@ border-radius: 1vh;
 }
 .sbtn1{
 position: absolute;
-top: 38.4vh;
-left: 45vw;
+top: 41vh;
+left: 46vw;
 z-index: 1;
 }
 .sbtn2{
     position: absolute;
-    top: 47vh;
-    left: 45vw;
+    top: 53vh;
+    left: 46vw;
     z-index: 1;
     }
 .sbtn3{
     
 position: absolute;
-left: 45vw;
-top: 57vh;
+left: 46vw;
+top: 65vh;
 
 }
 .sbtn4{
     position: absolute;
-    height:fit-content;
-    width: fit-content;
-    left: 45vw;
+    
+    left: 46vw;
 
-    top: 65vh;
+    top: 77vh;
     
 }
 .sbtn5{
     position: absolute;
-left: 45vw;
-top: 73vh;
+left: 46vw;
+top: 89vh;
 
 }
