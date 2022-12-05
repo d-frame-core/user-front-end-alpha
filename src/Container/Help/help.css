@@ -1,8 +1,27 @@
+.helprect{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    top: 15vh;
+    left: 22vw;
+    text-align: left;
+    font-size: 3vh;
+    height: 80vh;
+    width: 73vw;
+}
+.inf{
+    padding: 3vh;
+    border-radius: 2vh;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: #ffffff;
+}
 .hrect{
     position: absolute;
-    height: 91.2vh;
-    width: 82.7vw;
-    top: 8.8vh;
-    left: 17.3vw;
-    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+    top: 9vh;
+    left: 18vw;
+    height: 91vh;
+    width: 82vw;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);;
+
 }

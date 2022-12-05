@@ -27,11 +27,11 @@ export default function Sidebar1() {
    <Box className='side'>
     <Grid className='item'>
       <NavLink to='/profile' style={{textDecoration:'none'}}>
-        <Button  sx={{width:'17.3vw',height:'5vh',color:'white',paddding:'10vh'}} startIcon={<PortraitIcon/>}> Profile</Button>
+        <Button  sx={{width:'18vw',height:'5vh',color:'white',paddding:'10vh'}} startIcon={<PortraitIcon/>}> Profile</Button>
       </NavLink>
 
       <NavLink to='/wallet' style={{textDecoration:'none'}}>
-        <Button   sx={{width:'17.3vw',height:'5vh',color:'white'}} startIcon={<AccountBalanceWalletOutlinedIcon/>}>Wallet</Button>
+        <Button   sx={{width:'18vw',height:'5vh',color:'white'}} startIcon={<AccountBalanceWalletOutlinedIcon/>}>Wallet</Button>
       </NavLink>
    
    <TreeView 
@@ -66,12 +66,12 @@ export default function Sidebar1() {
   </TreeItem>
 </TreeView>
     <NavLink to='/rewards' style={{textDecoration:'none'}}>
-      <Button className=''sx={{width:'17.3vw',height:'5vh',color:'white'}}>Rewards
+      <Button className=''sx={{width:'18vw',height:'5vh',color:'white'}}>Rewards
       </Button>
     </NavLink>
   <TreeView 
    aria-label="file system navigator"
-   sx={{ width:'17.3vw' ,paddingTop:'0.2vh'}}
+   sx={{ width:'18vw' ,paddingTop:'0.2vh'}}
    className='b'
  >
    <TreeItem nodeId="1" label="ANALYTICS">
@@ -97,7 +97,7 @@ export default function Sidebar1() {
       </Button>
    </TreeItem> 
  </TreeView>
-      <Button sx={{width:'17.3vw',height:'5vh',color:'white'}}>
+      <Button sx={{width:'18vw',height:'5vh',color:'white'}}>
         <NavLink to='/permission'style={{textDecoration:'none',color:'white'}}>
           <div className=''>Permission</div>
         </NavLink>
