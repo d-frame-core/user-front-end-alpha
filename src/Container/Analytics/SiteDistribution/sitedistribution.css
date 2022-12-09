@@ -2,7 +2,7 @@
     position: absolute;
     height: 50vh;
     width: 60vw;
-    top: 16vh;
+    top: 18vh;
     left: 28vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
@@ -10,18 +10,21 @@
     position: absolute;
     text-align: left;
     font-size: 3vh;
-    height: 30vh;
+    height: 28vh;
     width: 55vw;
-    top: 68vh;
+    top: 70vh;
     left: 30.5vw;
+    overflow: hidden;
+    overflow-y: scroll;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
 
 .sdchart{
     position: absolute;
-    top: 7vh;
-    left: 25vw;
+    top: 1vh;
+    left: 8vw;
     z-index: 1;
+    background-color: white;
 
 }
 .sdlist{
@@ -37,6 +40,45 @@
 .btngrp{
     position: absolute;
     top: 8.9vh;
-    left: 18vw;border-radius: none;
-    color: #0A194E;
+    left: 18vw;
+    border-radius: none;
+    padding: 2vh;
+}
+.sites{
+    position: absolute;
+    top: 9vh;
+    left: 18vw;
+    width: 82vw;
+    
+    display: flex;
+    flex-direction: row;
+    
+    background-color: #0A194E;
+    color: white;
+}
+.crypto,.gender,.agegroup,.sports,.finance,.socialmedia{
+    height: 5vh;
+    width: 14vw;
+    padding-top: 1vh;
+    font-size: 3vh;
+    background-color: #0A194E;
+   
+}
+.cryptoactive,.genderactive,.agegroupactive,.sportsactive,.financeactive,.socialmediaactive{
+    height: 5vh;
+    width: 14vw;
+    color: #000;
+    padding-top: 1vh;
+    font-size: 3vh;
+    background-color: white;
+  
+}
+.gap{
+    padding: 2vh;
+    display: flex;
+    column-gap: 20vw;
+}
+.gap1{
+    position: absolute;
+    right: 3vw;
 }

@@ -1,28 +1,47 @@
-import { Box, Container } from '@mui/material'
-import React from 'react'
+import { Box, Container, Divider } from '@mui/material'
+import React,{ useState } from 'react'
 import Charts1 from '../../../components/charts/Charts1/Charts1'
 import Sidebar1 from '../../../components/sidebar1/Sidebar1'
 import './topsite.css'
-import ClearIcon from '@mui/icons-material/Clear';
+import { NavLink } from 'react-router-dom'
+import analyticsdata from '../analyticsdata'
+
 
 
 export default function Topsite() {
+ 
+ 
+  const [toggleState,setToggleState] = useState(0);
+  const toggleTab = (index: any) =>{
+    setToggleState(index);
+  }
   return (
    <Container>
    <Sidebar1/>
-   <div className='title'>Topsite Visited</div>
-   <div className='tschart'><Charts1/></div>
-  <Box className='tsbox1'>
+   <div className='top1'></div>
+   <NavLink to='/sitebytime'><div className={toggleState === 1? "tabs1active" : "tabs1"} onClick={()=> toggleTab(1)}>Site BY Time</div></NavLink>
+        <NavLink to='/topsitevisited'><div className={toggleState === 2? "tabs2active" : "tabs2"}onClick={()=> toggleTab(2)}>Topsite Visited</div></NavLink>
+       
+   
+  <Box className='sdbox1'>
+  <div className='sdchart'>{Charts1(analyticsdata)}</div>
    </Box>
-   <Box className='tsbox2'>
-    <ul className='list'>
-      <span>1.Youtube <a className='space'>9 times <ClearIcon sx={{color:'red',}} /></a></span><br/>
-      <span>2.Netflix <a className='space'>5 times <ClearIcon sx={{color:'red',}} /></a></span><br/>
-      <span>3.Codechef <a className='space'>2 times <ClearIcon sx={{color:'red',}} /></a></span><br/>
-      <span>4.Flipkart <a className='space'>1 times <ClearIcon sx={{color:'red',}} /></a></span><br/>
-      <span>5.Team <a className='space'>3 times <ClearIcon sx={{color:'red',}} /></a></span><br/>
-    </ul>
+   <Box className='sdbox2'>
+   <span> {
+           analyticsdata.map(item=>{
+              return (<>
+              <div className='gap'>
+                {item.name}
+                <a className='gap1'>{item.times}</a> 
+              </div>
+              <Divider className='divider'/></>
+              );
+              
+            })
+            }</span><br/>
    </Box>
    </Container>
   )
 }
+
+

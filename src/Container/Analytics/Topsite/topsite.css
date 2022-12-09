@@ -2,7 +2,7 @@
     position: absolute;
     height: 50vh;
     width: 60vw;
-    top: 12vh;
+    top: 18vh;
     left: 28vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
@@ -10,9 +10,9 @@
     position: absolute;
     text-align: left;
     font-size: 3vh;
-    height: 30vh;
+    height: 28vh;
     width: 55vw;
-    top: 66vh;
+    top: 70vh;
     left: 30.5vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
@@ -32,4 +32,45 @@
 .space{
     position: absolute;
    left: 30vw;
+}
+
+.tabs1{
+    position: absolute;
+    height: 5vh;
+     width: 50vw;
+     top: 9vh;
+     left: 18vw;
+     color: white;
+     z-index: 2;
+     font-size: 4vh;
+     padding: 1vh;
+     padding-left: 16vw;
+     padding-right: 15vw;
+     background-color: #0A194E;
+     display: flex;
+ }
+ .tabs2{
+     position: absolute;
+     display: flex;
+     height: 5vh;
+     width: 14vw;
+      top: 9vh;
+      right: 0vw;
+      color: white;
+      z-index: 2;
+      font-size: 4vh;
+      padding: 1vh;
+      padding-left: 16vw;
+      padding-right: 15vw;
+      background-color: #0A194E;
+      
+  }
+
+.top1{
+    position: absolute;
+    height: 7vh;
+    width: 82vw;
+    left: 18vw;
+    top: 9vh;
+    background-color: #0A194E;
 }
