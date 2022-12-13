@@ -80,11 +80,11 @@ var a: any[];
     <div className='sites'>
       
       <div onClick={()=> toggleTab(3)} className={toggleState === 3? "cryptoactive":"crypto"}>Crypto</div>
-      <div onClick={()=> toggleTab(4)} className={toggleState === 4? "cryptoactive":"crypto"}>Gender</div>
-      <div onClick={()=> toggleTab(5)} className={toggleState === 5? "cryptoactive":"crypto"}>Age Group</div>
-      <div onClick={()=> toggleTab(6)} className={toggleState === 6? "cryptoactive":"crypto"}>Sports</div>
-      <div onClick={()=> toggleTab(7)} className={toggleState === 7? "cryptoactive":"crypto"}>Social Media</div>
-      <div onClick={()=> toggleTab(8)} className={toggleState === 8? "cryptoactive":"crypto"}>Finance</div>
+      <div onClick={()=> toggleTab(4)} className={toggleState === 4? "genderactive":"gender"}>Gender</div>
+      <div onClick={()=> toggleTab(5)} className={toggleState === 5? "agegroupactive":"agegroup"}>Age Group</div>
+      <div onClick={()=> toggleTab(6)} className={toggleState === 6? "sportsactive":"sports"}>Sports</div>
+      <div onClick={()=> toggleTab(7)} className={toggleState === 7? "socialmediaactive":"socialmedia"}>Social Media</div>
+      <div onClick={()=> toggleTab(8)} className={toggleState === 8? "financeactive":"finance"}>Finance</div>
     </div>
   <Box className='sdbox1'>
   <div className='sdchart'>{Charts1(a)}</div>

@@ -23,6 +23,7 @@ import SiteDistribution from './Container/Analytics/SiteDistribution/SiteDistrib
 import KYC2 from './Container/KYC/KYC2/KYC2';
 import KYC3 from './Container/KYC/KYC3/KYC3';
 import Success from './Container/KYC/Success';
+import FirstPage from './Container/Profile/FirstPage';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
         <Routes>
           
           
-          <Route path='' element={<Profile/>}/>
+          <Route path='' element={<FirstPage/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
           <Route path='/kyc2' element={<KYC2/>}/>

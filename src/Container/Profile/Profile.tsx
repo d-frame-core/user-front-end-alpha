@@ -4,37 +4,32 @@ import user from "../../assets/user.png";
 
 import { NavLink } from 'react-router-dom';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
+import { Box, Button } from '@mui/material';
+import { Container } from '@mui/system';
 
 export default function Profile() {
   return (
-    
     <div>
       <Sidebar1/>
-      <img src={user} alt='' className='pruser'/>
-      <div className='prinput'>
-        <input className='prinput1'placeholder='FirstName:'></input>
-        <input className='prinput2' placeholder='LastName:'></input>
-        <input className='prinput3'placeholder='Email:'></input>
-        <input className='prinput4' placeholder='Phone Number:'></input>
-        <input className='prinput5' placeholder='User Name:'></input>
-        <div className='prtext1'><b>Profile Improvement:</b>This enable us to know about you better and show more relevant Ads</div>
-      </div>
-      <div className='prRectangle'>
-        <div className='prrect1'></div>
-        <div className='prrect2'></div>
-      </div>
-      <div className='prbutton'>
-        <NavLink to='/survey'><button className='prbtn1'>Survey</button></NavLink>
-        <button className='prbtn2'>Save</button>
-        <NavLink to='/kyc1'><button className='prbtn3'>3 Level Verification</button></NavLink>
-      </div>
-      <div className='title'>Profile</div>
-      <div className='prtext2'>Full Name:</div>
-      <div className='prtext3'>Email:</div>
-      <div className='prtext4'>Phone Number:</div>
-      <div className='prtext5'>User Name:</div>
-      <div className='prtext6'>KYC Verification(I,II,III)</div>
-      <div className='prtext7'>This Verification makes us aware that you are a valid user. It may take upto 24 hours.</div>
+      <Box className='prbox1'>
+          <div className='prtext1'>Profile</div>
+          <img src={user} alt='' className='primg'/>
+        <Box className='contitem'>
+          <div>Company Name : <a className='prfont'>Niranjan </a></div>
+          <div>Company type  : <a className='prfont'>Type A</a></div>
+          <div>Company Number  :<a className='prfont'>9800098000</a></div>
+          <div>Company email    : <a className='prfont'>abc@gmail.com</a></div>
+          <div>Company Address1: <a className='prfont'>address 1 </a></div>
+          <div>Company Address2: <a className='prfont'>Address 2</a></div>
+          <div>Wallet Address : <a className='prfont'>0x000000000000000</a></div>
+        </Box>
+        
+      </Box>
+      <Box className="kycitem">
+          <div className='kyctitle'>KYC Verification</div>
+          <p>This Verification makes us aware that you are a valid user. It may take upto 24 hours.</p>
+          <NavLink to="/kyc1" style={{textDecoration:'none'}}><Button  variant='contained'>Verify</Button></NavLink>
+        </Box>
     </div>
-  )
+    )
 }

@@ -1,177 +1,61 @@
-body{
-    display: flex;
-    justify-content: flex;
-}
-.prinput{
-    display: flex;
-    align-items: flex-start;
-}
-.prinput1{
+.prbox1{
     position: absolute;
-width: 20vw;
-height: 6vh;
-left: 35vw;
-top: 15vh;
-font-size: 2.5vh;
-border-radius: 1.1vh;
-border:none;
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-.prinput2{
-    position: absolute;
-width: 20vw;
-height: 6vh;
-left: 65vw;
-top: 15vh;
-font-size: 2.5vh;
-border-radius: 1.1vh;
-border:none;
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-.prinput3{
-    position: absolute;
-width: 20vw;
-height: 6vh;
-left: 35vw;
-top: 30vh;
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-font-size: 2.5vh;
-border:none;
-border-radius: 1.1vh;
-}
-.prinput4{
-    position: absolute;
-    width: 20vw;
-    height: 6vh;
-    left: 65vw;
-    top: 30vh;
-    font-size: 2.5vh;
+    height: 55vh;
+    width: 65vw;
+    top: 12vh;
+    left: 26vw;
     border-radius: 1.1vh;
-    border:none;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-.prinput5{
-    position: absolute;
-    width: 20vw;
-    height: 6vh;
-    left: 35vw;
-    top: 45vh;
-    font-size: 2.5vh;
-    border-radius: 1.1vh;
-    border:none;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-.pruser{
-    position: absolute;
-    height: 20vh;
-    width: 10vw;
-    left: 22vw;
-    top: 20vh;
-}
-.prrect1{
-position: absolute;
-height:45vh;
-width: 75vw;
-top:12vh;
-left:20vw;
-z-index: -1;
-background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-}
-.prrect2{
-    position: absolute;
-    height:40vh;
-    width: 75vw;
-    top:60vh;
-    left:20vw;
-    z-index: -1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-    
-}
-.prbtn1{
-    
-position: absolute;
-width: 10vw;
-height: 5vh;
-left: 65vw;
-top: 45vh;
-background: linear-gradient(90deg, rgba(66, 0, 255, 0.4428) 0%, rgba(5, 195, 218, 0.427083) 75.52%, rgba(2, 203, 216, 0.4264) 100%);
-border:none;
-border-radius: 1.1vh;
-}
-.prbtn2{
-    
-    position: absolute;
-    width: 10vw;
-    height: 5vh;
-    left: 77vw;
-    top: 45vh;
-    background: linear-gradient(90deg, rgba(66, 0, 255, 0.4428) 0%, rgba(5, 195, 218, 0.427083) 75.52%, rgba(2, 203, 216, 0.4264) 100%);
-    border:none;
-    border-radius: 1.1vh;
-    }
-.prbtn3{
-    position: absolute;
-    top:90vh;
-    left:47vw;
-    height:7vh;
-    width:15vw;
-    background: linear-gradient(90deg, rgba(162, 0, 255, 0.4428) 0%, rgba(5, 195, 218, 0.427083) 75.52%, rgba(2, 203, 216, 0.4264) 100%);
-    border:none;
-    border-radius:1.1vh;
-    font-weight: 700;
-    font-size: 2.5vh;
 }
 .prtext1{
-    position:absolute;
-    left:30vw;
-    top:52vh;
-}
-.prtext2{
     position: absolute;
-    top: 65vh;
-    left:25vw;
-    font-size: 2.5vh;
+    font-size: 4vh;
+    padding: 2vh;
+    left: 2vw;
     font-weight: 600;
 }
-.prtext3{
+.primg{
     position: absolute;
-    top: 65vh;
-    left:55vw;
-    font-size: 2.5vh;
-    font-weight: 600;
-}
-.prtext4{
-    position: absolute;
-    top: 72vh;
-    left:25vw;
-    font-size: 2.5vh;
-    font-weight: 600;
-}
-.prtext5{
-        position: absolute;
-        top: 72vh;
-        left:55vw;
-        font-size: 2.5vh;
-    font-weight: 600;
+    height: 15vh;
+    top: 10vh;
+left: 5vw;
     
 }
-.prtext6{
-    position:absolute;
-    top:78vh;
-    left:45vw;
-    font-size:4vh;
-    font-weight: 600;
-
-}
-.prtext7{
-    position:absolute;
-    top:85vh;
-    left:35vw;
-}
-.prtext8{
+.contitem{
     position: absolute;
-    top:2vh;
-    left:20vw;
-    font-size: 4vh;
+    text-align: left;
+    top: 5vh;
+    font-weight: 600;
+    height: 50vh;
+    width: 30vw;
+    left: 20vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+  
+    font-size: 3vh;
+    
+}
+.prfont{
+    color: #1B2B65;
+}
+.kycitem{
+    position: absolute;
+    height:28vh;
+    width: 65vw;
+    top: 70vh;
+    left: 26vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+   border-radius: 1.1vh;
+}
+p{
+    
     font-weight: 700;
+}
+.kyctitle{
+    font-weight: 800;
+    font-size: 4vh;
+    padding: 2vh;
 }

@@ -1,9 +1,105 @@
+.icon{
+    position: absolute;
+    top: 1.3vh;
+    left: 13vw;
+    color: blue;
+}
+.topcen{
+    position: absolute;
+    height: 8vh;
+    width: 82vw;
+    left: 18vw;
+    top: 9vh;
+    background-color: #0A194E;
+}
+.brtop{
+    position: absolute;
+    height: 4vh;
+    left: 19vw;
+    top: 9vh;
+    width: 24vw;
+    font-size: 3vh;
+    padding: 2vh;
+    color: white;
+    background-color: #0A194E;
 
+}
+.brtopactive{
+    position: absolute;
+    height: 4vh;
+    left: 19vw;
+    top: 9vh;
+    width: 24vw;
+    font-size: 3vh;
+    padding: 2vh;
+    color: #000;
+    background-color: white;   
+    border-top-left-radius: 2vh;
+    border-top-right-radius: 2vh;
+}
+.ertop{
+    position: absolute;
+    height: 4vh;
+    top: 9vh;
+    left: 45vw;
+    width: 25vw;
+
+    font-size: 3vh;
+    color: white;
+    padding: 2vh;
+    background-color: #0A194E;
+    
+}
+.ertopactive{
+    position: absolute;
+    height: 4vh;
+    top: 9vh;
+    left: 45vw;
+    width: 25vw;
+    font-size: 3vh;
+    padding: 2vh;
+    color: #000;
+    background-color: white;
+    border-top-left-radius: 2vh;
+    border-top-right-radius: 2vh;
+    
+}
+.cltop{
+    position: absolute;
+    height: 4vh;
+    left: 72vw;
+    top: 9vh;
+    color: white;
+    font-size: 3vh;
+    width: 25vw;
+    padding: 2vh;
+    background-color: #0A194E;
+}
+.cltopactive{
+    position: absolute;
+    height: 4vh;
+    left: 72vw;
+    top: 9vh;
+    font-size: 3vh;
+    width: 25vw;
+    color: #000;
+    padding: 2vh;
+    background-color: white;
+    border-top-left-radius: 2vh;
+    border-top-right-radius: 2vh;
+}
+.brtitle{
+    position: absolute;
+    top: 18vh;
+    left: 21vw;
+    font-size: 4vh;
+    font-weight: 600;
+}
 .brrect2{
     position: absolute;
-    top: 20vh;
+    top: 26vh;
     left: 21vw;
-    height: 70vh;
+    height: 64vh;
     width: 71vw;
     font-size: 4vh;
     font-weight: 700;
@@ -18,11 +114,18 @@ padding: 4vh;
     height: 58vh;
     width: 67vw;
     left: 4vw;
-    top:12vh;
+    top:10vh;
     font-size: 3vh;
     font-weight: 300;
     background: #ffffff;
+    overflow: hidden;
+    overflow-y: scroll;
    
+}
+.brtext{
+    position: relative;
+    left: 2vw;
+    padding: 2vh;
 }
 
 
