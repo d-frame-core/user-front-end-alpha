@@ -21,8 +21,8 @@
 
 .tschart{
     position: absolute;
-    top: 18vh;
-    left: 37vw;
+    top:2vh;
+    left: 6vw;
     z-index: 1;
     background-color: white;
 
@@ -39,62 +39,3 @@
    
     left: 0vh;
 }
-
-.tabs1{
-   position: absolute;
-    top: 9vh;
-    left: 18vw;
-    color: white;
-    z-index: 2;
-    font-size: 4vh;
-    padding: 1vh;
-    padding-left: 16vw;
-    padding-right: 15vw;
-    background-color: #0A194E;
-    display: flex;
-}
-.tabs2{
-    position: absolute;
-    display: flex;
-     top: 9vh;
-     right: 0vw;
-     color: white;
-     z-index: 2;
-     font-size: 4vh;
-     padding: 1vh;
-     padding-left: 16vw;
-     padding-right: 15vw;
-     background-color: #0A194E;
-     
- }
-.tabs1active{
-    position: absolute;
-    top: 9vh;
-    left: 18vw;
-    color: #000000;
-    z-index: 2;
-    font-size: 4vh;
-    padding: 1vh;
-    padding-left: 16vw;
-    padding-right: 15vw;
-    background-color: white;
-    border-top-left-radius: 1.1vh;
-    border-top-right-radius: 1.1vh;
-    display: flex;
-}
-.tabs2active{
-    position: absolute;
-    display: flex;
-     top: 9vh;
-     right: 0vw;
-     color: black;
-     z-index: 2;
-     font-size: 4vh;
-     padding: 1vh;
-     padding-left: 16vw;
-     padding-right: 15vw;
-     border-top-left-radius: 1.1vh;
-      border-top-right-radius: 1.1vh;
-     background-color: white;
-     
- }

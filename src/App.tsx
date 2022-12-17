@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Help from './Container/Help/Help';
@@ -18,12 +17,12 @@ import Rewards from './Container/Rewards/Rewards';
 import Sidebar1 from './components/sidebar1/Sidebar1';
 import Topsite from './Container/Analytics/Topsite/Topsite';
 import SiteByTime from './Container/Analytics/Sitebytime/SiteByTime';
-import Monetization from './Container/Analytics/Monetization/Monetization';
 import SiteDistribution from './Container/Analytics/SiteDistribution/SiteDistribution';
 import KYC2 from './Container/KYC/KYC2/KYC2';
 import KYC3 from './Container/KYC/KYC3/KYC3';
 import Success from './Container/KYC/Success';
 import FirstPage from './Container/Profile/FirstPage';
+import UpdateNumber from './Container/Profile/UpdateNumber';
 
 function App() {
   return (
@@ -31,8 +30,6 @@ function App() {
       
       <Router>
         <Routes>
-          
-          
           <Route path='' element={<FirstPage/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
@@ -46,7 +43,7 @@ function App() {
           <Route path='/rewards' element={<Rewards/>}/>
           <Route path='/survey' element={<Survey/>}/>
           <Route path='/topsitevisited' element={<Topsite/>}/>
-          <Route path='/monetization' element={<Monetization/>}/>
+          <Route path='/update' element={<UpdateNumber/>}/>
           <Route path='/sitebytime' element={<SiteByTime/>}/>
           <Route path='/sitedistribution' element={<SiteDistribution/>}/>
           <Route path='/help' element={<Help/>}/>

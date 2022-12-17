@@ -15,13 +15,13 @@ export default function Browserdata() {
   return (
     <Container>
         <Sidebar1/>
-        <div className='topcen'></div>
+        <div className='topcen'>
         <div>
         <NavLink to='/browserdata'><div className={toggleState === 9 ? 'brtopactive' : 'brtop'} onClick={()=> toggleTab(9)}>Browser Data</div></NavLink>
         <NavLink to='/emaildata'><div className={toggleState === 10 ? 'ertopactive' : 'ertop'} onClick={()=> toggleTab(10)}>Email Data</div></NavLink> 
         <NavLink to='/calldata'> <div className={toggleState === 11 ? 'cltopactive' : 'cltop'} onClick={()=> toggleTab(11)}>Call Data</div></NavLink> 
         </div>
-          
+        </div>
         <div className='brtitle'>Browser Data<InfoOutlinedIcon className='icon'/></div>
         
         <div className='brrect2'>Browser Data Collected

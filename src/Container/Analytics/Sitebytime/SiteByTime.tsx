@@ -9,6 +9,7 @@ import TabScrollButton from '@mui/material/TabScrollButton';
 import Divider from '@mui/material/Divider/Divider'
 import analyticsdata from '../analyticsdata'
 import { NavLink } from 'react-router-dom'
+import Charts2 from '../../../components/charts/Charts2/Charts2'
 
 const data = [
   { name: "YouTube", value: 400 },
@@ -26,13 +27,14 @@ export default function SiteByTime() {
   }
   return (
     <Container>
-      <div className='top1'></div>
-        <Sidebar1/>
-        <NavLink to='/sitebytime'><div className={toggleState === 1? "tabs1active" : "tabs1"} onClick={()=> toggleTab(1)}>Site BY Time</div></NavLink>
-        <NavLink to='/topsitevisited'><div className={toggleState === 2? "tabs2active" : "tabs2"}onClick={()=> toggleTab(2)}>Topsite Visited</div></NavLink>
-       
+      <Sidebar1/>
+      <div className='top1'>
+        <NavLink to='/sitebytime'><div className={toggleState === 1? "tab1active" : "tab1"} onClick={()=> toggleTab(1)}>Site by Time</div></NavLink>
+        <Divider variant='middle' orientation='vertical' light={true}/>
+        <NavLink to='/topsitevisited'><div className={toggleState === 2? "tab2active" : "tab2"}onClick={()=> toggleTab(2)}>Topsite Visited</div></NavLink>
+      </div>
     <Box className='tsbox1'>
-    <div className='sdchart'>{Charts1(analyticsdata)}</div>
+    <div className='tschart'>{Charts2(analyticsdata)}</div>
     </Box>
     <Box className='tsbox2'>
            <span> {

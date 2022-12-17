@@ -8,12 +8,15 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import analyticsdata from '../analyticsdata'
 import { useState } from 'react'
+import Charts2 from '../../../components/charts/Charts2/Charts2'
 
 var a: any[]=[];
 const Crypto=[
   {name:'Bitcoin',per:'35%',value: 35},
   {name:'Ethereum',per:'35%',value: 35},
-  {name:'Polygon',per:'30%',value: 30}
+  {name:'Polygon',per:'30%',value: 30},
+  {name:'Solana',per:'30%',value: 30},
+  {name:'Hyperledger',per:'30%',value: 30},
 ];
 const Gender=[
   {name:'Male',per:'46%',value: 300},
@@ -76,17 +79,23 @@ var a: any[];
     <Container>
    <Sidebar1/>
    <div className='title'>Site Distribution</div>
-   
+ 
     <div className='sites'>
       
       <div onClick={()=> toggleTab(3)} className={toggleState === 3? "cryptoactive":"crypto"}>Crypto</div>
+      <Divider variant='middle' orientation='vertical' light={true}/>
       <div onClick={()=> toggleTab(4)} className={toggleState === 4? "genderactive":"gender"}>Gender</div>
+      <Divider variant='middle' orientation='vertical' light={true}/>
       <div onClick={()=> toggleTab(5)} className={toggleState === 5? "agegroupactive":"agegroup"}>Age Group</div>
+      <Divider variant='middle' orientation='vertical' light={true}/>     
       <div onClick={()=> toggleTab(6)} className={toggleState === 6? "sportsactive":"sports"}>Sports</div>
+      <Divider variant='middle' orientation='vertical' light={true}/>
       <div onClick={()=> toggleTab(7)} className={toggleState === 7? "socialmediaactive":"socialmedia"}>Social Media</div>
+      <Divider variant='middle' orientation='vertical' light={true} />
       <div onClick={()=> toggleTab(8)} className={toggleState === 8? "financeactive":"finance"}>Finance</div>
     </div>
   <Box className='sdbox1'>
+    <div className='topic'>Site Distribution :</div>
   <div className='sdchart'>{Charts1(a)}</div>
    </Box>
    <Box className='sdbox2'>

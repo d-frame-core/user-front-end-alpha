@@ -1,4 +1,3 @@
-import './charts.css'
 import React from "react";
 import { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
@@ -8,7 +7,7 @@ import analyticsdata from '../../../Container/Analytics/analyticsdata';
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042","#5f0931","#f23384"];
 const style = {
-  top: "8vh",
+  top: "5vh",
   left: "32vw",
   lineHeight: "34px",
   
@@ -29,7 +28,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 export default function Charts1(indata: any[] ) {
   return (
-    <ResponsiveContainer width={600} height={290}>
+    <ResponsiveContainer width={550} height={210}>
     <PieChart  >
       
       <Pie 
@@ -37,10 +36,10 @@ export default function Charts1(indata: any[] ) {
         labelLine={false}
         isAnimationActive={true}
         data={indata}
-        cx={180}
-        cy={140}
-        innerRadius={80}
-        outerRadius={140}
+        cx={120}
+        cy={100}
+        innerRadius={50}
+        outerRadius={90}
         >
             {indata.map((entry, index) => (
             <Cell key={`cell-${entry}`} fill={COLORS[index % COLORS.length]} />

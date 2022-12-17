@@ -15,8 +15,7 @@
 .brtop{
     position: absolute;
     height: 4vh;
-    left: 19vw;
-    top: 9vh;
+    
     width: 24vw;
     font-size: 3vh;
     padding: 2vh;
@@ -27,8 +26,8 @@
 .brtopactive{
     position: absolute;
     height: 4vh;
-    left: 19vw;
-    top: 9vh;
+    top: 2px;
+    left: 2px;
     width: 24vw;
     font-size: 3vh;
     padding: 2vh;
@@ -40,8 +39,8 @@
 .ertop{
     position: absolute;
     height: 4vh;
-    top: 9vh;
-    left: 45vw;
+    
+    left: 27vw;
     width: 25vw;
 
     font-size: 3vh;
@@ -53,8 +52,8 @@
 .ertopactive{
     position: absolute;
     height: 4vh;
-    top: 9vh;
-    left: 45vw;
+    top: 2px;
+    left: 26vw;
     width: 25vw;
     font-size: 3vh;
     padding: 2vh;
@@ -67,8 +66,8 @@
 .cltop{
     position: absolute;
     height: 4vh;
-    left: 72vw;
-    top: 9vh;
+    left: 54vw;
+   
     color: white;
     font-size: 3vh;
     width: 25vw;
@@ -78,8 +77,8 @@
 .cltopactive{
     position: absolute;
     height: 4vh;
-    left: 72vw;
-    top: 9vh;
+    right: 2px;
+    top: 2px;
     font-size: 3vh;
     width: 25vw;
     color: #000;
@@ -102,7 +101,7 @@
     height: 64vh;
     width: 71vw;
     font-size: 4vh;
-    font-weight: 700;
+    font-weight: 400;
    text-align: left;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

@@ -1,38 +1,63 @@
-import './charts2.css'
 import React from "react";
-import { PieChart, Pie, Legend, Tooltip, Cell } from "recharts";
+import { PureComponent } from 'react';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { stripBasename } from '@remix-run/router';
+import { Container } from '@mui/material';
+import analyticsdata from '../../../Container/Analytics/analyticsdata';
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 }
-];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042","#5f0931","#f23384"];
+const style = {
+  top: "8vh",
+  left: "32vw",
+  lineHeight: "34px",
+  
+};
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }:any) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  var per=(percent * 100).toFixed(0);
 
-
-export default function Charts2() {
   return (
-    <div className="piechart2">
-    <PieChart  width={300} height={250} >
+    {/*<text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${per}%`}
+  </text>*/}
+  );
+};
+
+export default function Charts2(indata: any[] ) {
+  return (
+    <ResponsiveContainer width={600} height={290}>
+    <PieChart  >
       
       <Pie 
         dataKey="value"
+        labelLine={false}
         isAnimationActive={true}
-        data={data}
-        
-        innerRadius={50}
-        outerRadius={100}
-        label
+        data={indata}
+        cx={180}
+        cy={140}
+        innerRadius={80}
+        outerRadius={140}
         >
-            {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            {indata.map((entry, index) => (
+            <Cell key={`cell-${entry}`} fill={COLORS[index % COLORS.length]} />
           ))}
-      </Pie>
+          
+          
+          </Pie>
+          <Legend
+        iconSize={10}
+        width={120}
+        height={140}
+        layout="vertical"
+        verticalAlign="middle"
+        wrapperStyle={style}
+      />
+      
       
       <Tooltip />
-    </PieChart></div>
+    </PieChart></ResponsiveContainer>
   );
 }
