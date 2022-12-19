@@ -21,18 +21,19 @@ const data = [
 
 export default function SiteByTime() {
 
-  const [toggleState,setToggleState] = useState(1);
-  const toggleTab = (index: any) =>{
-    setToggleState(index);
+  const [toggleState,setToggleState] = useState(12);
+  const toggleTab = (i: any) =>{
+    setToggleState(i);
   }
   return (
-    <Container>
-      <Sidebar1/>
-      <div className='top1'>
-        <NavLink to='/sitebytime'><div className={toggleState === 1? "tab1active" : "tab1"} onClick={()=> toggleTab(1)}>Site by Time</div></NavLink>
+    <div>
+      <>{Sidebar1(5)}</>
+      <div className='top1'></div>
+        <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tabs1active":"tabs1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
         <Divider variant='middle' orientation='vertical' light={true}/>
-        <NavLink to='/topsitevisited'><div className={toggleState === 2? "tab2active" : "tab2"}onClick={()=> toggleTab(2)}>Topsite Visited</div></NavLink>
-      </div>
+        <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tabs2active":"t"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
+      
+   
     <Box className='tsbox1'>
     <div className='tschart'>{Charts2(analyticsdata)}</div>
     </Box>
@@ -51,6 +52,6 @@ export default function SiteByTime() {
             }</span><br/>
        
     </Box>
-   </Container>
+   </div>
   )
 }

@@ -27,7 +27,7 @@ export default function LearnMore() {
   }, [open]);
   return (
     <div>
-      <Sidebar1/>
+      <>{Sidebar1(11)}</>
     <div className='hrect'></div>
     <div className='helprect'> 
           <div className='inf'>

@@ -9,108 +9,102 @@ import df from '../../assets/dframe.png';
 import Header from '../Header/Header';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
+import FlipCameraAndroidOutlinedIcon from '@mui/icons-material/FlipCameraAndroidOutlined';
+import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
+import PaddingOutlinedIcon from '@mui/icons-material/PaddingOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 
-export default function Sidebar1() {
+export default function Sidebar1(index: any) {
  
+  const [dataActive, setDataActive] = useState(false);
+  const [dropActive, setDropActive] = useState(false);
+  const [toggleState,setToggleState] = useState(index);
+  const toggleTab = (index: any) =>{
+    setToggleState(index);
+  }
 
   return (
-   <Container>
+    <>
+   <div>
    <Header/>
    <img src={df} className='dframe' alt=''/>
    <div className='dftext'>DFrame</div>
-   <div className='rectangle'>
-            <div className='rect3'><div className='text6'>Need help with Dframe?</div></div>
-            <div className='rect4'></div>
-        </div>
+  
   
    <Box className='side'>
-    <Grid className='item'>
-      <NavLink to='/profile' style={{textDecoration:'none'}}>
-        <Button  sx={{width:'18vw',height:'5vh',color:'white',paddding:'10vh'}} startIcon={<PortraitIcon/>}> Profile</Button>
-      </NavLink>
-
-      <NavLink to='/wallet' style={{textDecoration:'none'}}>
-        <Button   sx={{width:'18vw',height:'5vh',color:'white'}} startIcon={<AccountBalanceWalletOutlinedIcon/>}>Wallet</Button>
-      </NavLink>
-   
-   <TreeView 
-      aria-label="file system navigator"
-        sx={{width:'17vw', paddingTop:'0.2vh',paddingDown:'0vh',color:'white'}}
-      className='b'
-    >
-  <TreeItem nodeId="1" label="DATA" >
-    <Button sx={{width:'14.3vw',height:'5vh',color:'white'}} className='t'startIcon={<CalendarTodayOutlinedIcon/>}>
-      <NavLink to='/browserdata' style={{textDecoration:'none',color:'white'}}>
-        <TreeItem nodeId="2" label="Browser Data" />
-      </NavLink>
-    </Button>
-    
-  <Button sx={{width:'14.3vw',height:'5vh',color:'white'}} className='t'>
-    <NavLink to='/calldata' style={{textDecoration:'none',color:'white'}}>
-      <TreeItem nodeId="3" label="Call Data" />
-    </NavLink>
-  </Button>
-
-  <Button sx={{width:'14.3vw',height:'5vh',color:'white'}} className='t'>
-    <NavLink to='/emaildata' style={{textDecoration:'none',color:'white'}}>
-      <TreeItem nodeId="4" label="Email Data" />
-    </NavLink>
-  </Button>
+    <div className='item'>
       
-  <Button sx={{width:'14.3vw',height:'5vh',color:'white'}} className='t'>
+      <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> toggleTab(1)} >
+        <div className={toggleState === 1? "active" : "notActive"} >
+          <PortraitIcon className='ic'/>Profile</div>
+      </NavLink>
+
+      <NavLink to='/wallet' style={{textDecoration:'none',color:'white',width:'18vw'}}onClick={()=> toggleTab(2)}>
+        <div className={toggleState === 2? "active" : "notActive"}>
+          <AccountBalanceWalletOutlinedIcon className='ic' />Wallet</div>
+      </NavLink>
+      
+      <NavLink to='/permission'style={{textDecoration:'none',color:'white'}}>
+      <div className={toggleState === 3? "active" : "notActive"}onClick={()=> toggleTab(3)}>
+        <SettingsOutlinedIcon className='ic'/>Permission</div>
+      </NavLink>
+      
+      <NavLink to='#' onClick={(e)=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}} className='notActive1'>
+      <div ><KeyboardArrowDownOutlinedIcon className='ic'/><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics</div></NavLink>
+        <div >
+          {dataActive && (
+            <>
+              <div><NavLink to='/topsitevisited' style={{textDecoration:'none',color:'white'}} >
+                <div className={toggleState === 5? "active" : "notActive"}onClick={()=> toggleTab(5)}>
+                  <SearchOutlinedIcon className='ic'/>Sites Visited</div></NavLink></div>
+              <div><NavLink to='/sitedistribution' style={{textDecoration:'none',color:'white'}}>
+                <div className={toggleState === 6? "active" : "notActive"}onClick={()=> toggleTab(6)}>
+                <SearchOutlinedIcon className='ic'/>Site distribution</div></NavLink></div>
+            </>
+        )}
+        </div>
+        <NavLink to='/rewards' style={{textDecoration:'none',color:'white'}}>
+    <div className={toggleState === 4? "active" : "notActive"}onClick={()=> toggleTab(4)}>
+      <DnsOutlinedIcon className='ic'/>Rewards</div> 
+    </NavLink>
+     
+    
+    <NavLink to='/referals' style={{textDecoration:'none',color:'white'}}>
+    <div className={toggleState === 7? "active" : "notActive"}onClick={()=> toggleTab(7)}>
+      <FlipCameraAndroidOutlinedIcon className='ic'/>Referals</div>
+        </NavLink>
+    <NavLink to='/browserdata' style={{textDecoration:'none',color:'white'}}>
+    <div className={toggleState === 8? "active" : "notActive"}onClick={()=> toggleTab(8)}>
+    <BarChartOutlinedIcon className='ic'/>Data</div>
+    </NavLink>
     <NavLink to='/survey' style={{textDecoration:'none',color:'white'}}>
-      <TreeItem nodeId="5" label="Survey" />
+    <div className={toggleState === 9? "active" : "notActive"}onClick={()=> toggleTab(9)}>
+      <PaddingOutlinedIcon className='ic'/>Survey</div>
     </NavLink>
-  </Button>
-  </TreeItem>
-</TreeView>
-    <NavLink to='/rewards' style={{textDecoration:'none'}}>
-      <Button className=''sx={{width:'18vw',height:'5vh',color:'white'}}>Rewards
-      </Button>
-    </NavLink>
-  <TreeView 
-   aria-label="file system navigator"
-   sx={{ width:'18vw' ,paddingTop:'0.2vh'}}
-   className='b'
- >
-   <TreeItem nodeId="1" label="ANALYTICS">
-     <Button>
-        <NavLink to='/topsitevisited'style={{textDecoration:'none',color:'white'}}>
-          <TreeItem nodeId="2" label="TopSitevisited" />
-        </NavLink>
-      </Button>
-      <Button>
-        <NavLink to='/monetization'style={{textDecoration:'none',color:'white'}}>
-         <TreeItem nodeId="3" label="Monetization" />
-        </NavLink>
-      </Button>
-      <Button>
-        <NavLink to='/sitebytime'style={{textDecoration:'none',color:'white'}}>
-          <TreeItem nodeId="4" label="Site By Time" />
-        </NavLink>
-      </Button>
-      <Button>
-        <NavLink to='/sitedistribution'style={{textDecoration:'none',color:'white'}}>
-          <TreeItem nodeId="5" label="Site distribution" />
-        </NavLink>
-      </Button>
-   </TreeItem> 
- </TreeView>
-      <Button sx={{width:'18vw',height:'5vh',color:'white'}}>
-        <NavLink to='/permission'style={{textDecoration:'none',color:'white'}}>
-          <div className=''>Permission</div>
-        </NavLink>
-      </Button>
-</Grid>
+</div>
+      
+
 </Box>
-<NavLink to='/help'>
-        <div className='text7'>Help</div>
+
+   </div>
+   <div>
+<div className='rectangle'>
+        <div className='rect3'>
+        <div className='text6'>Need help with Dframe?</div>
+        <NavLink to='/help'> <div className={toggleState=== 10? "rect4":'rect1'} onClick={()=>toggleTab(10)}>Go to Help</div> </NavLink>
+        </div>
+        </div>
+
+            <NavLink to='/learnmore' className=''>
+        <div className={toggleState=== 11? "text8":'text9'} onClick={()=>toggleTab(10)}>LearnMore</div>
         </NavLink>
-      <NavLink to='/learnmore' className=''>
-        <div className='text8'>LearnMore</div>
-        </NavLink>
-   </Container>
+   </div>
+   </>
   )
 }

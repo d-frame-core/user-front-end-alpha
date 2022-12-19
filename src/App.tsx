@@ -30,6 +30,7 @@ function App() {
       
       <Router>
         <Routes>
+
           <Route path='' element={<FirstPage/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>

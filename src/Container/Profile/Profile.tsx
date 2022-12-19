@@ -11,7 +11,7 @@ import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 export default function Profile() {
   return (
     <div>
-      <Sidebar1/>
+      <>{Sidebar1(1)}</>
       <Box className='prbox1'>
           <div className='prtext1'>Profile</div>
           <img src={user} alt='' className='primg'/>

@@ -30,7 +30,7 @@ export default function Help() {
   }, [open]);
   return (
     <div>
-      <Sidebar1/>
+      <>{Sidebar1(10)}</>
     <div className='hrect'></div>
     <div className='helprect'> 
           <div className='inf'>

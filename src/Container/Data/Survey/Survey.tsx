@@ -5,7 +5,7 @@ import './survey.css';
 export default function Survey() {
   return (
     <div>
-      <Sidebar1/>
+      <>{Sidebar1(9)}</>
       <div className='title'>Survey</div>
       <div>
         <div className='surect1'>Which fruit do you like?

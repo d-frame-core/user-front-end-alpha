@@ -6,7 +6,7 @@ import './rewards.css'
 export default function Rewards() {
   return (
     <div>
-        <Sidebar1/>
+        <>{Sidebar1(4)}</>
       <div className='title'>Rewards</div>
       <div className='ReRectangle'>
         <div className='linechart'><Linecharts/></div>

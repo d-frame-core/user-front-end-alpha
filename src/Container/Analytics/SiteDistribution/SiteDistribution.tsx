@@ -77,7 +77,7 @@ var a: any[];
 
   return (
     <Container>
-   <Sidebar1/>
+   <>{Sidebar1(6)}</>
    <div className='title'>Site Distribution</div>
  
     <div className='sites'>

@@ -12,18 +12,18 @@ import Charts2 from '../../../components/charts/Charts2/Charts2'
 export default function Topsite() {
  
  
-  const [toggleState,setToggleState] = useState(2);
-  const toggleTab = (index: any) =>{
-    setToggleState(index);
+  const [toggleState,setToggleState] = useState(11);
+  const toggleTab = (i: any) =>{
+    setToggleState(i);
   }
   return (
-   <Container>
-   <Sidebar1/>
-   <div className='top1'>
-        <NavLink to='/sitebytime'><div className={toggleState === 1? "tab1active" : "tab1"} onClick={()=> toggleTab(1)}>Site BY Time</div></NavLink>
+   <div>
+   <>{Sidebar1(5)}</>
+      <div className='top1'></div>
+        <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
         <Divider variant='middle' orientation='vertical' light={true}/>
-        <NavLink to='/topsitevisited'><div className={toggleState === 2? "tab2active" : "tab2"}onClick={()=> toggleTab(2)}>Topsite Visited</div></NavLink>
-      </div>
+        <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tab2active":"tab2"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
+      
    
   <Box className='sdbox1'>
   <div className='tschart'>{Charts2(analyticsdata)}</div>
@@ -42,7 +42,7 @@ export default function Topsite() {
             })
             }</span><br/>
    </Box>
-   </Container>
+   </div>
   )
 }
 

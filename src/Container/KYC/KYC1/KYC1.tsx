@@ -10,7 +10,7 @@ import df from '../../../assets/dframe.png'
 export default function KYC1() {
   return (
     <Container>
-      <Sidebar1/>
+      <>{Sidebar1(1)}</>
       
       <div>
         <div className='title'>KYC Verification</div>

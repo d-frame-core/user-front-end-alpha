@@ -39,54 +39,59 @@
     top: 9vh;
     left: 18vw;
     width: 82vw;
-    height: 47.5px;
+    height: 46px;
     background-color:#0A194E ;
 }
 .tab1{
     position: absolute;
-    left: 5px; 
-    top: 0.5vh;
-    width: 39vw;
+    top: 58px;
+    margin-left: 17.3vw;
+    text-indent: 13vw;
+    width: 37vw;
     padding: 1vh;
     background-color:#0A194E;
    height: 5vh;
     font-size: 3vh;
     color: white;
+    
 }
 .tab2{
     position: absolute;
-    top: 0.5vh;
-    left: 41vw;
+    top: 58px;
+    right: 3px;
     width: 39vw;
     padding: 1vh;
     height: 5vh;
     background-color:#0A194E ;
     font-size: 3vh;
     color: white;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
 }
 .tab1active{
     position: absolute;
-    height: 5vh;
-    left: 3px;
-    top: 0.5vh;
+    top: 58px;
+    margin-left: 17.3vw;
+    text-indent: 15vw;
     width: 39vw;
     padding: 1vh;
     background-color:white;
-    border-top-left-radius: 1vh;
-    border-top-right-radius: 1vh;
+   height: 5vh;
     font-size: 3vh;
     color: black;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
 }
 .tab2active{
     position: absolute;
-    top: 0.5vh;
+    top: 58px;
     right: 3px;
     width: 39vw;
-    height: 5vh;
     padding: 1vh;
-    background-color:white;
+    height: 5vh;
+    background-color:white ;
     font-size: 3vh;
+    color: black;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
-    color: black;
 }

@@ -10,7 +10,7 @@ import df from '../../../assets/dframe.png'
 export default function KYC3() {
   return (
     <Container>
-        <Sidebar1/>
+        <>{Sidebar1(1)}</>
             <Box className='ky3rectangle'>
             <img src={df} alt='' className='kyc3'/> 
             <div className='kyc3box'></div>

@@ -10,7 +10,7 @@ import data from './data'
 export default function Success() {
   return (
     <Container>
-        <Sidebar1/>
+        <>{Sidebar1(0)}</>
         <Box className='sucbox'>
             <img src={df} alt='' className='success1'/><br/>
             <div className='ww'>You have successfully completed the KYC Verification process ,

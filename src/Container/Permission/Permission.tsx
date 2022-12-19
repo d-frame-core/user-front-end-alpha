@@ -1,4 +1,3 @@
-import React from 'react'
 import './permission.css';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
@@ -6,7 +5,7 @@ import Sidebar1 from '../../components/sidebar1/Sidebar1';
 export default function Permission() {
   return (
     <div>
-        <Sidebar1/>
+        <>{Sidebar1(3)}</>
       <div className='srect1'></div>
         
         <div className='title'>Permission</div>

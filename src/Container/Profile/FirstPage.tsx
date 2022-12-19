@@ -9,7 +9,6 @@ export default function FirstPage() {
         <Box className='fbox1'>
           <div className='ftitle'>User Profile</div>
           <Box className='fbox2'>
-          
           <div>First Name :<input className='in'/></div>
           <div>Last Name :<input className='in'/></div>
           <div>User Name :<input className='in'/></div>
