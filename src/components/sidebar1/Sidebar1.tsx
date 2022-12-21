@@ -73,12 +73,6 @@ export default function Sidebar1(index: any) {
     <div className={toggleState === 4? "active" : "notActive"}onClick={()=> toggleTab(4)}>
       <DnsOutlinedIcon className='ic'/>Rewards</div> 
     </NavLink>
-     
-    
-    <NavLink to='/referals' style={{textDecoration:'none',color:'white'}}>
-    <div className={toggleState === 7? "active" : "notActive"}onClick={()=> toggleTab(7)}>
-      <FlipCameraAndroidOutlinedIcon className='ic'/>Referals</div>
-        </NavLink>
     <NavLink to='/browserdata' style={{textDecoration:'none',color:'white'}}>
     <div className={toggleState === 8? "active" : "notActive"}onClick={()=> toggleTab(8)}>
     <BarChartOutlinedIcon className='ic'/>Data</div>
