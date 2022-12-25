@@ -7,35 +7,52 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function Browserdata() {
+var b:any={};
+  const browser={
+    name:'Browser Data',
+    detial:'Browser Data Collected'
+  };
+  const email={
+    name:'Email Data',
+    detial:'Email Data Collected'
+  };
+  const call={
+    name:'Call Data',
+    detial:'Call Data Collected'
+  };
+
+function Browserdata() {
   const [toggleState1,setToggleState1] = useState(9);
   const toggleTab1 = (index: void |any) =>{
     setToggleState1(index);
   }
+  
+  if(toggleState1 === 9){
+    (b=browser);
+  }
+  else if(toggleState1 === 10){
+    (b=email);
+  }
+  else{
+    (b=call);
+  }
+
   return (
     <div>
         <>{Sidebar1(8)}</>
-        <Box className='topcen'></Box>
-        
-        <NavLink to='/browserdata'>
-          <div className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</div>
-          </NavLink>
-          <NavLink to='/emaildata'>
-          <div className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</div>
-          </NavLink>
-          <NavLink to='/calldata'>
-          <div className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</div>
-          </NavLink>
-          
-        <div className='brtitle'>Browser Data<InfoOutlinedIcon className='icon'/></div>
-        
-        <div className='brrect2'>Browser Data Collected
 
+          <Container maxWidth='lg' className='arm' >
+            <a className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</a>
+            <a className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</a>
+            <a className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</a> 
+          </Container>
+          <div className='brtitle'>{b.name}<InfoOutlinedIcon className='icon'/></div>
+          <div className='brrect2'>{b.detial}
         <Box className='brbox'>
           <span>
             {[...new Array(50)].map(()=>{
             return (<>
-              <div className='brtext'>This is your data from -- website we will share it with our clients`</div>
+              <div className='brtext'>`This is your data from <b>{b.name}</b> website we will share it with our clients`</div>
               <Divider/>
               </>
             )
@@ -43,8 +60,11 @@ export default function Browserdata() {
           </span>
         </Box>
         </div>
+        
       </div>
       
     
   )
 }
+
+export default Browserdata;

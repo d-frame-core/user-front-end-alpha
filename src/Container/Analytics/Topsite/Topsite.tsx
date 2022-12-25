@@ -17,8 +17,7 @@ export default function Topsite() {
     setToggleState(i);
   }
   return (
-   <div>
-   <>{Sidebar1(5)}</>
+   <div><>{Sidebar1(5)}</>
       <div className='top1'></div>
         <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
         <Divider variant='middle' orientation='vertical' light={true}/>

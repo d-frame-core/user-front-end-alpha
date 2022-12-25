@@ -9,8 +9,8 @@ import df from '../../../assets/dframe.png'
 
 export default function KYC1() {
   return (
-    <Container>
-      <>{Sidebar1(1)}</>
+    <div>
+     <>{Sidebar1(1)}</>
       
       <div>
         <div className='title'>KYC Verification</div>
@@ -33,6 +33,6 @@ export default function KYC1() {
           <NavLink to='/kyc2'><button className='kybtn'>Next</button></NavLink>
         </Box>
       </div>
-    </Container>
+    </div>
   )
 }

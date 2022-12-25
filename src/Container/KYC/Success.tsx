@@ -10,8 +10,7 @@ import data from './data'
 export default function Success() {
   return (
     <Container>
-        <>{Sidebar1(0)}</>
-        <Box className='sucbox'>
+<>{Sidebar1(1)}</>       <Box className='sucbox'>
             <img src={df} alt='' className='success1'/><br/>
             <div className='ww'>You have successfully completed the KYC Verification process ,
 Thank you and Enjoy your journey with D Frame Privacy.</div>

@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
-    top: 15vh;
+    top: 20vh;
     left: 22vw;
     text-align: left;
     font-size: 3vh;
@@ -25,4 +25,12 @@
     width: 82vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);;
 
+}
+.htitle{
+    position: relative;
+    font-size: 5vh;
+    font-weight: 600;
+    top: 11vh;
+    left: 21vw;
+    z-index: 1;
 }

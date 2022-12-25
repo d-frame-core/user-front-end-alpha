@@ -20,7 +20,7 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 
-export default function Sidebar1(index: any) {
+export default function Sidebar1(index : any) {
  
   const [dataActive, setDataActive] = useState(false);
   const [dropActive, setDropActive] = useState(false);
@@ -40,18 +40,18 @@ export default function Sidebar1(index: any) {
    <Box className='side'>
     <div className='item'>
       
-      <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> toggleTab(1)} >
-        <div className={toggleState === 1? "active" : "notActive"} >
+      <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> index=1} >
+        <div className={toggleState === 1? "act1" : "notActive"} >
           <PortraitIcon className='ic'/>Profile</div>
       </NavLink>
 
-      <NavLink to='/wallet' style={{textDecoration:'none',color:'white',width:'18vw'}}onClick={()=> toggleTab(2)}>
-        <div className={toggleState === 2? "active" : "notActive"}>
+      <NavLink to='/wallet' style={{textDecoration:'none',color:'white',width:'18vw'}}onClick={()=> index=2}>
+        <div className={toggleState === 2? "act1" : "notActive"}>
           <AccountBalanceWalletOutlinedIcon className='ic' />Wallet</div>
       </NavLink>
       
       <NavLink to='/permission'style={{textDecoration:'none',color:'white'}}>
-      <div className={toggleState === 3? "active" : "notActive"}onClick={()=> toggleTab(3)}>
+      <div className={toggleState === 3? "act1" : "notActive"}onClick={()=> toggleTab(3)}>
         <SettingsOutlinedIcon className='ic'/>Permission</div>
       </NavLink>
       
@@ -61,24 +61,24 @@ export default function Sidebar1(index: any) {
           {dataActive && (
             <>
               <div><NavLink to='/topsitevisited' style={{textDecoration:'none',color:'white'}} >
-                <div className={toggleState === 5? "active" : "notActive"}onClick={()=> toggleTab(5)}>
+                <div className={toggleState === 5? "act2" : "notActive"}onClick={()=> toggleTab(5)}>
                   <SearchOutlinedIcon className='ic'/>Sites Visited</div></NavLink></div>
               <div><NavLink to='/sitedistribution' style={{textDecoration:'none',color:'white'}}>
-                <div className={toggleState === 6? "active" : "notActive"}onClick={()=> toggleTab(6)}>
+                <div className={toggleState === 6? "act2" : "notActive"}onClick={()=> toggleTab(6)}>
                 <SearchOutlinedIcon className='ic'/>Site distribution</div></NavLink></div>
             </>
         )}
         </div>
         <NavLink to='/rewards' style={{textDecoration:'none',color:'white'}}>
-    <div className={toggleState === 4? "active" : "notActive"}onClick={()=> toggleTab(4)}>
+    <div className={toggleState === 4? "act1" : "notActive"}onClick={()=> toggleTab(4)}>
       <DnsOutlinedIcon className='ic'/>Rewards</div> 
     </NavLink>
     <NavLink to='/browserdata' style={{textDecoration:'none',color:'white'}}>
-    <div className={toggleState === 8? "active" : "notActive"}onClick={()=> toggleTab(8)}>
+    <div className={toggleState === 8? "act1" : "notActive"}onClick={()=> toggleTab(8)}>
     <BarChartOutlinedIcon className='ic'/>Data</div>
     </NavLink>
     <NavLink to='/survey' style={{textDecoration:'none',color:'white'}}>
-    <div className={toggleState === 9? "active" : "notActive"}onClick={()=> toggleTab(9)}>
+    <div className={toggleState === 9? "act1" : "notActive"}onClick={()=> toggleTab(9)}>
       <PaddingOutlinedIcon className='ic'/>Survey</div>
     </NavLink>
 </div>
@@ -91,12 +91,12 @@ export default function Sidebar1(index: any) {
 <div className='rectangle'>
         <div className='rect3'>
         <div className='text6'>Need help with Dframe?</div>
-        <NavLink to='/help'> <div className={toggleState=== 10? "rect4":'rect1'} onClick={()=>toggleTab(10)}>Go to Help</div> </NavLink>
+        <NavLink to='/help'> <div className='rect1' >Go to Help</div> </NavLink>
         </div>
         </div>
 
             <NavLink to='/learnmore' className=''>
-        <div className={toggleState=== 11? "text8":'text9'} onClick={()=>toggleTab(10)}>LearnMore</div>
+        <div className='text9' >LearnMore</div>
         </NavLink>
    </div>
    </>

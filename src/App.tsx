@@ -9,8 +9,6 @@ import Profile from './Container/Profile/Profile';
 import Survey from './Container/Data/Survey/Survey';
 import KYC1 from './Container/KYC/KYC1/KYC1';
 import Browserdata from './Container/Data/Browserdata/Browserdata';
-import Calldata from './Container/Data/CallData/Calldata';
-import Emaildata from './Container/Data/Emaildata/Emaildata';
 import Charts from './components/charts/Charts1/Charts1';
 import Charts1 from './components/charts/Charts1/Charts1';
 import Rewards from './Container/Rewards/Rewards';
@@ -38,8 +36,7 @@ function App() {
           <Route path='/kyc3' element={<KYC3/>}/>
           <Route path='/successful' element={<Success/>}/>
           <Route path='/browserdata' element={<Browserdata/>}/>
-          <Route path='/emaildata' element={<Emaildata/>}/>
-          <Route path='/calldata' element={<Calldata/>}/>
+          
           <Route path='/wallet' element={<Wallet/>}/>
           <Route path='/rewards' element={<Rewards/>}/>
           <Route path='/survey' element={<Survey/>}/>

@@ -22,7 +22,7 @@
     font-weight: 400;
    text-align: left;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
 border-radius: 1.1vh;
 padding: 4vh;
 }
@@ -39,6 +39,15 @@ padding: 4vh;
     overflow-y: scroll;
    
 }
+.brbox::-webkit-scrollbar{
+    border-radius: 2vh;
+}
+.brbox::-webkit-scrollbar-thumb{
+    flex: block;
+    background-color: #E3DAF6;
+    border-radius: 2vh;
+}
+
 .brtext{
     position: relative;
     left: 2vw;
@@ -47,18 +56,18 @@ padding: 4vh;
 .topcen{
     position: absolute;
     height: 8vh;
-    width: 82vw;
+    min-width: 50vw;
     left: 18vw;
     top: 9vh;
     background-color: #0A194E;
+   
 }
 .bract{
     position: absolute;
+    left: 1vh;
+    margin-top: 2px;
+    height: 4vh;
     width: 24vw;
-    top: 57px;
-    left:190px;
-    height: 22px;
-    text-indent:7vw;
     color: #000;
     padding: 2vh;
     font-size: 3vh;
@@ -66,13 +75,13 @@ padding: 4vh;
     background-color: white;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
+    display: block;
 }
 .brnot{
     position: absolute;
     width: 24vw;
-    top: 57px;
-    left:18vw;
-    height: 22px;
+    left: 1vh;
+    height: 4vh;
     text-align: center;
     color: #ffffff;
     padding: 2vh;
@@ -81,11 +90,11 @@ padding: 4vh;
 }
 .emact{
     position: absolute;
-    width: 25vw;
-    top: 57px;
-    left:41vw;
-    height: 22px;
-    text-indent:9vw;
+    width: 24vw;
+    top: 2px;
+    left: 28vw;
+    height: 4vh;
+    
     color: #000;
     padding: 2vh;
     font-size: 3vh;
@@ -97,10 +106,9 @@ padding: 4vh;
 .emnot{
     position: absolute;
     width: 24vw;
-    top: 57px;
-    left:44vw;
-    height: 22px;
-    text-indent:0vw;
+    top: 0vh;
+    left: 28vw;
+    height: 4vh;
     color: #ffffff;
     padding: 2vh;
     font-size: 3vh;
@@ -108,11 +116,9 @@ padding: 4vh;
 }
 .clact{
     position: absolute;
-    width: 25vw;
-    top: 57px;
-    left:70vw;
-    height: 22px;
-    text-indent: 10vw;
+    width: 24vw;
+    top: 2px;
+    left: 56vw;
     color: #000;
     padding: 2vh;
     font-size: 3vh;
@@ -124,12 +130,34 @@ padding: 4vh;
 .clnot{
     position: absolute;
     width: 24vw;
-    top: 57px;
-    right: 2px;
+    top: 0vh;
+    left: 56vw;
     height: 22px;
     text-align: center;
     color: #ffffff;
     padding: 2vh;
     font-size: 3vh;
     background-color: #0A194E;
+}
+.arm{
+    position: absolute;
+    top: 9vh;
+   height: 8vh;
+   width:85vw;
+   left: 18vw;
+    background-color: #0A194E;
+}
+.div{
+    position: relative;
+    height: 100%;
+    width: 2px;
+    left: 25.5vw;
+    background-color: #ffffff;
+}
+.divider{
+    position: relative;
+    height: 100%;
+    width: 2px;
+    left: 25vw;
+    background-color: #ffffff;
 }

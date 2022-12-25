@@ -13,14 +13,14 @@ export default function Wallet() {
   return (
     <div>
       
-      <>{Sidebar1(2)}</>
+      <>{Sidebar1(2)}</>     
       <div className='Wallet'>
          <Box>
             <div className='head'>Wallet</div>
             <Box className='trans'>
               <div className='trans1'>Transaction</div>
               <Divider/>
-              <Box>
+              <Box className='wabo'>
                 <div>{walletdata.map(item =>{
                   return(
                     <div className='walbox'>
@@ -40,10 +40,10 @@ export default function Wallet() {
               </Box>
               <Box>
                   <div className='transfertoken'>
-                    <div className='trans1'>Transfer Tokens</div>
+                    <div className='trans2'>Transfer Tokens</div>
                   <Divider/>
                     <div className='wad'> Wallet Address:<input className='il'/></div>
-                    <div className='dfad'>DFT Amount :<input className='il'/></div>
+                    <div className='wad'>DFT Amount :<input className='il'/></div>
                     <button className='walbtn'>Send</button>
                   </div>
               </Box>

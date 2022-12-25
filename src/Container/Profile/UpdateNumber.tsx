@@ -2,7 +2,6 @@ import { Box } from '@mui/material'
 import { style } from '@mui/system'
 import React from 'react'
 import Profile from './Profile';
-import { getAuth, RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
 
 export default function UpdateNumber() {
     const style = {

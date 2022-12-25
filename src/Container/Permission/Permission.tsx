@@ -5,8 +5,7 @@ import Sidebar1 from '../../components/sidebar1/Sidebar1';
 export default function Permission() {
   return (
     <div>
-        <>{Sidebar1(3)}</>
-      <div className='srect1'></div>
+<>{Sidebar1(3)}</>      <div className='srect1'></div>
         
         <div className='title'>Permission</div>
         <form>

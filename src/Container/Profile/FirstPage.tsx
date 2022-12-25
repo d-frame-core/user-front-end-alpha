@@ -1,25 +1,65 @@
 import { Box, Button } from '@mui/material'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import {useNavigate, NavLink } from 'react-router-dom'
 import './firstpage.css'
+import { Container } from '@mui/system'
 
 export default function FirstPage() {
+  const[firstname, setfirstName]= useState('');
+  const[lastname, setlastName]= useState('');
+  const[username, setuserName]= useState('');
+  const[email,setEmail]=useState('');
+  const[number,setnumber] = useState('');
+  const[address, setAddress]= useState('');
+  var[list,setlist]=useState([]);
+  const navigate = useNavigate(); 
+  const handleSubmit=(e:any)=>{
+    e.preventDefault();
+    const userdata:any={
+      First:firstname,
+     Last:lastname,
+      username,
+      email,
+      number,
+      address
+    }
+    console.log(firstname,lastname,username,email,number,address);
+    setlist(userdata);
+    console.log(JSON.stringify(list))
+}
   return (
     <div className='fsbody'>
-        <Box className='fbox1'>
+        <Container maxWidth='sm' className='fbox1'>
           <div className='ftitle'>User Profile</div>
-          <Box className='fbox2'>
-          <div>First Name :<input className='in'/></div>
-          <div>Last Name :<input className='in'/></div>
-          <div>User Name :<input className='in'/></div>
-          <div>Email :<input className='in'/></div>
-          <div>Phone No :<input className='in'/></div>
-          <div>Address :<input className='in'/></div>
-         
-          </Box>
-          <NavLink to='/profile' style={{textDecoration:'none'}}>
-            <Button variant='contained'sx={{width:'5vw'}}  className='btnup'>Submit</Button></NavLink>
-        </Box>
+          <form className='fbox2' onSubmit={handleSubmit}>
+            <div className='alignleft'>First Name<a className='colon'>:
+                  <input className='in' type='text' name='firstname' value={firstname} onChange={(e)=>setfirstName(e.target.value)} required={true} />
+                  </a>
+            </div>
+            <div className='alignleft'>Last Name<a className='colon'>:
+                  <input className='in' type='text' name='lastname' value={lastname} onChange={(e)=>setlastName(e.target.value)} required={true} />
+                  </a>
+                  </div>
+            <div className='alignleft'>User Name<a className='colon'>:
+                  <input className='in' type='text' name='username' value={username} onChange={(e)=>setuserName(e.target.value)} required={true} />
+                  </a>
+                  </div>
+            <div className='alignleft'>Email<a className='colon'>:
+                  <input className='in' type='email' name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required={true} />
+                  </a>
+                  </div>
+            <div className='alignleft'>Phone Number<a className='colon'>:
+                  <input className='in' type='number' name='number' value={number} onChange={(e)=>setnumber(e.target.value)} required={true} />
+                  </a>
+                  </div>
+            <div className='alignleft'>Address<a className='colon'>:
+                  <input className='in' type='text' name='address' value={address} onChange={(e)=>setAddress(e.target.value)} required={true} />
+                  </a>
+            </div>
+            
+            <button  className='btnup' onSubmit={handleSubmit} >Submit</button>
+        </form>
+      </Container>
     </div>
   )
 }
