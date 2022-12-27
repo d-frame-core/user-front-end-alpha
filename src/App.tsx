@@ -21,6 +21,7 @@ import KYC3 from './Container/KYC/KYC3/KYC3';
 import Success from './Container/KYC/Success';
 import FirstPage from './Container/Profile/FirstPage';
 import UpdateNumber from './Container/Profile/UpdateNumber';
+import Charts2 from './components/charts/Charts2/Charts2';
 
 function App() {
   return (
@@ -36,7 +37,6 @@ function App() {
           <Route path='/kyc3' element={<KYC3/>}/>
           <Route path='/successful' element={<Success/>}/>
           <Route path='/browserdata' element={<Browserdata/>}/>
-          
           <Route path='/wallet' element={<Wallet/>}/>
           <Route path='/rewards' element={<Rewards/>}/>
           <Route path='/survey' element={<Survey/>}/>

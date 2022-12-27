@@ -5,10 +5,10 @@ import { stripBasename } from '@remix-run/router';
 import { Container } from '@mui/material';
 import analyticsdata from '../../../Container/Analytics/analyticsdata';
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042","#5f0931","#f23384"];
+const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384"];
 const style = {
   top: "5vh",
-  left: "32vw",
+  left: "25vw",
   lineHeight: "34px",
   
 };

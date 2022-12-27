@@ -41,13 +41,13 @@ function Browserdata() {
     <div>
         <>{Sidebar1(8)}</>
 
-          <Container maxWidth='lg' className='arm' >
-            <a className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</a>
-            <a className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</a>
-            <a className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</a> 
+          <Container maxWidth={false} sx={{maxWidth:'82%'}} className='arm' >
+            <Box className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</Box>
+            <Box className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</Box>
+            <Box className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</Box> 
           </Container>
-          <div className='brtitle'>{b.name}<InfoOutlinedIcon className='icon'/></div>
-          <div className='brrect2'>{b.detial}
+          <div className='brtitle'  >{b.name}<a href='Dframe.pdf' style={{textDecoration:'none',color:'#017EFA'}} ><InfoOutlinedIcon className='icon'/></a></div>
+          <Container maxWidth={false}  sx={{maxWidth:'75%',minHeight:'72vh'}}className='brrect2'>{b.detial}
         <Box className='brbox'>
           <span>
             {[...new Array(50)].map(()=>{
@@ -59,7 +59,7 @@ function Browserdata() {
 })}
           </span>
         </Box>
-        </div>
+        </Container>
         
       </div>
       

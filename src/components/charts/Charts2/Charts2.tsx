@@ -5,10 +5,10 @@ import { stripBasename } from '@remix-run/router';
 import { Container } from '@mui/material';
 import analyticsdata from '../../../Container/Analytics/analyticsdata';
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042","#5f0931","#f23384"];
+const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384"];
 const style = {
   top: "6vh",
-  left: "32vw",
+  left: "25vw",
   lineHeight: "34px",
   
 };
@@ -28,16 +28,15 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 export default function Charts2(indata: any[] ) {
   return (
-    <ResponsiveContainer width={600} height={275}>
-    <PieChart  >
-      
+    <Container maxWidth={false}  className='pie'>
+    <PieChart width={600} height={275} >
       <Pie 
         dataKey="value"
         labelLine={false}
         isAnimationActive={true}
         data={indata}
-        cx={180}
-        cy={130}
+        cx='20%'
+        
         innerRadius={60}
         outerRadius={120}
         >
@@ -47,10 +46,9 @@ export default function Charts2(indata: any[] ) {
           
           
           </Pie>
+          
           <Legend
         iconSize={10}
-        width={120}
-        height={140}
         layout="vertical"
         verticalAlign="middle"
         wrapperStyle={style}
@@ -58,6 +56,7 @@ export default function Charts2(indata: any[] ) {
       
       
       <Tooltip />
-    </PieChart></ResponsiveContainer>
+    </PieChart>
+    </Container>
   );
 }

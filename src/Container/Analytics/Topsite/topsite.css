@@ -44,10 +44,8 @@
 }
 .tab1{
     position: absolute;
-    top: 58px;
-    margin-left: 17.3vw;
-    text-indent: 13vw;
-    width: 37vw;
+    width: 39vw;
+    left:0vw;
     padding: 1vh;
     background-color:#0A194E;
    height: 5vh;
@@ -57,7 +55,7 @@
 }
 .tab2{
     position: absolute;
-    top: 58px;
+    top: 0vh;
     right: 3px;
     width: 39vw;
     padding: 1vh;
@@ -70,28 +68,28 @@
 }
 .tab1active{
     position: absolute;
-    top: 58px;
-    margin-left: 17.3vw;
-    text-indent: 15vw;
+    left: 2px;
+    bottom: 0px;
     width: 39vw;
     padding: 1vh;
     background-color:white;
-   height: 5vh;
-    font-size: 3vh;
+    height: 65%;    font-size: 3vh;
     color: black;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
+    z-index: 1;
 }
 .tab2active{
     position: absolute;
-    top: 58px;
-    right: 3px;
+    bottom: 0px;
+    right: 2px;
     width: 39vw;
     padding: 1vh;
-    height: 5vh;
+    height: 65%;
     background-color:white ;
     font-size: 3vh;
     color: black;
     border-top-left-radius: 1vh;
+    z-index: 1;
     border-top-right-radius: 1vh;
 }

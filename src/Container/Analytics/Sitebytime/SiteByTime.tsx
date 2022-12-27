@@ -28,11 +28,12 @@ export default function SiteByTime() {
   return (
     <div>
       <>{Sidebar1(5)}</>
-      <div className='top1'></div>
-        <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tabs1active":"tabs1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
-        <Divider variant='middle' orientation='vertical' light={true}/>
-        <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tabs2active":"t"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
       
+      <Container maxWidth={false} sx={{maxWidth:'82%'}}className='top1'>
+        <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
+        <Divider variant='middle' orientation='vertical' light={true} sx={{zIndex:1}}/>
+        <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tab2active":"tab2"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
+        </Container>
    
     <Box className='tsbox1'>
     <div className='tschart'>{Charts2(analyticsdata)}</div>
@@ -45,7 +46,7 @@ export default function SiteByTime() {
                 {item.name}
                 <a className='gap1'>{item.long}</a> 
               </div>
-              <Divider className='divider'/></>
+              <Divider/></>
               );
               
             })

@@ -106,7 +106,7 @@ var a: any[];
                 {item.name}
                <a className='gap1'>{item.per}</a> 
               </div>
-              <Divider className='divider'/></>
+              <Divider/></>
               );
               
             })

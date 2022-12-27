@@ -21,7 +21,7 @@
 
 .tschart{
     position: absolute;
-    top:2vh;
+    top:4vh;
     left: 6vw;
     z-index: 1;
     background-color: white;
@@ -34,50 +34,4 @@
     left: 30vw;
     row-gap: 2vh;
     line-height: 2vh;
-}
-.divider{
-   
-    left: 0vh;
-}
-.tabs1{
-    position: absolute;
-    top: 58px;
-    margin-left: 18vw;
-    text-indent: 4vw;
-    width: 38vw;
-    padding: 1vh;
-    background-color:#0A194E;
-   height: 5vh;
-    font-size: 3vh;
-    color: white;
-    
-}
-
-.tabs1active{
-    position: absolute;
-    top: 58px;
-    margin-left: 17.3vw;
-    text-indent: 13vw;
-    width: 37vw;
-    padding: 1vh;
-    background-color:white;
-   height: 5vh;
-    font-size: 3vh;
-    color: black;
-    border-top-left-radius: 1vh;
-    border-top-right-radius: 1vh;
-}
-.tabs2active{
-    position: absolute;
-    top: 26px;
-    left:57vw;
-    text-indent: 16vw;
-    width: 39vw;
-    padding: 1vh;
-    height: 5vh;
-    background-color:white ;
-    font-size: 3vh;
-    color: black;
-    border-top-left-radius: 1vh;
-    border-top-right-radius: 1vh;
 }

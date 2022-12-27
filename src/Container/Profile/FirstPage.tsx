@@ -11,7 +11,7 @@ export default function FirstPage() {
   const[email,setEmail]=useState('');
   const[number,setnumber] = useState('');
   const[address, setAddress]= useState('');
-  var[list,setlist]=useState([]);
+  const[list,setlist]=useState({});
   const navigate = useNavigate(); 
   const handleSubmit=(e:any)=>{
     e.preventDefault();

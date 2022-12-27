@@ -2,7 +2,7 @@
     position: relative;
     top: 1vh;
     left: 1vw;
-    color: blue;
+    color: #017EFA;
 }
 
 .brtitle{
@@ -16,15 +16,15 @@
     position: absolute;
     top: 26vh;
     left: 21vw;
-    height: 64vh;
-    width: 71vw;
-    font-size: 4vh;
+    min-height: 72vh;
+    max-width: 75vw;
+    font-size: 24px;
     font-weight: 400;
    text-align: left;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
 border-radius: 1.1vh;
-padding: 4vh;
+padding: 3vh;
 }
 .brbox{
     position: absolute;
@@ -45,6 +45,7 @@ padding: 4vh;
 .brbox::-webkit-scrollbar-thumb{
     flex: block;
     background-color: #E3DAF6;
+    border: 0.25em solid #ffffff;
     border-radius: 2vh;
 }
 
@@ -76,6 +77,8 @@ padding: 4vh;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
     display: block;
+    z-index: 1;
+   
 }
 .brnot{
     position: absolute;
@@ -87,6 +90,7 @@ padding: 4vh;
     padding: 2vh;
     font-size: 3vh;
     background-color: #0A194E;
+    
 }
 .emact{
     position: absolute;
@@ -94,7 +98,6 @@ padding: 4vh;
     top: 2px;
     left: 28vw;
     height: 4vh;
-    
     color: #000;
     padding: 2vh;
     font-size: 3vh;
@@ -102,6 +105,7 @@ padding: 4vh;
     background-color: white;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
+    z-index: 1;
 }
 .emnot{
     position: absolute;
@@ -126,13 +130,14 @@ padding: 4vh;
     background-color: white;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
+    z-index: 1;
 }
 .clnot{
     position: absolute;
     width: 24vw;
     top: 0vh;
     left: 56vw;
-    height: 22px;
+    height: 4vh;
     text-align: center;
     color: #ffffff;
     padding: 2vh;
@@ -143,9 +148,10 @@ padding: 4vh;
     position: absolute;
     top: 9vh;
    height: 8vh;
-   width:85vw;
+   width:82vw;
    left: 18vw;
     background-color: #0A194E;
+    display: flex;
 }
 .div{
     position: relative;

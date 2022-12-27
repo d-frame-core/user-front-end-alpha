@@ -166,14 +166,14 @@
     font-size: 2vh;
     text-align: left;
     text-indent: 5vw;
-    width: 17vw;
+    width: 18vw;
     top: 8vh;
     font-weight: 400;
     overflow: hidden;
 }
 .icus{
     position: absolute;
-    top: 8vh;
+    top: 10vh;
     left: 18vw;
     color:#E3DAF6;
 }
