@@ -33,6 +33,6 @@ const walletdata=[
         DFT:'60dft',
         status:'recieved',
         time:'11.11.55',
-            dft:'1098DFT'},
+            dft:'18DFT'},
 ]
 export default walletdata;

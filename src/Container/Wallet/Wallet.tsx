@@ -7,7 +7,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import walletdata from './walletdata';
 export default function Wallet() {
   const userdata={
-    dft:'1098 DFT',
+    dft:'10 DFT',
     userad:'0xnu989njbknk989sbuikjdbcksdvsdlvk '
   }
   return (

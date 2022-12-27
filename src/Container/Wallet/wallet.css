@@ -27,7 +27,7 @@
     background-color: white;
     border-radius: 2vh;
     overflow-y: hidden;
-  
+   border: 2px solid white;
 }
 .trans1{
     padding: 2vh;
@@ -67,7 +67,6 @@
 }
 .wabo::-webkit-scrollbar{
     border-radius: 2vh;
-
     right: 1px;
 }
 .wabo::-webkit-scrollbar-thumb{

@@ -58,7 +58,7 @@ export default function Sidebar1(index : any) {
       <NavLink to='#' onClick={(e)=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}} className='notActive1'>
       <div ><KeyboardArrowDownOutlinedIcon className='ic'/><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics</div></NavLink>
         <div >
-          {dataActive && (
+          {dataActive&&(
             <>
               <div><NavLink to='/topsitevisited' style={{textDecoration:'none',color:'white'}} >
                 <div className={toggleState === 5? "act2" : "notActive"}onClick={()=> toggleTab(5)}>

@@ -26,6 +26,9 @@ function Browserdata() {
   const toggleTab1 = (index: void |any) =>{
     setToggleState1(index);
   }
+   const  Open=()=>{
+    window.open('Dframe.pdf')
+   }
   
   if(toggleState1 === 9){
     (b=browser);
@@ -46,7 +49,7 @@ function Browserdata() {
             <Box className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</Box>
             <Box className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</Box> 
           </Container>
-          <div className='brtitle'  >{b.name}<a href='Dframe.pdf' style={{textDecoration:'none',color:'#017EFA'}} ><InfoOutlinedIcon className='icon'/></a></div>
+          <div className='brtitle'  >{b.name}<a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  ><InfoOutlinedIcon className='icon'></InfoOutlinedIcon></a></div>
           <Container maxWidth={false}  sx={{maxWidth:'75%',minHeight:'72vh'}}className='brrect2'>{b.detial}
         <Box className='brbox'>
           <span>

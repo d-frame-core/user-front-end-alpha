@@ -1,28 +1,35 @@
-
-
 .srect1{
     position: absolute;
-left: 22vw;
-right: 41.6vw;
-top: 11.7vh;
-width:73vw;
-height: 85vh;
-background: #DDE2EA;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
+    height: 78vh;
+    width: 65vw;
+    top: 15vh;
+    left: 26vw;
+    border-radius: 1.1vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+}
+.stext0{
+    position: absolute;
+    font-size: 4vh;
+    padding: 2vh;
+    left: 26vw;
+    top: 13vh;
+    height: 357px;
+    font-weight: 500;
 }
 .stext1{
     position: absolute;
 width: 20vw;
 height: 5.4vh;
-left: 32.7vw;
-top: 18vh;
+left: 35.7vw;
+top: 21.5vh;
 z-index: 1;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 3vh;
 display: flex;
+hyphens: manual;
 align-items: center;
 text-align: center;
 color: #000000;
@@ -32,8 +39,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 20vw;
 height: 5.6vh;
-left: 31.5vw;
-top: 30vh;
+left: 35.7vw;
+top: 30.5vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -50,7 +57,7 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 width: 20vw;
 height: 4vh;
 left: 35.7vw;
-top: 42vh;
+top: 41.5vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -66,8 +73,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 36vw;
-top: 54vh;
+left: 35.7vw;
+top: 50vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -82,8 +89,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 33vw;
-top: 66vh;
+left: 35.7vw;
+top: 58.5vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -98,8 +105,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 33vw;
-top: 78vh;
+left: 35.7vw;
+top: 66.7vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -114,8 +121,8 @@ transform: matrix(1, 0, 0, 1, 0, 0);
     position: absolute;
 width: 25vw;
 height: 4vh;
-left: 34vw;
-top: 90vh;
+left: 35.7vw;
+top: 75.4vh;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -126,64 +133,98 @@ text-align: center;
 color: #000000;
 transform: matrix(1, 0, 0, 1, 0, 0);
 }
+
+
+
 .sinput1{
     position: absolute;
-width: 34.7vw;
-height: 6vh;
-left: 45.8vw;
-top: 17.5vh;
+width: 23.7vw;
+height: 4.8vh;
+left: 50vw;
+top: 21.4vh;
+filter:drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 border: none;
 font-style: normal;
-font-size: 4vh;
+font-size: 3vh;
 z-index: 1;
 background: #FFFFFF;
-border-radius: 1vh;
-
+border-radius: 3.4vh;
+outline: none;
+text-indent: 2vw;
 }
 .sinput2{
-    position: absolute;
-    width: 34.7vw;
-    height: 6vh;
-    left: 45.8vw;
-top: 30vh;
+position: absolute;
+width: 23.7vw;
+height: 4.8vh;
+left: 50vw;  
+top: 30.5vh; 
+filter:drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 border:none;
 font-style: normal;
-font-size: 26px;
-
+font-size: 3vh;
 background: #FFFFFF;
-border-radius: 1vh;
+border-radius: 3.7vh;
+outline: none;
+text-indent: 2vw;
 
 }
+
 .sbtn1{
-position: absolute;
-top: 41vh;
-left: 46vw;
-z-index: 1;
+    position: absolute;
+    top: 41vh;
+    left: 51vw;
+    z-index: 1;
 }
 .sbtn2{
     position: absolute;
-    top: 53vh;
-    left: 46vw;
+    top: 49.4vh;
+    left: 51vw;
     z-index: 1;
     }
 .sbtn3{
-    
-position: absolute;
-left: 46vw;
-top: 65vh;
+    position: absolute;
+    left: 51vw;
+    top: 57.8vh;
 
 }
 .sbtn4{
     position: absolute;
-    
-    left: 46vw;
-
-    top: 77vh;
+    left: 51vw;
+    top: 66.3vh;
     
 }
 .sbtn5{
     position: absolute;
-left: 46vw;
-top: 89vh;
+    left: 51vw;
+    top: 74.8vh;
 
+}
+.sbtn6{
+    position: absolute;
+    height: 5vh;
+    width: 6vw;
+    left: 70vw;
+    top: 82vh;
+    font-size: 3vh;
+    font-weight: 200;
+    background: #017EFA;
+    color: #FFFFFF;
+    z-index: 2;
+    border-radius: 1.1vh;
+    border: none;
+}
+.col{
+    position: absolute;
+width: 20vw;
+height: 5.6vh;
+left: 1vw;
+top: -2.5vh;
+}
+.col2{
+    position: absolute;
+    width: 20vw;
+    height: 5.6vh;
+    left: 1vw;
+    top: -3.5vh;
+    
 }
