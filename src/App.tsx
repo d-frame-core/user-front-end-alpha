@@ -20,7 +20,6 @@ import KYC2 from './Container/KYC/KYC2/KYC2';
 import KYC3 from './Container/KYC/KYC3/KYC3';
 import Success from './Container/KYC/Success';
 import FirstPage from './Container/Profile/FirstPage';
-import UpdateNumber from './Container/Profile/UpdateNumber';
 import Charts2 from './components/charts/Charts2/Charts2';
 
 function App() {
@@ -41,7 +40,6 @@ function App() {
           <Route path='/rewards' element={<Rewards/>}/>
           <Route path='/survey' element={<Survey/>}/>
           <Route path='/topsitevisited' element={<Topsite/>}/>
-          <Route path='/update' element={<UpdateNumber/>}/>
           <Route path='/sitebytime' element={<SiteByTime/>}/>
           <Route path='/sitedistribution' element={<SiteDistribution/>}/>
           <Route path='/help' element={<Help/>}/>

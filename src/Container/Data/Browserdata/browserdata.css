@@ -1,10 +1,21 @@
-.icon{
+#icon{
     position: relative;
     top: 1vh;
     left: 1vw;
     color: #017EFA;
-}
 
+}
+#icon:hover #iccs{
+    display: block;
+}
+#iccs{
+    position: absolute;
+    top: 19vh;
+    left: 36vw;
+    padding: 1vh;
+    background-color: antiquewhite;
+    display: none;
+}
 
 .brtitle{
     position: absolute;

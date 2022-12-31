@@ -13,22 +13,22 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
-import FlipCameraAndroidOutlinedIcon from '@mui/icons-material/FlipCameraAndroidOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PaddingOutlinedIcon from '@mui/icons-material/PaddingOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 
 export default function Sidebar1(index : any) {
  
-  const [dataActive, setDataActive] = useState(false);
+  var [dataActive, setDataActive] = useState(false);
   const [dropActive, setDropActive] = useState(false);
   const [toggleState,setToggleState] = useState(index);
   const toggleTab = (index: any) =>{
     setToggleState(index);
   }
-
+  if(toggleState=== 5 ||toggleState=== 6 ){
+    dataActive=(true);
+  }
   return (
     <>
    <div>
@@ -56,15 +56,15 @@ export default function Sidebar1(index : any) {
       </NavLink>
       
       <NavLink to='#' onClick={(e)=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}} className='notActive1'>
-      <div ><KeyboardArrowDownOutlinedIcon className='ic'/><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics</div></NavLink>
+      <div ><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics <KeyboardArrowDownOutlinedIcon className='kc'/></div></NavLink>
         <div >
           {dataActive&&(
             <>
               <div><NavLink to='/topsitevisited' style={{textDecoration:'none',color:'white'}} >
-                <div className={toggleState === 5? "act2" : "notActive"}onClick={()=> toggleTab(5)}>
+                <div className={toggleState === 5? "act1" : "notActive"}onClick={()=> toggleTab(5)}>
                   <SearchOutlinedIcon className='ic'/>Sites Visited</div></NavLink></div>
               <div><NavLink to='/sitedistribution' style={{textDecoration:'none',color:'white'}}>
-                <div className={toggleState === 6? "act2" : "notActive"}onClick={()=> toggleTab(6)}>
+                <div className={toggleState === 6? "act1" : "notActive"}onClick={()=> toggleTab(6)}>
                 <SearchOutlinedIcon className='ic'/>Site distribution</div></NavLink></div>
             </>
         )}

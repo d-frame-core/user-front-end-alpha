@@ -2,7 +2,7 @@
     position: relative; 
     max-width: 65vw;
     top: 12vh;
-    left: 20vw;
+    left: 19vw;
     border-radius: 1.1vh;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
@@ -34,22 +34,26 @@ left: 5vw;
     position: relative;
     text-align: left;
     left: 7vw;
-    padding-top: 4vh;
+    padding-top: 8vh;
     font-weight: 600;
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
     font-size: 3vh;
+    padding-bottom: 2vh;
 }
 .pr{
     position: relative;
     width: 20vw;
    
 }
+.colon1{
+    position: absolute;left: 12vw;
+}
 .prfont{
-   position: relative;
+   position: absolute;
     color: #1B2B65;
-    left: 5vw;
+    left:14vw;
     
     
 }
@@ -57,16 +61,73 @@ left: 5vw;
     position: relative;
     top: 10vh;
     max-width: 65vw;
-    left: 20vw;    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 19vw;    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
    border-radius: 1.1vh;
 }
 p{
-    
+    top: 0vh;
     font-weight: 700;
 }
 .kyctitle{
     font-weight: 800;
     font-size: 4vh;
-    padding: 2vh;
+    padding-top: 2vh;
+}
+.update{
+    position: absolute;
+    height: 90vh;
+    width: 60vw;
+    top: 5vh;
+    left: 20vw;
+    font-size: 26px;
+    background-color: #E3DAF6;
+    border-radius: 10px;
+    
+}
+.uphead{
+    position: relative;
+    top: 4vh;
+    font-size: 40px;
+    font-weight: 500;
+}
+.upa{
+    position: relative;
+    height: 18vh;
+    text-indent: 10vw;
+    top: 10vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4vh;
+    
+}
+.uin{
+    position: absolute;
+    left: 25vw;
+    height: 6vh;
+    width: 28vw;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.upbtn{
+    position: relative;
+    top: 3vh;
+    border: none;
+    left: 19vw;
+    height: 7vh;
+    width: 8vw;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #017EFA;
+}
+.cross{
+    position: absolute;
+    top: 8%;
+    right: 4vw;
+   
 }

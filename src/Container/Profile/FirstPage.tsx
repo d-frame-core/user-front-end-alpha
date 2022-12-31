@@ -11,8 +11,7 @@ export default function FirstPage() {
   const[email,setEmail]=useState('');
   const[number,setnumber] = useState('');
   const[address, setAddress]= useState('');
-  const[list,setlist]=useState({});
-  const navigate = useNavigate(); 
+  const[arlist,setarlist]=useState({});
   const handleSubmit=(e:any)=>{
     e.preventDefault();
     const userdata:any={
@@ -24,14 +23,14 @@ export default function FirstPage() {
       address
     }
     console.log(firstname,lastname,username,email,number,address);
-    setlist(userdata);
-    console.log(JSON.stringify(list))
+    setarlist(userdata);
+    console.log(JSON.stringify(arlist))
 }
   return (
     <div className='fsbody'>
         <Container maxWidth='sm' className='fbox1'>
           <div className='ftitle'>User Profile</div>
-          <form className='fbox2' onSubmit={handleSubmit}>
+          <form className='fbox2' >
             <div className='alignleft'>First Name<a className='colon'>:
                   <input className='in' type='text' name='firstname' value={firstname} onChange={(e)=>setfirstName(e.target.value)} required={true} />
                   </a>
@@ -57,7 +56,7 @@ export default function FirstPage() {
                   </a>
             </div>
             
-            <button  className='btnup' onSubmit={handleSubmit} >Submit</button>
+            <button  className='btnup' onClick={handleSubmit} >Submit</button>
         </form>
       </Container>
     </div>

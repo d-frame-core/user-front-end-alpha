@@ -21,7 +21,15 @@
     row-gap: 2vh;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
-
+.sdbox2::-webkit-scrollbar{
+    border-radius: 2vh;
+    right: 1px;
+}
+.sdbox2::-webkit-scrollbar-thumb{
+    background-color: #E3DAF6;
+    border-radius: 2vh;
+    border: .25em solid #E3DAF6;
+}
 .sdchart{
     position: absolute;
     top:10vh;
