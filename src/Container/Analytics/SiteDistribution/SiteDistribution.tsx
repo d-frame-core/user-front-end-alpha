@@ -1,16 +1,11 @@
 import { Container, Box, Divider } from '@mui/material'
-import React from 'react'
 import Charts1 from '../../../components/charts/Charts1/Charts1'
 import Sidebar1 from '../../../components/sidebar1/Sidebar1'
-import ClearIcon from '@mui/icons-material/Clear'
 import './sitedistribution.css'
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import analyticsdata from '../analyticsdata'
 import { useState } from 'react'
-import Charts2 from '../../../components/charts/Charts2/Charts2'
 
 var a: any[]=[];
+
 const Crypto=[
   {name:'Bitcoin',per:'35%',value: 35},
   {name:'Ethereum',per:'35%',value: 35},

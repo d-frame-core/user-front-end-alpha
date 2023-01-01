@@ -11,6 +11,7 @@ import { RecaptchaVerifier } from "firebase/auth";
 import { authentication } from '../../Firebase';
 import CloseIcon from '@mui/icons-material/Close';
 import Backdrop from '@mui/material/Backdrop/Backdrop';
+import { userdata } from './FirstPage';
 
 export default function Profile() {
   
@@ -83,7 +84,7 @@ export default function Profile() {
             <img src={user} alt='' className='primg'/>
              
               <Container maxWidth={false} sx={{maxWidth:'60%',display:'flex'}} className='contitem'>
-                <div><a className='pr'>First Name</a><a className='colon1'>:</a><a className='prfont' >Niranjan </a></div>
+                <div><a className='pr'>First Name</a><a className='colon1'>:</a><a className='prfont' >Niranjan</a></div>
                 <div><a className='pr'>Last Name</a><a className='colon1'>:</a><a className='prfont' >babu</a></div>
                 <div><a className='pr'>Number</a><a className='colon1'>:</a><a className='prfont' >{phonenumber} <a onClick={()=>setPopShow(true)}><CreateOutlinedIcon   sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}} /></a></a></div>
                 <div><a className='pr'>Email</a><a className='colon1'>:</a><a className='prfont'>abc@gmail.com<CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></div>

@@ -1,10 +1,10 @@
 import { Box, Container, Divider } from '@mui/material';
-import React, { useState } from 'react'
-
+import { useState } from 'react'
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import './wallet.css';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import walletdata from './walletdata';
+
 export default function Wallet() {
   const userdata={
     dft:'10 DFT',
@@ -27,9 +27,9 @@ export default function Wallet() {
                         <p className='to'>To :</p>
                         <p className='add'> {item.add}</p>
                         <p className='dat'>{item.date}</p>
-                        <p className='dft'>{item.DFT}</p>
+                        <p className='dft1'>{item.DFT}</p>
                         <p className='time'>{item.time}</p>
-                        <p className='stat'>{item.status}</p>
+                        <p className={item.status === 'Sent' ? 'stat-red' :'stat-green'}>{item.status}</p>
                   </div>
                   )})}</div>
               </Box>

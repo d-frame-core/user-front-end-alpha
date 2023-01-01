@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Help from '../../Container/Help/Help';
 import { Divider } from '@mui/material';
 
 const style = {

@@ -5,6 +5,7 @@
     top: 18vh;
     left: 28vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+    border-radius: 10px;
 }
 .sdbox2{
     position: absolute;

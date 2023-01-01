@@ -11,8 +11,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-   
+    border-radius: 10px;
 }
 .ftitle{
     font-size: 5vh;
@@ -62,4 +61,30 @@
    max-width: 60px;
    color: white;
    background-color: #017EFA;
+}
+.fillbox{
+    height: 30vh;
+    width: 30vw;
+    background-color: #E3DAF6;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    border-radius: 10px;
+}
+.a1{
+    position: relative;
+    top: 25%;
+    font-size: 20px;
+    font-weight: 700;
+}
+.a2{
+    position: relative;
+    top: 40%;
+    left: 40%;
+    height: 6vh;
+    width: 6vw;
+    background-color: #017EFA;
+    color: white;
+    border: none;
+    border-radius: 10px;
 }
