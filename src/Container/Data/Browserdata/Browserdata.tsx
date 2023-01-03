@@ -26,6 +26,7 @@ function Browserdata() {
   const toggleTab1 = (index: void |any) =>{
     setToggleState1(index);
   }
+  const [hoverOpen,setHoverOpen]=useState(false);
    const  Open=()=>{
     window.open('Dframe.pdf')
    }
@@ -39,7 +40,9 @@ function Browserdata() {
   else{
     (b=call);
   }
-
+  const setpop=()=>{
+    <div></div>
+  }
   return (
     <div>
         <>{Sidebar1(8)}</>
@@ -50,7 +53,7 @@ function Browserdata() {
             <Box className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</Box> 
           </Container>
           <div id='iccs'>Privacy policy</div>
-          <div className='brtitle'  >{b.name}<a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  ><InfoOutlinedIcon className='icon' id='icon'/></a></div>
+          <div className='brtitle'  >{b.name}<a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  ><InfoOutlinedIcon  className='icon' id='icon' onMouseEnter={()=>setHoverOpen(true)} onMouseLeave={()=>setHoverOpen(false)}/>{hoverOpen && <p className='pp'>Privacy Policy</p>}</a></div>
           <Container maxWidth={false}  sx={{maxWidth:'75%',minHeight:'72vh'}}className='brrect2'>{b.detial}
         <Box className='brbox'>
           <span>
@@ -61,10 +64,11 @@ function Browserdata() {
               </>
             )
 })}
+
           </span>
         </Box>
         </Container>
-        
+       
       </div>
       
     

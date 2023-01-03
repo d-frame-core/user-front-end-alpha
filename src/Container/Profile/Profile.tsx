@@ -6,15 +6,22 @@ import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import { Box, Button } from '@mui/material';
 import { Container } from '@mui/system';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
-import {  signInWithPhoneNumber } from "firebase/auth";
+import {  OAuthCredential, signInWithPhoneNumber } from "firebase/auth";
 import { RecaptchaVerifier } from "firebase/auth";
 import { authentication } from '../../Firebase';
 import CloseIcon from '@mui/icons-material/Close';
 import Backdrop from '@mui/material/Backdrop/Backdrop';
 import { userdata } from './FirstPage';
 
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+
+
+
 export default function Profile() {
   
+   
+
     const [popshow,setPopShow]=useState(false);
 
     authentication.languageCode = 'en';
@@ -73,6 +80,17 @@ export default function Profile() {
             });
       
     }
+    const signInWithGoogle =()=>{
+      const provider = new GoogleAuthProvider();
+    signInWithPopup(authentication, provider)
+  .then((result:any) => {
+    console.log(result)
+  }).catch((error : any) => {
+    console.log(error)
+  });
+}
+
+
   return (
     <div>
       <>{Sidebar1(1)}</>      
@@ -87,8 +105,8 @@ export default function Profile() {
                 <div><a className='pr'>First Name</a><a className='colon1'>:</a><a className='prfont' >Niranjan</a></div>
                 <div><a className='pr'>Last Name</a><a className='colon1'>:</a><a className='prfont' >babu</a></div>
                 <div><a className='pr'>Number</a><a className='colon1'>:</a><a className='prfont' >{phonenumber} <a onClick={()=>setPopShow(true)}><CreateOutlinedIcon   sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}} /></a></a></div>
-                <div><a className='pr'>Email</a><a className='colon1'>:</a><a className='prfont'>abc@gmail.com<CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></div>
-                <div><a className='pr'>Address 1</a><a className='colon1'>:</a><a className='prfont'>address 1 <CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></div>
+                <div><a className='pr'>Email</a><a className='colon1'>:</a><a className='prfont'>abc@gmail.com<a onClick={signInWithGoogle}><CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></a></div>
+                <div><a className='pr'>Address 1</a><a className='colon1'>:</a><a className='prfont'>address 1 <a ><CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></a></div>
                 <div><a className='pr'>Address 2</a><a className='colon1'>:</a><a className='prfont'>Address 2<CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></div>
                 <div><a className='pr'>Wallet Address</a><a className='colon1'>:</a><a className='prfont'>0x000000000000000</a></div>
               </Container>

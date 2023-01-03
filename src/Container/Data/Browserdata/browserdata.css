@@ -179,3 +179,21 @@ padding: 3vh;
     left: 25vw;
     background-color: #ffffff;
 }
+.deep{
+    position: absolute;
+    top:10%;
+    right: 0%;
+    color: red;
+    z-index: 12;
+}
+.pp{
+    position: relative;
+    width: 6vw;
+   padding: 1vh;
+    background-color: #e0dfdf;
+    color: #000;
+    border-radius: 5px;
+    left: 15vw;
+    top: -6vh;
+    font-size: 12px;
+}

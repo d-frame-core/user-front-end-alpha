@@ -48,6 +48,7 @@
     border: none;
     font-size: 3vh;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
     text-indent: 4%;
 }
 .btnup{
@@ -74,8 +75,8 @@
 .a1{
     position: relative;
     top: 25%;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 27px;
+    font-weight: 550;
 }
 .a2{
     position: relative;
