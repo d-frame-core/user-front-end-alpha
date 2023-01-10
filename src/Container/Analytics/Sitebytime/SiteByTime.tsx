@@ -1,11 +1,7 @@
 import { Container, Box, DialogProps, ListItemText, List, ListItem } from '@mui/material'
 import React, { useState } from 'react'
 import './sitebytime.css'
-import Charts1 from '../../../components/charts/Charts1/Charts1'
 import Sidebar1 from '../../../components/sidebar1/Sidebar1'
-import ClearIcon from '@mui/icons-material/Clear';
-
-import TabScrollButton from '@mui/material/TabScrollButton';
 import Divider from '@mui/material/Divider/Divider'
 import analyticsdata from '../analyticsdata'
 import { NavLink } from 'react-router-dom'
@@ -29,11 +25,11 @@ export default function SiteByTime() {
     <div>
       <>{Sidebar1(5)}</>
       
-      <Container maxWidth={false} sx={{maxWidth:'82%'}}className='top1'>
+      <Box sx={{maxWidth:'82%'}}className='top1'>
         <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
         <Divider variant='middle' orientation='vertical' light={true} sx={{zIndex:1}}/>
         <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tab2active":"tab2"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
-        </Container>
+        </Box>
    
     <Box className='tsbox1'>
     <div className='tschart'>{Charts2(analyticsdata)}</div>

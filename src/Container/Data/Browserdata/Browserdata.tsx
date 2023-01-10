@@ -26,6 +26,7 @@ function Browserdata() {
   const toggleTab1 = (index: void |any) =>{
     setToggleState1(index);
   }
+  var st:string;
   const [hoverOpen,setHoverOpen]=useState(false);
    const  Open=()=>{
     window.open('Dframe.pdf')
@@ -33,12 +34,14 @@ function Browserdata() {
   
   if(toggleState1 === 9){
     (b=browser);
+    st='d11';
   }
   else if(toggleState1 === 10){
     (b=email);
-  }
+    st='';  }
   else{
     (b=call);
+    st='d12'
   }
   const setpop=()=>{
     <div></div>
@@ -49,7 +52,9 @@ function Browserdata() {
 
           <Container maxWidth={false} sx={{maxWidth:'82%'}} className='arm' >
             <Box className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</Box>
+            <div className={st}></div>
             <Box className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</Box>
+            
             <Box className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</Box> 
           </Container>
           <div id='iccs'>Privacy policy</div>

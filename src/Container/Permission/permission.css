@@ -21,7 +21,7 @@
     position: relative;
     min-height: 15vh;
     max-width: 30vw;
-    left: 10vw;
+    left: 14vw;
     top:12vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,6 @@
     text-indent: 1vw;
     font-size: 2vh;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    outline: none;
 }
 
 .pertog{
@@ -59,7 +58,7 @@
     position: relative;
     height: 4vh;
     width: 6vw;
-    left: 35vw;
+    left: 27vw;
     border-radius: 5px;
     border: none;
     font-size: 2vh;

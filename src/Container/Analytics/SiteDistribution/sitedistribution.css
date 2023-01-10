@@ -26,8 +26,12 @@
     border-radius: 2vh;
     right: 1px;
 }
+.sdbox2::-webkit-scrollbar-track{
+    border-radius: 2vh;
+    margin-block:1vh;
+}
 .sdbox2::-webkit-scrollbar-thumb{
-    background-color: #E3DAF6;
+    background-color: #ffffff;
     border-radius: 2vh;
     border: .25em solid #E3DAF6;
 }

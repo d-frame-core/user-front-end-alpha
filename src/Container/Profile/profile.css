@@ -18,7 +18,7 @@ width: 80vw;
 }
 .prtext1{
     position: absolute;
-    font-size: 4vh;
+    font-size: 5vh;
     padding: 2vh;
     left: 2vw;
     font-weight: 600;
@@ -27,7 +27,7 @@ width: 80vw;
     position: absolute;
     height: 15vh;
     top: 10vh;
-left: 5vw;
+left: 10vw;
     
 }
 .contitem{
@@ -40,7 +40,7 @@ left: 5vw;
     flex-direction: column;
     row-gap: 3vh;
     font-size: 3vh;
-    padding-bottom: 2vh;
+    padding-bottom: 4vh;
 }
 .pr{
     position: relative;
@@ -53,9 +53,15 @@ left: 5vw;
 .prfont{
    position: absolute;
     color: #1B2B65;
+    font-size: 100%;
+    font-weight: 400;
     left:14vw;
     
     
+}
+.colonpop{
+    position: absolute;
+    left: 14vw;
 }
 .kycitem{
     position: relative;
@@ -65,12 +71,21 @@ left: 5vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
    border-radius: 1.1vh;
 }
+.pbtn1{
+    height: 5vh;
+    width: 7vw;
+    font-size: 100%;
+    color: white;
+    background-color: #017EFA;
+    border-radius: 10px;
+    border: none;
+}
 p{
     top: 0vh;
-    font-weight: 700;
+    font-weight: 500;
 }
 .kyctitle{
-    font-weight: 800;
+    font-weight: 600;
     font-size: 4vh;
     padding-top: 2vh;
 }
@@ -108,6 +123,8 @@ p{
     height: 6vh;
     width: 28vw;
     font-size: 20px;
+    text-indent: 1vw;
+    outline: none;
     border: none;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.7);

@@ -8,6 +8,7 @@ import './success.css'
 import data from './data'
 
 export default function Success() {
+
   return (
     <Container>
 <>{Sidebar1(1)}</>       <Box className='sucbox'>
@@ -24,7 +25,7 @@ Thank you and Enjoy your journey with D Frame Privacy.</div>
           </Step>
         ))}
       </Stepper></Box></div>
-      <NavLink to='/profile'><button className='kybtn'>Finish</button></NavLink>
+      <button className='kybtn' >Finish</button>
         </Box>
     </Container>
 

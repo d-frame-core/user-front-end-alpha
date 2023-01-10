@@ -8,7 +8,7 @@ import analyticsdata from '../../../Container/Analytics/analyticsdata';
 const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384"];
 const style = {
   top: "5vh",
-  left: "25vw",
+  left: "30vw",
   lineHeight: "34px",
   
 };
@@ -36,8 +36,8 @@ export default function Charts1(indata: any[] ) {
         labelLine={false}
         isAnimationActive={true}
         data={indata}
-        cx={120}
-        cy={100}
+        cx='30%'
+        
         innerRadius={50}
         outerRadius={90}
         >

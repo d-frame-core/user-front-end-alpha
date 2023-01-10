@@ -23,15 +23,15 @@ export default function FirstPage() {
     e.preventDefault();
 
     if(firstname === ''){
-      setField('FirstName');
+      setField('First Name');
       setFieldOpen(true);
     }
     else if(lastname === ''){
-      setField('LastName');
+      setField('Last Name');
       setFieldOpen(true);
     }
     else if(username === ''){
-      setField('UserName');
+      setField('User Name');
       setFieldOpen(true);
     }
     else if(email === ''){
@@ -43,7 +43,7 @@ export default function FirstPage() {
       setFieldOpen(true);
     }
     else if(address === ''){
-      setField('address');
+      setField('Address');
       setFieldOpen(true);
     }
     else{
@@ -92,7 +92,7 @@ export default function FirstPage() {
       </Container>
         <Backdrop open={fieldopen}>
           <Box className='fillbox'>
-            <div className='a1'>Please Fill in {field}</div>
+            <div className='a1'>Please Fill in the {field}</div>
             <button className='a2' onClick={()=>setFieldOpen(false)}>Okay</button>
           </Box>
         </Backdrop>

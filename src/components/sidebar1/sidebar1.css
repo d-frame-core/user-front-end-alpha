@@ -5,18 +5,19 @@
 }
 .dframe{
     position: absolute;
-    height: 20vh;
-    width: 10vw;
+    height: 16vh;
+    width: 9vw;
     top: 2vh;
-    left: 3.5vw;
+    left: 5vw;
     z-index: 1;
 }
 .dftext{
     position: absolute;
     height: 5vh;
-    width: 5vw;top: 18vh;
-    left: 5.5vw;
-    
+    width: 8vw;
+    top: 18vh;
+    font-size: 120%;
+    left: 5vw;
     font-weight: 700;
     z-index: 1;
     color: #0A194E;
@@ -59,6 +60,22 @@
     border-top-left-radius: 1vh;
     border-bottom-left-radius: 1vh;
 }
+.act3{
+    position: relative;
+    width: 16vw;
+    left: 2vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 5vh;
+    font-size: 90%;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    text-align: left;
+    text-indent: 2vw;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+}
 .notActive{
     position: relative;
     width: 18vw;
@@ -76,11 +93,26 @@
     left: 2vw;
     margin-top: 0vh;
     height: 5vh;
-    font-size: 3vh;
+    
     background-color: #0A194E;
     color: white;
     font-weight: 400;
     text-indent: 1vw;
+}
+.notActive2{
+    position: relative;
+    width: 16vw;
+    left: 2vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 5vh;
+    font-size: 90%;
+    background-color: #0A194E;
+    color: white;
+    font-weight: 500;
+    text-align: left;
+    text-indent: 2vw;
+    
 }
 .act2{
     position: relative;
@@ -118,7 +150,7 @@ height: 4vh;
 top: 7vh;
 margin-left: 1vw;
 border-left: 2vh;
-font-size: 16px;
+font-size: 110%;
 font-weight: 400;
 color: #FFFFFF;
 z-index: 2;
@@ -156,7 +188,7 @@ border-radius: 6px;
 
 .text9{
     position: absolute;
-    width: 5vw;
+    width: 7vw;
     height: 1.5vh;
     left: 5vw;
     top: 94vh;

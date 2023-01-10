@@ -15,8 +15,7 @@
 }
 .ftitle{
     font-size: 5vh;
-    font-weight: 700;
-    font-family: 'IBM Plex Sans Devanagari';
+    font-weight: 600;
     padding: 2vh;
     align-items: center;
 }
@@ -28,9 +27,11 @@
 .alignleft{
     position: relative;
     right: 3vw;
+    font-size: 23px;
 }
 .fbox2{
     position: relative;
+    top: 1vh;
     text-align: left;
     text-indent: 7vw;
     box-sizing: 2vh;
@@ -43,7 +44,7 @@
     position: relative;
     left:2vw;
     height: 5vh;
-    min-width: 18vw;
+    min-width: 20vw;
     border-radius: 1vh;
     border: none;
     font-size: 3vh;
@@ -58,8 +59,8 @@
    border-radius: 1vh;
    height: 6vh;
    left: 45%;
-   
-   max-width: 60px;
+   font-size: 16px;
+   max-width: 15%;
    color: white;
    background-color: #017EFA;
 }
@@ -76,7 +77,7 @@
     position: relative;
     top: 25%;
     font-size: 27px;
-    font-weight: 550;
+    font-weight: 400;
 }
 .a2{
     position: relative;

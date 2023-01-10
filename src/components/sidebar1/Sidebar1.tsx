@@ -13,11 +13,11 @@ import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PaddingOutlinedIcon from '@mui/icons-material/PaddingOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 export default function Sidebar1(index : any) {
   var [dataActive, setDataActive] = useState(false);
-
+  var dataActive1 = false;
   const[toggleState,setToggleState] = useState(index);
   
   const toggleTab = (index: any) =>{
@@ -34,7 +34,7 @@ export default function Sidebar1(index : any) {
       <Header/>
         <img src={df} className='dframe' alt=''/>
    
-        <div className='dftext'>DFrame</div>
+        <div className='dftext'>D FRAME</div>
 
         <Box className='side'>
           <div className='item'>
@@ -54,17 +54,17 @@ export default function Sidebar1(index : any) {
               <SettingsOutlinedIcon className='ic'/>Permission</div>
             </NavLink>
             
-            <NavLink to='#' onClick={(e)=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}} className='notActive1'>
-            <div ><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics <KeyboardArrowDownOutlinedIcon className='kc'/></div></NavLink>
+            <NavLink to='#' onClick={()=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}} className='notActive1'>
+            <div ><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics {dataActive && <KeyboardArrowDownOutlinedIcon className='kc'/>}{!dataActive && <ChevronLeftIcon className='kc'/>}</div></NavLink>
               <div >
                 {dataActive&&(
                   <>
                     <div><NavLink to='/topsitevisited' style={{textDecoration:'none',color:'white'}} >
-                      <div className={toggleState === 5? "act1" : "notActive"}onClick={()=> toggleTab(5)}>
+                      <div className={toggleState === 5? "act3" : "notActive2"}onClick={()=> toggleTab(5)}>
                         <SearchOutlinedIcon className='ic'/>Sites Visited</div></NavLink></div>
                     <div><NavLink to='/sitedistribution' style={{textDecoration:'none',color:'white'}}>
-                      <div className={toggleState === 6? "act1" : "notActive"}onClick={()=> toggleTab(6)}>
-                      <SearchOutlinedIcon className='ic'/>Site distribution</div></NavLink></div>
+                      <div className={toggleState === 6? "act3" : "notActive2"}onClick={()=> toggleTab(6)}>
+                      <SearchOutlinedIcon className='ic'/>Site distriution</div></NavLink></div>
                   </>
               )}
               </div>
@@ -89,13 +89,13 @@ export default function Sidebar1(index : any) {
    <div>
 <div className='rectangle'>
         <div className='rect3'>
-        <div className='text6'>Need help with Dframe?</div>
+        <div className='text6'>Need help with D Frame?</div>
         <NavLink to='/help'> <div className='rect1' >Go to Help</div> </NavLink>
         </div>
         </div>
 
             <NavLink to='/learnmore' className=''>
-        <div className='text9' >LearnMore</div>
+        <div className='text9' >Learn More</div>
         </NavLink>
    </div>
    </>

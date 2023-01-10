@@ -5,10 +5,10 @@ import { stripBasename } from '@remix-run/router';
 import { Container } from '@mui/material';
 import analyticsdata from '../../../Container/Analytics/analyticsdata';
 
-const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384"];
+const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384","#002147","#551a8b","#003366","#f5f5dc","#c71585", "#702963" ];
 const style = {
   top: "6vh",
-  left: "25vw",
+  left: "30vw",
   lineHeight: "34px",
   
 };
@@ -35,7 +35,7 @@ export default function Charts2(indata: any[] ) {
         labelLine={false}
         isAnimationActive={true}
         data={indata}
-        cx='20%'
+        cx='30%'
         
         innerRadius={60}
         outerRadius={120}

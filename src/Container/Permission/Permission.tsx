@@ -24,6 +24,7 @@ export default function Permission(){
       <Container maxWidth={false} sx={{maxWidth:'70%'}} className="percont">
         <a className="pertitle">Permission</a> 
         <Box><form className="perbox" onSubmit={handlesubmit}>
+
           <a>Update Email<a className="percol">:</a> <input className="perinput" placeholder="Enter Email" name='email' type='email' value={email} onChange={(e)=>setemail(e.target.value)} required ></input></a>
           <a>Update Number<a className="percol">:</a> <input className="perinput" placeholder='Enter Number'name='number' type='number' value={number} onChange={(e)=>setnumber(e.target.value)} required ></input></a>
           

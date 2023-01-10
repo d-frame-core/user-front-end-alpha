@@ -10,6 +10,8 @@ export default function Wallet() {
     dft:'10 DFT',
     userad:'0xnu989njbknk989sbuikjdbcksdvsdlvk '
   }
+ 
+  var cl='us';
   return (
     <div>
       
@@ -35,8 +37,8 @@ export default function Wallet() {
               </Box>
               </Box>
               <Box className='walbox2'> 
-                <p>Wallet Balance {userdata.dft}</p>
-                <div ><p className='us'>{userdata.userad}</p><ContentCopyIcon className='icus'/></div>
+                <p className='wa'>Wallet Balance {userdata.dft}</p>
+                <div  ><input className='us' value={userdata.userad} readOnly={true}></input><a onClick={()=> {navigator.clipboard.writeText(userdata.userad); }}><ContentCopyIcon className='icus'/></a></div>
               </Box>
               <Box>
                   <div className='transfertoken'>
@@ -54,4 +56,4 @@ export default function Wallet() {
       </div>
     
   )
-}
+                  }

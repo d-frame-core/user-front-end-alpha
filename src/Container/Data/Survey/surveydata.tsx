@@ -20,9 +20,7 @@ const surveydata=[
         Questions:"5 Questions"
     
     }]
-    export default surveydata
+
+export default surveydata
 
 
-var questions = {
-    prompt: "What color are apples?" 
-}

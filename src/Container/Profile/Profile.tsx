@@ -14,13 +14,15 @@ import Backdrop from '@mui/material/Backdrop/Backdrop';
 import { userdata } from './FirstPage';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import EditButton from '../../components/upload/EditButton';
 
 
 
 
-export default function Profile() {
+ function Profile() {
   
-   
+  const[successful,setSuccessful]=useState(false);
+
 
     const [popshow,setPopShow]=useState(false);
 
@@ -106,33 +108,42 @@ export default function Profile() {
                 <div><a className='pr'>Last Name</a><a className='colon1'>:</a><a className='prfont' >babu</a></div>
                 <div><a className='pr'>Number</a><a className='colon1'>:</a><a className='prfont' >{phonenumber} <a onClick={()=>setPopShow(true)}><CreateOutlinedIcon   sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}} /></a></a></div>
                 <div><a className='pr'>Email</a><a className='colon1'>:</a><a className='prfont'>abc@gmail.com<a onClick={signInWithGoogle}><CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></a></div>
-                <div><a className='pr'>Address 1</a><a className='colon1'>:</a><a className='prfont'>address 1 <a ><CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></a></div>
-                <div><a className='pr'>Address 2</a><a className='colon1'>:</a><a className='prfont'>Address 2<CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></div>
+                <div><a className='pr'>Address 1</a><a className='colon1'>:</a><a className='prfont'>address 1 <a ><EditButton/></a></a></div>
+                <div><a className='pr'>Address 2</a><a className='colon1'>:</a><a className='prfont'>Address 2<EditButton/></a></div>
                 <div><a className='pr'>Wallet Address</a><a className='colon1'>:</a><a className='prfont'>0x000000000000000</a></div>
               </Container>
         
           </Container>
         
-          <Container maxWidth={false} sx={{maxWidth:'85%', minHeight:'26vh'}}className="kycitem">
-         
-            <div className='kyctitle'>KYC Verification</div>
+          {!successful &&<Container maxWidth={false} sx={{maxWidth:'85%', minHeight:'24vh'}}className="kycitem">
+          <>
+             <div className='kyctitle'>KYC Verification</div>
           
             <p>This Verification makes us aware that you are a valid user. It may take upto 24 hours.</p>
           
-            <NavLink to="/kyc1" style={{textDecoration:'none',position:'relative',top:'2vh'}}>
-              <Button  variant='contained'>Verify</Button>
+            <NavLink to="/kyc1" style={{textDecoration:'none',position:'relative',top:'1vh'}}>
+              <button className='pbtn1'>Verify</button>
             </NavLink>
-          </Container>
+            {
+
+            }
+            </>
+          </Container>}
+         
+          {successful && <Container maxWidth={false} sx={{maxWidth:'85%', minHeight:'15vh',position:'relative',bottom:'4vh'}}className="kycitem">
+            <p>Successfully KYC verification part is completed</p>
+          </Container>}
+
           </Box>
             {popshow && <Backdrop open={popshow} sx={{  zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         
               <Box  className='update'>
                 <div className='uphead'>Update Number</div>
-                  <a className='upa'>Phone Number: <input className='uin'name='phonenumber' type='tel' value={phonenumber} onChange={(e)=> setPhoneNumber(e.target.value)}/></a>
+                  <a className='upa'>Phone Number<a className="colonpop">:</a> <input className='uin'name='phonenumber' type='tel' value={phonenumber} onChange={(e)=> setPhoneNumber(e.target.value)}/></a>
                   <button className='upbtn'onClick={sendotp}>Send OTP</button>
-                  <a className='upa'>Enter Reason:<input className='uin'/></a>
+                  <a className='upa'>Enter Reason<a className="colonpop">:</a><input className='uin'/></a>
                   <div id='recaptcha-container'></div>
-                  <a className='upa'>Enter OTP :<input className='uin' name='otp'  value={otp} onChange={(e)=>setOtp(e.target.value)}/></a>
+                  <a className='upa'>Enter OTP <a className="colonpop">:</a><input className='uin' name='otp'  value={otp} onChange={(e)=>setOtp(e.target.value)}/></a>
                   <button className='upbtn' onClick={verifyOtp}>Save</button>
                   <div></div>
                   <CloseIcon onClick={()=>setPopShow(false)} className='cross'/>
@@ -143,3 +154,5 @@ export default function Profile() {
     </div>
     )
 }
+
+export default Profile

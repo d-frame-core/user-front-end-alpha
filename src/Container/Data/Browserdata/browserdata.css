@@ -197,3 +197,19 @@ padding: 3vh;
     top: -6vh;
     font-size: 12px;
 }
+.d11{
+    position: relative;
+    height: 100%;
+    width: 1px;
+    left: 53vw;
+    z-index: 2;
+    background-color: white;
+}
+.d12{
+    position: relative;
+    height: 100%;
+    width: 1px;
+    left: 25vw;
+    z-index: 5;
+    background-color: white;
+}

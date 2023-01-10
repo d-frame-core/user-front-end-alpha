@@ -5,7 +5,6 @@ import './sitedistribution.css'
 import { useState } from 'react'
 
 var a: any[]=[];
-
 const Crypto=[
   {name:'Bitcoin',per:'35%',value: 35},
   {name:'Ethereum',per:'35%',value: 35},
@@ -73,7 +72,7 @@ var a: any[];
   return (
     <Container>
    <>{Sidebar1(6)}</>
-   <div className='title'>Site Distribution</div>
+  
  
     <div className='sites'>
       
