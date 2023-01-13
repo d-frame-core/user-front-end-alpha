@@ -4,12 +4,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Divider } from '@mui/material';
+import './b.css'
 
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
+ 
   width: 400,
   bgcolor: 'background.paper',
   boxShadow: 24,
@@ -20,6 +22,7 @@ const style = {
 
 
 const BasicModal=(props: { name: string ;paragraph: string; }) => {
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -45,7 +48,9 @@ const BasicModal=(props: { name: string ;paragraph: string; }) => {
           <Divider/>
           <br/>
           </div>
-          <Button variant="contained" onClick={handleClose} sx={{left:'80%'}} >Close</Button>
+          <div>
+          <button onClick={handleClose} className='btncl' >Close</button>
+          </div>
         </Box>
       </Modal>
     </div>

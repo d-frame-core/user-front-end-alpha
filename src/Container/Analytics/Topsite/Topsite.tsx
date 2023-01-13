@@ -19,9 +19,9 @@ export default function Topsite() {
   return (
    <div><>{Sidebar1(5)}</>
       <Box  sx={{maxWidth:'84%'}}className='top1'>
-        <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
+        <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Top Sites Visited</div></NavLink>
         <Divider variant='middle' orientation='vertical' light={true}/>
-        <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tab2active":"tab2"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
+        <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tab2active":"tab2"} onClick={()=> toggleTab(12)}>Site By Time</div></NavLink>
         </Box>
    
   <Box className='tsbox1'>

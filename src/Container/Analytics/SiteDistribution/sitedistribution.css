@@ -95,17 +95,19 @@
 .gap{
     padding: 2vh;
     display: flex;
+    font-size: 80%;
     padding-left: 10vw;
     column-gap: 2vw;
 }
 .gap1{
     position: absolute;
     right: 10vw;
+    font-size: 100%;
 }
 .topic{
     position: absolute;
-    font-size: 4vh;
-    padding: 2vh;
+    font-size: 5vh;
+    padding: 1vh;
     padding-left: 2vw;
     font-weight: 600;
 }

@@ -67,7 +67,7 @@
     margin-top: 2%;
     margin-bottom: 2%;
     height: 5vh;
-    font-size: 80%;
+    font-size: 70%;
     background-color: white;
     color: black;
     font-weight: 500;
@@ -106,7 +106,7 @@
     margin-top: 2%;
     margin-bottom: 2%;
     height: 5vh;
-    font-size: 80%;
+    font-size: 70%;
     background-color: #0A194E;
     color: white;
     font-weight: 500;
@@ -136,7 +136,7 @@
 width: 14vw;
 height: 14vh;
 left: 1vw;
-top: 78vh;
+top: 79vh;
 z-index: 1;
 color: #FFFFFF;
 background: #1B2B65;
@@ -176,14 +176,13 @@ background: #017EFA;
 .text9{
     position: absolute;
     width: 7vw;
-    height: 1.5vh;
     left: 4vw;
     top: 94vh;
     z-index: 4;
     font-family: 'Alata';
     font-style: normal;
     font-weight: 400;
-    font-size: 3vh;
+    font-size: 100%;
     text-decoration-line: underline ;
     color: #FFFFFF;
 }
@@ -208,7 +207,7 @@ background: #017EFA;
 }
 .circle1{
     position: absolute;
-    top:75vh ;
+    top:77vh ;
     left:6.5%;
     z-index: 3;
     height: 6vh;
@@ -218,7 +217,7 @@ background: #017EFA;
 }
 .circle2{
     position: absolute;
-    top:76vh ;
+    top:78vh ;
     left:7%;
     z-index: 3;
     height: 4vh;
@@ -226,10 +225,4 @@ background: #017EFA;
     width: 2%;
     border-radius: 50%;
     background-color: #017EFA;
-}
-@media screen and (max-width:600) {
-    .side{
-        display: none;
-    }
-    
 }

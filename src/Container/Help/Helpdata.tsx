@@ -1,7 +1,7 @@
 const Helpdata={
      
         name1:'Read More',
-        des1:'Here will be the Description for the read More'
+        des1:'Detials will be added in due time.'
     ,
     
         name2:'Privacy Policy',
@@ -13,7 +13,7 @@ const Helpdata={
     ,
     
         name4:'Terms of Service',
-        des4:'Here will be the Description for the Therms of Service'
+        des4:'Detials will be added in due time.'
     
      }
 

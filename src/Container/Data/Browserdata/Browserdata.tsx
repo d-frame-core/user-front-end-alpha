@@ -22,6 +22,8 @@ var b:any={};
   };
 
 function Browserdata() {
+  var calldata= false;
+
   const [toggleState1,setToggleState1] = useState(9);
   const toggleTab1 = (index: void |any) =>{
     setToggleState1(index);
@@ -47,6 +49,7 @@ function Browserdata() {
     (b=call);
     st='d12';
     o='pp2'
+    calldata =true;
   }
   const setpop=()=>{
     <div></div>
@@ -69,8 +72,9 @@ function Browserdata() {
           <span>
             {[...new Array(50)].map(()=>{
             return (<>
-              <div className='brtext'>`This is your data from <b>{b.name}</b> website we will share it with our clients`</div>
-              <Divider/>
+              { !calldata && <div className='brtext'>`This is your data from <b>{b.name}</b> website which we will share  with our clients`</div>}
+              {calldata && <div className='brtext'>`This is your data from <b>{b.name}</b> device which we will share with our clients`</div>
+}              <Divider/>
               </>
             )
 })}

@@ -35,7 +35,7 @@ const SocialMedia=[
   {name:'Instagram',per:'35%',value: 300},
   {name:'Meta',per:'29%',value: 250},
   {name:'Reddit',per:'24%',value: 200},
-  {name:'LinkedIN',per:'12%',value: 100}
+  {name:'Linkedin',per:'12%',value: 100}
 ];
 const Finance=[
   {name:'Muthoot',per:'33%',value: 300},

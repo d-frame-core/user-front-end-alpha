@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Divider } from '@mui/material'
 import{ useState } from 'react'
 import './sidebar1.css';
 import { NavLink } from 'react-router-dom';
@@ -44,7 +44,7 @@ export default function Sidebar1(index : any) {
               <div className={toggleState === 1? "act1" : "notActive"} >
                 <PortraitIcon className='ic'/>Profile</div>
             </NavLink>
-
+            <Divider  sx={{color:"white",zIndex:'10'}}/>
             <NavLink to='/wallet' style={{textDecoration:'none',color:'white',width:'18vw'}}onClick={()=> index=2}>
               <div className={toggleState === 2? "act1" : "notActive"}>
                 <AccountBalanceWalletOutlinedIcon className='ic' />Wallet</div>
@@ -94,7 +94,7 @@ export default function Sidebar1(index : any) {
 <div className='rectangle'>
         <div className='rect3'>
         <div className='text6'>Need help with D Frame?</div>
-        <NavLink to='/help'> <button className='rect1' >Go to help center</button> </NavLink>
+        <NavLink to='/help'> <button className='rect1' >Go to Help Center</button> </NavLink>
         </div>
         </div>
 

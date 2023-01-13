@@ -8,7 +8,7 @@ export default function Header() {
     <Container>
       <Box className='header'>
         <KeyboardArrowDownIcon className='arrow'/>
-          <div className='head1'>User Name</div>
+          <div className='head1'>Username</div>
           <img className='user1' src={user} alt=''></img>
       </Box>
     </Container>

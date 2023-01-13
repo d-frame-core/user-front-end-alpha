@@ -21,7 +21,7 @@ export default function Wallet() {
             <div className='head'>Wallet</div>
             <Box className='trans'>
               <div className='trans1'>Transaction</div>
-              <Divider/>
+              <Divider sx={{width:'22vw',margin:'auto'}}/>
               <Box className='wabo'>
                 <div>{walletdata.map(item =>{
                   return(
@@ -37,13 +37,13 @@ export default function Wallet() {
               </Box>
               </Box>
               <Box className='walbox2'> 
-                <p className='wa'>Wallet Balance  : {userdata.dft}</p>
+                <p className='wa'>Wallet Balance &nbsp;&nbsp;&nbsp; {userdata.dft}</p>
                 <div  ><input className='us' value={userdata.userad} readOnly={true}></input><a onClick={()=> {navigator.clipboard.writeText(userdata.userad); }}><ContentCopyIcon className='icus'/></a></div>
               </Box>
               <Box>
                   <div className='transfertoken'>
                     <div className='trans2'>Transfer Tokens</div>
-                  <Divider/>
+                  <Divider sx={{width:'18vw',margin:'auto'}}/>
                     <div className='wad'> Wallet Address:<input className='il'/></div>
                     <div className='wad'>DFT Amount :<input className='il'/></div>
                     <button className='walbtn'>Send</button>
