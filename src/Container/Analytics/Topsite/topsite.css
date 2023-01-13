@@ -1,10 +1,11 @@
 .tsbox1{
     position: absolute;
-    height: 50vh;
-    width: 60vw;
+    min-height: 55vh;
+    width: 74vw;
     top: 18vh;
-    left: 28vw;
+    left: 21vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+    border-radius: 10px;
 }
 .tsbox2{
     position: absolute;
@@ -14,16 +15,16 @@
     width: 55vw;
     top: 70vh;
     left: 30.5vw;
+    border-radius: 10px;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
 
 .tschart{
     position: absolute;
-    top:1vh;
-    left: 8vw;
+    top:6vh;
+    left: 9vw;
     z-index: 1;
     background-color: white;
-
 }
 .list{
     position: relative;
@@ -37,14 +38,14 @@
 .top1{
     position: absolute;
     top: 9vh;
-    left: 18vw;
-    width: 82vw;
+    left: 16vw;
+    width: 84vw;
     height: 7vh;
     background-color:#0A194E ;
 }
 .tab1{
     position: absolute;
-    width: 39vw;
+    width: 41vw;
     left:0vw;
     padding: 1vh;
     background-color:#0A194E;
@@ -57,7 +58,7 @@
     position: absolute;
     top: 0vh;
     right: 3px;
-    width: 39vw;
+    width: 41vw;
     padding: 1vh;
     height: 5vh;
     background-color:#0A194E ;
@@ -70,7 +71,7 @@
     position: absolute;
     left: 2px;
     bottom: 0px;
-    width: 39vw;
+    width: 41vw;
     padding: 1vh;
     background-color:white;
     height: 65%;    font-size: 3vh;
@@ -83,7 +84,7 @@
     position: absolute;
     bottom: 0px;
     right: 2px;
-    width: 39vw;
+    width: 41vw;
     padding: 1vh;
     height: 65%;
     background-color:white ;

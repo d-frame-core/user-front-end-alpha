@@ -1,9 +1,9 @@
 .sdbox1{
     position: absolute;
-    height: 50vh;
-    width: 60vw;
+    min-height: 55vh;
+    width: 74vw;
     top: 18vh;
-    left: 28vw;
+    left: 21vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
     border-radius: 10px;
 }
@@ -11,10 +11,11 @@
     position: absolute;
     text-align: left;
     font-size: 3vh;
-    height: 28vh;
-    width: 55vw;
-    top: 70vh;
-    left: 30.5vw;
+    height: 23vh;
+    width: 70vw;
+    top: 75vh;
+    border-radius: 10px;
+    left: 23vw;
     overflow: hidden;
     overflow-y: scroll;
     display: flex;
@@ -37,8 +38,9 @@
 }
 .sdchart{
     position: absolute;
-    top:10vh;
-    left: 8vw;
+    width: 60vw;
+    top:9vh;
+    left: 7vw;
     z-index: 1;
     background-color: white;
 
@@ -63,29 +65,30 @@
 .sites{
     position: absolute;
     top: 9vh;
-    left: 18vw;
-    width: 82vw;
-   
+    left: 16vw;
+    width: 84vw;
+    font-size: 2vh;
     display: flex;
     flex-direction: row;
-    
+    font-family: 'Alata';
     
 }
 .crypto,.gender,.agegroup,.sports,.finance,.socialmedia{
     height: 5vh;
     width: 14vw;
-    padding-top: 1vh;
-    font-size: 3vh;
+    padding-top: 2vh;
+    font-size: 130%;
+    text-align: center;
+   
     background-color: #0A194E;
    color: white;
 }
 .cryptoactive,.genderactive,.agegroupactive,.sportsactive,.financeactive,.socialmediaactive{
     height: 5vh;
-    top: 10px;
     width: 14vw;
+    padding-top: 2vh;
     color: #000;
-    padding-top: 1vh;
-    font-size: 3vh;
+    font-size: 130%;
     background-color: white;
   
 }

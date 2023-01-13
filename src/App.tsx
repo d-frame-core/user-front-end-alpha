@@ -45,6 +45,7 @@ function App() {
           <Route path='/help' element={<Help/>}/>
           <Route path='/permission' element={<Permission/>}/>
           <Route path='/learnmore' element={<LearnMore/>}/>
+          
         </Routes>
       </Router>
     </div>

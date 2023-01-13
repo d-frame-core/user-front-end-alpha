@@ -3,6 +3,7 @@ import Charts1 from '../../../components/charts/Charts1/Charts1'
 import Sidebar1 from '../../../components/sidebar1/Sidebar1'
 import './sitedistribution.css'
 import { useState } from 'react'
+import Charts2 from '../../../components/charts/Charts2/Charts2'
 
 var a: any[]=[];
 const Crypto=[
@@ -70,7 +71,7 @@ var a: any[];
   }
 
   return (
-    <Container>
+    <div>
    <>{Sidebar1(6)}</>
   
  
@@ -89,8 +90,8 @@ var a: any[];
       <div onClick={()=> toggleTab(8)} className={toggleState === 8? "financeactive":"finance"}>Finance</div>
     </div>
   <Box className='sdbox1'>
-    <div className='topic'>Site Distribution :</div>
-  <div className='sdchart'>{Charts1(a)}</div>
+    <div className='topic'>Site Distribution</div>
+  <div className='sdchart'>{Charts2(a)}</div>
    </Box>
    <Box className='sdbox2'>
    <span> {
@@ -107,7 +108,7 @@ var a: any[];
             }</span><br/>
        
    </Box>
-   </Container>
+   </div>
   )
 }
 

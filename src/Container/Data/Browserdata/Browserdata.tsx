@@ -27,6 +27,7 @@ function Browserdata() {
     setToggleState1(index);
   }
   var st:string;
+  var o:string;
   const [hoverOpen,setHoverOpen]=useState(false);
    const  Open=()=>{
     window.open('Dframe.pdf')
@@ -35,13 +36,17 @@ function Browserdata() {
   if(toggleState1 === 9){
     (b=browser);
     st='d11';
+    o="pp"
   }
   else if(toggleState1 === 10){
     (b=email);
-    st='';  }
+    st=''; 
+    o='pp1'
+   }
   else{
     (b=call);
-    st='d12'
+    st='d12';
+    o='pp2'
   }
   const setpop=()=>{
     <div></div>
@@ -50,16 +55,16 @@ function Browserdata() {
     <div>
         <>{Sidebar1(8)}</>
 
-          <Container maxWidth={false} sx={{maxWidth:'82%'}} className='arm' >
+          <Container maxWidth={false} sx={{maxWidth:'84%'}} className='arm' >
             <Box className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</Box>
             <div className={st}></div>
             <Box className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</Box>
             
             <Box className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</Box> 
           </Container>
-          <div id='iccs'>Privacy policy</div>
-          <div className='brtitle'  >{b.name}<a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  ><InfoOutlinedIcon  className='icon' id='icon' onMouseEnter={()=>setHoverOpen(true)} onMouseLeave={()=>setHoverOpen(false)}/>{hoverOpen && <p className='pp'>Privacy Policy</p>}</a></div>
-          <Container maxWidth={false}  sx={{maxWidth:'75%',minHeight:'72vh'}}className='brrect2'>{b.detial}
+          
+          <div className='brtitle'  >{b.name}<a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  ><InfoOutlinedIcon  className='icon' onMouseEnter={()=>setHoverOpen(true)} onMouseLeave={()=>setHoverOpen(false)}/>{hoverOpen && <p className={o}>Privacy Policy</p>}</a></div>
+          <Container maxWidth={false}  sx={{maxWidth:'75%',minHeight:'72vh'}}className='brrect2'>{b.detial}:
         <Box className='brbox'>
           <span>
             {[...new Array(50)].map(()=>{

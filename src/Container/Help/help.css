@@ -20,9 +20,9 @@
 .hrect{
     position: absolute;
     top: 9vh;
-    left: 18vw;
+    left: 16vw;
     height: 91vh;
-    width: 82vw;
+    width: 84vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);;
 
 }
@@ -31,6 +31,6 @@
     font-size: 5vh;
     font-weight: 600;
     top: 11vh;
-    left: 21vw;
+    left: 20vw;
     z-index: 1;
 }

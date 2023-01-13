@@ -1,4 +1,6 @@
 .pie{
-    z-index: 1;
-    background-color: aqua;
+    position: relative;
+    width: 40vw;
+  
+    
 }

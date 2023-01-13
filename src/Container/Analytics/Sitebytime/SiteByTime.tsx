@@ -25,16 +25,16 @@ export default function SiteByTime() {
     <div>
       <>{Sidebar1(5)}</>
       
-      <Box sx={{maxWidth:'82%'}}className='top1'>
+      <Box sx={{maxWidth:'84%'}}className='top1'>
         <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Topsite Visited</div></NavLink>
         <Divider variant='middle' orientation='vertical' light={true} sx={{zIndex:1}}/>
         <NavLink to='/sitebytime'><div className={toggleState === 12 ? "tab2active":"tab2"} onClick={()=> toggleTab(12)}>Site by time</div></NavLink>
         </Box>
    
-    <Box className='tsbox1'>
+    <Box className='sdbox1'>
     <div className='tschart'>{Charts2(analyticsdata)}</div>
     </Box>
-    <Box className='tsbox2'>
+    <Box className='sdbox2'>
            <span> {
            analyticsdata.map(item=>{
               return (<>

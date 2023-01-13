@@ -7,7 +7,7 @@ import walletdata from './walletdata';
 
 export default function Wallet() {
   const userdata={
-    dft:'10 DFT',
+    dft:' 10 DFT ',
     userad:'0xnu989njbknk989sbuikjdbcksdvsdlvk '
   }
  
@@ -37,7 +37,7 @@ export default function Wallet() {
               </Box>
               </Box>
               <Box className='walbox2'> 
-                <p className='wa'>Wallet Balance {userdata.dft}</p>
+                <p className='wa'>Wallet Balance  : {userdata.dft}</p>
                 <div  ><input className='us' value={userdata.userad} readOnly={true}></input><a onClick={()=> {navigator.clipboard.writeText(userdata.userad); }}><ContentCopyIcon className='icus'/></a></div>
               </Box>
               <Box>

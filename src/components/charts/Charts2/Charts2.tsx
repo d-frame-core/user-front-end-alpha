@@ -8,7 +8,7 @@ import analyticsdata from '../../../Container/Analytics/analyticsdata';
 const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384","#002147","#551a8b","#003366","#f5f5dc","#c71585", "#702963" ];
 const style = {
   top: "6vh",
-  left: "30vw",
+  left: "35vw",
   lineHeight: "34px",
   
 };
@@ -29,7 +29,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 export default function Charts2(indata: any[] ) {
   return (
     <Container maxWidth={false}  className='pie'>
-    <PieChart width={600} height={275} >
+    <PieChart width={700} height={290} >
       <Pie 
         dataKey="value"
         labelLine={false}
@@ -37,8 +37,8 @@ export default function Charts2(indata: any[] ) {
         data={indata}
         cx='30%'
         
-        innerRadius={60}
-        outerRadius={120}
+        innerRadius={70}
+        outerRadius={130}
         >
             {indata.map((entry, index) => (
             <Cell key={`cell-${entry}`} fill={COLORS[index % COLORS.length]} />

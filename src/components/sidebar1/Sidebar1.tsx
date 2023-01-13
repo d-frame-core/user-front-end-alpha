@@ -13,7 +13,8 @@ import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PaddingOutlinedIcon from '@mui/icons-material/PaddingOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
 export default function Sidebar1(index : any) {
   var [dataActive, setDataActive] = useState(false);
@@ -54,8 +55,8 @@ export default function Sidebar1(index : any) {
               <SettingsOutlinedIcon className='ic'/>Permission</div>
             </NavLink>
             
-            <NavLink to='#' onClick={()=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}} className='notActive1'>
-            <div ><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics {dataActive && <KeyboardArrowDownOutlinedIcon className='kc'/>}{!dataActive && <ChevronLeftIcon className='kc'/>}</div></NavLink>
+            <NavLink to='#' onClick={()=>{setDataActive(!dataActive)}}  style={{textDecoration:'none',color:'white'}}>
+            <div  className='notActive1'><InsertChartOutlinedOutlinedIcon className='ic'/>Analytics {dataActive && <KeyboardArrowDownOutlinedIcon className='kc'/>}{!dataActive && <ChevronRightIcon className='kc'/>}</div></NavLink>
               <div >
                 {dataActive&&(
                   <>
@@ -64,7 +65,7 @@ export default function Sidebar1(index : any) {
                         <SearchOutlinedIcon className='ic'/>Sites Visited</div></NavLink></div>
                     <div><NavLink to='/sitedistribution' style={{textDecoration:'none',color:'white'}}>
                       <div className={toggleState === 6? "act3" : "notActive2"}onClick={()=> toggleTab(6)}>
-                      <SearchOutlinedIcon className='ic'/>Site distriution</div></NavLink></div>
+                      <SearchOutlinedIcon className='ic'/>Site Distribution</div></NavLink></div>
                   </>
               )}
               </div>
@@ -87,10 +88,13 @@ export default function Sidebar1(index : any) {
 
    </div>
    <div>
+    <div className="circle1"></div>
+      <div className="circle2"><QuestionMarkIcon/></div>
+    
 <div className='rectangle'>
         <div className='rect3'>
         <div className='text6'>Need help with D Frame?</div>
-        <NavLink to='/help'> <div className='rect1' >Go to Help</div> </NavLink>
+        <NavLink to='/help'> <button className='rect1' >Go to help center</button> </NavLink>
         </div>
         </div>
 
