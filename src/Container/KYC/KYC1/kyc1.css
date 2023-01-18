@@ -1,96 +1,116 @@
-.ky1rectangle{
-    position: absolute;
+.ky1rectangle {
+    position: relative;
     display: flex;
-    height: 80vh;
+    height: 100vh;
+    border-radius: 1.1vh;
     width: 75vw;
-    top: 15vh;
-    left: 21vw;
-    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-}
-.kyc1{
-    position:absolute;
-    height: 10vh;
-    width: 5vw;
-    top: 55vh;
-    left: 18vw;
-}
-.ktext1{
-position: absolute;
-height: 5vh;
-top: 12vh;
-font-size: 3.5vh;
-
-left: 7.5vw;
-}
-.i{
+    top: 5rem;
+    left: 8rem;
+    background: linear-gradient(
+      180deg,
+      rgba(227, 218, 246, 0.6) 0%,
+      rgba(227, 218, 246, 0.6) 100%
+    );
+  }
+  
+  .kyc1 {
     position: absolute;
-    height: 5vh;
-    width: 35vh;
+    height: 6vh;
+    width: 3vw;
+    top: 78vh;
+    left: 20.5vw;
+  }
+  .gender-input {
+    position: absolute;
+    height: 20vh;
+    top: 12vh;
+    font-size: 3.5vh;
+  
     left: 10vw;
+  }
+  .i {
+    position: absolute;
+    margin-top: -0.5rem;
+    width: 35vh;
+    left: 20vw;
     border: none;
     border-radius: 1.1vh;
-}
-.ktext2{
-    position: absolute;
-height: 5vh;
-top: 12vh;
-font-size: 3.5vh;
-left: 40vw;
-}
-
-.ktext3{
-    position: absolute;
-height: 5vh;
-top: 27vh;
-font-size: 3.5vh;
-
-left: 7.5vw;
-}
-
-.ktext4{
-    position: absolute;
-height: 5vh;
-font-size: 3.5vh;
-
-top: 27vh;
-left: 40vw;
-}
-
-.ktext5{
+  }
+  .ktext2 {
     position: absolute;
     height: 5vh;
-    top: 42vh;
+    top: 22vh;
     font-size: 3.5vh;
-
-    left: 7.5vw;
-}
-.ktext6{
+    left: 10vw;
+  }
+  
+  .ktext3 {
     position: absolute;
-height: 5vh;
-top: 42vh;
-font-size: 3.5vh;
-
-left: 40vw;
-}
-
-.ktext7{
+    height: 5vh;
+    top: 32vh;
+    font-size: 3.5vh;
+  
+    left: 10vw;
+  }
+  
+  .date-picker {
+    position: absolute !important;
+    left: 20vw;
+    width: 35vh;
+  
+    border: none;
+    border-radius: 1.1vh;
+    background-color: white;
+  }
+  
+  .ktext4 {
     position: absolute;
-    top: 3vh;
-    left: 4vw;
-    font-size: 4vh;
-}
-.label{
+  
+    font-size: 3.5vh;
+  
+    top: 42vh;
+    left: 10vw;
+  }
+  
+  .select-country {
     position: absolute;
-    top:65vh;
+    top: 0%;
+    width: 35vh;
+  }
+  .select-gender {
+    position: absolute;
+    top: 0%;
+    width: 35vh;
+  }
+  .address-label{
+      top: 0%;
+  }
+  
+  .ktext5 {
+    position: absolute;
+    height: 5vh;
+    top: 52vh;
+    font-size: 3.5vh;
+  
+    left: 10vw;
+  }
+  .captcha {
+    position: absolute;
+    top: 63vh;
+    left: 25vw;
+  }
+  .label {
+    position: absolute;
+    top: 85vh;
     left: 15vw;
-    width:30vh;
+    width: 30vh;
     z-index: 1;
-}
-.kybtn{
+  }
+  .kybtn {
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 70vh;
+    top: 85vh;
     left: 65vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
@@ -98,4 +118,5 @@ left: 40vw;
     font-size: 2vh;
     border-radius: 1.1vh;
     z-index: 2;
-}
+  }
+  

@@ -1,4 +1,4 @@
-import { Stepper, Step, StepLabel } from '@mui/material'
+import { Stepper, Step, StepLabel, Button } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
@@ -8,24 +8,24 @@ import './success.css'
 import data from './data'
 
 export default function Success() {
-
   return (
     <Container>
-<>{Sidebar1(1)}</>       <Box className='sucbox'>
-            <img src={df} alt='' className='success1'/><br/>
-            <div className='ww'>You have successfully completed the KYC Verification process ,
-Thank you and Enjoy your journey with D Frame Privacy.</div>
+        <Sidebar1/>
+        <Box className='sucbox'>
+            <img src={df} alt='' className='logo'/><br/>
+            <div style={{fontWeight:'bold'}} className='ww'>You have successfully completed the KYC Verification process.
+            <br/>Thank you!</div>
             
            
-           <img src={df} alt='' className='success2'></img>  
-           <div className='label'><Box sx={{ width: '300%' }}><Stepper activeStep={3} alternativeLabel>
+           <img src={df} alt='' className='logo-step-3'></img>  
+           <div className='step-3'><Box sx={{ width: '300%' }}><Stepper activeStep={3} alternativeLabel>
         {data.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
       </Stepper></Box></div>
-      <button className='kybtn' >Finish</button>
+      <NavLink style={{textDecoration:'none'}} to='/profile'><Button sx={{backgroundColor:'#017EFA', borderRadius:'10px',textTransform:'inherit'}} variant='contained' className='btn-step-3'>Finish</Button></NavLink>
         </Box>
     </Container>
 

@@ -17,7 +17,7 @@ import Topsite from './Container/Analytics/Topsite/Topsite';
 import SiteByTime from './Container/Analytics/Sitebytime/SiteByTime';
 import SiteDistribution from './Container/Analytics/SiteDistribution/SiteDistribution';
 import KYC2 from './Container/KYC/KYC2/KYC2';
-import KYC3 from './Container/KYC/KYC3/KYC3';
+
 import Success from './Container/KYC/Success';
 import FirstPage from './Container/Profile/FirstPage';
 import Charts2 from './components/charts/Charts2/Charts2';
@@ -33,7 +33,7 @@ function App() {
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
           <Route path='/kyc2' element={<KYC2/>}/>
-          <Route path='/kyc3' element={<KYC3/>}/>
+          
           <Route path='/successful' element={<Success/>}/>
           <Route path='/browserdata' element={<Browserdata/>}/>
           <Route path='/wallet' element={<Wallet/>}/>

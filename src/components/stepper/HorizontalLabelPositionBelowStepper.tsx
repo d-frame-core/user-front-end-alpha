@@ -7,8 +7,8 @@ import StepLabel from '@mui/material/StepLabel';
 const steps = [
   'Level-1',
   'Level-2',
-  'Level-3',
-  'Level-4'
+  'Complete'
+  
 ];
 
 export default function HorizontalLabelPositionBelowStepper() {
