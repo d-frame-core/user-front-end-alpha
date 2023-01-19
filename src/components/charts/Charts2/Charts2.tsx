@@ -7,35 +7,23 @@ import analyticsdata from '../../../Container/Analytics/analyticsdata';
 
 const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384","#002147","#551a8b","#003366","#f5f5dc","#c71585", "#702963" ];
 const style = {
-  top: "6vh",
-  left: "35vw",
+  top: "4vh",
+  right:'0vw',
   lineHeight: "34px",
   
 };
 const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }:any) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  var per=(percent * 100).toFixed(0);
 
-  return (
-    {/*<text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${per}%`}
-  </text>*/}
-  );
-};
-
-export default function Charts2(indata: any[] ) {
+export default function Charts2(indata: any[],value:string ) {
   return (
     <Container maxWidth={false}  className='pie'>
     <PieChart width={700} height={290} >
       <Pie 
-        dataKey="value"
+        dataKey={value}
         labelLine={false}
         isAnimationActive={true}
         data={indata}
-        cx='30%'
+        cx='50%'
         
         innerRadius={70}
         outerRadius={130}

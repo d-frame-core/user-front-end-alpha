@@ -38,11 +38,11 @@ export default function Help() {
           <div className='inf'>
             <BasicModel name={Helpdata.name1} paragraph={Helpdata.des1}/>
           </div>
-          <div className='inf'>
-          <a href='#' onClick={Open1} style={{textDecoration:"none",color:"black"}}><BasicModel name={Helpdata.name2}  paragraph={Helpdata.des2}/>
-              
+          
+          <a href='#' onClick={Open1} style={{textDecoration:"none",color:"black"}}>
+          <div className='inf'>Privacy Policy</div>
            </a>
-          </div>
+          
           <div className='inf'>
             <BasicModel name={Helpdata.name3}  paragraph={Helpdata.des3}/>
           </div>

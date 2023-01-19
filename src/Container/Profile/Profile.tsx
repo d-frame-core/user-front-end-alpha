@@ -15,16 +15,24 @@ import { userdata } from './FirstPage';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import EditButton from '../../components/upload/EditButton';
+import UploadButtons from '../../components/upload/UploadButtons';
 
 
 
 
  function Profile() {
   
-  const[successful,setSuccessful]=useState(false);
-
+   const[successful,setSuccessful]=useState(false);
+ 
+    let [gmail,setgmail]= useState("");
 
     const [popshow,setPopShow]=useState(false);
+
+    const [popshow1,setPopShow1]=useState(false);
+
+    const [address1,setAddress1]=useState('');
+
+    const [address2,setAddress2]=useState('');
 
     authentication.languageCode = 'en';
 
@@ -86,12 +94,22 @@ import EditButton from '../../components/upload/EditButton';
       const provider = new GoogleAuthProvider();
     signInWithPopup(authentication, provider)
   .then((result:any) => {
-    console.log(result)
+    
+    const user = result.user;
+    setgmail(user.email)
   }).catch((error : any) => {
     console.log(error)
   });
 }
 
+  const updateaddress1=(e:any)=>{
+      e.preventDefault();
+      setAddress1(e.target.value);
+  }
+  const updateaddress2=(e:any)=>{
+    e.preventDefault();
+    setAddress1(e.target.value);
+}
 
   return (
     <div>
@@ -107,9 +125,9 @@ import EditButton from '../../components/upload/EditButton';
                 <div><a className='pr'>First Name</a><a className='colon1'>:</a><a className='prfont' >Niranjan</a></div>
                 <div><a className='pr'>Last Name</a><a className='colon1'>:</a><a className='prfont' >babu</a></div>
                 <div><a className='pr'>Number</a><a className='colon1'>:</a><a className='prfont' >{phonenumber} <a onClick={()=>setPopShow(true)}><CreateOutlinedIcon   sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}} /></a></a></div>
-                <div><a className='pr'>Email</a><a className='colon1'>:</a><a className='prfont'>abc@gmail.com<a onClick={signInWithGoogle}><CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}}/></a></a></div>
-                <div><a className='pr'>Address 1</a><a className='colon1'>:</a><a className='prfont'>address 1 <a ><EditButton/></a></a></div>
-                <div><a className='pr'>Address 2</a><a className='colon1'>:</a><a className='prfont'>Address 2<EditButton/></a></div>
+                <div><a className='pr'>Email</a><a className='colon1'>:</a><a className='prfont'>{gmail}<a onClick={signInWithGoogle}><CreateOutlinedIcon sx={{color:'#47B5FF',top:'4px',left:'5%',position:'relative'}}/></a></a></div>
+                <div><a className='pr'>Address 1</a><a className='colon1'>:</a><a className='prfont'>{address1} <a onClick={()=>setPopShow1(true)}><CreateOutlinedIcon   sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}} /></a></a></div>
+                <div><a className='pr'>Address 2</a><a className='colon1'>:</a><a className='prfont'>{address2} <a onClick={()=>setPopShow1(true)}><CreateOutlinedIcon   sx={{color:'#47B5FF',top:'4px',left:'15%',position:'relative'}} /></a></a></div>
                 <div><a className='pr'>Wallet Address</a><a className='colon1'>:</a><a className='prfont'>0x000000000000000</a></div>
               </Container>
         
@@ -145,11 +163,29 @@ import EditButton from '../../components/upload/EditButton';
                   <div id='recaptcha-container'></div>
                   <a className='upa'>Enter OTP <a className="colonpop">:</a><input className='uin' name='otp'  value={otp} onChange={(e)=>setOtp(e.target.value)}/></a>
                   <button className='upbtn' onClick={verifyOtp}>Save</button>
-                  <div></div>
+                  
                   <CloseIcon onClick={()=>setPopShow(false)} className='cross'/>
               </Box>
             </Backdrop>
             
+            }
+            {popshow1 && <Backdrop open={popshow1} sx={{  zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+              <Box className='update1'>
+                
+                <div className='uphead'>Update Address</div>
+                <a className='upa'>Enter Address 1<a className="colonpop">:</a> <input className='uin' name='address1' type='text' value={address1} onChange={(e)=> setAddress1(e.target.value)}/></a>
+                  <button className='upbtn'>Update</button><br/>
+                  <br/>
+                  <div className='upbtn1'><UploadButtons name={'Address 1 Proof'}/></div>
+                  <a className='upa'>Enter Address 2<a className="colonpop">:</a><input className='uin'  name='address2' type='text' value={address2} onChange={(e)=> setAddress2(e.target.value)}/></a>
+                  <button className='upbtn' >Update</button><br/>
+                  <br/>
+  
+                  <div className='upbtn1'><UploadButtons name={'Address 2 Proof'}/></div>
+                  <CloseIcon onClick={()=>setPopShow1(false)} className='cross'/>
+              </Box>
+            </Backdrop>
+
             }
     </div>
     )

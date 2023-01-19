@@ -7,14 +7,6 @@ import analyticsdata from '../analyticsdata'
 import { NavLink } from 'react-router-dom'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
 
-const data = [
-  { name: "YouTube", value: 400 },
-  { name: "Netflix", value: 300 },
-  { name: "Codechef", value: 300 },
-  { name: "Flipkart", value: 200 },
-  { name: "TATA NEU", value: 189 }
-];
-
 export default function SiteByTime() {
 
   const [toggleState,setToggleState] = useState(12);
@@ -32,7 +24,7 @@ export default function SiteByTime() {
         </Box>
    
     <Box className='sdbox1'>
-    <div className='tschart'>{Charts2(analyticsdata)}</div>
+    <div className='tschart'>{Charts2(analyticsdata,"long1")}</div>
     </Box>
     <Box className='sdbox2'>
            <span> {
@@ -40,7 +32,7 @@ export default function SiteByTime() {
               return (<>
               <div className='gap'>
                 {item.name}
-                <a className='gap1'>{item.long}</a> 
+                <a className='gap1'>{item.long1+" minutes"}</a> 
               </div>
               <Divider/></>
               );

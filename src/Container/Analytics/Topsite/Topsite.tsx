@@ -1,6 +1,5 @@
 import { Box, Container, Divider } from '@mui/material'
 import React,{ useState } from 'react'
-import Charts1 from '../../../components/charts/Charts1/Charts1'
 import Sidebar1 from '../../../components/sidebar1/Sidebar1'
 import './topsite.css'
 import { NavLink } from 'react-router-dom'
@@ -25,7 +24,7 @@ export default function Topsite() {
         </Box>
    
   <Box className='tsbox1'>
-  <div className='tschart'>{Charts2(analyticsdata)}</div>
+  <div className='tschart'>{Charts2(analyticsdata,"time1")}</div>
    </Box>
    <Box className='sdbox2'>
    <span> {
@@ -33,7 +32,7 @@ export default function Topsite() {
               return (<>
               <div className='gap'>
                 {item.name}
-                <a className='gap1'>{item.times}</a> 
+                <a className='gap1'>{item.time1+" times"}</a> 
               </div>
               <Divider /></>
               );

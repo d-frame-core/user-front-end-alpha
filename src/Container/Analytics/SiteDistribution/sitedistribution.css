@@ -30,6 +30,7 @@
 .sdbox2::-webkit-scrollbar-track{
     border-radius: 2vh;
     margin-block:1vh;
+    margin-right: 10px;
 }
 .sdbox2::-webkit-scrollbar-thumb{
     background-color: #ffffff;
@@ -38,9 +39,9 @@
 }
 .sdchart{
     position: absolute;
-    width: 60vw;
+    
     top:9vh;
-    left: 7vw;
+    left: 9vw;
     z-index: 1;
     background-color: white;
 

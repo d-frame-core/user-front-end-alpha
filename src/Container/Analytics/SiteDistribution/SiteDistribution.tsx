@@ -1,5 +1,4 @@
 import { Container, Box, Divider } from '@mui/material'
-import Charts1 from '../../../components/charts/Charts1/Charts1'
 import Sidebar1 from '../../../components/sidebar1/Sidebar1'
 import './sitedistribution.css'
 import { useState } from 'react'
@@ -7,41 +6,41 @@ import Charts2 from '../../../components/charts/Charts2/Charts2'
 
 var a: any[]=[];
 const Crypto=[
-  {name:'Bitcoin',per:'35%',value: 35},
-  {name:'Ethereum',per:'35%',value: 35},
-  {name:'Polygon',per:'30%',value: 30},
-  {name:'Solana',per:'30%',value: 30},
-  {name:'Hyperledger',per:'30%',value: 30},
+  {name:'Bitcoin',per:35,value: 35},
+  {name:'Ethereum',per:35,value: 35},
+  {name:'Polygon',per:30,value: 30},
+  {name:'Solana',per:30,value: 30},
+  {name:'Hyperledger',per:30,value: 30},
 ];
 const Gender=[
-  {name:'Male',per:'46%',value: 300},
-  {name:'Female',per:'46%',value: 300},
-  {name:'others',per:'8%',value: 50}
+  {name:'Male',per:46,value: 300},
+  {name:'Female',per:46,value: 300},
+  {name:'others',per:8,value: 50}
 ];
 const Agegroup=[
-  {name:'>18',per:'43%',value: 300},
-  {name:'25-40',per:'43%',value: 300},
-  {name:'41-60',per:'7%',value: 50},
-  {name:'<60',per:'7%',value: 50}
+  {name:'>18',per:43,value: 300},
+  {name:'25-40',per:43,value: 300},
+  {name:'41-60',per:7,value: 50},
+  {name:'<60',per:7,value: 50}
 ];
 const sports=[
-  {name:'Football',per:'40%',value: 300},
-  {name:'Cricket',per:'40%',value: 300},
-  {name:'Hockey',per:'7%',value: 50},
-  {name:'Kabbadi',per:'7%',value: 50},
-  {name:'Badmiton',per:'7%',value: 50}
+  {name:'Football',per:40,value: 300},
+  {name:'Cricket',per:40,value: 300},
+  {name:'Hockey',per:7,value: 50},
+  {name:'Kabbadi',per:7,value: 50},
+  {name:'Badmiton',per:7,value: 50}
 ];
 const SocialMedia=[
-  {name:'Instagram',per:'35%',value: 300},
-  {name:'Meta',per:'29%',value: 250},
-  {name:'Reddit',per:'24%',value: 200},
-  {name:'Linkedin',per:'12%',value: 100}
+  {name:'Instagram',per:35,value: 300},
+  {name:'Meta',per:29,value: 250},
+  {name:'Reddit',per:24,value: 200},
+  {name:'Linkedin',per:12,value: 100}
 ];
 const Finance=[
-  {name:'Muthoot',per:'33%',value: 300},
-  {name:'Mahindra',per:'33%',value: 300},
-  {name:'HDFC',per:'22%',value: 200},
-  {name:'EasyLoan',per:'11%',value: 100}
+  {name:'Muthoot',per:33,value: 33},
+  {name:'Mahindra',per:33,value: 33},
+  {name:'HDFC',per:22,value: 22},
+  {name:'EasyLoan',per:11,value: 11}
 ];
 var a: any[];
 
@@ -56,6 +55,7 @@ var a: any[];
   }
   else if (toggleState === 4){
     (a = Gender);
+   
   }
   else if (toggleState === 5){
     (a = Agegroup);
@@ -91,7 +91,7 @@ var a: any[];
     </div>
   <Box className='sdbox1'>
     <div className='topic'>Site Distribution</div>
-  <div className='sdchart'>{Charts2(a)}</div>
+  <div className='sdchart'>{Charts2(a,"per")}</div>
    </Box>
    <Box className='sdbox2'>
    <span> {
@@ -99,7 +99,7 @@ var a: any[];
               return (<>
               <div className='gap'>
                 {item.name}
-               <a className='gap1'>{item.per}</a> 
+               <a className='gap1'>{item.per + " %"}</a> 
               </div>
               <Divider/></>
               );

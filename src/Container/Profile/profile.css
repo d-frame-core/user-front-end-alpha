@@ -100,6 +100,17 @@ p{
     border-radius: 10px;
     
 }
+.update1{
+    position: absolute;
+    height: 90vh;
+    width: 60vw;
+    top: 5vh;
+    left: 20vw;
+    font-size: 26px;
+    background-color: #E3DAF6;
+    border-radius: 10px;
+    
+}
 .uphead{
     position: relative;
     top: 4vh;
@@ -110,7 +121,7 @@ p{
     position: relative;
     height: 18vh;
     text-indent: 10vw;
-    top: 10vh;
+    top: 8vh;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -132,11 +143,23 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .upbtn{
     position: relative;
-    top: 3vh;
+    top: 1vh;
     border: none;
     left: 19vw;
     height: 7vh;
     width: 8vw;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #017EFA;
+}
+.upbtn1{
+    position: relative;
+    top: 1vh;
+    border: none;
+    left: 39vw;
+    height: 7vh;
+    width: 14vw;
     border-radius: 10px;
     font-size: 18px;
     color: white;
@@ -147,4 +170,10 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     top: 8%;
     right: 4vw;
    
+}
+.upa1{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10vw;
 }

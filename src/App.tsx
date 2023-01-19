@@ -9,8 +9,6 @@ import Profile from './Container/Profile/Profile';
 import Survey from './Container/Data/Survey/Survey';
 import KYC1 from './Container/KYC/KYC1/KYC1';
 import Browserdata from './Container/Data/Browserdata/Browserdata';
-import Charts from './components/charts/Charts1/Charts1';
-import Charts1 from './components/charts/Charts1/Charts1';
 import Rewards from './Container/Rewards/Rewards';
 import Sidebar1 from './components/sidebar1/Sidebar1';
 import Topsite from './Container/Analytics/Topsite/Topsite';

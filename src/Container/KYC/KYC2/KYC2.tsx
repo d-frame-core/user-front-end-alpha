@@ -17,9 +17,9 @@ export default function KYC2() {
         <div className='title'>KYC Verification</div>
         <Box className='ky2rectangle'>
         <div className='level'>Level-2</div>
-            <div className='k0'><b>Photo:</b><div className='up'><UploadButtons/></div></div>
-            <div className='k1'><b>Government Verification 1:</b> (Photo proof)<div className='up'><UploadButtons/></div></div>
-            <div className='k2'><b>Government Verification 2:</b> (Address proof)<div className='up'><UploadButtons/></div></div>
+            <div className='k0'><b>Photo:</b><div className='up'></div></div>
+            <div className='k1'><b>Government Verification 1:</b> (Photo proof)<div className='up'></div></div>
+            <div className='k2'><b>Government Verification 2:</b> (Address proof)<div className='up'></div></div>
             <img src={df} alt='' className='kyc2'/> 
 
             <div className='label'>  <Box sx={{ width: '300%' }}>
