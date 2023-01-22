@@ -15,6 +15,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import Webcam from 'react-webcam';
 import { Container } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { useRef} from "react";
 
 
 const Transition = React.forwardRef(function Transition(
@@ -28,6 +29,11 @@ const Transition = React.forwardRef(function Transition(
 
 export default function CaptureButtoms() {
 
+
+  const webcam = useRef<Webcam>(null);
+
+ 
+  
 
   const [open, setOpen] = React.useState(false);
 
@@ -72,10 +78,12 @@ export default function CaptureButtoms() {
           
         </AppBar>
         
-        <Webcam style={{margin:'auto 5rem'}} width={1000} height={600}  screenshotFormat="image/jpeg"/>
+        <Webcam style={{margin:'auto 5rem'}} width={1000} height={600}  screenshotFormat="image/jpeg" ref={webcam}/>
         <div style={{position:'absolute', top:'20rem', right:"1.5rem"}}>Please pose while holding Photo ID in your hand to make it readable.</div>
         <Button variant='contained' 
-      
+        
+           
+        
         sx={{
           position:'absolute' , 
           bottom:"10rem" , 
@@ -83,7 +91,7 @@ export default function CaptureButtoms() {
           backgroundColor:'#017EFA', borderRadius:'10px',textTransform:'inherit',width:'100px'
           
           }}>Capture</Button>
-
+        
 
       </Dialog>
     </div>
