@@ -17,7 +17,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function KYC1() {
 
-  const [gender, setGender] = useState("Select")
+  const [gender, setGender] = useState(" ")
   const [income, setIncome] = useState("")
   const [dob, setDob] = useState("")
   const [address, setAddress] = useState("")
@@ -96,20 +96,20 @@ const isFormValid=()=>{
       
       <div>
         
-        <form onSubmit={handleSubmit}>
+      
           <div className='container'>
         <Box className='ky1rectangle'>
           <div className='level'>KYC Level-1:</div>
           <div className='gender-input'>Gender &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
           <div className='i select-gender'>
-          <FormControl  sx={{  width: 350, backgroundColor:'white' , textAlign:'left' }}>
-          <InputLabel id="demo-simple-select-helper-label">Select</InputLabel>
+          <FormControl  sx={{  width: 350, backgroundColor:'white' , textAlign:'left' , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , border:'none'}}>
+          <InputLabel  id="demo-simple-select-helper-label">Select</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={gender}
           label="Select"
-           onChange={handleGenderChange}
+          onChange={handleGenderChange}
         >
           
           <MenuItem value={'Male'}>Male</MenuItem>
@@ -130,7 +130,7 @@ const isFormValid=()=>{
           </div>
           </div>
           <div className='ktext3'>Date of Birth &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-          <TextField sx={{width:350 , marginTop:'-0.5rem'}} className='date-picker'
+          <TextField sx={{width:350 , marginTop:'-0.5rem',boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)"}} className='date-picker'
           value={dob}
         id="date"
         // label="Choose your birthdate"
@@ -143,7 +143,7 @@ const isFormValid=()=>{
       </div>
           <div className='ktext4'>Annual Income &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
           <div className='i select-gender'>
-          <FormControl  sx={{  width: 350, backgroundColor:'white' , textAlign:'left' }}>
+          <FormControl  sx={{  width: 350, backgroundColor:'white' , textAlign:'left',boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)"}}>
           <InputLabel id="demo-simple-select-helper-label">Select</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -164,7 +164,7 @@ const isFormValid=()=>{
           <div className='ktext5'>Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
           <div className='i address-label'>
           <TextField 
-          sx={{width:350, backgroundColor:'white'}} 
+          sx={{width:350, backgroundColor:'white', boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)"}} 
           id="outlined-basic" 
           label="Address" 
           variant="outlined"  
@@ -177,8 +177,6 @@ const isFormValid=()=>{
          <ReCAPTCHA 
           className='captcha' 
           sitekey='6LcBCP8jAAAAANnWNyJx7ERLW5IlR5yRO6v4HWfX'
-          //sitekey='6Lcpan0jAAAAABvbnRm9nbbOri2jRADnujJIuliL' //v2
-          // sitekey='6LdU0q0jAAAAADDH2OiXdcDIXlEhajw2LYkDf45J' //v3
           onChange={onChange}
           />
           
@@ -190,10 +188,10 @@ const isFormValid=()=>{
           </Step>
         ))}
       </Stepper></Box></div>
-          <NavLink style={{textDecoration:'none'}} to='/kyc2'><Button sx={{backgroundColor:'#017EFA', borderRadius:'10px',textTransform:'inherit'}}  variant='contained' type="submit" className='kybtn' disabled={!isFormValid()}>Next</Button></NavLink>
+          <NavLink style={{textDecoration:'none'}} to='/kyc2'><Button sx={{backgroundColor:'#017EFA', borderRadius:'10px',textTransform:'inherit',width:'100px'}}  variant='contained' type="submit" className='kybtn' disabled={!isFormValid()}>Next</Button></NavLink>
         </Box>
         </div>
-        </form>
+        
       </div>
     </Container>
   )

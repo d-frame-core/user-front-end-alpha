@@ -37,8 +37,8 @@ export default function Sidebar1(index : any) {
    
         <div className='dftext'>D FRAME</div>
 
-        <Box className='side'>
-          <div className='item'>
+      <Box className='side'>
+        <div className='item'>
             
             <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> index=1} >
               <div className={toggleState === 1? "act1" : "notActive"} >
@@ -87,7 +87,7 @@ export default function Sidebar1(index : any) {
 </Box>
 
    </div>
-   <div>
+   <div className='footer'>
     <div className="circle1"></div>
       <div className="circle2"><QuestionMarkIcon/></div>
     

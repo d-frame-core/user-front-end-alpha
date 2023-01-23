@@ -5,7 +5,7 @@
     border-radius: 1.1vh;
     width: 75vw;
     top: 5rem;
-    left: 8rem;
+    left: 7vw;
     background: linear-gradient(
       180deg,
       rgba(227, 218, 246, 0.6) 0%,
@@ -24,13 +24,13 @@
     position: absolute;
     height: 20vh;
     top: 12vh;
-    font-size: 3.5vh;
-  
+    font-size: 3vh;
+    font-weight: 500;
     left: 10vw;
   }
   .i {
     position: absolute;
-    margin-top: -0.5rem;
+    margin-top: -1rem;
     width: 35vh;
     left: 20vw;
     border: none;
@@ -40,16 +40,17 @@
     position: absolute;
     height: 5vh;
     top: 22vh;
-    font-size: 3.5vh;
+    font-size: 3vh;
+    font-weight: 500;
     left: 10vw;
   }
   
   .ktext3 {
     position: absolute;
     height: 5vh;
-    top: 32vh;
-    font-size: 3.5vh;
-  
+    top: 31vh;
+    font-size: 3vh;
+    font-weight: 500;
     left: 10vw;
   }
   
@@ -57,7 +58,7 @@
     position: absolute !important;
     left: 20vw;
     width: 35vh;
-  
+    font-weight: 500;
     border: none;
     border-radius: 1.1vh;
     background-color: white;
@@ -65,8 +66,8 @@
   
   .ktext4 {
     position: absolute;
-  
-    font-size: 3.5vh;
+    font-weight: 500;
+    font-size: 3vh;
   
     top: 42vh;
     left: 10vw;
@@ -90,8 +91,8 @@
     position: absolute;
     height: 5vh;
     top: 52vh;
-    font-size: 3.5vh;
-  
+    font-size: 3vh;
+    font-weight: 500;
     left: 10vw;
   }
   .captcha {
