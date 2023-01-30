@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route,Navigate } from 'react-router-dom';
 import Help from './Container/Help/Help';
 import LearnMore from './Container/LearnMore/LearnMore';
 import Permission from './Container/Permission/Permission';
@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Routes>
 
-          <Route path='' element={<FirstPage/>}/>
+          <Route path='/' element={<Navigate to='profile'/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
           <Route path='/kyc2' element={<KYC2/>}/>

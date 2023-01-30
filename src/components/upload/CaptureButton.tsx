@@ -10,6 +10,7 @@ import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import Webcam from 'react-webcam'
 import { useRef} from "react";
+import WebcamForKYC from '../Webcam/WebcamForKYC';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -74,8 +75,8 @@ export default function CaptureButtoms() {
        
 
         
-        
-        <Webcam style={{margin:'auto 5rem'}} width={1000} height={600}  screenshotFormat="image/jpeg" ref={webcam}/>
+        <WebcamForKYC/>
+        {/* <Webcam style={{margin:'auto 5rem'}} width={1000} height={600}  screenshotFormat="image/jpeg" ref={webcam}/>
         <div style={{position:'absolute', top:'20rem', right:"1.5rem"}}>Please pose while holding Photo ID in your hand to make it readable.</div>
         <Button variant='contained' 
         
@@ -87,7 +88,7 @@ export default function CaptureButtoms() {
           right:'13rem',
           backgroundColor:'#017EFA', borderRadius:'10px',textTransform:'inherit',width:'100px'
           
-          }}>Capture</Button>
+          }}>Capture</Button> */}
         
 
       </Dialog>

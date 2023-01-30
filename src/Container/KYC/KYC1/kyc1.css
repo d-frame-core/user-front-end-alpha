@@ -1,7 +1,7 @@
 .kyc-rectangle {
     position: relative;
     display: flex;
-    height: 50rem;
+    height: 95vh;
     border-radius: 1.1vh;
     width: 75vw;
     top: 5rem;
@@ -22,7 +22,7 @@
     position: absolute;
     height: 85vh;
     min-width: 48vw;
-    background-color: hwb(0 100% 0% / 0.502);
+    /* background-color: hwb(0 100% 0% / 0.502); */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -33,7 +33,7 @@
     top: 10vh;
     font-weight: 600;
     padding: 5vh;
-    align-items: center;
+    align-items: left;
 }
 .colon{
     position: absolute;
@@ -112,7 +112,7 @@
 
 .step-1{
     position: absolute;
-    top: 45rem;
+    top: 37rem;
     left: 15vw;
     width: 30vh;
     z-index: 1;

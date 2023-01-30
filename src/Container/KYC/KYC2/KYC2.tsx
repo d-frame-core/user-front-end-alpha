@@ -143,7 +143,7 @@ const isFormValid=()=>{
       </div>
           <div className='ktext4'>Annual Income &nbsp; &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
           <div className='i select-gender'>
-          <FormControl  sx={{ borderRadius:'10px', width: 350, backgroundColor:'white' , textAlign:'left',boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)"}}>
+          <FormControl sx={{ borderRadius:'10px', width: 350, backgroundColor:'white' , textAlign:'left',boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)"}}>
           <InputLabel id="demo-simple-select-helper-label">Select</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -151,6 +151,7 @@ const isFormValid=()=>{
           value={income}
           label="Select"
           onChange={handleIncomeChange}
+          color='primary'
         >
           
           <MenuItem value={'INR 0 - INR 5,00,000'}>INR 0 - INR 5,00,000</MenuItem>

@@ -50,10 +50,7 @@ export default function KYC1() {
       setField('Phone Number');
       setFieldOpen(true);
     }
-    else if(address === ''){
-      setField('Address');
-      setFieldOpen(true);
-    }
+   
     else{
         userdata={
           F1:firstname,
@@ -76,7 +73,7 @@ export default function KYC1() {
         <Box className='kyc-rectangle'>
         <div className='body'>
         <Container maxWidth='sm' sx={{top:'45vh'}} className='fbox1'>
-          <div className='ftitle'>User Profile</div>
+          <div className='ftitle'>KYC Level-1:</div>
           <form className='fbox2' >
             <div className='alignleft'>First Name<a className='colon'>:
                   <input className='in' type='text' name='firstname' value={firstname} onChange={(e)=>setfirstName(e.target.value)} required={true} />
@@ -98,10 +95,7 @@ export default function KYC1() {
                   <input className='in' type='tel' name='number' value={number} onChange={(e)=>setnumber(e.target.value)} required={true} />
                   </a>
                   </div>
-            <div className='alignleft'>Address<a className='colon'>:
-                  <input className='in' type='text' name='address' value={address} onChange={(e)=>setAddress(e.target.value)} required={true} />
-                  </a>
-            </div>
+            
             
             <button  className='btnup' onClick={handleSubmit} >Submit</button>
         </form>
