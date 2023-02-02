@@ -48,16 +48,17 @@
   .ktext3 {
     position: absolute;
     height: 5vh;
-    top: 32vh;
+    top: 31vh;
     font-size: 28px;
     font-weight: 350;
     left: 10vw;
   }
   
   .date-picker {
-    position: absolute !important;
+    position: absolute;
+    top: 0vh;
     left: 20vw;
-    width: 35vh;
+    
     font-weight: 350;
     border: none;
     border-radius: 1.1vh;
