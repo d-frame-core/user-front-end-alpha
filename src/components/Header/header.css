@@ -1,6 +1,4 @@
-body{
-   
-}
+
 .header{
     position: absolute;
 width: 84vw;
@@ -10,10 +8,10 @@ z-index: -1;
 left: 16vw;
 background: linear-gradient(90deg, rgba(92, 15, 255, 0.63) 0%, rgba(177, 133, 253, 0.0567) 100%);}
 .head1{
-    position: absolute;
+    position: relative;
 width:10vw;
 top:3vh;
-right:7vw;
+margin-right:100vw;
 font-family: "Atala";
 font-size: 110%;
 font-weight: 500;
@@ -32,4 +30,14 @@ font-weight: 500;
     position: absolute;
     right:6vw;
     top: 3vh;
+}
+@media only screen and (max-width:1000px) {
+   .header{
+    width: 80vw;
+    left: 20vw;
+   } 
+   .head1{
+
+
+   }
 }

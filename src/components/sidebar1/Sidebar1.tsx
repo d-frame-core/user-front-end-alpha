@@ -33,19 +33,17 @@ export default function Sidebar1(index : any) {
     <>
     <div>
       <Header/>
-        <img src={df} className='dframe' alt=''/>
-   
-        <div className='dftext'>D FRAME</div>
-
         <Box className='side'>
+        <img src={df} className='dframe' alt=''/>
+        <div className='dftext'>D FRAME</div>
           <div className='item'>
             
-            <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> index=1} >
+            <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> toggleTab(1)} >
               <div className={toggleState === 1? "act1" : "notActive"} >
                 <PortraitIcon className='ic'/>Profile</div>
             </NavLink>
             <Divider  sx={{color:"white",zIndex:'10'}}/>
-            <NavLink to='/wallet' style={{textDecoration:'none',color:'white',width:'18vw'}}onClick={()=> index=2}>
+            <NavLink to='/wallet' style={{textDecoration:'none',color:'white',width:'18vw'}}onClick={()=> toggleTab(2)}>
               <div className={toggleState === 2? "act1" : "notActive"}>
                 <AccountBalanceWalletOutlinedIcon className='ic' />Wallet</div>
             </NavLink>
