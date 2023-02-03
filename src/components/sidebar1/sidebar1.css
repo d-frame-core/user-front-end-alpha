@@ -1,26 +1,24 @@
-.Container{
-    position: absolute;
-    background: linear-gradient(180deg, rgba(92, 15, 255, 0.66) 0%, rgba(250, 1, 255, 0.33) 100%);
-    left: 0vh;
-}
+
 .dframe{
-    position: absolute;
+    position: relative;
     height: 15vh;
     width: 8vw;
     top: 2vh;
-    left:3.5vw;
+    
+    margin: auto;
     z-index: 1;
 }
 .dftext{
-    position: absolute;
+    position: relative;
     height: 5vh;
     width: 8vw;
-    top: 17vh;
+    top: 3vh;
     font-size: 120%;
-    left: 3vw;
+   margin: auto;
     font-weight: 700;
     z-index: 1;
     color: #0A194E;
+    
 }
 .side{
     position: absolute;
@@ -46,7 +44,7 @@
 
 .act1{
     position: relative;
-    width: 94%;
+    width: 98%;
     left: 1vw;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -226,3 +224,29 @@ background: #017EFA;
     border-radius: 50%;
     background-color: #017EFA;
 }
+
+
+
+@media only screen and (max-width: 1000px) {
+    .side{
+        width: 20vw;
+    }
+    .item{
+        width:20vw;
+    }
+    .dframe{
+        width:12vw;
+    }
+    .dftext{
+        width:10vw;
+        
+    }
+    .notActive,.notActive1{
+        width: 18vw;
+    }
+    .notActive2{
+        width: 15vw;
+        left: 3vw;
+        text-indent: 1vw;
+    }
+  }

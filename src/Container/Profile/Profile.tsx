@@ -28,6 +28,8 @@ import UploadButtons from '../../components/upload/UploadButtons';
 
     const [popshow,setPopShow]=useState(false);
 
+    const [btn,setBtn]=useState(false);
+
     const [popshow1,setPopShow1]=useState(false);
 
     const [address1,setAddress1]=useState('');
@@ -110,6 +112,7 @@ import UploadButtons from '../../components/upload/UploadButtons';
     e.preventDefault();
     setAddress1(e.target.value);
 }
+   
 
   return (
     <div>
@@ -173,15 +176,26 @@ import UploadButtons from '../../components/upload/UploadButtons';
               <Box className='update1'>
                 
                 <div className='uphead'>Update Address</div>
-                <a className='upa'>Enter Address 1<a className="colonpop">:</a> <input className='uin' name='address1' type='text' value={address1} onChange={(e)=> setAddress1(e.target.value)}/></a>
-                  <button className='upbtn'>Update</button><br/>
+                <form>
+                <a className='upa'>Enter Address 1<a className="colonpop">:</a> <input className='uin' name='address1' type='text' value={address1} onChange={(e)=> setAddress1(e.target.value)} required/></a>
+                  
+                  
+                  <div className='upbtn1' >
+                    <Button variant="contained" component="label" sx={{textTransform: 'none',bgcolor:'#017EFA',width:'15vw',height:'7vh',fontSize:'18px',borderRadius:"10px"}}>
+                      Address Proof 1
+                      <input className='field' accept="image/*" name='proof1' multiple type="file" required/>
+                    </Button>
+                    </div>
+                  <a className='upa'>Enter Address 2<a className="colonpop">:</a><input className='uin'  name='address2' type='text' value={address2} onChange={(e)=> setAddress2(e.target.value) } required/></a>
+              
+                  <div className='upbtn1'>
+                  <Button variant="contained" component="label" sx={{textTransform: 'none',bgcolor:'#017EFA',width:'15vw',height:'7vh',fontSize:'18px',borderRadius:"10px"}}>
+                      Address Proof 2
+                      <input className='field' accept="image/*" name='proof2' multiple type="file" required={true}/>
+                    </Button></div>
                   <br/>
-                  <div className='upbtn1'><UploadButtons name={'Address 1 Proof'}/></div>
-                  <a className='upa'>Enter Address 2<a className="colonpop">:</a><input className='uin'  name='address2' type='text' value={address2} onChange={(e)=> setAddress2(e.target.value)}/></a>
-                  <button className='upbtn' >Update</button><br/>
-                  <br/>
-  
-                  <div className='upbtn1'><UploadButtons name={'Address 2 Proof'}/></div>
+                  <button className='upbtn' disabled={false} >Update</button><br/>
+                  </form>
                   <CloseIcon onClick={()=>setPopShow1(false)} className='cross'/>
               </Box>
             </Backdrop>

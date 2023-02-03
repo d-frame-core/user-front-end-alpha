@@ -13,7 +13,7 @@ import {
 
 export default function Linecharts(linedata:any) {
   return (
-    <ResponsiveContainer height={300} width={700} >
+    <ResponsiveContainer height={200} width="100%" >
     <LineChart className="linechart1"
       width={1000}
       height={300}
@@ -29,12 +29,12 @@ export default function Linecharts(linedata:any) {
       <XAxis dataKey="name" />
       <YAxis/>
       <Tooltip />
-      <Legend />
+      
       <Line
         type="monotone"
         dataKey="value"
         stroke="#8884d8"
-        activeDot={{ r: 8 }}
+       
       />
        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
       
