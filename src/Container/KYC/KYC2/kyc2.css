@@ -1,46 +1,124 @@
-.ky2rectangle{
-    position: absolute;
+.ky1rectangle {
+    position: relative;
     display: flex;
-    height: 80vh;
+    height: 100vh;
+    border-radius: 1.1vh;
     width: 75vw;
-    top: 15vh;
-    left: 21vw;
-    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-}
-.kyc2{
+    top: 12vh;
+    left: 7vw;
+    background: linear-gradient(
+      180deg,
+      rgba(227, 218, 246, 0.6) 0%,
+      rgba(227, 218, 246, 0.6) 100%
+    );
+  }
+  
+  .kyc1 {
+    position: absolute;
+    height: 6vh;
+    width: 3vw;
+    top: 78vh;
+    left: 29.5vw;
+  }
+  .gender-input {
+    position: absolute;
+    height: 20vh;
+    top: 12vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  .i {
+    position: absolute;
+    margin-top: -0.5rem;
+    width: 35vh;
+    left: 20vw;
+    border: none;
+    border-radius: 1.1vh;
+  }
+  .ktext2 {
+    position: absolute;
+    height: 5vh;
+    top: 22vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  
+  .ktext3 {
+    position: absolute;
+    height: 5vh;
+    top: 31vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  
+  .date-picker {
+    position: absolute;
+    top: 0vh;
+    left: 20vw;
     
-        position:absolute;
-        height: 10vh;
-        width: 5vw;
-        top: 55vh;
-        left: 29vw;
-    
-}
-.k0{
+    font-weight: 350;
+    border: none;
+    border-radius: 1.1vh;
+    background-color: white;
+  }
+  
+  .ktext4 {
     position: absolute;
-    top: 15vh;
+    font-weight: 350;
+    font-size: 28px;
+  
+    top: 42vh;
     left: 10vw;
-    width: 20vw;
-    font-size: 3vh;
-}
-.k1{
+  }
+  
+  .select-country {
     position: absolute;
-    width: 20vw;
-    height: 10vh;
+    top: 0%;
+    width: 35vh;
+  }
+  .select-gender {
+    position: absolute;
+    top: 0%;
+    width: 35vh;
+  }
+  .address-label{
+      top: 0%;
+  }
+  
+  .ktext5 {
+    position: absolute;
+    height: 5vh;
+    top: 52vh;
+    font-size: 28px;
+    font-weight: 350;
     left: 10vw;
-    top: 30vh;
-    font-size: 3vh;
-}
-.k2{
+  }
+  .captcha {
     position: absolute;
-    width: 20vw;
-    height: 10vh;
-    left: 10vw;
-    top: 45vh;
-    font-size: 3vh;
-}
-.up{
+    top: 63vh;
+    left: 25vw;
+  }
+  .label {
     position: absolute;
-    left: 30vw;
-    top: -1vh;
-}
+    top: 85vh;
+    left: 15vw;
+    width: 30vh;
+    z-index: 1;
+  }
+  .kybtn {
+    position: absolute;
+    height: 5vh;
+    width: 10vh;
+    top: 85vh;
+    left: 65vw;
+    background-color: rgba(91, 15, 255, 0.66);
+    color: white;
+    border: none;
+    font-size: 2vh;
+    border-radius: 1.1vh;
+    z-index: 2;
+  }
+  

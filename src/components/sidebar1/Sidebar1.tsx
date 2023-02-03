@@ -85,7 +85,7 @@ export default function Sidebar1(index : any) {
 </Box>
 
    </div>
-   <div>
+   <div className='footer'>
     <div className="circle1"></div>
       <div className="circle2"><QuestionMarkIcon/></div>
     

@@ -1,20 +1,24 @@
 .sucbox{
     position: absolute;
-    top: 15vh;
-    height: 80vh;
-    left: 21vw;
+    top: 12vh;
+    height: 37rem;
+    left: 19vw;
     width: 75vw;
     font-size: 4vh;
+    border-radius: 1.1vh;
     font-display: flex;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
 .ww{
     position: absolute;
     top: 35vh;
-}
-.success1{
+    left: 10vw;
 
-    position: relative;
+}
+.logo{
+
+    position: absolute;
+    left: 30vw;
     top: 10vh;
     height: 20vh;
     width: 10vw;
@@ -26,4 +30,36 @@
         width: 5vw;
         top: 55vh;
         left: 51vw;
+}
+
+.logo-step-3{
+    
+    position:absolute;
+    height: 6vh;
+    width: 3vw;
+    top: 26rem;
+    left: 48.8vw;
+}
+
+.btn-step-3{
+    
+    position: absolute;
+    height: 5vh;
+    width: 10vh;
+    top: 60vh;
+    left: 30vw;
+    background-color: rgba(91, 15, 255, 0.66);
+    color: white;
+    border: none;
+    font-size: 2vh;
+    border-radius: 1.1vh;
+    z-index: 2;
+}
+
+.step-3{
+    position: absolute;
+    top: 65vh;
+    left: 13vw;
+    width: 30vh;
+    z-index: 1;
 }

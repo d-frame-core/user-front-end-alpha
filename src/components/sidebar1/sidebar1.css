@@ -1,6 +1,10 @@
 
 .dframe{
+<<<<<<< HEAD
     position: relative;
+=======
+    position: fixed;
+>>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
     height: 15vh;
     width: 8vw;
     top: 2vh;
@@ -9,7 +13,11 @@
     z-index: 1;
 }
 .dftext{
+<<<<<<< HEAD
     position: relative;
+=======
+    position: fixed;
+>>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
     height: 5vh;
     width: 8vw;
     top: 3vh;
@@ -21,7 +29,7 @@
     
 }
 .side{
-    position: absolute;
+    position: fixed;
     left:0vw;
     font-size: 2vh;
     width: 16vw;
@@ -154,6 +162,12 @@ background: #017EFA;
 
 }
 
+.footer{
+    position: fixed;
+    left: 0vw;
+    top: 0vh;
+}
+
 .text6{
     position: relative;
     top: 4vh;
@@ -204,7 +218,7 @@ background: #017EFA;
     
 }
 .circle1{
-    position: absolute;
+    position: fixed;
     top:77vh ;
     left:6.5%;
     z-index: 3;
@@ -214,7 +228,7 @@ background: #017EFA;
     background-color: #AABBFA;
 }
 .circle2{
-    position: absolute;
+    position: fixed;
     top:78vh ;
     left:7%;
     z-index: 3;
