@@ -1,11 +1,14 @@
 import React from "react";
 
-import { useFormContext, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import { FormInputProps } from "./FormInputProps";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
 
 
 export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
@@ -25,13 +28,13 @@ export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
 
   return (
     <FormControl sx={{width:'350px',textAlign:'left'}}>
-      <InputLabel>{label}</InputLabel>
+      <InputLabel sx={{top:'-4px'}}>{label}</InputLabel>
       <Controller
       name={name}
       control={control}
       
         render={({ field: { onChange, value } }) => (
-          <Select sx={{borderRadius:"10px",backgroundColor:'white',boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }} 
+          <Select sx={{borderRadius:"1vh",backgroundColor:'white',boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",outline:'hidden',height:'6vh' }} 
           
           onChange={onChange} value={value}>
             {generateSingleOptions()}

@@ -1,3 +1,13 @@
+
+fieldset{
+  border: none !important;
+  outline: none !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  padding: 11.5px 14px !important;
+}
+
 .ky1rectangle {
     position: relative;
     display: flex;
@@ -30,7 +40,7 @@
   }
   .i {
     position: absolute;
-    margin-top: -0.5rem;
+    margin-top: 0rem;
     width: 35vh;
     left: 20vw;
     border: none;
@@ -48,7 +58,7 @@
   .ktext3 {
     position: absolute;
     height: 5vh;
-    top: 31vh;
+    top: 32vh;
     font-size: 28px;
     font-weight: 350;
     left: 10vw;
