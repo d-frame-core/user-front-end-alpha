@@ -27,14 +27,10 @@ function Profile() {
   const [popshow1, setPopShow1] = useState(false);
 
   const [address1, setAddress1] = useState("");
-
-<<<<<<< HEAD
+  const [address2, setAddress2] = useState("");
     const [btn,setBtn]=useState(false);
 
-    const [popshow1,setPopShow1]=useState(false);
-=======
-  const [address2, setAddress2] = useState("");
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
+    
 
   authentication.languageCode = "en";
 
@@ -108,19 +104,7 @@ function Profile() {
       });
   };
 
-  const updateaddress1 = (e: any) => {
-    e.preventDefault();
-    setAddress1(e.target.value);
-<<<<<<< HEAD
-}
-   
-=======
-  };
-  const updateaddress2 = (e: any) => {
-    e.preventDefault();
-    setAddress1(e.target.value);
-  };
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
+
 
   return (
     <div>
@@ -255,62 +239,9 @@ function Profile() {
           </Container>
         )}
 
-        {successful && (
-          <Container
-            maxWidth={false}
-            sx={{
-              maxWidth: "85%",
-              minHeight: "15vh",
-              position: "relative",
-              bottom: "4vh",
-            }}
-            className="kycitem"
-          >
-            <p>Successfully KYC verification part is completed</p>
-          </Container>
-        )}
+       
       </Box>
-      {popshow && (
-        <Backdrop
-          open={popshow}
-          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        >
-          <Box className="update">
-            <div className="uphead">Update Number</div>
-            <a className="upa">
-              Phone Number<a className="colonpop">:</a>{" "}
-              <input
-                className="uin"
-                name="phonenumber"
-                type="tel"
-                value={phonenumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-            </a>
-            <button className="upbtn" onClick={sendotp}>
-              Send OTP
-            </button>
-            <a className="upa">
-              Enter Reason<a className="colonpop">:</a>
-              <input className="uin" />
-            </a>
-            <div id="recaptcha-container"></div>
-            <a className="upa">
-              Enter OTP <a className="colonpop">:</a>
-              <input
-                className="uin"
-                name="otp"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-              />
-            </a>
-            <button className="upbtn" onClick={verifyOtp}>
-              Save
-            </button>
-
-            <CloseIcon onClick={() => setPopShow(false)} className="cross" />
-          </Box>
-<<<<<<< HEAD
+    
             {popshow && <Backdrop open={popshow} sx={{  zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         
               <Box  className='update'>
@@ -327,85 +258,38 @@ function Profile() {
             </Backdrop>
             
             }
-            {popshow1 && <Backdrop open={popshow1} sx={{  zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-              <Box className='update1'>
-                
-                <div className='uphead'>Update Address</div>
-                <form>
-                <a className='upa'>Enter Address 1<a className="colonpop">:</a> <input className='uin' name='address1' type='text' value={address1} onChange={(e)=> setAddress1(e.target.value)} required/></a>
-                  
-                  
-                  <div className='upbtn1' >
-                    <Button variant="contained" component="label" sx={{textTransform: 'none',bgcolor:'#017EFA',width:'15vw',height:'7vh',fontSize:'18px',borderRadius:"10px"}}>
-                      Address Proof 1
-                      <input className='field' accept="image/*" name='proof1' multiple type="file" required/>
-                    </Button>
-                    </div>
-                  <a className='upa'>Enter Address 2<a className="colonpop">:</a><input className='uin'  name='address2' type='text' value={address2} onChange={(e)=> setAddress2(e.target.value) } required/></a>
-              
-                  <div className='upbtn1'>
-                  <Button variant="contained" component="label" sx={{textTransform: 'none',bgcolor:'#017EFA',width:'15vw',height:'7vh',fontSize:'18px',borderRadius:"10px"}}>
-                      Address Proof 2
-                      <input className='field' accept="image/*" name='proof2' multiple type="file" required={true}/>
-                    </Button></div>
-                  <br/>
-                  <button className='upbtn' disabled={false} >Update</button><br/>
-                  </form>
-                  <CloseIcon onClick={()=>setPopShow1(false)} className='cross'/>
-              </Box>
-            </Backdrop>
-=======
-        </Backdrop>
-      )}
-      {popshow1 && (
-        <Backdrop
-          open={popshow1}
-          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        >
-          <Box className="update1">
-            <div className="uphead">Update Address</div>
-            <a className="upa">
-              Enter Address 1<a className="colonpop">:</a>{" "}
-              <input
-                className="uin"
-                name="address1"
-                type="text"
-                value={address1}
-                onChange={(e) => setAddress1(e.target.value)}
-              />
-            </a>
-            <button className="upbtn">Update</button>
-            <br />
-            <br />
-            <div className="upbtn1">
-              <UploadButtons 
-              // name={"Address 1 Proof"}
-               />
-            </div>
-            <a className="upa">
-              Enter Address 2<a className="colonpop">:</a>
-              <input
-                className="uin"
-                name="address2"
-                type="text"
-                value={address2}
-                onChange={(e) => setAddress2(e.target.value)}
-              />
-            </a>
-            <button className="upbtn">Update</button>
-            <br />
-            <br />
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
+            {popshow1 && <><Backdrop open={popshow1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+            <Box className='update1'>
 
-            <div className="upbtn1">
-              <UploadButtons 
-              // name={"Address 2 Proof"} 
-              />
-            </div>
-            <CloseIcon onClick={() => setPopShow1(false)} className="cross" />
-          </Box>
-        </Backdrop>
-      )}
+              <div className='uphead'>Update Address</div>
+              <form>
+                <a className='upa'>Enter Address 1<a className="colonpop">:</a> <input className='uin' name='address1' type='text' value={address1} onChange={(e) => setAddress1(e.target.value)} required /></a>
+
+
+                <div className='upbtn1'>
+                  <Button variant="contained" component="label" sx={{ textTransform: 'none', bgcolor: '#017EFA', width: '15vw', height: '7vh', fontSize: '18px', borderRadius: "10px" }}>
+                    Address Proof 1
+                    <input className='field' accept="image/*" name='proof1' multiple type="file" required />
+                  </Button>
+                </div>
+                <a className='upa'>Enter Address 2<a className="colonpop">:</a><input className='uin' name='address2' type='text' value={address2} onChange={(e) => setAddress2(e.target.value)} required /></a>
+
+                <div className='upbtn1'>
+                  <Button variant="contained" component="label" sx={{ textTransform: 'none', bgcolor: '#017EFA', width: '15vw', height: '7vh', fontSize: '18px', borderRadius: "10px" }}>
+                    Address Proof 2
+                    <input className='field' accept="image/*" name='proof2' multiple type="file" required={true} />
+                  </Button></div>
+                <br />
+                <button className='upbtn' disabled={false}>Update</button><br />
+              </form>
+              <CloseIcon onClick={() => setPopShow1(false)} className='cross' />
+            </Box>
+          </Backdrop><div className="upbtn1">
+              <UploadButtons />
+            </div><CloseIcon onClick={() => setPopShow1(false)} className="cross" />
+          
+        </>
+}
     </div>
   );
 }

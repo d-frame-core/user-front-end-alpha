@@ -1,10 +1,6 @@
 
 .dframe{
-<<<<<<< HEAD
-    position: relative;
-=======
     position: fixed;
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
     height: 15vh;
     width: 8vw;
     top: 2vh;
@@ -13,11 +9,7 @@
     z-index: 1;
 }
 .dftext{
-<<<<<<< HEAD
-    position: relative;
-=======
     position: fixed;
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
     height: 5vh;
     width: 8vw;
     top: 3vh;
