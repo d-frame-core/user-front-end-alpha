@@ -36,6 +36,7 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
             // }}
             // format={DATE_FORMAT}
             {...field}
+            required
           />
         )}
       />

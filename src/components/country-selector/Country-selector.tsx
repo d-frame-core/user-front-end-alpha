@@ -25,13 +25,12 @@ export default function CountrySelector() {
       id="country-select-demo"
       sx={{ borderRadius:'10px', width: 350, backgroundColor:'white',boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" }}
       options={countries}
-      
-     
       autoHighlight
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
           <img
+          style={{marginRight:'2rem'}}
             loading="lazy"
             width="20"
             src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}

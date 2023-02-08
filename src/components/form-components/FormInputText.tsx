@@ -33,6 +33,7 @@ export const FormInputText = ({ name, control, label }: FormInputProps) => {
             fullWidth
             label={label}
             variant="outlined"
+            required
           />
         )}
       />

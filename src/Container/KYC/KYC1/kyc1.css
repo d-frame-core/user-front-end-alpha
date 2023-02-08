@@ -1,11 +1,11 @@
 .kyc-rectangle {
     position: relative;
     display: flex;
-    height: 95vh;
+    height: 90vh;
     border-radius: 1.1vh;
     width: 75vw;
     top: 5rem;
-    left: 7vw;
+    left: 19vw;
     background: linear-gradient(
       180deg,
       rgba(227, 218, 246, 0.6) 0%,
@@ -112,7 +112,7 @@
 
 .step-1{
     position: absolute;
-    top: 37rem;
+    top: 35rem;
     left: 15vw;
     width: 30vh;
     z-index: 1;

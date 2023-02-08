@@ -41,13 +41,21 @@ export const FormInputIncome: React.FC<FormInputProps> = ({
   };
 
   return (
-    <FormControl sx={{width:'350px',textAlign:'left'}}>
-      <InputLabel sx={{top:'-4px'}}>{label}</InputLabel>
+    <FormControl sx={{ width: "350px", textAlign: "left" }}>
+      <InputLabel sx={{ top: "-4px" }}>{label}</InputLabel>
       <Controller
         render={({ field: { onChange, value } }) => (
-          <Select sx={{borderRadius:"1vh",backgroundColor:'white',boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" ,height:'6vh'}} 
-          
-          onChange={onChange} value={value}>
+          <Select
+            sx={{
+              borderRadius: "1vh",
+              backgroundColor: "white",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              height: "6vh",
+            }}
+            onChange={onChange}
+            value={value}
+            required
+          >
             {generateSingleOptions()}
           </Select>
         )}

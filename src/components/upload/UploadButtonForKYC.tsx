@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 // import IconButton from '@mui/material/IconButton';
 // import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import Stack from "@mui/material/Stack";
+
 import { useState } from "react";
 export default function UploadButtonForKYC() {
   const [preview, setpreview] = useState<File | null>(null);
@@ -18,10 +18,13 @@ export default function UploadButtonForKYC() {
   };
 
   return (
-    <Stack direction="row" alignItems="center" spacing={2}>
+    <div>
       <Button
+
+       
+      
         sx={{
-          backgroundColor: "#017EFA",
+          backgroundColor:  preview ? "rgba(92, 15, 255, 0.66)":  "#017EFA",
           borderRadius: "10px",
           textTransform: "inherit",
           width: "100px",
@@ -29,7 +32,8 @@ export default function UploadButtonForKYC() {
         variant="contained"
         component="label"
       >
-        Upload
+        {preview ? "Reupload" : "Upload"}
+        
         <input
           hidden
           accept="image/*"
@@ -41,15 +45,14 @@ export default function UploadButtonForKYC() {
 
       {preview && 
 
-        <div>
+        <div style={{position:'absolute',left:'10vw',top:'-10vh'}}>
              <img
              style={{
                width: "120px",
                height: "110px",
                objectFit: "contain",
-               position: "absolute",
-               left: "10vw",
-               top: "-10vh",
+               
+             
              }}
              src={preview === null ? "" : URL.createObjectURL(preview)}
              alt="document preview"
@@ -63,9 +66,10 @@ export default function UploadButtonForKYC() {
            size="large"
            sx={{
              color:'#fa2a55',
-             position: "absolute",
-             left: "20vw",
-             top: "-4vh",
+             position:'absolute',
+             left:'8rem',
+             top:"2.3rem",
+             
              fontWeight: "800",
            }}
          >
@@ -78,6 +82,6 @@ export default function UploadButtonForKYC() {
      
 
      
-    </Stack>
+    </div>
   );
 }
