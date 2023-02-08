@@ -1,18 +1,98 @@
-import React from 'react'
-import Linecharts from '../../components/charts/linechart/Linechart'
+import React, { useState } from 'react'
 import Sidebar1 from '../../components/sidebar1/Sidebar1'
 import './rewards.css'
+import { Box, Button, ButtonGroup, Container,Divider, makeStyles } from '@mui/material'
+import Linechart from '../../components/charts/linechart/Linechart'
+import { borderColor } from '@mui/system'
+import df from '../../assets/dframe.png';
 
-export default function Rewards() {
+const rewarddata: any[]=[
+  { name: "All", value: 4300,long: 'DFT (earned)' },
+  { name: "Browser Data", value: 1020 ,long: 'DFT (earned)'},
+  { name: "Verification Rewards", value: 930 ,long: 'DFT (earned)'},
+  { name: "Referrals", value: 540 ,long: 'DFT (earned)'},
+];
+
+const Daily:object[] = [
+  {name:'Hours',All:35,BrowserData:42,VerificationRewards:27,Refferals:14},
+  {name:'4',All: 35,BrowserData:23,VerificationRewards:33,Refferals:24},
+  {name:'8',All: 13,BrowserData:22,VerificationRewards:43,Refferals:34},
+  {name:'12',All: 34,BrowserData:20,VerificationRewards:30,Refferals:44}, 
+  {name:'16',All: 27,BrowserData:44,VerificationRewards:35,Refferals:28}, 
+  {name:'20',All: 30,BrowserData:36,VerificationRewards:40,Refferals:11}, 
+  {name:'24',All: 37,BrowserData:54,VerificationRewards:45,Refferals:10}, 
+]
+const Weekly:object[] = [
+  {name:'Days',All:15,BrowserData:23,VerificationRewards:29,Refferals:14},
+  {name:'3',All:20,BrowserData:13,VerificationRewards:17,Refferals:24},
+  {name:'6',All:25,BrowserData:17,VerificationRewards:2,Refferals:34},
+  {name:'9',All:30,BrowserData:27,VerificationRewards:38,Refferals:42},
+  {name:'12',All:35,BrowserData:33,VerificationRewards:9,Refferals:47},
+  {name:'15',All:40,BrowserData:26,VerificationRewards:19,Refferals:50},
+  {name:'18',All:45,BrowserData:2,VerificationRewards:59,Refferals:57},
+  {name:'21',All:50,BrowserData:34,VerificationRewards:49,Refferals:60},
+  {name:'24',All:55,BrowserData:21,VerificationRewards:39,Refferals:12},
+  {name:'27',All:60,BrowserData:50,VerificationRewards:29,Refferals:20},  
+]
+const Monthly:object[] = [
+  {name:'Week 1',All:35,BrowserData:3,VerificationRewards:9,Refferals:4},
+  {name:'Week 2',All:55,BrowserData:23,VerificationRewards:59,Refferals:24},
+  {name:'Week 3',All:5,BrowserData:43,VerificationRewards:29,Refferals:54},
+  {name:'Week 4',All:28,BrowserData:13,VerificationRewards:49,Refferals:44}, 
+]
+var ab:object[]=[];
+
+function Rewards() {
+  const [toggleState,setToggleState] = useState(3);
+  const toggleTab = (index: void | any) =>{
+    setToggleState(index);
+  }
+  if (toggleState === 3 ){
+    ( ab = Daily);
+  }
+  else if (toggleState === 4){
+    (ab = Weekly);
+    console.log('This ')
+  }
+  else if (toggleState === 5){
+    (ab = Monthly);
+  }
+    
   return (
     <div>
-<>{Sidebar1(4)}</>     <div className='title'>Rewards</div>
-      <div className='ReRectangle'>
-        <div className='linechart'><Linecharts/></div>
-      </div>
-        <div className='rerect3'><div className='retext'>Sign in Bonus</div><button className='rebtn1'>Claim</button></div>
-        <div className='rerect6'><div className='retext'>Refferel Bonus</div><button className='rebtn1'>Claim</button></div>
-        <div className='rerect61'><div className='retext'>Verification Reward</div><button className='rebtn1'>Claim</button></div>    
+      <>{Sidebar1(4)}</>
+      <div className='rewtitle'>Rewards</div>
+      <Container maxWidth={false} sx={{ maxWidth: '70%' }} className="rewcont">  
+      
+      <img src={df} className="dflogo"></img>
+      <div className='ltext1'>Total DFT Tokens</div>
+      <div className='ltext2'>4300</div>
+
+      <a className="rewhead">Total Rewards Earning in DFT</a>
+      
+      <div className='linechart'><>{Linechart(ab)}</></div>
+
+      <ButtonGroup  className='rewtabs' size='small' variant="text" aria-label='text button group' sx={{".MuiButton-text":{color:'#000000'}}} >
+        <Button onClick={()=> toggleTab(3)}>Daily</Button>
+        <Button onClick={()=> toggleTab(4)}>Weekly</Button>
+        <Button onClick={()=> toggleTab(5)}>Monthly</Button> 
+      </ButtonGroup>
+
+      <Box className='rerect'></Box>
+      <Box className='redbox'>
+      <span> {
+           rewarddata.map(item=>{
+              return (<>
+              <div className='rgap'>
+              {item.name}
+              <a className='rgap1'>{item.value}{item.long}</a>
+              </div>
+             <Divider/></> );
+            })
+            }</span>
+      </Box>
+      </Container>
     </div>
   )
 }
+export default Rewards;

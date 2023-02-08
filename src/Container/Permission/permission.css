@@ -49,6 +49,13 @@
     right: 1vw;
 }
 
+.pertog1{
+    position: absolute;
+    height: 4vh;
+    width: 15vw;
+    left: 4vw;
+}
+
 .percol{
     position: absolute;
     right: 18vw;
@@ -57,8 +64,9 @@
 .perbtn{
     position: relative;
     height: 4vh;
+    top: 0vh;
     width: 6vw;
-    left: 27vw;
+    left: 28vw;
     border-radius: 5px;
     border: none;
     font-size: 2vh;
