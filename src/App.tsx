@@ -19,15 +19,50 @@ import KYC3 from './Container/KYC/KYC3/KYC3';
 import Success from './Container/KYC/Success';
 import FirstPage from './Container/Profile/FirstPage';
 import Charts2 from './components/charts/Charts2/Charts2';
+import WallectConnect from './Container/ConnectWallet/ConnectWallet';
+import {
+  EthereumClient,
+  modalConnectors,
+  walletConnectProvider,
+} from "@web3modal/ethereum";
+
+import { Web3Modal } from "@web3modal/react";
+
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+
+import { arbitrum, mainnet, polygon } from "wagmi/chains";
+
+const chains = [arbitrum, mainnet, polygon];
+
+// Wagmi client
+const { provider } = configureChains(chains, [
+  walletConnectProvider({ projectId: "71bc6971bc716face67cc727e08e5670" }),
+]);
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors: modalConnectors({
+    projectId: "71bc6971bc716face67cc727e08e5670",
+    version: "1", // or "2"
+    appName: "web3Modal",
+    chains,
+  }),
+  provider,
+});
+
+// Web3Modal Ethereum Client
+const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 function App() {
   return (
     <div className="App">
+
+<WagmiConfig client={wagmiClient}>
+        
       
       <Router>
         <Routes>
 
-          <Route path='/' element={<Navigate to='profile'/>}/>
+          <Route path='/' element={<WallectConnect/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/kyc1' element={<KYC1/>}/>
           <Route path='/kyc2' element={<KYC2/>}/>
@@ -46,6 +81,12 @@ function App() {
           
         </Routes>
       </Router>
+      </WagmiConfig>
+
+      <Web3Modal
+        projectId="71bc6971bc716face67cc727e08e5670"
+        ethereumClient={ethereumClient}
+      />
     </div>
   );
 }

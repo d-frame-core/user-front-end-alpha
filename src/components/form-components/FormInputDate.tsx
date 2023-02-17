@@ -25,8 +25,10 @@ export const FormInputDate = ({ name, control, label }: FormInputProps) => {
             }}
             fullWidth
             type="date"
+            placeholder=""
             // variant="inline"
-            defaultValue={new Date()}
+             defaultValue={""}
+            
             id={`date-${Math.random()}`}
             // rifmFormatter={(val) => val.replace(/[^[a-zA-Z0-9-]*$]+/gi, "")}
             // refuse={/[^[a-zA-Z0-9-]*$]+/gi}

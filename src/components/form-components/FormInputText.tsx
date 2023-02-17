@@ -31,9 +31,11 @@ export const FormInputText = ({ name, control, label }: FormInputProps) => {
             onChange={onChange}
             value={value}
             fullWidth
-            label={label}
+            // placeholder={label}
+           
             variant="outlined"
             required
+            
           />
         )}
       />

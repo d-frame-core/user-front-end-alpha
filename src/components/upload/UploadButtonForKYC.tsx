@@ -40,6 +40,7 @@ export default function UploadButtonForKYC() {
           type="file"
           id="file"
           onChange={handleChange}
+          required
         />
       </Button>
 
@@ -58,7 +59,7 @@ export default function UploadButtonForKYC() {
              alt="document preview"
            />
         
-           <Button
+           {/* <Button
            onClick={() => {
              setpreview(null);
            }}
@@ -74,7 +75,7 @@ export default function UploadButtonForKYC() {
            }}
          >
            X
-         </Button>
+         </Button> */}
 
          </div>
        }

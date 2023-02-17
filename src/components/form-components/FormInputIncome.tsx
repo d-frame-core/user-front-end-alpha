@@ -42,10 +42,11 @@ export const FormInputIncome: React.FC<FormInputProps> = ({
 
   return (
     <FormControl sx={{ width: "350px", textAlign: "left" }}>
-      <InputLabel sx={{ top: "-4px" }}>{label}</InputLabel>
+      {/* <InputLabel sx={{ top: "-4px" }}></InputLabel> */}
       <Controller
         render={({ field: { onChange, value } }) => (
           <Select
+            
             sx={{
               borderRadius: "1vh",
               backgroundColor: "white",

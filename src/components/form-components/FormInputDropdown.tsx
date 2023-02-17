@@ -41,8 +41,8 @@ export const FormInputDropdown: React.FC<FormInputProps> = ({
   };
 
   return (
-    <FormControl sx={{ width: "350px", textAlign: "left" }}>
-      <InputLabel sx={{ top: "-4px" }}>{label}</InputLabel>
+    <FormControl sx={{ width: "350px", textAlign: "left" }}  > 
+      {/* <InputLabel sx={{ top: "-4px" }} >{label}</InputLabel> */}
       <Controller
         name={name}
         control={control}
@@ -58,6 +58,7 @@ export const FormInputDropdown: React.FC<FormInputProps> = ({
             onChange={onChange}
             value={value}
             required
+            
           >
             {generateSingleOptions()}
           </Select>

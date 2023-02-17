@@ -24,7 +24,7 @@ export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
             srcSet={`https://flagcdn.com/w40/${option.value.toLowerCase()}.png 2x`}
             alt=""
           />
-         +{option.phone} {option.label}
+         {option.label}
           {/* <Box  sx={{ '& > img': { mr: 2, flexShrink: 1 } }}>
           
            +{option.phone} {option.label}  
@@ -36,10 +36,15 @@ export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
 
   return (
     <div >
-    <FormControl sx={{ width: "350px", textAlign: "left",'& .css-6hp17o-MuiList-root-MuiMenu-list': {
+    <FormControl
+    
+    sx={{ width: "350px", textAlign: "left",'& .css-6hp17o-MuiList-root-MuiMenu-list': {
       height: '10rem',
-    } }}>
-      <InputLabel sx={{ top: "-4px" }}>{label}</InputLabel>
+    } }}
+    
+    hiddenLabel
+    >
+      {/* <InputLabel sx={{ top: "-4px" }}>{label}</InputLabel> */}
       <Controller
         name={name}
         control={control}

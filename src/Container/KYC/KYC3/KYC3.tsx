@@ -38,6 +38,7 @@ export default function KYC3() {
           </span>
           <div className="up">
             <UploadButtonForKYC />
+            
             <span
               className="Image-warnings"
               style={{ fontSize: "0.8rem", fontWeight: 400 }}
