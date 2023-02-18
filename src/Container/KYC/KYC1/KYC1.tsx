@@ -112,7 +112,11 @@ export default function KYC1() {
 }
 
   return (
+<<<<<<< HEAD
     <>
+=======
+    <div>
+>>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
       <Sidebar1/>
       
       <div>
@@ -121,7 +125,11 @@ export default function KYC1() {
           <div className='container'>
         <Box className='kyc-rectangle'>
         <div className='body'>
+<<<<<<< HEAD
         <Box maxWidth='sm' sx={{top:'45vh'}} className='fbox1'>
+=======
+        <Box  sx={{top:'42vh'}} className='fbox1'>
+>>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
           <div className='ftitle'>KYC Level-1:</div>
           <form className='fbox2' onSubmit={handleSubmit(onSubmit)} >
             <div className='alignleft'>First Name<a className='colon'>:
@@ -181,7 +189,11 @@ export default function KYC1() {
         </div>
         
       </div>
+<<<<<<< HEAD
     </>
+=======
+    </div>
+>>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
   )
 }
 

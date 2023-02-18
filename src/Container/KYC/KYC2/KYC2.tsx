@@ -95,7 +95,7 @@ export default function KYC2() {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 
                 <div className="date-picker">
-                <FormInputDate name="date" control={control} label="Date of Birth"/>
+                <FormInputDate name="date" control={control} label=""/>
                 </div>
                 
               </div>

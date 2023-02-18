@@ -4,7 +4,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Sidebar1 from "../../../components/sidebar1/Sidebar1";
 // import HorizontalLabelPositionBelowStepper from '../../../components/stepper/HorizontalLabelPositionBelowStepper'
-import UploadButtons from "../../../components/upload/UploadButtonForKYC";
+import UploadButtonForKYC from "../../../components/upload/UploadButtonForKYC";
 import CaptureButtons from "../../../components/upload/CaptureButton";
 import data from "../data";
 import "./kyc3.css";
@@ -37,7 +37,8 @@ export default function KYC3() {
             Passport, Aadhar Card, Driving License, Voter ID, PAN Card etc.
           </span>
           <div className="up">
-            <UploadButtons />
+            <UploadButtonForKYC />
+            
             <span
               className="Image-warnings"
               style={{ fontSize: "0.8rem", fontWeight: 400 }}
@@ -57,7 +58,7 @@ export default function KYC3() {
             Electricity Bill, Phone Bill etc.
           </span>{" "}
           <div className="up">
-            <UploadButtons />
+            <UploadButtonForKYC />
             <span
               className="Image-warnings"
               style={{ fontSize: "0.8rem", fontWeight: 400 }}
