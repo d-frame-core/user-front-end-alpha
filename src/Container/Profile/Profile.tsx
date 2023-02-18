@@ -27,15 +27,8 @@ function Profile() {
   const [popshow1, setPopShow1] = useState(false);
 
   const [address1, setAddress1] = useState("");
-<<<<<<< HEAD
 
   const [address2, setAddress2] = useState("");
-=======
-  const [address2, setAddress2] = useState("");
-    const [btn,setBtn]=useState(false);
-
-    
->>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
 
   authentication.languageCode = "en";
 
@@ -109,7 +102,6 @@ function Profile() {
       });
   };
 
-<<<<<<< HEAD
   const updateaddress1 = (e: any) => {
     e.preventDefault();
     setAddress1(e.target.value);
@@ -118,9 +110,6 @@ function Profile() {
     e.preventDefault();
     setAddress1(e.target.value);
   };
-=======
-
->>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
 
   return (
     <div>
@@ -257,7 +246,6 @@ function Profile() {
 
        
       </Box>
-<<<<<<< HEAD
       {popshow && (
         <Backdrop
           open={popshow}
@@ -301,26 +289,6 @@ function Profile() {
         </Backdrop>
       )}
          {popshow1 && <><Backdrop open={popshow1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-=======
-    
-            {popshow && <Backdrop open={popshow} sx={{  zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        
-              <Box  className='update'>
-                <div className='uphead'>Update Number</div>
-                  <a className='upa'>Phone Number<a className="colonpop">:</a> <input className='uin'name='phonenumber' type='tel' value={phonenumber} onChange={(e)=> setPhoneNumber(e.target.value)}/></a>
-                  <button className='upbtn'onClick={sendotp}>Send OTP</button>
-                  <a className='upa'>Enter Reason<a className="colonpop">:</a><input className='uin'/></a>
-                  <div id='recaptcha-container'></div>
-                  <a className='upa'>Enter OTP <a className="colonpop">:</a><input className='uin' name='otp'  value={otp} onChange={(e)=>setOtp(e.target.value)}/></a>
-                  <button className='upbtn' onClick={verifyOtp}>Save</button>
-                  
-                  <CloseIcon onClick={()=>setPopShow(false)} className='cross'/>
-              </Box>
-            </Backdrop>
-            
-            }
-            {popshow1 && <><Backdrop open={popshow1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
->>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
             <Box className='update1'>
 
               <div className='uphead'>Update Address</div>
@@ -346,10 +314,7 @@ function Profile() {
               </form>
               <CloseIcon onClick={() => setPopShow1(false)} className='cross' />
             </Box>
-<<<<<<< HEAD
             <br/>
-=======
->>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
           </Backdrop><div className="upbtn1">
               <UploadButtons />
             </div><CloseIcon onClick={() => setPopShow1(false)} className="cross" />

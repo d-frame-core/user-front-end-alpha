@@ -5,19 +5,11 @@ body{
 .kyc-rectangle {
     position: relative;
     display: flex;
-<<<<<<< HEAD
     height: 100vh;
     border-radius: 1.1vh;
     width: 75vw;
     top: 5rem;
     left: 21vw;
-=======
-    height: 90vh;
-    border-radius: 1.1vh;
-    width: 75vw;
-    top: 5rem;
-    left: 19vw;
->>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
     background: linear-gradient(
       180deg,
       rgba(227, 218, 246, 0.6) 0%,
@@ -125,15 +117,8 @@ body{
 
 .step-1{
     position: absolute;
-<<<<<<< HEAD
    top: 90vh;
     left: 20vw;
     
     
-=======
-    top: 35rem;
-    left: 15vw;
-    width: 30vh;
-    z-index: 1;
->>>>>>> f5715ca56b4a2033ce28c34c33b2d46d3fd9b178
 }
