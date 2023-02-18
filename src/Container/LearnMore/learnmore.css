@@ -10,6 +10,16 @@
     height: 80vh;
     width: 73vw;
 }
+.lmtitle{
+    position: relative;
+    font-size: 5vh;
+    width: 18vw;
+    font-weight: 600;
+    top: 5vh;
+    left: 1vw;
+    margin-left: 2vw;
+    z-index: 1;
+}
 
 .lmrect{
     position: absolute;
@@ -18,4 +28,15 @@
     height: 91vh;
     width: 82vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);;
+}
+@media only screen and (max-width: 1000px) {
+    .lmtitle{
+        width: 22vw;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .lmtitle{
+        width: 34vw;
+       
+    }
 }

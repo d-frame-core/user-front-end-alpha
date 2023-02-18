@@ -112,3 +112,30 @@
     padding-left: 2vw;
     font-weight: 600;
 }
+@media only screen and (max-width:1000px) {
+    .sites{
+        left: 20vw;
+        width: 80vw;
+    }
+    .sdbox1{
+        left: 23vw;
+    }
+    .sdbox2{
+        left: 25vw;
+    }
+    
+}@media only screen and (max-width:1000px) {
+    .sites{
+        left: 26vw;
+        width: 74vw;
+        font-size:60% ;
+    }
+    .sdbox1{
+        left: 28vw;
+        width: 70vw;
+    }
+    .sdbox2{
+        left: 31vw;
+        width: 64vw;
+    }
+}

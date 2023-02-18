@@ -27,8 +27,8 @@ export default function LearnMore() {
   }, [open]);
   return (
     <div>
-<Sidebar1/>      <div className='htitle'>Learn More</div>
-    <div className='hrect'></div>
+<Sidebar1/>      
+    <div className='hrect'><div className='lmtitle'>Learn More</div>
     <div className='helprect'> 
           <div className='inf'>
             <BasicModel name={learnmoredata.name5} paragraph={learnmoredata.des5}/>
@@ -105,6 +105,7 @@ export default function LearnMore() {
       </Dialog>
             </div>    
       </div>
+    </div>
     </div>
   )
 }

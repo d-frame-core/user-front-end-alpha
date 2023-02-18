@@ -1,10 +1,6 @@
 
 .dframe{
-<<<<<<< HEAD
     position: relative;
-=======
-    position: fixed;
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
     height: 15vh;
     width: 8vw;
     top: 2vh;
@@ -13,11 +9,7 @@
     z-index: 1;
 }
 .dftext{
-<<<<<<< HEAD
     position: relative;
-=======
-    position: fixed;
->>>>>>> afb4d35370862bcc6b239100f00bfcfb44e4fb22
     height: 5vh;
     width: 8vw;
     top: 3vh;
@@ -29,7 +21,7 @@
     
 }
 .side{
-    position: fixed;
+    position: absolute;
     left:0vw;
     font-size: 2vh;
     width: 16vw;
@@ -140,7 +132,7 @@
 .rect3{
     position: absolute;
 width: 14vw;
-height: 14vh;
+height: 13vh;
 left: 1vw;
 top: 79vh;
 z-index: 1;
@@ -162,11 +154,7 @@ background: #017EFA;
 
 }
 
-.footer{
-    position: fixed;
-    left: 0vw;
-    top: 0vh;
-}
+
 
 .text6{
     position: relative;
@@ -189,7 +177,7 @@ background: #017EFA;
     position: absolute;
     width: 7vw;
     left: 4vw;
-    top: 94vh;
+    top: 93vh;
     z-index: 4;
     font-family: 'Alata';
     font-style: normal;
@@ -218,7 +206,7 @@ background: #017EFA;
     
 }
 .circle1{
-    position: fixed;
+    position: absolute;
     top:77vh ;
     left:6.5%;
     z-index: 3;
@@ -228,7 +216,7 @@ background: #017EFA;
     background-color: #AABBFA;
 }
 .circle2{
-    position: fixed;
+    position: absolute;
     top:78vh ;
     left:7%;
     z-index: 3;
@@ -255,6 +243,11 @@ background: #017EFA;
         width:10vw;
         
     }
+    .act3{
+        width:19vw;
+        left: 1vw;
+       
+    }
     .notActive,.notActive1{
         width: 18vw;
     }
@@ -262,5 +255,74 @@ background: #017EFA;
         width: 15vw;
         left: 3vw;
         text-indent: 1vw;
+    }
+    .rect3{
+        width: 18vw;
+    }
+    .rect1{
+        width: 14vw;
+    }
+    .circle1{
+        left: 8.5%;
+    }
+    .circle2{
+        left: 9vw;
+    }
+    .text9{
+        width: 10vw;
+        left: 5vw;
+    }
+  }
+  @media only screen and (max-width: 770px) {
+    
+    .side{
+        width: 26vw;
+    }
+    .item{
+        width: 26vw;
+    }
+    .act3{
+    width:25vw;
+    left: 1vw;
+   
+}
+.notActive,.notActive1{
+    width:24vw;
+}
+.notActive2{
+    width: 24vw;
+    left: 2vw;
+    text-indent: 1vw;
+}
+    .circle1{
+       visibility: hidden;
+    }
+    .circle2{
+        visibility: hidden;
+    }
+    .text9{
+        width: 18vw;
+        left: 4vw;
+        top: 94vh;
+    }
+    .rect3{
+        width: 22vw;
+        left: 2vw;
+        margin: auto;
+    }
+    .rect1{
+        top: 1vh;
+        width: 18vw;
+        height: 5vh;
+    }
+    .text6{
+        top: 1vh;
+    }
+    .dframe{
+        left: 2vw;
+        width: 18vw;
+    }
+    .dftext{
+        width:14vw ;
     }
   }

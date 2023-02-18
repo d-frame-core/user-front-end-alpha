@@ -188,6 +188,78 @@
     color:#E3DAF6;
 }
 .wa{
-    font: 24px;
+    font-size: 120%;
     font-weight: 600;
+}
+@media only screen and (max-width: 1000px) {
+    .wa{
+        font-size: 80%;
+    }
+    .stat-green{
+    margin-left: 13vw;
+    }
+    .dft1{
+        margin-left: 1vw;
+    }
+    .time{
+        margin-left: 6vw;
+    }
+    .dat{
+        margin-left: 12vw;
+    }
+}@media only screen and (max-width: 770px) {
+    .trans{
+        left: 2vw;
+        width: 32vw;
+    }
+    .wabo{
+        width: 32vw;
+    }
+    .walbox{
+        left: 1vw;
+        width: 28vw;
+    }
+    .add{
+        left: -2vw;
+    }
+    .dat{
+        left: 3vw;
+    }
+    .stat-red{
+        left: 5vw;
+    }
+    .stat-green{
+        left: 4vw;
+    }
+    .time{
+        top: 4%;
+        left: 2vh;
+    }
+    .walbox2{
+        width: 31vw;
+    }
+    .transfertoken{
+        width: 31vw;
+    }
+    .wad{
+        left: 4vw;
+        width: 23vw;
+    }
+    .walbtn{
+        top: 1vh;
+        height:5vh;
+        width: 10vw;
+    }
+    .il{
+        width: 25vw;
+    }
+    .Wallet{
+        left: 28vw;
+    }
+    .us{
+        width: 15vw;
+    }
+    .icus{
+        left: 20vw;
+    }
 }

@@ -1,11 +1,15 @@
+body{
+    overflow-x: hidden;
+
+}
 .kyc-rectangle {
     position: relative;
     display: flex;
-    height: 95vh;
+    height: 100vh;
     border-radius: 1.1vh;
     width: 75vw;
     top: 5rem;
-    left: 7vw;
+    left: 21vw;
     background: linear-gradient(
       180deg,
       rgba(227, 218, 246, 0.6) 0%,
@@ -19,18 +23,18 @@
     background-color: #E3DAF6;
 }
 .fbox1{
-    position: absolute;
+    position: relative;
     height: 85vh;
     min-width: 48vw;
     /* background-color: hwb(0 100% 0% / 0.502); */
-    top: 50%;
-    left: 50%;
+    left: 75%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
 }
 .ftitle{
+    position: relative;
     font-size: 5vh;
-    top: 10vh;
+    top: 0vh;
     font-weight: 600;
     padding: 5vh;
     align-items: left;
@@ -84,6 +88,7 @@
    background-color: #017EFA;
 }
 .fillbox{
+    position: relative;
     height: 30vh;
     width: 30vw;
     background-color: #E3DAF6;
@@ -112,8 +117,8 @@
 
 .step-1{
     position: absolute;
-    top: 37rem;
-    left: 15vw;
-    width: 30vh;
-    z-index: 1;
+   top: 90vh;
+    left: 20vw;
+    
+    
 }

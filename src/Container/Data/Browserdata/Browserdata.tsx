@@ -58,16 +58,27 @@ function Browserdata() {
     <div>
         <>{Sidebar1(8)}</>
 
-          <Container maxWidth={false} sx={{maxWidth:'84%'}} className='arm' >
+          <div   className='arm' >
             <Box className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</Box>
             <div className={st}></div>
             <Box className={toggleState1 === 10 ? 'emact' : 'emnot'} onClick={() =>toggleTab1(10)}>Email Data</Box>
             
             <Box className={toggleState1 === 11 ? 'clact' : 'clnot'} onClick={() =>toggleTab1(11)}>Call Data</Box> 
-          </Container>
+          </div>
           
-          <div className='brtitle'  >{b.name}<a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  ><InfoOutlinedIcon  className='icon' onMouseEnter={()=>setHoverOpen(true)} onMouseLeave={()=>setHoverOpen(false)}/>{hoverOpen && <p className={o}>Privacy Policy</p>}</a></div>
-          <Container maxWidth={false}  sx={{maxWidth:'75%',minHeight:'72vh'}}className='brrect2'>{b.detial}:
+          <div className='brtitle'  >{b.name}
+          <a href='#' onClick={Open}  style={{textDecoration:'none',color:'#017EFA'}}  >
+            <InfoOutlinedIcon  
+            className='icon' 
+            onMouseEnter={()=>setHoverOpen(true)} 
+            onMouseLeave={()=>setHoverOpen(false)}/>{
+            hoverOpen && 
+            <p className={o}>
+              Privacy Policy
+              </p>}
+              </a>
+              </div>
+          <Box className='brrect2'>{b.detial}:
         <Box className='brbox'>
           <span>
             {[...new Array(50)].map(()=>{
@@ -81,7 +92,7 @@ function Browserdata() {
 
           </span>
         </Box>
-        </Container>
+        </Box>
        
       </div>
       

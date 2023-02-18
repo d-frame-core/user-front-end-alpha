@@ -37,8 +37,8 @@ export default function Wallet() {
               </Box>
               </Box>
               <Box className='walbox2'> 
-                <p className='wa'>Wallet Balance &nbsp;&nbsp;&nbsp; {userdata.dft}</p>
-                <div  ><input className='us' value={userdata.userad} readOnly={true}></input><a onClick={()=> {navigator.clipboard.writeText(userdata.userad); }}><ContentCopyIcon className='icus'/></a></div>
+                <p className='wa'>Wallet Balance &nbsp;&nbsp;{userdata.dft}</p>
+                <div  ><input className='us' value={userdata.userad} readOnly={true}/><a onClick={()=> {navigator.clipboard.writeText(userdata.userad); }}><ContentCopyIcon className='icus'/></a></div>
               </Box>
               <Box>
                   <div className='transfertoken'>

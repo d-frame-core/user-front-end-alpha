@@ -11,7 +11,8 @@ background: linear-gradient(90deg, rgba(92, 15, 255, 0.63) 0%, rgba(177, 133, 25
     position: relative;
 width:10vw;
 top:3vh;
-margin-right:100vw;
+
+left: 67vw;
 font-family: "Atala";
 font-size: 110%;
 font-weight: 500;
@@ -37,7 +38,30 @@ font-weight: 500;
     left: 20vw;
    } 
    .head1{
-
-
+    
+    left: 62vw;
    }
+   .arrow{
+    left: 73vw;
+   }
+   .user1{
+    left: 58vw;
+   }
+}
+@media only screen and (max-width: 770px) {
+    .header{
+        width: 74vw;
+        left:26vw;
+    } 
+    .head1{
+    
+        left: 55vw;
+       }
+       .arrow{
+        left: 70vw;
+       }
+       .user1{
+        left: 48vw;
+       }
+
 }

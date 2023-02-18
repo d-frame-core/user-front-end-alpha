@@ -112,7 +112,7 @@ export default function KYC1() {
 }
 
   return (
-    <Container>
+    <>
       <Sidebar1/>
       
       <div>
@@ -121,7 +121,7 @@ export default function KYC1() {
           <div className='container'>
         <Box className='kyc-rectangle'>
         <div className='body'>
-        <Container maxWidth='sm' sx={{top:'45vh'}} className='fbox1'>
+        <Box maxWidth='sm' sx={{top:'45vh'}} className='fbox1'>
           <div className='ftitle'>KYC Level-1:</div>
           <form className='fbox2' onSubmit={handleSubmit(onSubmit)} >
             <div className='alignleft'>First Name<a className='colon'>:
@@ -155,7 +155,7 @@ export default function KYC1() {
             {/* <input type="submit" /> */}
         </form>
         
-      </Container>
+      </Box>
         <Backdrop open={fieldopen}>
           <Box className='fillbox'>
             <div className='a1'>Please Fill in the {field}</div>
@@ -167,7 +167,7 @@ export default function KYC1() {
     <div className="step-1">
     <img src={df} alt='' style={{position:'absolute' ,  width:'20%', left:'4.5vw', top:'-7vh'}}/> 
           {" "}
-          <Box sx={{ width: "300%" }}>
+          <Box sx={{ width: "250%" }}>
             <Stepper activeStep={0} alternativeLabel>
               {data.map((label) => (
                 <Step key={label}>
@@ -181,7 +181,7 @@ export default function KYC1() {
         </div>
         
       </div>
-    </Container>
+    </>
   )
 }
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import Linecharts from '../../components/charts/linechart/Linechart'
 import Sidebar1 from '../../components/sidebar1/Sidebar1'
 import './rewards.css'
-import { Box, Container,Divider } from '@mui/material'
+import { Box, Button, ButtonGroup, Container,Divider, makeStyles } from '@mui/material'
 import Linechart from '../../components/charts/linechart/Linechart'
+import { borderColor } from '@mui/system'
+import df from '../../assets/dframe.png';
 
 const rewarddata: any[]=[
   { name: "All", value: 4300,long: 'DFT (earned)' },
@@ -12,39 +13,38 @@ const rewarddata: any[]=[
   { name: "Referrals", value: 540 ,long: 'DFT (earned)'},
 ];
 
-const Daily:any[] = [
-  {name:'0',value: 35},
-  {name:'4',value: 35},
-  {name:'8',value: 13},
-  {name:'12',value: 34}, 
-  {name:'16',value: 27}, 
-  {name:'20',value: 30}, 
-  {name:'24',value: 37}, 
+const Daily:object[] = [
+  {name:'Hours',All:35,BrowserData:42,VerificationRewards:27,Refferals:14},
+  {name:'4',All: 35,BrowserData:23,VerificationRewards:33,Refferals:24},
+  {name:'8',All: 13,BrowserData:22,VerificationRewards:43,Refferals:34},
+  {name:'12',All: 34,BrowserData:20,VerificationRewards:30,Refferals:44}, 
+  {name:'16',All: 27,BrowserData:44,VerificationRewards:35,Refferals:28}, 
+  {name:'20',All: 30,BrowserData:36,VerificationRewards:40,Refferals:11}, 
+  {name:'24',All: 37,BrowserData:54,VerificationRewards:45,Refferals:10}, 
 ]
-const Weekly:any[] = [
-  {name:'0',value: 35},
-  {name:'3',value: 31},
-  {name:'6',value: 30},
-  {name:'9',value: 20},
-  {name:'12',value: 25},
-  {name:'15',value: 33},
-  {name:'18',value: 22},
-  {name:'21',value: 21},
-  {name:'24',value: 37},
-  {name:'27',value: 56},  
+const Weekly:object[] = [
+  {name:'Days',All:15,BrowserData:23,VerificationRewards:29,Refferals:14},
+  {name:'3',All:20,BrowserData:13,VerificationRewards:17,Refferals:24},
+  {name:'6',All:25,BrowserData:17,VerificationRewards:2,Refferals:34},
+  {name:'9',All:30,BrowserData:27,VerificationRewards:38,Refferals:42},
+  {name:'12',All:35,BrowserData:33,VerificationRewards:9,Refferals:47},
+  {name:'15',All:40,BrowserData:26,VerificationRewards:19,Refferals:50},
+  {name:'18',All:45,BrowserData:2,VerificationRewards:59,Refferals:57},
+  {name:'21',All:50,BrowserData:34,VerificationRewards:49,Refferals:60},
+  {name:'24',All:55,BrowserData:21,VerificationRewards:39,Refferals:12},
+  {name:'27',All:60,BrowserData:50,VerificationRewards:29,Refferals:20},  
 ]
-const Monthly:any[] = [
-  {name:'1',value: 35},
-  {name:'2',value: 15},
-  {name:'3',value: 10},
-  {name:'4',value: 13}, 
+const Monthly:object[] = [
+  {name:'Week 1',All:35,BrowserData:3,VerificationRewards:9,Refferals:4},
+  {name:'Week 2',All:55,BrowserData:23,VerificationRewards:59,Refferals:24},
+  {name:'Week 3',All:5,BrowserData:43,VerificationRewards:29,Refferals:54},
+  {name:'Week 4',All:28,BrowserData:13,VerificationRewards:49,Refferals:44}, 
 ]
-var ab:any[]=[];
+var ab:object[]=[];
 
-
-export default function Rewards() {
+function Rewards() {
   const [toggleState,setToggleState] = useState(3);
-  const toggleTab = (index: void |any) =>{
+  const toggleTab = (index: void | any) =>{
     setToggleState(index);
   }
   if (toggleState === 3 ){
@@ -57,18 +57,27 @@ export default function Rewards() {
   else if (toggleState === 5){
     (ab = Monthly);
   }
+    
   return (
     <div>
       <>{Sidebar1(4)}</>
       <div className='rewtitle'>Rewards</div>
       <Container maxWidth={false} sx={{ maxWidth: '70%' }} className="rewcont">  
+      
+      <img src={df} className="dflogo"></img>
+      <div className='ltext1'>Total DFT Tokens</div>
+      <div className='ltext2'>4300</div>
+
       <a className="rewhead">Total Rewards Earning in DFT</a>
       
       <div className='linechart'><>{Linechart(ab)}</></div>
-      <div onClick={()=> toggleTab(3)} className='btnrewards'>Daily</div>
-      <div onClick={()=>setToggleState(4)} className='btnrewards'>Weekly</div>
-      <div onClick={()=> toggleTab(5)} className='btnrewards'>Monthly</div>
-      
+
+      <ButtonGroup  className='rewtabs' size='small' variant="text" aria-label='text button group' sx={{".MuiButton-text":{color:'#000000'}}} >
+        <Button onClick={()=> toggleTab(3)}>Daily</Button>
+        <Button onClick={()=> toggleTab(4)}>Weekly</Button>
+        <Button onClick={()=> toggleTab(5)}>Monthly</Button> 
+      </ButtonGroup>
+
       <Box className='rerect'></Box>
       <Box className='redbox'>
       <span> {
@@ -80,9 +89,10 @@ export default function Rewards() {
               </div>
              <Divider/></> );
             })
-            }</span><br/>
+            }</span>
       </Box>
       </Container>
     </div>
   )
 }
+export default Rewards;

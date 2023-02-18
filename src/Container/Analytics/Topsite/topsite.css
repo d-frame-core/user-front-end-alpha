@@ -14,7 +14,7 @@
     height: 28vh;
     width: 55vw;
     top: 70vh;
-    left: 30.5vw;
+    left: 30vw;
     border-radius: 10px;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
@@ -93,4 +93,49 @@
     border-top-left-radius: 1vh;
     z-index: 1;
     border-top-right-radius: 1vh;
+}
+@media only screen and (max-width:1000px) {
+    .tsbox1{
+        left: 23vw;
+    }
+    
+    .top1{
+        width: 80vw;
+        left: 20vw;
+    }
+    .tab1{
+        width: 38vw;
+    }
+    .tab1active{
+        width: 38vw;
+    }
+    .tab2{
+        width: 38vw;
+    }
+    .tab2active{
+        width: 38vw;
+    }
+    
+}
+@media only screen and (max-width:770px) {
+    .top1{
+        width: 74vw;
+        left: 26vw;
+    }
+    .tab1{
+        width: 35vw;
+    }
+    .tab1active{
+        width: 35vw;
+    }
+    .tab2{
+        width: 35vw;
+    }
+    .tab2active{
+        width: 35vw;
+    }
+    .tsbox1{
+        width: 70vw;
+        left: 28vw;
+    }
 }

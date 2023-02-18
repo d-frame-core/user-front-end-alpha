@@ -13,7 +13,7 @@ import {
 
 export default function Linecharts(linedata:any) {
   return (
-    <ResponsiveContainer height={200} width="100%" >
+    <ResponsiveContainer height={300} width={1050}>
     <LineChart className="linechart1"
       width={1000}
       height={300}
@@ -26,18 +26,34 @@ export default function Linecharts(linedata:any) {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="name"  />
       <YAxis/>
       <Tooltip />
-      
       <Line
         type="monotone"
-        dataKey="value"
-        stroke="#8884d8"
-       
+        dataKey="All"
+        stroke="#F816FD"
+        activeDot={{ r: 8 }}
       />
-       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-      
+      <Line
+        type="monotone"
+        dataKey="BrowserData"
+        stroke="#017EFA"
+        activeDot={{ r: 8 }}
+      />
+      <Line
+        type="monotone"
+        dataKey="VerificationRewards"
+        stroke="#1DCE79"
+        activeDot={{ r: 8 }}
+      />
+      <Line
+        type="monotone"
+        dataKey="Refferals"
+        stroke="#F6294E"
+        activeDot={{ r: 8 }}
+      />
+
     </LineChart></ResponsiveContainer>
   );
 }

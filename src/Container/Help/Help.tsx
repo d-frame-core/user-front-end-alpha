@@ -32,8 +32,9 @@ export default function Help() {
   }, [open]);
   return (
     <div>
-<Sidebar1/>      <div className='htitle'>Help</div>
-    <div className='hrect'></div>
+<Sidebar1/>      
+    <div className='hrect'>
+      <div className='htitle'>Help</div>
     <div className='helprect'> 
           <div className='inf'>
             <BasicModel name={Helpdata.name1} paragraph={Helpdata.des1}/>
@@ -113,6 +114,7 @@ export default function Help() {
           
     </div>
     
+    </div>
     </div>
     
   )

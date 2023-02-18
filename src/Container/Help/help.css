@@ -1,13 +1,14 @@
+
 .helprect{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
-    top: 20vh;
-    left: 22vw;
+    top: 9vh;
+    left: 4vw;
     text-align: left;
     font-size: 3vh;
-    height: 80vh;
+    
     width: 73vw;
 }
 .inf{
@@ -18,7 +19,7 @@
     background-color: #ffffff;
 }
 .hrect{
-    position: absolute;
+    position: relative;
     top: 9vh;
     left: 16vw;
     height: 91vh;
@@ -29,8 +30,25 @@
 .htitle{
     position: relative;
     font-size: 5vh;
+    width: 6vw;
     font-weight: 600;
-    top: 11vh;
-    left: 20vw;
+    top: 5vh;
+    left: 1vw;
+    margin-left: 2vw;
     z-index: 1;
+}
+@media only screen and (max-width: 1000px) {
+    .hrect{
+        width: 80vw;
+        left: 20vw;
+    }
+    @media only screen and (max-width: 770px) {
+        .hrect{
+            width: 74vw;
+            left: 26vw;
+        }
+        .inf{
+            width: 60vw;
+        }
+    }
 }
