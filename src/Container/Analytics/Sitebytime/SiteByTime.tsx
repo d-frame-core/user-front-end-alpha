@@ -24,7 +24,7 @@ export default function SiteByTime() {
         </Box>
    
     <Box className='sdbox1'>
-    <div className='tschart'>{Charts2(analyticsdata,"long1")}</div>
+    <div className='tschart' style={{paddingTop:'1000px',border:'2px solid black'}}>{Charts2(analyticsdata,"long1")}</div>
     </Box>
     <Box className='sdbox2'>
            <span> {

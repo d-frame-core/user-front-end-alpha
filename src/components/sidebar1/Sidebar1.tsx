@@ -15,12 +15,28 @@ import PaddingOutlinedIcon from '@mui/icons-material/PaddingOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import MenuIcon from '@mui/icons-material/Menu';
+import * as React from 'react';
+import Drawer from './Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+
+type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export default function Sidebar1(index : any) {
+  const [state, setState] = React.useState({
+    left: false,
+  });
   var [dataActive, setDataActive] = useState(false);
   var dataActive1 = false;
   const[toggleState,setToggleState] = useState(index);
-  
+  const[side,setSide]=useState(true)
   const toggleTab = (index: any) =>{
     setToggleState(index);
   }
@@ -28,11 +44,36 @@ export default function Sidebar1(index : any) {
   if(toggleState=== 5 ||toggleState=== 6 ){
       dataActive=(true);
     }
+    
+    const toggleDrawer =
+    (anchor: Anchor, open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return;
+      }
 
+      setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor: Anchor) => (
+      <Box
+        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+
+      </Box>)
+    
   return (
     <>
-    <div>
       <Header/>
+    {side && <div>
+      
         <Box className='side'>
         <img src={df} className='dframe' alt=''/>
         <div className='dftext'>D FRAME</div>
@@ -80,11 +121,7 @@ export default function Sidebar1(index : any) {
             <PaddingOutlinedIcon className='ic'/>Survey</div>
           </NavLink>
       </div>
-            
-
-</Box>
-
-   </div>
+      
    <div className='footer'>
     <div className="circle1"></div>
       <div className="circle2"><QuestionMarkIcon/></div>
@@ -99,7 +136,10 @@ export default function Sidebar1(index : any) {
             <NavLink to='/learnmore' className=''>
         <div className='text9' >Learn More</div>
         </NavLink>
-   </div>
+        </div>
+        </Box>
+   </div>}
+   <a className='smopen'><Drawer/></a>
    </>
   )
 }

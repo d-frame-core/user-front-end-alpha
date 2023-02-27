@@ -27,6 +27,7 @@ font-weight: 500;
 
 }
 
+
 .arrow{
     position: absolute;
     right:6vw;
@@ -47,21 +48,30 @@ font-weight: 500;
    .user1{
     left: 58vw;
    }
+   .menuicon{
+    visibility: hidden;
+}
 }
 @media only screen and (max-width: 770px) {
     .header{
-        width: 74vw;
-        left:26vw;
+        width: 100vw;
+        left: 0vw;
     } 
     .head1{
     
-        left: 55vw;
+        left: 75vw;
        }
        .arrow{
-        left: 70vw;
+        left: 90vw;
        }
        .user1{
-        left: 48vw;
+        left: 68vw;
        }
+       .menuicon{
+        top: 2vh;
+        left: 2vw;
+        position: absolute;
+        visibility: visible;
+    }
 
 }

@@ -1,4 +1,6 @@
-
+.smopen{
+    visibility: hidden;
+}
 .dframe{
     position: relative;
     height: 15vh;
@@ -19,6 +21,14 @@
     z-index: 1;
     color: #0A194E;
     
+}
+.side1{
+    position: absolute;
+    left:0vw;
+    font-size: 2vh;
+    width: 27vw;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(92, 15, 255, 0.66) 0%, rgba(250, 1, 255, 0.33) 100%);
 }
 .side{
     position: absolute;
@@ -208,21 +218,21 @@ background: #017EFA;
 .circle1{
     position: absolute;
     top:77vh ;
-    left:6.5%;
+    left:6.6vw;
     z-index: 3;
     height: 6vh;
-    width: 3%;
+    width: 15%;
     border-radius: 50%;
     background-color: #AABBFA;
 }
 .circle2{
     position: absolute;
     top:78vh ;
-    left:7%;
+    left:7vw;
     z-index: 3;
     height: 4vh;
     color: #FFFFFF;
-    width: 2%;
+    width: 10%;
     border-radius: 50%;
     background-color: #017EFA;
 }
@@ -230,6 +240,9 @@ background: #017EFA;
 
 
 @media only screen and (max-width: 1000px) {
+    .smopen{
+       visibility: hidden;
+    }
     .side{
         width: 20vw;
     }
@@ -274,8 +287,15 @@ background: #017EFA;
     }
   }
   @media only screen and (max-width: 770px) {
-    
+    .smopen{
+        position: absolute;
+        top: 1vh;
+        left: 0vw;
+        z-index: 2;
+        visibility: visible;
+    }
     .side{
+        display: none;
         width: 26vw;
     }
     .item{

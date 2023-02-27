@@ -16,7 +16,7 @@ const RADIAN = Math.PI / 180;
 
 export default function Charts2(indata: any[],value:string ) {
   return (
-    <Container maxWidth={false}  className='pie'>
+    <Container maxWidth={false}  className='pie' >
     <PieChart width={700} height={290} >
       <Pie 
         dataKey={value}

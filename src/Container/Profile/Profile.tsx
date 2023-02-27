@@ -293,7 +293,8 @@ function Profile() {
 
               <div className='uphead'>Update Address</div>
               <form>
-                <a className='upa'>Enter Address 1<a className="colonpop">:</a> <input className='uin' name='address1' type='text' value={address1} onChange={(e) => setAddress1(e.target.value)} required /></a>
+                <a className='upa'>Enter Address 1<a className="colonpop">:</a> 
+                <input className='uin' name='address1' type='text' value={address1} onChange={(e) => setAddress1(e.target.value)} required /></a>
 
 
                 <div className='upbtn1'>
