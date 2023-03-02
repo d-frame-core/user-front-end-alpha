@@ -27,9 +27,9 @@ var questions:any = [
     an1:'Yes',
     an2:'No'
 },
-{
-    qs2:'You Have answered all Survey questions '
-}
+// {
+//     qs2:'You Have answered all Survey questions '
+// }
 ];
 
 export default questions;

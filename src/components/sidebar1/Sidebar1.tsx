@@ -95,7 +95,7 @@ export default function Sidebar1(index : any) {
         </div>
 
             <NavLink to='/learnmore' className=''>
-        <div className='text9' >Learn More</div>
+        <div className='text9'>Learn More</div>
         </NavLink>
    </div>
    </>
