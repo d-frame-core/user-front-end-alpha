@@ -21,7 +21,7 @@ export default function Permission(){
   return (
       <>
       <>{Sidebar1(3)}</>
-      <Container maxWidth={false} sx={{maxWidth:'70%'}} className="percont">
+      <Container maxWidth={false}  className="percont">
       <a className="pertitle">Permission</a> 
         <Box><form className="perbox" onSubmit={handlesubmit}>
 

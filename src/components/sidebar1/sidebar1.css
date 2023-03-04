@@ -109,8 +109,8 @@
 }
 .notActive2{
     position: relative;
-    width: 13vw;
-    left: 3vw;
+    width: 13.5vw;
+    left: 2.5vw;
     margin-top: 2%;
     margin-bottom: 2%;
     height: 5vh;
@@ -265,8 +265,8 @@ background: #017EFA;
         width: 18vw;
     }
     .notActive2{
-        width: 15vw;
-        left: 3vw;
+        width: 16vw;
+        left: 2.5vw;
         text-indent: 1vw;
     }
     .rect3{
@@ -276,10 +276,10 @@ background: #017EFA;
         width: 14vw;
     }
     .circle1{
-        left: 8.5%;
+        visibility: hidden;
     }
     .circle2{
-        left: 9vw;
+        visibility: hidden;
     }
     .text9{
         width: 10vw;
@@ -296,7 +296,7 @@ background: #017EFA;
     }
     .side{
         display: none;
-        width: 26vw;
+        
     }
     .item{
         width: 26vw;

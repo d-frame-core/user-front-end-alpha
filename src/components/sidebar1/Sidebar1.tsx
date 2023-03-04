@@ -33,10 +33,11 @@ export default function Sidebar1(index : any) {
   const [state, setState] = React.useState({
     left: false,
   });
+  const[side,setSide]=useState(true)
   var [dataActive, setDataActive] = useState(false);
   var dataActive1 = false;
   const[toggleState,setToggleState] = useState(index);
-  const[side,setSide]=useState(true)
+  
   const toggleTab = (index: any) =>{
     setToggleState(index);
   }
@@ -139,7 +140,9 @@ export default function Sidebar1(index : any) {
         </div>
         </Box>
    </div>}
-   <a className='smopen'><Drawer/></a>
+   <a className='smopen'>
+    {Drawer(index)}
+    </a>
    </>
   )
 }

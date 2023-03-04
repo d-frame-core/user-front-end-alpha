@@ -39,11 +39,11 @@
 }
 .sdchart{
     position: absolute;
-    
-    top:9vh;
-    left: 9vw;
+    width: 60vw;
+    top:7vh;
+    left: 7vw;
     z-index: 1;
-    background-color: white;
+    background-color: #ffffff;
 
 }
 .sdlist{
@@ -67,7 +67,7 @@
     position: absolute;
     top: 9vh;
     left: 16vw;
-    width: 84vw;
+    min-width: 84vw;
     font-size: 2vh;
     display: flex;
     flex-direction: row;
@@ -112,30 +112,92 @@
     padding-left: 2vw;
     font-weight: 600;
 }
+@media only screen and (max-width:1200px) {
+    .sdchart{
+        left: 5vw;
+        width: 64vw;
+        height: 45vh;
+        
+    }
+}
+@media only screen and (max-width:1100px) {
+    .sdbox1{
+        left: 18vw;
+        width: 80vw;
+    }
+    .sdchart{
+        left: 4vw;
+        width: 72vw;
+        height: 45vh;
+        
+    }
+
+}
+
 @media only screen and (max-width:1000px) {
+    .sdchart{
+        left: -10vw;
+        width: 66vw;
+        height: 45vh;
+        background-color: transparent;
+    }
     .sites{
         left: 20vw;
         width: 80vw;
     }
     .sdbox1{
         left: 23vw;
+        width: 74vw;
     }
     .sdbox2{
         left: 25vw;
     }
     
-}@media only screen and (max-width:1000px) {
+}@media only screen and (max-width:770px) {
     .sites{
-        left: 26vw;
-        width: 74vw;
+        left: 0vw;
+        min-width: 100vw;
         font-size:60% ;
     }
+    .tsbox1{
+        height: 40vh;
+        left: 4vw;
+        width: 92vw; 
+    }
     .sdbox1{
-        left: 28vw;
-        width: 70vw;
+        left: 4vw;
+        width: 92vw;
+    }
+    .sdchart{
+        left: 0vw;
+    }
+    .crypto{
+        width: 17vw;
+    }
+    .cryptoactive{
+        width: 17vw;
     }
     .sdbox2{
-        left: 31vw;
-        width: 64vw;
+        left: 15vw;
+        width: 70vw;
+    }
+    
+}
+@media only screen and (max-width:670px) {
+    .sdchart{
+        left: -9vw;
+        
+    }
+}
+@media only screen and (max-width:570px) {
+    .sdchart{
+        left: -14vw;
+        
+    }
+}
+@media only screen and (max-width:500px) {
+    .sdchart{
+        left: -22vw;
+        
     }
 }

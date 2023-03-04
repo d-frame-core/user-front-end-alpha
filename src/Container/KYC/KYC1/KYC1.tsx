@@ -121,7 +121,7 @@ export default function KYC1() {
           <div className='container'>
         <Box className='kyc-rectangle'>
         <div className='body'>
-        <Box maxWidth='sm' sx={{top:'45vh'}} className='fbox1'>
+        <Box  sx={{top:'45vh'}} className='fbox1'>
           <div className='ftitle'>KYC Level-1:</div>
           <form className='fbox2' onSubmit={handleSubmit(onSubmit)} >
             <div className='alignleft'>First Name<a className='colon'>:

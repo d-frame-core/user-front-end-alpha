@@ -21,8 +21,9 @@
 
 .tschart{
     position: absolute;
+    width: 68vw;
     top:6vh;
-    left: 9vw;
+    left: 3vw;
     z-index: 1;
     background-color: white;
 }
@@ -39,7 +40,7 @@
     position: absolute;
     top: 9vh;
     left: 16vw;
-    width: 84vw;
+    min-width: 84vw;
     height: 7vh;
     background-color:#0A194E ;
 }
@@ -94,6 +95,27 @@
     z-index: 1;
     border-top-right-radius: 1vh;
 }
+@media only screen and (max-width:1200px) {
+    .tschart{
+        left: 5vw;
+        width: 64vw;
+        height: 45vh;
+        
+    }
+}
+@media only screen and (max-width:1100px) {
+    .sdbox1{
+        left: 18vw;
+        width: 80vw;
+    }
+    .tschart{
+        left: 4vw;
+        width: 72vw;
+        height: 45vh;
+        
+    }
+
+}
 @media only screen and (max-width:1000px) {
     .tsbox1{
         left: 23vw;
@@ -115,27 +137,50 @@
     .tab2active{
         width: 38vw;
     }
+    .tschart{
+        width: 70vw;
+        left: -5vw;
+       background-color: transparent;
+    }
     
 }
 @media only screen and (max-width:770px) {
     .top1{
-        width: 74vw;
-        left: 26vw;
+        width: 100vw;
+        left: 0vw;
     }
     .tab1{
-        width: 35vw;
+        width: 48vw;
     }
     .tab1active{
-        width: 35vw;
+        width: 47vw;
     }
     .tab2{
-        width: 35vw;
+        width: 48vw;
     }
     .tab2active{
-        width: 35vw;
+        width: 47vw;
     }
     .tsbox1{
         width: 70vw;
         left: 28vw;
+    }
+}
+@media only screen and (max-width:670px) {
+    .tschart{
+        left: -9vw;
+        
+    }
+}
+@media only screen and (max-width:570px) {
+    .tschart{
+        left: -14vw;
+        
+    }
+}
+@media only screen and (max-width:500px) {
+    .tschart{
+        left: -22vw;
+        
     }
 }

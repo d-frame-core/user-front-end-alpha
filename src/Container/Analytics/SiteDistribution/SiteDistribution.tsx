@@ -3,7 +3,7 @@ import Sidebar1 from '../../../components/sidebar1/Sidebar1'
 import './sitedistribution.css'
 import { useState } from 'react'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 var a: any[]=[];
 const Crypto=[
   {name:'Bitcoin',per:35,value: 35},
@@ -45,7 +45,9 @@ const Finance=[
 var a: any[];
 
  function SiteDistribution() {
-
+  const ma = useMediaQuery('(min-width:880px)');
+ var h11:number = 280;
+ var w11:number =700;
  const [toggleState,setToggleState] = useState(3);
   const toggleTab = (index: void |any) =>{
     setToggleState(index);
@@ -91,7 +93,7 @@ var a: any[];
     </div>
   <Box className='sdbox1'>
     <div className='topic'>Site Distribution</div>
-  <div className='sdchart'>{Charts2(a,"per")}</div>
+  <div className='sdchart'>{Charts2(a,"per",h11,w11,ma)}</div>
    </Box>
    <Box className='sdbox2'>
    <span> {

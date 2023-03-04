@@ -21,7 +21,7 @@ export default function Wallet() {
             <div className='head'>Wallet</div>
             <Box className='trans'>
               <div className='trans1'>Transaction</div>
-              <Divider sx={{width:'22vw',margin:'auto'}}/>
+              <Divider sx={{width:'24vw',margin:'auto'}}/>
               <Box className='wabo'>
                 <div>{walletdata.map(item =>{
                   return(

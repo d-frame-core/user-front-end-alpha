@@ -1,7 +1,7 @@
 .percont{
     position: absolute;
     height: 75%;
-    width: 70%;
+    max-width: 70%;
     left: 23vw;
     top: 17vh;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
@@ -101,16 +101,17 @@
         left: 26vw;
     }
     .pertog{
-        left: 28vw;
+        left: 32vw;
     }
     .pertog1{
-        top: 4vh;
-        left: -10vw;
+        top: 3vh;
+        left: 6vw;
     }
     .percont{
         top: 12vh;
         height: 85%;
-        left: 28vw;
+        max-width: 84vw;
+        left: 8vw;
         text-align: left ;
     }
     .perbtn{

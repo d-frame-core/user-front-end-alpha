@@ -209,15 +209,15 @@
     }
 }@media only screen and (max-width: 770px) {
     .trans{
-        left: 2vw;
-        width: 32vw;
+        left: 5vw;
+        width: 38vw;
     }
     .wabo{
-        width: 32vw;
+        width: 38vw;
     }
     .walbox{
         left: 1vw;
-        width: 28vw;
+        width: 33vw;
     }
     .add{
         left: -2vw;
@@ -236,14 +236,16 @@
         left: 2vh;
     }
     .walbox2{
-        width: 31vw;
+        left: 50vw;
+        width: 35vw;
     }
     .transfertoken{
-        width: 31vw;
+        left: 50vw;
+        width: 35vw;
     }
     .wad{
-        left: 4vw;
-        width: 23vw;
+        left: 5vw;
+        width: 25vw;
     }
     .walbtn{
         top: 1vh;
@@ -254,12 +256,13 @@
         width: 25vw;
     }
     .Wallet{
-        left: 28vw;
+        left: 5vw;
+        width: 90vw;
     }
     .us{
-        width: 15vw;
+        width: 20vw;
     }
     .icus{
-        left: 20vw;
+        left: 25vw;
     }
 }

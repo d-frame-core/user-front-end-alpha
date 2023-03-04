@@ -37,6 +37,28 @@
     margin-left: 2vw;
     z-index: 1;
 }
+.btncl1{
+    position: relative;
+    height: 6vh;
+    width:6vw;
+    background-color:#017EFA ;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 2.5vh;
+    
+}
+.btncl{
+    position: relative;
+    height: 6vh;
+    width:6vw;
+    background-color:#017EFA ;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 2.5vh;
+    left:80%;
+}
 @media only screen and (max-width: 1000px) {
     .hrect{
         width: 80vw;
@@ -44,11 +66,19 @@
     }
     @media only screen and (max-width: 770px) {
         .hrect{
-            width: 74vw;
-            left: 26vw;
+            width: 100vw;
+            left: 0vw;
+        }
+        .btncl{
+            width: 11vw;
+        }
+        .btncl1{
+            width: 11vw;
+            right: 2vw;
         }
         .inf{
-            width: 60vw;
+            
+            width: 84vw;
         }
     }
 }

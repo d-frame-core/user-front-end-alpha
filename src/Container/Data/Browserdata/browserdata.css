@@ -174,11 +174,11 @@ padding: 3vh;
     position: absolute;
     top: 9vh;
    height: 8vh;
-   width:84vw;
+   min-width:84vw;
    left: 16vw;
    font-size: 3vh;
     background-color: #0A194E;
-    display: flex;
+    z-index: 5;
 }
 .div{
     position: relative;
@@ -251,7 +251,7 @@ padding: 3vh;
 }
 @media only screen and (max-width:1000px) {
     .arm{
-        max-width: 80vw;
+        
         left: 20vw;
     }
     .brrect2{
@@ -270,40 +270,42 @@ padding: 3vh;
 }
 @media only screen and (max-width: 770px) {
     .arm{
-        max-width: 74vw;
-        left: 26vw;
-        font-size: 100%;
-        height: 7vh;
+        width: 100%;
+        left: 0vw;
     }
-    .bract,.clact,.emact{
-        width: 20vw;
-        height: 3vh;
-    }
-    .emact{
-        left: 26vw;
+    .brnot{
+        
+        width: 33%;
     }
     .emnot{
-        left: 26vw;
-    }
-    .clact{
-        left: 50vw;
+        left: 34vw;
+        width: 33%;
     }
     .clnot{
-        left: 50vw;
+        width: 30%;
+        left: 66vw;
     }
-    .brnot,.clnot,.emnot{
-        width: 20vw;
-        height: 3vh;
+    .bract{
+        width: 30%;
     }
+    .emact{
+        left: 34vw;
+        width: 30%;
+    }
+    .clact{
+        width: 30%;
+        left: 67vw;
+    }
+    
     .brtitle{
-        left: 28vw;
+        left: 8vw;
     }
     .brrect2{
-        width: 62vw;
-        left: 28vw;
+        width: 80vw;
+        left: 6vw;
     }
     .brbox{
-        width: 64vw;
+        width: 82vw;
     }
     .pp{
         left: 45vw;
@@ -316,5 +318,11 @@ padding: 3vh;
     .pp2{
         left: 33vw;
         width: 15vw;
+    }
+    .d11{
+        left: 67vw;
+    }
+    .d12{
+        left: 34vw;
     }
 }

@@ -4,7 +4,7 @@ import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend, Tooltip } fro
 import { stripBasename } from '@remix-run/router';
 import { Container } from '@mui/material';
 import analyticsdata from '../../../Container/Analytics/analyticsdata';
-
+import './chart2.css'
 const COLORS = ["#361495", "#7518A1", "#017EFA", "#0B3B82","#6D3277","#f23384","#002147","#551a8b","#003366","#f5f5dc","#c71585", "#702963" ];
 const style = {
   top: "4vh",
@@ -14,10 +14,10 @@ const style = {
 };
 const RADIAN = Math.PI / 180;
 
-export default function Charts2(indata: any[],value:string ) {
+export default function Charts2(indata: any[],value:string,hei:number,wid:number,legendbool:boolean ) {
   return (
-    <Container maxWidth={false}  className='pie' >
-    <PieChart width={700} height={290} >
+    
+    <PieChart width={wid} height={hei} >
       <Pie 
         dataKey={value}
         labelLine={false}
@@ -35,16 +35,17 @@ export default function Charts2(indata: any[],value:string ) {
           
           </Pie>
           
-          <Legend
+        {legendbool &&  <Legend
+          className="legend"
         iconSize={10}
         layout="vertical"
         verticalAlign="middle"
         wrapperStyle={style}
-      />
+      />}
       
       
       <Tooltip />
     </PieChart>
-    </Container>
+    
   );
 }

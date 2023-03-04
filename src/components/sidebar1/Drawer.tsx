@@ -32,7 +32,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 type Anchor =  'left' ;
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer(index:number) {
     const matches = useMediaQuery('(max-width:770px)');
 
   const [state, setState] = React.useState({
@@ -42,6 +42,7 @@ export default function TemporaryDrawer() {
   var dataActive1 = false;
   const[toggleState,setToggleState] = useState(0);
   const[side,setSide]=useState(true)
+  
   const toggleTab = (index: any) =>{
     setToggleState(index);
   }
