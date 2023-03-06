@@ -91,6 +91,7 @@ padding: 3vh;
     height: 4vh;
     width: 25vw;
     color: #000;
+    text-align: center;
     padding: 2vh;
     font-size: 110%;
     font-weight: 500;
@@ -100,13 +101,15 @@ padding: 3vh;
     border-top-right-radius: 1vh;
     display: block;
     z-index: 1;
-   
+    text-indent: -2vw;
 }
 .brnot{
     position: absolute;
     width: 25vw;
-    left: 1vh;
+    left: 0vw;
+    text-indent: -2vw;
     height: 4vh;
+    text-align: center;
     text-align: center;
     color: #ffffff;
     padding: 2vh;
@@ -118,8 +121,10 @@ padding: 3vh;
 .emact{
     position: absolute;
     width: 25vw;
+    text-indent: -2vw;
     top: 2px;
     left: 28vw;
+    text-align: center;
     height: 4vh;
     color: #000;
     font-family: "Atala";
@@ -135,10 +140,12 @@ padding: 3vh;
     width: 25vw;
     top: 0vh;
     left: 28vw;
+    text-indent: -2vw;
     height: 4vh;
     color: #ffffff;
     padding: 2vh;
     font-size: 110%;
+    text-align: center;
     font-family: "Atala";
     background-color: #0A194E;
 }
@@ -146,8 +153,10 @@ padding: 3vh;
     position: absolute;
     width: 26vw;
     top: 2px;
+    text-align: center;
     left: 56vw;
     color: #000;
+    text-indent: -2vw;
     padding: 2vh;
     font-size: 110%;
     font-weight: 500;
@@ -160,6 +169,8 @@ padding: 3vh;
 .clnot{
     position: absolute;
     width: 26vw;
+    text-align: center;
+    text-indent: -2vw;
     top: 0vh;
     left: 56vw;
     height: 4vh;
@@ -178,7 +189,7 @@ padding: 3vh;
    left: 16vw;
    font-size: 3vh;
     background-color: #0A194E;
-    z-index: 5;
+    z-index: 4;
 }
 .div{
     position: relative;
@@ -301,10 +312,11 @@ padding: 3vh;
         left: 8vw;
     }
     .brrect2{
-        width: 80vw;
+        width: 84vw;
         left: 6vw;
     }
     .brbox{
+        left: 3vw;
         width: 82vw;
     }
     .pp{

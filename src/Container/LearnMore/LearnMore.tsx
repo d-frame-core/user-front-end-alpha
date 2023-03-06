@@ -4,6 +4,7 @@ import BasicModel from '../../components/Popup/BasicModel';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import './learnmore.css';
 import learnmoredata from './Learnmoredata';
+import Drawer from '../../components/sidebar1/Drawer';
 export default function LearnMore() {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState<DialogProps['scroll']>('paper');
@@ -28,6 +29,9 @@ export default function LearnMore() {
   return (
     <div>
 <Sidebar1/>      
+<a className='smopen'>
+        {Drawer(0)}
+      </a>
     <div className='hrect'><div className='lmtitle'>Learn More</div>
     <div className='helprect'> 
           <div className='inf'>

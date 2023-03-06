@@ -4,37 +4,38 @@ import './sitedistribution.css'
 import { useState } from 'react'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Drawer from '../../../components/sidebar1/Drawer'
 var a: any[]=[];
 const Crypto=[
-  {name:'Bitcoin',per:35,value: 35},
-  {name:'Ethereum',per:35,value: 35},
-  {name:'Polygon',per:30,value: 30},
-  {name:'Solana',per:30,value: 30},
-  {name:'Hyperledger',per:30,value: 30},
+  {name:'Bitcoin',per:35,value: 35,col:'#361495'},
+  {name:'Ethereum',per:35,value: 35,col:"#7518A1"},
+  {name:'Polygon',per:30,value: 30,col:"#017EFA"},
+  {name:'Solana',per:30,value: 30,col:'#0B3B82'},
+  {name:'Hyperledger',per:30,value: 30,col:'#6D3277'},
 ];
 const Gender=[
-  {name:'Male',per:46,value: 300},
-  {name:'Female',per:46,value: 300},
-  {name:'others',per:8,value: 50}
+  {name:'Male',per:46,value: 300,col:'#361495'},
+  {name:'Female',per:46,value: 300,col:"#7518A1"},
+  {name:'others',per:8,value: 50,col:"#017EFA"}
 ];
 const Agegroup=[
-  {name:'>18',per:43,value: 300},
-  {name:'25-40',per:43,value: 300},
-  {name:'41-60',per:7,value: 50},
-  {name:'<60',per:7,value: 50}
+  {name:'>18',per:43,value: 300,col:'#361495'},
+  {name:'25-40',per:43,value: 300,col:"#7518A1"},
+  {name:'41-60',per:7,value: 50,col:"#017EFA"},
+  {name:'<60',per:7,value: 50,col:'#0B3B82'}
 ];
 const sports=[
-  {name:'Football',per:40,value: 300},
-  {name:'Cricket',per:40,value: 300},
-  {name:'Hockey',per:7,value: 50},
-  {name:'Kabbadi',per:7,value: 50},
-  {name:'Badmiton',per:7,value: 50}
+  {name:'Football',per:40,value: 300,col:'#361495'},
+  {name:'Cricket',per:40,value: 300,col:"#7518A1"},
+  {name:'Hockey',per:7,value: 50,col:"#017EFA"},
+  {name:'Kabbadi',per:7,value: 50,col:'#0B3B82'},
+  {name:'Badmiton',per:7,value: 50,col:'#6D3277'}
 ];
 const SocialMedia=[
-  {name:'Instagram',per:35,value: 300},
-  {name:'Meta',per:29,value: 250},
-  {name:'Reddit',per:24,value: 200},
-  {name:'Linkedin',per:12,value: 100}
+  {name:'Instagram',per:35,value: 300,col:'#361495'},
+  {name:'Meta',per:29,value: 250,col:"#7518A1"},
+  {name:'Reddit',per:24,value: 200,col:"#017EFA"},
+  {name:'Linkedin',per:12,value: 100,col:'#0B3B82'}
 ];
 const Finance=[
   {name:'Muthoot',per:33,value: 33},
@@ -72,9 +73,13 @@ var a: any[];
     (a = Finance);
   }
 
+  const COLORS = ["#361495", , , ""]
   return (
     <div>
    <>{Sidebar1(6)}</>
+   <a className='smopen'>
+    {Drawer(6)}
+    </a>
   
  
     <div className='sites'>
@@ -100,8 +105,10 @@ var a: any[];
            a.map(item=>{
               return (<>
               <div className='gap'>
+              <a className='legendcolor'style={{background: `${item.col}`}}></a>
                 {item.name}
                <a className='gap1'>{item.per + " %"}</a> 
+               
               </div>
               <Divider/></>
               );
@@ -110,6 +117,7 @@ var a: any[];
             }</span><br/>
        
    </Box>
+   
    </div>
   )
 }

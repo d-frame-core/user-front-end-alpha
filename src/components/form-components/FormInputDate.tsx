@@ -11,7 +11,7 @@ const DATE_FORMAT = "dd-MMM-yy";
 
 export const FormInputDate = ({ name, control, label }: FormInputProps) => {
   return (
-    <FormControl sx={{ borderRadius: "1vh", width: "350px" }}>
+    <FormControl sx={{ borderRadius: "1vh", width: "250px" }}>
       <Controller
         name={name}
         control={control}

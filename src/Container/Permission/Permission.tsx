@@ -4,6 +4,7 @@ import './permission.css';
 import { FormControlLabel, Switch, Box, Radio, FormControl, RadioGroup } from '@mui/material';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import { Container } from '@mui/system';
+import Drawer from '../../components/sidebar1/Drawer';
 
 export default function Permission(){
   
@@ -21,6 +22,9 @@ export default function Permission(){
   return (
       <>
       <>{Sidebar1(3)}</>
+      <a className='smopen'>
+      {Drawer(3)}
+    </a>
       <Container maxWidth={false}  className="percont">
       <a className="pertitle">Permission</a> 
         <Box><form className="perbox" onSubmit={handlesubmit}>

@@ -291,7 +291,7 @@ background: #017EFA;
         position: absolute;
         top: 1vh;
         left: 0vw;
-        z-index: 2;
+        z-index: 6;
         visibility: visible;
     }
     .side{

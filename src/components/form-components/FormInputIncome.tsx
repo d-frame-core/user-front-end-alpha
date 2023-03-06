@@ -41,7 +41,7 @@ export const FormInputIncome: React.FC<FormInputProps> = ({
   };
 
   return (
-    <FormControl sx={{ width: "350px", textAlign: "left" }}>
+    <FormControl sx={{ width: "250px", textAlign: "left" }}>
       {/* <InputLabel sx={{ top: "-4px" }}></InputLabel> */}
       <Controller
         render={({ field: { onChange, value } }) => (

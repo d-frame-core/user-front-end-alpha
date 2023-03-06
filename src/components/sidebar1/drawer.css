@@ -2,13 +2,13 @@
     position: absolute;
     left:0vw;
     font-size: 2vh;
-    width: 28vw;
+    width: 30vw;
     height: 100vh;
     background: linear-gradient(180deg, rgba(92, 15, 255, 0.66) 0%, rgba(250, 1, 255, 0.33) 100%);
 }
 .itemnew{
     position: absolute;
-    width: 28vw;
+    width: 30vw;
     top: 24vh;
     color: white;
     background: #0A194E;
@@ -86,7 +86,7 @@ background: #017EFA;
 .dframenew{
     position: relative;
     height: 15vh;
-    width: 15vw;
+    width: 17vw;
     top: 2vh;
     
     left:6vw;
@@ -124,4 +124,36 @@ background: #017EFA;
     font-size: 130%;
     text-decoration-line: underline ;
     color: #FFFFFF;
+}
+.actnew1{
+    position: relative;
+    width: 29vw;
+    left: 1vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 5vh;
+    font-size: 80%;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    text-align: left;
+    text-indent: 2vw;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+}
+.actnew2{
+    position: relative;
+    width: 27vw;
+    left: 3vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 5vh;
+    font-size: 70%;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    text-align: left;
+    text-indent: 2vw;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh;
 }

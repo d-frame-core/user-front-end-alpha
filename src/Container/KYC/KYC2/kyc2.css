@@ -15,7 +15,7 @@ fieldset{
     border-radius: 1.1vh;
     width: 75vw;
     top: 12vh;
-    left: 7vw;
+    left: 21vw;
     background: linear-gradient(
       180deg,
       rgba(227, 218, 246, 0.6) 0%,
@@ -26,13 +26,13 @@ fieldset{
   .kyc1 {
     position: absolute;
     height: 6vh;
-    width: 3vw;
-    top: 78vh;
-    left: 29.5vw;
+    width: 5vw;
+    top: 76vh;
+    left: 30vw;
   }
   .gender-input {
     position: absolute;
-    height: 20vh;
+    height: 15vh;
     top: 12vh;
     font-size: 28px;
     font-weight: 350;
@@ -42,7 +42,7 @@ fieldset{
     position: absolute;
     margin-top: 0rem;
     width: 35vh;
-    left: 20vw;
+    left: 30vw;
     border: none;
     border-radius: 1.1vh;
   }
@@ -67,7 +67,7 @@ fieldset{
   .date-picker {
     position: absolute;
     top: 0vh;
-    left: 20vw;
+    left: 30vw;
     
     font-weight: 350;
     border: none;
@@ -113,7 +113,7 @@ fieldset{
   }
   .label {
     position: absolute;
-    top: 85vh;
+    top: 80vh;
     left: 15vw;
     width: 30vh;
     z-index: 1;
@@ -122,7 +122,7 @@ fieldset{
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 85vh;
+    top: 90vh;
     left: 65vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
@@ -131,4 +131,145 @@ fieldset{
     border-radius: 1.1vh;
     z-index: 2;
   }
-  
+  .btn{
+    top: 90vh;
+  }
+@media only screen and (max-width:1000px){
+  .i{
+    left: 30vw;
+
+  }
+  .date-picker{
+    left: 30vw;
+  }
+  .gender-input{
+    font-size: 3vh;
+  }
+  .ktext2{
+    font-size: 3vh;
+  }
+  .ktext3{
+    font-size: 3vh;
+  }
+  .ktext4{
+    font-size: 3vh;
+  }
+  .ktext5{
+    font-size: 3vh;
+  }
+  .kybtn{
+    left:60vw;
+    top: 90vh;
+  }
+  .btn{
+    top:90vh;
+  }
+  .label{
+    top: 80vh;
+    width: 25%;
+  }
+  .kyc1{
+    top:76vh;
+  }
+
+}
+@media only screen and (max-width:770px){
+  .ky1rectangle{
+    left: 5vw;
+    width: 90vw;
+  }
+  .i{
+    
+    left: 30vw;
+
+  }
+  .date-picker{
+    left: 30vw;
+    
+  }
+  .gender-input{
+    left: 15vw;
+    font-size: 3vh;
+  }
+  .ktext2{
+    left: 15vw;
+    font-size: 3vh;
+  }
+  .ktext3{
+    left: 15vw;
+    font-size: 3vh;
+  }
+  .ktext4{
+    left: 15vw;
+    font-size: 3vh;
+  }
+  .ktext5{
+    left: 15vw;
+    font-size: 3vh;
+  }
+  .btn{
+    top: 95vh;
+  }
+  .kybtn{
+    top:95vh;
+  }
+  .label{
+    width: 25%;
+  }
+  .kyc1{
+    top:78vh;
+    width: 10vw;
+}
+}
+@media only screen and (max-width:600px){
+  .ky1rectangle{
+    left: 5vw;
+    width: 90vw;
+  }
+  .i{
+    top: -1vh;
+    left: 34vw;
+
+  }
+  .date-picker{
+    top: -1vh;
+    left: 34vw;
+    
+  }
+  .gender-input{
+    left: 3vw;
+    font-size: 100%;
+  }
+  .ktext2{
+    left: 3vw;
+    font-size: 100%;
+  }
+  .ktext3{
+    left: 3vw;
+    font-size: 100%;
+  }
+  .ktext4{
+    left: 3vw;
+    font-size: 100%;
+  }
+  .ktext5{
+    left: 3vw;
+    font-size: 100%;
+  }
+.label{
+  top:85vh;
+  left: 6vw;
+  width: 30%;
+}
+.kybtn{
+  top:95vh;
+}
+.btn{
+  top: 95vh;
+}
+.kyc1{
+  top:78vh;
+  width: 10vw;
+
+}
+}

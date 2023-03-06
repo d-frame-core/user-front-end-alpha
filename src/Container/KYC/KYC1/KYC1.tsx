@@ -9,6 +9,7 @@ import { Backdrop } from '@mui/material'
 import {useNavigate} from 'react-router-dom'
 
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
+import Drawer from '../../../components/sidebar1/Drawer'
 
 
 
@@ -114,7 +115,9 @@ export default function KYC1() {
   return (
     <>
       <Sidebar1/>
-      
+      <a className='smopen'>
+        {Drawer(0)}
+      </a>
       <div>
         
       

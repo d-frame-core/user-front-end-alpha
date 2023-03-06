@@ -9,12 +9,15 @@ import CaptureButtons from "../../../components/upload/CaptureButton";
 import data from "../data";
 import "./kyc3.css";
 import df from "../../../assets/dframe.png";
+import Drawer from "../../../components/sidebar1/Drawer";
 
 export default function KYC3() {
   return (
     <Container>
       <Sidebar1 />
-
+      <a className='smopen'>
+        {Drawer(0)}
+      </a>
       <Box className="ky2rectangle">
         <div className="level">KYC Level-3:</div>
         <div className="k0" style={{ fontSize: "24px", fontWeight: 500 }}>
@@ -92,7 +95,7 @@ export default function KYC3() {
               width:'100px'
             }}
             variant="contained"
-            className="next-btn"
+            className="nextbtn"
           >
             Submit
           </Button>
@@ -106,7 +109,7 @@ export default function KYC3() {
               width:'100px'
             }}
             variant="contained"
-            className="back-btn"
+            className="backbtn"
           >
             Back
           </Button>

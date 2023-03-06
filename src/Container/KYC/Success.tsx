@@ -6,11 +6,15 @@ import df from '../../assets/dframe.png'
 import Sidebar1 from '../../components/sidebar1/Sidebar1'
 import './success.css'
 import data from './data'
+import Drawer from '../../components/sidebar1/Drawer'
 
 export default function Success() {
   return (
     <Container>
         <Sidebar1/>
+        <a className='smopen'>
+          {Drawer(0)}
+        </a>
         <Box className='sucbox'>
             <img src={df} alt='' className='logo'/><br/>
             <div style={{fontWeight:'bold'}} className='ww'>You have successfully completed the KYC Verification process.

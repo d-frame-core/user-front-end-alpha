@@ -1,7 +1,7 @@
 .ky2rectangle{
     position: absolute;
     display: flex;
-    height: 86vh;
+    height: 95vh;
     width: 75vw;
     top: 12vh;
     left: 19vw;
@@ -13,9 +13,9 @@
     
     position:absolute;
     height: 6vh;
-    width: 3vw;
+    width: 4vw;
     top: 67vh;
-    left: 40vw;
+    left: 43vw;
 }
 .k0{
     position: absolute;
@@ -66,11 +66,11 @@
     left: 7vw;
 }
 
-.back-btn{
+.backbtn{
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 75vh;
+    top: 85vh;
     left: 0vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
@@ -80,12 +80,12 @@
     z-index: 2;
 }
 
-.next-btn {
+.nextbtn {
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 75vh;
-    left: 65vw;
+    top: 85vh;
+    left: 60vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
     border: none;
@@ -97,7 +97,50 @@
 .stepper-3{
     position: absolute;
     top: 75vh;
-    left: 15vw;
-    width: 30vh;
+    left: 10vw;
+    width: 25%;
     z-index: 1;
+}
+@media only screen and (max-width:1000px){
+    .ky2rectangle{
+        left: 22vw;
+    }
+    .stepper-3{
+        width: 25%;
+        left:10vw;
+    }
+    .logo-step-2{
+        left: 44vw;
+    }
+}
+@media only screen and (max-width:770px){
+    .ky2rectangle{
+        width: 90vw;
+        left: 5vw;
+        height: 130vh;
+    }
+    .nextbtn{
+        top: 115vh;
+
+    }
+    .backbtn{
+        left: -5vw;
+        top: 115vh;
+    }
+    .k1{
+        top: 40vh;
+    }
+    .k2{
+        top: 70vh;
+    }
+    .stepper-3{
+        top: 100vh;
+    }
+    .logo-step-2{
+        top: 93vh;
+        left: 50vw;
+    }
+    .up{
+        left: 50vw;
+    }
 }

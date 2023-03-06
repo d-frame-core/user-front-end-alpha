@@ -1,24 +1,24 @@
 .sucbox{
     position: absolute;
     top: 12vh;
-    height: 37rem;
+    height: 85vh;
     left: 19vw;
-    width: 75vw;
+    width: 78vw;
     font-size: 4vh;
     border-radius: 1.1vh;
     font-display: flex;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
 .ww{
-    position: absolute;
-    top: 35vh;
-    left: 10vw;
+    position: relative;
+    top: 15vh;
+ 
 
 }
 .logo{
 
-    position: absolute;
-    left: 30vw;
+    position: relative;
+    
     top: 10vh;
     height: 20vh;
     width: 10vw;
@@ -36,17 +36,16 @@
     
     position:absolute;
     height: 6vh;
-    width: 3vw;
-    top: 26rem;
-    left: 48.8vw;
+    width: 5vw;
+    top: 58vh;
+    left: 45vw;
 }
 
 .btn-step-3{
-    
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 60vh;
+    top: 44vh;
     left: 30vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
@@ -59,7 +58,43 @@
 .step-3{
     position: absolute;
     top: 65vh;
-    left: 13vw;
-    width: 30vh;
+    left: 10vw;
+    width: 25%;
     z-index: 1;
+}
+@media only screen and (max-width:1000px){
+    .sucbox{
+        left: 23vw;
+        width: 74vw;
+    }
+    .btn-step-3{
+        top: 40vh;
+    }
+    .logo{
+        width: 12vw;
+    }
+    .logo-step-3{
+        left: 43vw;
+        top: 58vh;
+        width: 5vw;
+    }
+}
+@media only screen and (max-width:770px){
+    .sucbox{
+        width: 90vw;
+        left: 5vw;
+    }
+    .logo{
+        width: 15vw;
+    }
+    .logo-step-3{
+        left: 50vw;
+        top: 58vh;
+        width: 7vw;
+    }
+}
+@media only screen and (max-width:600px){
+    .logo{
+        width: 18vw;
+    }
 }

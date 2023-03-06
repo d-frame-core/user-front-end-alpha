@@ -5,6 +5,7 @@ import { Box, Button, ButtonGroup, Container,Divider, makeStyles } from '@mui/ma
 import Linechart from '../../components/charts/linechart/Linechart'
 import { borderColor } from '@mui/system'
 import df from '../../assets/dframe.png';
+import Drawer from '../../components/sidebar1/Drawer'
 
 const rewarddata: any[]=[
   { name: "All", value: 4300,long: 'DFT (earned)' },
@@ -61,6 +62,9 @@ function Rewards() {
   return (
     <div>
       <>{Sidebar1(4)}</>
+      <a className='smopen'>
+        {Drawer(4)}
+      </a>
       <div className='rewtitle'>Rewards</div>
       <Container maxWidth={false} sx={{ maxWidth: '70%' }} className="rewcont">  
       

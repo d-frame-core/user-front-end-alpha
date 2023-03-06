@@ -21,7 +21,7 @@ export const FormInputText = ({ name, control, label }: FormInputProps) => {
                },
 
               backgroundColor: "white",
-              width: "350px",
+              width: "250px",
               borderRadius: "1vh",
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               height: "6vh",

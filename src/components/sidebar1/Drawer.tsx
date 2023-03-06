@@ -32,7 +32,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 type Anchor =  'left' ;
 
-export default function TemporaryDrawer(index:number) {
+export default function TemporaryDrawer(index1:any) {
     const matches = useMediaQuery('(max-width:770px)');
 
   const [state, setState] = React.useState({
@@ -40,11 +40,11 @@ export default function TemporaryDrawer(index:number) {
   });
   var [dataActive, setDataActive] = useState(false);
   var dataActive1 = false;
-  const[toggleState,setToggleState] = useState(0);
+  const[toggleState,setToggleState] = useState(index1);
   const[side,setSide]=useState(true)
   
-  const toggleTab = (index: any) =>{
-    setToggleState(index);
+  const toggleTab = (index1: any) =>{
+    setToggleState(index1);
   }
   if(toggleState=== 5 ||toggleState=== 6 ){
     dataActive=(true);
@@ -65,7 +65,7 @@ export default function TemporaryDrawer(index:number) {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: "28vw" }}
+      sx={{ width: "30vw" }}
       role="presentation"
       onClick={toggleDrawer(anchor, true)}
       onKeyDown={toggleDrawer(anchor, true)}
@@ -78,17 +78,17 @@ export default function TemporaryDrawer(index:number) {
         <div className='itemnew'>
           
           <NavLink to='/profile' style={{textDecoration:'none'}} onClick={()=> toggleTab(1)} >
-            <div className={"notActivenew"} >
+            <div className={toggleState === 1? "actnew1" : "notActivenew"} >
               <PortraitIcon className='ic'/>Profile</div>
           </NavLink>
           <Divider  sx={{color:"white",zIndex:'10'}}/>
           <NavLink to='/wallet' style={{textDecoration:'none',color:'white'}}onClick={()=> toggleTab(2)}>
-            <div className={"notActivenew"}>
+            <div className={toggleState === 2? "actnew1" : "notActivenew"}>
               <AccountBalanceWalletOutlinedIcon className='ic' />Wallet</div>
           </NavLink>
           
           <NavLink to='/permission'style={{textDecoration:'none',color:'white'}}>
-          <div className={"notActivenew"}onClick={()=> toggleTab(3)}>
+          <div className={toggleState === 3? "actnew1" :"notActivenew"}onClick={()=> toggleTab(3)}>
             <SettingsOutlinedIcon className='ic'/>Permission</div>
           </NavLink>
           
@@ -103,24 +103,24 @@ export default function TemporaryDrawer(index:number) {
               {dataActive&&(
                 <>
                   <div><NavLink to='/topsitevisited' style={{textDecoration:'none',color:'white'}} >
-                    <div className={"notActivenew2"}onClick={()=> toggleTab(5)}>
+                    <div className={toggleState === 5? "actnew2" :"notActivenew2"}onClick={()=> toggleTab(5)}>
                       <SearchOutlinedIcon className='ic'/>Sites Visited</div></NavLink></div>
                   <div><NavLink to='/sitedistribution' style={{textDecoration:'none',color:'white'}}>
-                    <div className={"notActivenew2"}onClick={()=> toggleTab(6)}>
+                    <div className={toggleState === 6? "actnew2" :"notActivenew2"}onClick={()=> toggleTab(6)}>
                     <SearchOutlinedIcon className='ic'/>Site Distribution</div></NavLink></div>
                 </>
             )}
             </div>
             <NavLink to='/rewards' style={{textDecoration:'none',color:'white'}}>
-        <div className={ "notActivenew"}onClick={()=> toggleTab(4)}>
+        <div className={ toggleState === 4? "actnew1" :"notActivenew"}onClick={()=> toggleTab(4)}>
           <DnsOutlinedIcon className='ic'/>Rewards</div> 
         </NavLink>
         <NavLink to='/browserdata' style={{textDecoration:'none',color:'white'}}>
-        <div className={ "notActivenew"}onClick={()=> toggleTab(8)}>
+        <div className={toggleState === 8? "actnew1" : "notActivenew"}onClick={()=> toggleTab(8)}>
         <BarChartOutlinedIcon className='ic'/>Data</div>
         </NavLink>
         <NavLink to='/survey' style={{textDecoration:'none',color:'white'}}>
-        <div className={"notActivenew"}onClick={()=> toggleTab(9)}>
+        <div className={toggleState === 9? "actnew1" :"notActivenew"}onClick={()=> toggleTab(9)}>
           <PaddingOutlinedIcon className='ic'/>Survey</div>
         </NavLink>
     </div>

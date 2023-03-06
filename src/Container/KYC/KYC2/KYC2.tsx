@@ -25,6 +25,7 @@ import { FormInputDate } from "../../../components/form-components/FormInputDate
 
 import { FormInputDropdownCountries } from "../../../components/form-components/FormDropdownCountries";
 import {useNavigate} from 'react-router-dom'
+import Drawer from "../../../components/sidebar1/Drawer";
 
 interface IFormInput {
   gender: string;
@@ -57,9 +58,11 @@ export default function KYC2() {
   };
 
   return (
-    <Container>
+    <>
       <Sidebar1 />
-
+      <a className='smopen'>
+        {Drawer(0)}
+      </a>
       <div>
         <div className="container">
           <Box className="ky1rectangle">
@@ -71,7 +74,7 @@ export default function KYC2() {
               <div className="gender-input">
                 Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 <div className="i select-gender">
                   <FormInputDropdown
                  name="gender"
@@ -83,7 +86,7 @@ export default function KYC2() {
               <div className="ktext2">
                 Country &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 <div className="i select-country">
 
                   <FormInputDropdownCountries name="country" control={control} label="Select Your Country"/>
@@ -92,7 +95,7 @@ export default function KYC2() {
               </div>
               <div className="ktext3">
                 Date of Birth &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 
                 <div className="date-picker">
                 <FormInputDate name="date" control={control} label=""/>
@@ -101,7 +104,7 @@ export default function KYC2() {
               </div>
               <div className="ktext4">
                 Annual Income &nbsp; &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 <div className="i select-gender">
                   
                   <FormInputIncome
@@ -112,7 +115,7 @@ export default function KYC2() {
                 </div>
               </div>
               <div className="ktext5">
-                Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 <div className="i address-label">
                   
                   <FormInputText name="address" control={control} label="Address"/>
@@ -161,14 +164,14 @@ export default function KYC2() {
                 sx={{
                   position: "absolute",
                   left: "5vw",
-                  top: "85vh",
+                  
                   backgroundColor: "#017EFA",
                   borderRadius: "10px",
                   textTransform: "inherit",
                   width: "100px",
                 }}
                 variant="contained"
-                className="back-btn"
+                className="btn"
               >
                 Back
               </Button>
@@ -176,6 +179,6 @@ export default function KYC2() {
           </Box>
         </div>
       </div>
-    </Container>
+    </>
   );
 }

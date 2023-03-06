@@ -46,29 +46,9 @@ export default function Sidebar1(index : any) {
       dataActive=(true);
     }
     
-    const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-      ) {
-        return;
-      }
+   
 
-      setState({ ...state, [anchor]: open });
-    };
-
-    const list = (anchor: Anchor) => (
-      <Box
-        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-        role="presentation"
-        onClick={toggleDrawer(anchor, false)}
-        onKeyDown={toggleDrawer(anchor, false)}
-      >
-
-      </Box>)
+    
     
   return (
     <>
@@ -140,9 +120,7 @@ export default function Sidebar1(index : any) {
         </div>
         </Box>
    </div>}
-   <a className='smopen'>
-    {Drawer(index)}
-    </a>
+   
    </>
   )
 }

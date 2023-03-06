@@ -38,7 +38,7 @@ export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
     <div >
     <FormControl
     
-    sx={{ width: "350px", textAlign: "left",'& .css-6hp17o-MuiList-root-MuiMenu-list': {
+    sx={{ width: "250px", textAlign: "left",'& .css-6hp17o-MuiList-root-MuiMenu-list': {
       height: '10rem',
     } }}
     

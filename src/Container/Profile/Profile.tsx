@@ -16,6 +16,7 @@ import { userdata } from "./FirstPage";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import EditButton from "../../components/upload/EditButton";
 import UploadButtons from "../../components/upload/UploadButtonForKYC";
+import Drawer from "../../components/sidebar1/Drawer";
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
@@ -114,6 +115,9 @@ function Profile() {
   return (
     <div>
       <>{Sidebar1(1)}</>
+      <a className='smopen'>
+        {Drawer(1)}
+      </a>
       <Box className="profilebox" sx={{ display: "flex" }}>
         <Container
           maxWidth={false}
@@ -149,7 +153,7 @@ function Profile() {
                     sx={{
                       color: "#47B5FF",
                       top: "4px",
-                      left: "15%",
+                      left: "10%",
                       position: "relative",
                     }}
                   />

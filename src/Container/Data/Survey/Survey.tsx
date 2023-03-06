@@ -10,6 +10,7 @@ import { Backdrop } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import Typography from '@mui/material/Typography';
+import Drawer from "../../../components/sidebar1/Drawer";
 
 
 const style = {
@@ -109,6 +110,9 @@ export default function Survey() {
   return (
     <div>
       <>{Sidebar1(9)}</>
+      <a className='smopen'>
+        {Drawer(9)}
+      </a>
 
       <div className="surbox1"></div>
 

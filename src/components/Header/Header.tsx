@@ -1,19 +1,19 @@
 import './header.css'
 import user from '../../assets/user.png';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 export default function Header() {
-  const logout = useState(false);
+  const [logout,setLogout] = useState(false);
   return (
     <div>
       <Box className='header'>
         
-        <KeyboardArrowDownIcon className='arrow'/>
+        <IconButton className='arrow' onClick={()=>setLogout(!logout)}><KeyboardArrowDownIcon /></IconButton>
           <div className='head1'>Username</div>
           <img className='user1' src={user} alt=''></img>
-          {logout&&<div>Logout</div>}
+          {logout&&<><div className='logout'>Log out</div></>}
       </Box>
     </div>
   )

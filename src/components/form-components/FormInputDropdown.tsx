@@ -41,7 +41,7 @@ export const FormInputDropdown: React.FC<FormInputProps> = ({
   };
 
   return (
-    <FormControl sx={{ width: "350px", textAlign: "left" }}  > 
+    <FormControl sx={{ width: "250px", textAlign: "left" }}  > 
       {/* <InputLabel sx={{ top: "-4px" }} >{label}</InputLabel> */}
       <Controller
         name={name}

@@ -7,6 +7,7 @@ import analyticsdata from '../analyticsdata'
 import { NavLink } from 'react-router-dom'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Drawer from '../../../components/sidebar1/Drawer'
 
 export default function SiteByTime() {
   const ma = useMediaQuery('(min-width:880px)');
@@ -22,6 +23,9 @@ export default function SiteByTime() {
   return (
     <div>
       <>{Sidebar1(5)}</>
+      <a className='smopen'>
+    {Drawer(5)}
+    </a>
       
       <Box className='top1'>
         <NavLink to='/topsitevisited'><div className={toggleState === 11 ? "tab1active":"tab1"} onClick={()=> toggleTab(11)}>Top Sites Visited</div></NavLink>
@@ -37,6 +41,7 @@ export default function SiteByTime() {
            analyticsdata.map(item=>{
               return (<>
               <div className='gap'>
+              <a className='legendcolor'style={{background: `${item.col}`}}></a>
                 {item.name}
                 <a className='gap1'>{item.long1+" minutes"}</a> 
               </div>
@@ -47,6 +52,7 @@ export default function SiteByTime() {
             }</span><br/>
        
     </Box>
+    
    </div>
   )
 }

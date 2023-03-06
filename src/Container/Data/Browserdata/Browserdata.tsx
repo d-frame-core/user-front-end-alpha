@@ -6,6 +6,7 @@ import { Box, Container, Divider } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Drawer from '../../../components/sidebar1/Drawer';
 
 var b:any={};
   const browser={
@@ -57,7 +58,9 @@ function Browserdata() {
   return (
     <div>
         <>{Sidebar1(8)}</>
-
+        <a className='smopen'>
+        {Drawer(8)}
+      </a>
           <div   className='arm' >
             <Box className={toggleState1 === 9 ? 'bract' : 'brnot'} onClick={() =>toggleTab1(9)}>Browser Data</Box>
             <div className={st}></div>

@@ -4,6 +4,7 @@ import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import './wallet.css';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import walletdata from './walletdata';
+import Drawer from '../../components/sidebar1/Drawer';
 
 export default function Wallet() {
   const userdata={
@@ -51,7 +52,9 @@ export default function Wallet() {
               </Box>
          </Box>
       </div>
-      
+      <a className='smopen'>
+    {Drawer(2)}
+    </a>
       
       </div>
     

@@ -6,6 +6,7 @@ import { Popover } from '@mui/material';
 import BasicModal from '../../components/Popup/BasicModel';
 import BasicModel from '../../components/Popup/BasicModel';
 import Helpdata from './Helpdata';
+import Drawer from '../../components/sidebar1/Drawer';
 
 export default function Help() {
   const [open, setOpen] = React.useState(false);
@@ -33,6 +34,9 @@ export default function Help() {
   return (
     <div>
 <Sidebar1/>      
+      <a className='smopen'>
+        {Drawer(0)}
+      </a>
     <div className='hrect'>
       <div className='htitle'>Help</div>
     <div className='helprect'> 
