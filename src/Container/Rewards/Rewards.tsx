@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar1 from '../../components/sidebar1/Sidebar1'
 import './rewards.css'
-import { Box, Button, ButtonGroup, Container,Divider, makeStyles } from '@mui/material'
+import { Box, Button, ButtonGroup, Container,Divider, makeStyles, useMediaQuery } from '@mui/material'
 import Linechart from '../../components/charts/linechart/Linechart'
 import { borderColor } from '@mui/system'
 import df from '../../assets/dframe.png';
@@ -58,7 +58,30 @@ function Rewards() {
   else if (toggleState === 5){
     (ab = Monthly);
   }
-    
+
+  var linehi=270
+  var linewi = 900
+  const ma1 = useMediaQuery('(max-width:1300px)'); 
+  const ma2 = useMediaQuery('(max-width:1200px)');
+  const ma3 = useMediaQuery('(max-width:1000px)');
+  const ma4 = useMediaQuery('(max-width:800px)'); 
+  const ma5 = useMediaQuery('(max-width:600px)'); 
+  
+  if (ma1){
+    linewi=800
+  }
+  if (ma2){
+    linewi = 700
+  }
+  if (ma3){
+    linewi = 570
+  }
+  if (ma4){
+    linewi = 540
+  }
+  if (ma5){
+    linewi= 450
+  }
   return (
     <div>
       <>{Sidebar1(4)}</>
@@ -66,7 +89,7 @@ function Rewards() {
         {Drawer(4)}
       </a>
       <div className='rewtitle'>Rewards</div>
-      <Container maxWidth={false} sx={{ maxWidth: '70%' }} className="rewcont">  
+      <Box className="rewcont">  
       
       <img src={df} className="dflogo"></img>
       <div className='ltext1'>Total DFT Tokens</div>
@@ -74,7 +97,7 @@ function Rewards() {
 
       <a className="rewhead">Total Rewards Earning in DFT</a>
       
-      <div className='linechart'><>{Linechart(ab)}</></div>
+      <div className='linechart'><>{Linechart(ab,linehi,linewi)}</></div>
 
       <ButtonGroup  className='rewtabs' size='small' variant="text" aria-label='text button group' sx={{".MuiButton-text":{color:'#000000'}}} >
         <Button onClick={()=> toggleTab(3)}>Daily</Button>
@@ -82,7 +105,7 @@ function Rewards() {
         <Button onClick={()=> toggleTab(5)}>Monthly</Button> 
       </ButtonGroup>
 
-      <Box className='rerect'></Box>
+      <Box className='rerect'>
       <Box className='redbox'>
       <span> {
            rewarddata.map(item=>{
@@ -95,7 +118,8 @@ function Rewards() {
             })
             }</span>
       </Box>
-      </Container>
+      </Box>
+      </Box>
     </div>
   )
 }

@@ -68,8 +68,8 @@ body{
     display: flex;
     top:14vh;
     height:10vh;
-    left:0vw;
-    width:20vw;
+    
+    width:10%;
 }
 
 .rerect{
@@ -87,7 +87,7 @@ body{
     position: relative;
     height:5%;
     top:9vh;
-    left:26vw;
+    left:20vw;
     justify-content: center;
     background-color: white;
     color: #000000;
@@ -100,8 +100,8 @@ body{
     height: 20vh;
     border-radius: 8px;
     width: 60vw;
-    top: 57vh;
-    left: 5vw;
+    top: 2vh;
+    left: 2vw;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
     overflow-y: scroll;
     z-index: 3;
@@ -122,12 +122,64 @@ body{
 
 .rgap{
     padding: 1vh;
-    display: flex;
-    padding-left: 10vw;
-    column-gap: 2vw;
+    text-indent: 5vw;
 }
 
 .rgap1{
     position: absolute;
     right: 10vw;
+}
+@media only screen and (max-width:1000px){
+    .rewhead{
+        left: 20vw;
+    }
+    .rewcont{
+        left: 25vw;
+    }
+}
+@media only screen and (max-width:770px){
+    .dflogo{
+        visibility: hidden;
+    }
+    .rewhead{
+        left: 24vw;
+    }
+    .rewcont{
+        left: 5vw;
+        width: 90vw;
+    }
+    .rerect{
+        width: 80vw;
+        left: 5vw;
+    }
+    .rewtabs{
+        left: 26vw;
+    }
+    .linechart{
+        left: 4vw;
+    }
+    .redbox{
+        width: 76vw;
+    }
+    .rgap{
+        left: -2vw;
+    }
+    .rgap1{
+       
+       right: 1vw;
+    }
+    .rewtitle{
+        left: 5vw;
+    }
+}
+@media only screen and (max-width:600px){
+    .rewtabs{
+        left: 24vw;
+    }
+    .linechart{
+        left: -3vw;
+    }
+    .rewhead{
+        left: 15vw;
+    }
 }

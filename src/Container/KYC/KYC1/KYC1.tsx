@@ -168,7 +168,7 @@ export default function KYC1() {
     </div>
 
     <div className="step-1">
-    <img src={df} alt='' style={{position:'absolute' ,  width:'20%', left:'4.5vw', top:'-7vh'}}/> 
+    
           {" "}
           <Box sx={{ width: "250%" }}>
             <Stepper activeStep={0} alternativeLabel>

@@ -125,10 +125,10 @@ export default function Survey() {
           <button className="subtn2" onClick={optionClicked}>{newqs[arrayIndex].an2}</button>
         </div>
 
-        <Box className="surect2">
-          <p>Total Survey Answer &emsp;&emsp;&emsp; {arrayIndex + 1} </p>
-          <p>Total DFT Earned &emsp;&emsp;&emsp;&emsp;&nbsp; {dft}</p>
-        </Box>
+        <div className="surect2">
+          <p>Total Survey Answer &emsp;&emsp; {arrayIndex + 1} </p>
+          <p>Total DFT Earned &emsp;&emsp;&emsp; {dft}</p>
+        </div>
           
         <Box className="surect3">
           <div text-align="left">
@@ -153,12 +153,12 @@ export default function Survey() {
           </Box>
         </Box>
 
-        <Button onClick={handleOpen1} className="surbtn">Survey 1</Button>
+        <Button onClick={handleOpen1} className="surbtn1" sx={{ textTransform:"inherit" , color:"black"}}>Survey 1</Button>
         <Backdrop open={open} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} className="backdrop" >
           <Box sx={style}>
             {Survey1.map((item) => {
               return (
-                <div style={{margin: "20px",}}>
+                <div>
                   <h1 className="surtitle">Amazon Survey</h1>
                    <p className="insurtext">{Survey1[arrayIndex1].qs1}</p>
                    <button className="insurbtn1" onClick={optionClicked1}>{Survey1[arrayIndex1].an1}</button>
@@ -195,12 +195,12 @@ export default function Survey() {
           <Button onClick={handleClose} className="closeButton"variant="contained" sx={{textTransform:"inherit"}}>Close</Button>
         </Backdrop>
 
-        <Button className="surbtn" onClick={() => setOpen2(true)}>Survey 2</Button>
+        <Button className="surbtn2" onClick={() => setOpen2(true)} sx={{ textTransform:"inherit" , color:"black"}}>Survey 2</Button>
         <Backdrop open={open2} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} className="backdrop">
           <Box sx={style}>
             {Survey2.map((item) => {
               return (
-                <div style={{margin: "20px",}}>
+                <div>
                   <h1 className="surtitle">OnePlus Survey</h1>
                     <p className="insurtext">{Survey2[arrayIndex2].qs2}</p>
                     <button className="insurbtn1" onClick={optionClicked2}>{Survey2[arrayIndex2].an1}</button>
@@ -236,12 +236,12 @@ export default function Survey() {
           <Button onClick={handleClose} className="closeButton" variant="contained" sx={{textTransform:"inherit"}}>Close</Button>
         </Backdrop>
 
-        <Button className="surbtn" onClick={() => setOpen3(true)}>Survey 3</Button>
+        <Button className="surbtn3" onClick={() => setOpen3(true)} sx={{ textTransform:"inherit" , color:"black"}}>Survey 3</Button>
         <Backdrop open={open3} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} className="backdrop">
           <Box sx={style}>
             {Survey3.map((item) => {
               return (
-                <div style={{margin: "20px",}}>
+                <div>
                   <h1 className="surtitle">Google Survey</h1>
                     <p className="insurtext">{Survey3[arrayIndex3].qs3}</p>
                     <button className="insurbtn1" onClick={optionClicked3}>{Survey3[arrayIndex3].an1}</button>

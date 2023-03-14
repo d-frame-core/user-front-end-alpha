@@ -146,7 +146,7 @@ export default function KYC2() {
             
             </form>
 
-            <img src={df} alt="" className="kyc1" />
+           
             <div className="label">
               <Box sx={{ width: "300%" }}>
                 <Stepper activeStep={1} alternativeLabel>

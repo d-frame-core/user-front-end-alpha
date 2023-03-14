@@ -11,12 +11,11 @@ import {
 } from "recharts";
 
 
-export default function Linecharts(linedata:any) {
+export default function Linecharts(linedata:any,linehi:any,linewi:any) {
   return (
-    <ResponsiveContainer height={300} width={1050}>
+    <ResponsiveContainer height={linehi} width={linewi}>
     <LineChart className="linechart1"
-      width={1000}
-      height={300}
+     
       data={linedata}
       margin={{
         top: 5,

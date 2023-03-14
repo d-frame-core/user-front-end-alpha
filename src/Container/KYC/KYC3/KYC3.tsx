@@ -72,7 +72,7 @@ export default function KYC3() {
             </span>
           </div>
         </div>
-        <img src={df} alt="logo" className="logo-step-2" />
+        
 
         <div className="stepper-3">
           

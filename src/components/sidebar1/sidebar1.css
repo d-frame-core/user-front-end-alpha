@@ -80,7 +80,7 @@
     color: black;
     font-weight: 500;
     text-align: left;
-    text-indent: 2vw;
+    text-indent: 1.5vw;
     border-top-left-radius: 1vh;
     border-bottom-left-radius: 1vh;
 }
@@ -206,7 +206,7 @@ background: #017EFA;
 .ic{
     position: relative;
     top: 5px;
-    left: -2vh;
+    left: -1.6vh;
     
 }
 .kc{

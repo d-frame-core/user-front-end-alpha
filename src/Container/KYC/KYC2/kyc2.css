@@ -11,7 +11,7 @@ fieldset{
 .ky1rectangle {
     position: relative;
     display: flex;
-    height: 100vh;
+    height: 110vh;
     border-radius: 1.1vh;
     width: 75vw;
     top: 12vh;
@@ -26,9 +26,9 @@ fieldset{
   .kyc1 {
     position: absolute;
     height: 6vh;
-    width: 5vw;
+    width: 4vw;
     top: 76vh;
-    left: 30vw;
+    left: 25vw;
   }
   .gender-input {
     position: absolute;
@@ -113,8 +113,8 @@ fieldset{
   }
   .label {
     position: absolute;
-    top: 80vh;
-    left: 15vw;
+    top: 85vh;
+    left: 10vw;
     width: 30vh;
     z-index: 1;
   }
@@ -122,8 +122,8 @@ fieldset{
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 90vh;
-    left: 65vw;
+    top: 95vh;
+    left: 60vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
     border: none;
@@ -132,9 +132,12 @@ fieldset{
     z-index: 2;
   }
   .btn{
-    top: 90vh;
+    top: 95vh;
   }
 @media only screen and (max-width:1000px){
+  .ky1rectangle{
+    height: 105vh;
+  }
   .i{
     left: 30vw;
 
@@ -159,17 +162,18 @@ fieldset{
   }
   .kybtn{
     left:60vw;
-    top: 90vh;
+    top: 95vh;
   }
   .btn{
-    top:90vh;
+    top:95vh;
   }
   .label{
-    top: 80vh;
+    top: 85vh;
     width: 25%;
   }
   .kyc1{
-    top:76vh;
+    top:77vh;
+    left: 34vw;
   }
 
 }
@@ -180,31 +184,31 @@ fieldset{
   }
   .i{
     
-    left: 30vw;
+    left: 35vw;
 
   }
   .date-picker{
-    left: 30vw;
+    left: 35vw;
     
   }
   .gender-input{
-    left: 15vw;
+    left: 10vw;
     font-size: 3vh;
   }
   .ktext2{
-    left: 15vw;
+    left: 10vw;
     font-size: 3vh;
   }
   .ktext3{
-    left: 15vw;
+    left: 10vw;
     font-size: 3vh;
   }
   .ktext4{
-    left: 15vw;
+    left: 10vw;
     font-size: 3vh;
   }
   .ktext5{
-    left: 15vw;
+    left: 10vw;
     font-size: 3vh;
   }
   .btn{
@@ -214,11 +218,13 @@ fieldset{
     top:95vh;
   }
   .label{
+    top:85vh;
     width: 25%;
   }
   .kyc1{
     top:78vh;
-    width: 10vw;
+    left: 37vw;
+    width: 7vw;
 }
 }
 @media only screen and (max-width:600px){
@@ -269,7 +275,8 @@ fieldset{
 }
 .kyc1{
   top:78vh;
-  width: 10vw;
+  width: 8vw;
+  left: 32vw;
 
 }
 }

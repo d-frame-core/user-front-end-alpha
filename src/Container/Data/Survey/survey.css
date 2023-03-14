@@ -1,234 +1,358 @@
-surbox1 {
-    position: absolute;
-    height: 80vh;
-    width: 70vw;
-    top: 12vh;
-    left: 24vw;
-    border-radius: 1.1vh;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(
-      180deg,
-      rgba(227, 218, 246, 0.6) 0%,
-      rgba(227, 218, 246, 0.6) 100%
-    );
-  }
-  .surtext1 {
-    position: absolute;
-    font-size: 4vh;
-    padding: 2vh;
-    left: 26vw;
-    top: 13vh;
-    height: 357px;
-    font-weight: 500;
-  }
-  .surectangle {
-    display: flex;
-  }
-  .surect1 {
-    position: absolute;
-    height: 20.7vh;
-    width: 26vw;
-    top: 24vh;
-    left: 32vw;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-  }
-  .surtext2 {
-    position: relative;
-    top: 2vh;
-    margin: auto;
-  }
+.surbox1 {
+  position: absolute;
+  height: 85vh;
+  width: 70vw;
+  top: 12vh;
+  left: 24vw;
+  border-radius: 1.1vh;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(227, 218, 246, 0.6) 0%,
+    rgba(227, 218, 246, 0.6) 100%
+  );
+}
+.surtext1 {
+  position: absolute;
+  font-size: 4vh;
+  padding: 2vh;
+  left: 26vw;
+  top: 13vh;
+  height: 357px;
+  font-weight: 500;
+}
+.surectangle {
+  display: flex;
+}
+.surect1 {
+  position: absolute;
+  height: 20.7vh;
+  width: 26vw;
+  top: 24vh;
+  left: 32vw;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+.surtext2 {
+  position: relative;
+  top: 2vh;
+  margin: auto;
+}
+
+.surect2 {
+  position: absolute;
+  height: 18vh;
+  width: 23vw;
+  top: 18vh;
+  left: 67vw;
   
-  .surect2 {
-    position: absolute;
-    height: 13vh;
-    width: 20vw;
-    top: 18vh;
-    left: 67vw;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    text-indent: 2vw;
-  }
-  
-  .surect3 {
-    position: absolute;
-    height: 53vh;
-    width: 20vw;
-    top: 36vh;
-    left: 67vw;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    align-items: center;
-  }
-  
-  .subtn1 {
-    position: absolute;
-    height: 5vh;
-    width: 5vw;
-    top: 12vh;
-    left: 4vw;
-    font-size: 2.4vh;
-    border: none;
-    border-radius: 1.1vh;
-    background: #b26fff;
-    color: #ffffff;
-    z-index: 2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  }
-  
-  .subtn2 {
-    position: absolute;
-    height: 5vh;
-    width: 5vw;
-    top: 12vh;
-    left: 16vw;
-    border: none;
-    font-size: 2.4vh;
-    border-radius: 1.1vh;
-    background: #017efa;
-    color: #ffffff;
-    z-index: 2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  }
-  
-  .subtn3 {
-    position: absolute;
-    height: 5vh;
-    width: 5vw;
-    top: 47vh;
-    left: 7.7vw;
-    border: none;
-    font-size: 2.4vh;
-    border-radius: 1.1vh;
-    background: #b26fff;
-    color: #ffffff;
-    z-index: 2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    overflow-y: hidden;
-  }
-  
-  .surbtn {
-    position: absolute;
-    height: 2vh;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+  text-align: left;
+  text-indent: 2vw;
+}
+
+.surect3 {
+  position: absolute;
+  height: 55vh;
+  width: 23vw;
+  top: 38vh;
+  left: 67vw;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  align-items: center;
+}
+
+.subtn1 {
+  position: absolute;
+  height: 5vh;
+  width: 5vw;
+  top: 12vh;
+  left: 4vw;
+  font-size: 2.4vh;
+  border: none;
+  border-radius: 1.1vh;
+  background: #b26fff;
+  color: #ffffff;
+  z-index: 2;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.subtn2 {
+  position: absolute;
+  height: 5vh;
+  width: 5vw;
+  top: 12vh;
+  left: 16vw;
+  border: none;
+  font-size: 2.4vh;
+  border-radius: 1.1vh;
+  background: #017efa;
+  color: #ffffff;
+  z-index: 2;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.subtn3 {
+  position: absolute;
+  height: 5vh;
+  width: 5vw;
+  top: 49vh;
+  left: 9vw;
+  border: none;
+  font-size: 2.4vh;
+  border-radius: 1.1vh;
+  background: #b26fff;
+  color: #ffffff;
+  z-index: 2;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  overflow-y: hidden;
+}
+
+.surbtn1 {
+  position: absolute;
+  height: 2vh;
+  width: 10vw;
+  top: 51vh;
+  left: 68vw;
+  font-size: 25px;
+  font-weight: 700;
+  z-index: 4;
+}
+.surbtn2 {
+  position: absolute;
+  height: 2vh;
+  width: 10vw;
+  top: 64vh;
+  left: 58vw;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 4;
+}
+.surbtn3 {
+  position: absolute;
+  height: 2vh;
+  width: 10vw;
+  top: 76vh;
+  left: 48vw;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 4;
+}
+.surtitle{
+  position: absolute;
+  top: 0vh;
+  left: 13vw;
+  font-size: 4vh;
+  font-weight: 500;
+}
+.insurtext {
+  position: absolute;
+  left:5vw;
+  top: 14vh;
+  font-size: 21px;
+  font-weight: 500;
+  margin: auto;
+}
+.insurbtn1 {
+  position: absolute;
+  height: 5vh;
+  width: 5vw;
+  top: 25vh;
+  left: 6vw;
+  font-size: 2.4vh;
+  border: none;
+  border-radius: 1.1vh;
+  background: #b26fff;
+  color: #ffffff;
+  z-index: 2;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.insurbtn2 {
+  position: absolute;
+  height: 5vh;
+  width: 5vw;
+  top: 25vh;
+  left: 20vw;
+  border: none;
+  font-size: 2.4vh;
+  border-radius: 1.1vh;
+  background: #017efa;
+  color: #ffffff;
+  z-index: 2;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.insurper{
+  position: absolute;
+  left:23vw;
+  top:44vh;
+  font-size: 25px;
+}
+.closeButton{
+  position: absolute;
+  top:26vh;
+  left:25vw;
+  background-color: #017efa;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+}
+
+
+.databox {
+  position: relative;
+  height: 10vh;
+  width: 19vw;
+  background-color: #e3daf6;
+  left: 2vw;
+  border-radius: 1vh;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.survey {
+  position: absolute;
+  margin-left: 1vw;
+  margin-top: 1vh;
+}
+.dft {
+  position: absolute;
+  margin-left: 10vw;
+  margin-top: 1vh;
+  color: #1b2b65;
+}
+.datafrom {
+  position: relative;
+  top: 1vh;
+  left: -8vw;
+}
+.sitename {
+  position: relative;
+  top: 6.5vh;
+  left: -4vw;
+}
+.noques {
+  position: relative;
+  top: -50%;
+  left: 26%;
+}
+.d {
+  padding: 2vh;
+  font-size: 3vh;
+}
+.option1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  position: relative;
+}
+
+@media only screen and (max-width:1000px){
+  .subtn1{
     width: 6vw;
-    top: 58vh;
-    left: 45vw;
-    font-size: 20px;
-    font-weight: 500;
-    z-index: 4;
   }
-  
-  .surtitle {
-    position: absolute;
-    top: 0vh;
-    left: 13vw;
-    font-size: 40px;
-    font-weight: 500;
+  .subtn2{
+    width: 6vw;
   }
-  .insurtext {
-    position: absolute;
-    left:5vw;
-    top: 14vh;
-    font-size: 21px;
-    font-weight: 500;
-    margin: auto;
+  .surect2{
+    width: 28vw;
+    left: 62vw;
   }
-  .insurbtn1 {
-    position: absolute;
-    height: 5vh;
-    width: 5vw;
-    top: 25vh;
-    left: 6vw;
-    font-size: 2.4vh;
-    border: none;
-    border-radius: 1.1vh;
-    background: #b26fff;
-    color: #ffffff;
-    z-index: 2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  .surect3{
+    left: 62vw;
+    width: 28vw;
   }
-  .insurbtn2 {
-    position: absolute;
-    height: 5vh;
-    width: 5vw;
-    top: 25vh;
+  .databox{
+    width: 24vw;
+  }
+  .datafrom{
+    left: -10vw;
+  }
+  .dft{
+    left: 4vw;
+  }
+  .sitename{
+    left: -4vw;
+  }
+  .subtn3{
+    left: 11vw;
+    width: 6vw;
+  }
+  .surbtn1{
+    left: 64vw;
+  }
+  .surbtn2{
+    left: 54vw;
+  }
+  .surbtn3{
+    left: 44vw;
+  }
+}
+
+@media only screen and (max-width:770px){
+  .surbox1{
+    height: 130vh;
+    width: 92vw;
+    left: 4vw;
+  }
+  .surect1{
+    left: 23vw;
+    width: 54vw;
+  }
+  .surect2{
+    text-align: center;
+    top: 50vh;
+    left: 23vw;
+    width: 54vw;
+  }
+  .surect3{
+    top: 74vh;
+    left: 23vw;
+    width: 54vw;
+  }
+  .subtn1{
+    width: 10vw;
+  }
+  .subtn2{
+    left: 40vw;
+    width: 10vw;
+  }
+ 
+  .databox{
+    width: 50vw;
+  }
+  .datafrom{
+    left: -20vw;
+  }
+  .dft{
     left: 20vw;
-    border: none;
-    font-size: 2.4vh;
-    border-radius: 1.1vh;
-    background: #017efa;
-    color: #ffffff;
-    z-index: 2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
-  .insurper{
-    position: absolute;
-    left:23vw;
-    top:44vh;
-    font-size: 25px;
+  .sitename{
+    left: -10vw;
   }
-  .closeButton{
-    position: absolute;
-    top:26vh;
-    left:25vw;
-    background-color: #017efa;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  
+  .subtn3{
+    left: 22vw;
+    width: 10vw;
   }
-  
-  
-  .databox {
-    position: relative;
-    height: 10vh;
-    width: 15vw;
-    background-color: #e3daf6;
-    left: 12%;
-    border-radius: 1vh;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  .surbtn1{
+    left: 64vw;
+    visibility: hidden;
   }
-  .survey {
-    position: absolute;
-    margin-left: 1vw;
-    margin-top: 1vh;
+  .surbtn2{
+    left: 54vw;
+    visibility: hidden;
   }
-  .dft {
-    position: absolute;
-    margin-left: 10vw;
-    margin-top: 1vh;
-    color: #1b2b65;
+  .surbtn3{
+    left: 44vw;
+    visibility: hidden;
   }
-  .datafrom {
-    position: relative;
-    top: 4px;
-    left: -6vw;
+  .surtext1{
+    text-align: center;
+    left: 50%;
   }
-  .sitename {
-    position: relative;
-    top: 5.5vh;
-    left: -20%;
-  }
-  .noques {
-    position: relative;
-    top: -50%;
-    left: 26%;
-  }
-  .d {
-    padding: 2vh;
-    font-size: 3vh;
-  }
-  .option1 {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    position: relative;
-  }
+
+}
