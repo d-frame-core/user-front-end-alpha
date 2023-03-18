@@ -23,6 +23,7 @@
     left: 5vw;
     width: 29vw;
     font-size: 3vh;
+    line-height: 100%;
 }
 .k1{
     position: absolute;
@@ -31,6 +32,7 @@
     left: 5vw;
     top: 35vh;
     font-size: 3vh;
+    line-height: 100%;
 }
 .k2{
     position: absolute;
@@ -38,6 +40,7 @@
     height: 10vh;
     left: 5vw;
     top: 55vh;
+    line-height: 100%;
     font-size: 3vh;
 }
 .up{
@@ -50,7 +53,7 @@
     position: absolute;
     width: 30vw;
     top: 6vh;
-    left: -2vw;
+    left: 0vw;
 }
 .Image-warnings-2{
     position: absolute;

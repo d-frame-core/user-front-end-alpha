@@ -12,14 +12,12 @@
     rgba(227, 218, 246, 0.6) 100%
   );
 }
-.surtext1 {
-  position: absolute;
-  font-size: 4vh;
-  padding: 2vh;
-  left: 26vw;
-  top: 13vh;
-  height: 357px;
-  font-weight: 500;
+.stext1 {
+  position: relative;
+  font-size: 5vh;
+    left: -24vw;
+    top: 3vh;
+  font-weight: 600;
 }
 .surectangle {
   display: flex;
@@ -252,6 +250,14 @@
 }
 
 @media only screen and (max-width:1000px){
+  .stext1 {
+    position: relative;
+    font-size: 5vh;
+    left: -24vw;
+    top: 3vh;
+   
+  
+  }
   .subtn1{
     width: 6vw;
   }
@@ -294,27 +300,34 @@
 }
 
 @media only screen and (max-width:770px){
+  .stext1{
+    top: 1vh;
+   left: 0vw;
+   
+  }
   .surbox1{
     height: 130vh;
-    width: 92vw;
-    left: 4vw;
+    width: 86vw;
+    left: 7vw;
   }
   .surect1{
-    left: 23vw;
-    width: 54vw;
+    top: 50vh;
+    left: 20vw;
+    width: 60vw;
   }
   .surect2{
     text-align: center;
-    top: 50vh;
-    left: 23vw;
-    width: 54vw;
+    top: 25vh;
+    left: 20vw;
+    width: 60vw;
   }
   .surect3{
-    top: 74vh;
-    left: 23vw;
-    width: 54vw;
+    top: 80vh;
+    left: 20vw;
+    width: 60vw;
   }
   .subtn1{
+    left: 10vw;
     width: 10vw;
   }
   .subtn2{
@@ -323,6 +336,7 @@
   }
  
   .databox{
+    left: 5vw;
     width: 50vw;
   }
   .datafrom{

@@ -91,7 +91,7 @@ function Rewards() {
       <div className='rewtitle'>Rewards</div>
       <Box className="rewcont">  
       
-      <img src={df} className="dflogo"></img>
+      
       <div className='ltext1'>Total DFT Tokens</div>
       <div className='ltext2'>4300</div>
 

@@ -21,7 +21,7 @@ export default function Success() {
             <br/>Thank you!</div>
             
            
-           <img src={df} alt='' className='logo-step-3'></img>  
+            
            <div className='step-3'><Box sx={{ width: '300%' }}><Stepper activeStep={4} alternativeLabel>
         {data.map((label) => (
           <Step key={label}>

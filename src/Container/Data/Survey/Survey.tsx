@@ -114,10 +114,11 @@ export default function Survey() {
         {Drawer(9)}
       </a>
 
-      <div className="surbox1"></div>
-
+      <div className="surbox1">
+      <a className="stext1">Survey</a>
+      </div>
       <div>
-        <div className="surtext1">Survey</div>
+        
 
         <div className="surect1">
           <p className="surtext2">{newqs[arrayIndex].qs1}</p>
