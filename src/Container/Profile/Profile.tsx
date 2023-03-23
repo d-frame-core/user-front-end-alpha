@@ -130,7 +130,7 @@ function Profile() {
 
           <Container
             maxWidth={false}
-            sx={{ maxWidth: "60%", display: "flex" }}
+            sx={{ display: "flex" }}
             className="contitem"
           >
             <div>
@@ -147,15 +147,16 @@ function Profile() {
               <a className="pr">Number</a>
               <a className="colon1">:</a>
               <a className="prfont">
-                {phonenumber}{" "}
+                {phonenumber}
                 <a onClick={() => setPopShow(true)}>
                   <CreateOutlinedIcon
                     sx={{
                       color: "#47B5FF",
                       top: "4px",
-                      left: "10%",
+                      left: "0%",
                       position: "relative",
                     }}
+                    className='editicon'
                   />
                 </a>
               </a>
@@ -187,7 +188,7 @@ function Profile() {
                     sx={{
                       color: "#47B5FF",
                       top: "4px",
-                      left: "15%",
+                      left: "5%",
                       position: "relative",
                     }}
                   />
@@ -204,7 +205,7 @@ function Profile() {
                     sx={{
                       color: "#47B5FF",
                       top: "4px",
-                      left: "15%",
+                      left: "5%",
                       position: "relative",
                     }}
                   />

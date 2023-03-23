@@ -60,7 +60,7 @@ body{
     left: 25vw;
     font-size:3vh;
     font-weight:520;
-    top:-1vh;
+    top:-2vh;
 }
 
 .linechart{
@@ -149,7 +149,7 @@ body{
         width: 90vw;
     }
     .rerect{
-        width: 80vw;
+        width: 77vw;
         left: 5vw;
     }
     .rewtabs{
@@ -159,7 +159,7 @@ body{
         left: 4vw;
     }
     .redbox{
-        width: 76vw;
+        width: 75vw;
     }
     .rgap{
         left: -2vw;

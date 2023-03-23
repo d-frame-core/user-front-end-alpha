@@ -31,7 +31,7 @@ export default function Permission(){
 
           <a>Location<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
           <a>Cookies<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
-          <a>Call Tracking<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
+          <a>Call Data Sharing<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
           <a>Email Sharing<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
           <a>Notification<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
           <a>Storage Option<a className="percol">:</a>
@@ -42,7 +42,7 @@ export default function Permission(){
                 </RadioGroup>
             </FormControl>
           </a>
-          <a>Devices<a className="percol">:</a><FormControlLabel className="pertog" disabled control={<Switch />} label="(In Progress)" /></a>
+          <a>Devices<a className="percol">:</a><FormControlLabel className="pertog" disabled control={<Switch />} label="(In&nbsp;Progress)" /></a>
           
           <button onClick={handlesubmit} type="submit" className="perbtn">Save</button>
 

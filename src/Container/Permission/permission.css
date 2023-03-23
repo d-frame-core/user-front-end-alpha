@@ -11,7 +11,7 @@
 
 .pertitle{
     position: absolute;
-    padding: 3vh;
+    padding: 3vh;   
     left: 0vw;
     font-size:4vh;
     font-weight: 700; 
@@ -21,7 +21,7 @@
     position: relative;
     min-height: 15vh;
     max-width: 30vw;
-    left: 14vw;
+    left: 8vw;
     top:12vh;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
     position: absolute;
     height: 4vh;
     width: 15vw;
-    right: 1vw;
+    right: -4vw;
 }
 
 .pertog1{
@@ -58,7 +58,7 @@
 
 .percol{
     position: absolute;
-    right: 18vw;
+    right: 14vw;
 }
 
 .perbtn{
@@ -98,14 +98,14 @@
     }
     .percol{
         
-        left: 26vw;
+        left: 27vw;
     }
     .pertog{
-        left: 32vw;
+        left: 40vw;
     }
     .pertog1{
-        top: 3vh;
-        left: 6vw;
+        top: -1vh;
+        left: 13vw;
     }
     .percont{
         top: 12vh;
@@ -113,6 +113,9 @@
         max-width: 84vw;
         left: 8vw;
         text-align: left ;
+    }
+    .perbox{
+        left: 8vw;
     }
     .perbtn{
         top: -3vh;

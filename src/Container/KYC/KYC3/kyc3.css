@@ -45,10 +45,13 @@
 }
 .up{
     position: absolute;
-    left: 38vw;
+    left: 42vw;
     top: 0vh;
 }
-
+.cbtn{
+    position: relative;
+    left: 8vw;
+}
 .Image-warnings{
     position: absolute;
     width: 30vw;

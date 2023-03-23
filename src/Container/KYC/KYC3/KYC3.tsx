@@ -27,7 +27,9 @@ export default function KYC3() {
             Please pose while holding Photo ID in your hand to make it readable.
           </span>
           <div className="up">
+            <div className='cbtn'>
             <CaptureButtons />
+            </div>
             
           </div>
         </div>
@@ -40,8 +42,9 @@ export default function KYC3() {
             Passport, Aadhar Card, Driving License, Voter ID, PAN Card etc.
           </span>
           <div className="up">
+            <div className='cbtn'>
             <UploadButtonForKYC />
-            
+            </div>
             <span
               className="Image-warnings"
               style={{ fontSize: "0.8rem", fontWeight: 400 }}
@@ -61,7 +64,8 @@ export default function KYC3() {
             Electricity Bill, Phone Bill etc.
           </span>{" "}
           <div className="up">
-            <UploadButtonForKYC />
+            <div className='cbtn'>
+            <UploadButtonForKYC /></div>
             <span
               className="Image-warnings"
               style={{ fontSize: "0.8rem", fontWeight: 400 }}

@@ -210,7 +210,7 @@
 }@media only screen and (max-width: 770px) {
     .trans{
         top:35vh;
-        left:22vw;
+        left:15vw;
         width: 50vw;
         height: 50vh;
     }
@@ -244,13 +244,13 @@
         left: 4vw;
     }
     .walbox2{
-        left: 22vw;
+        left: 15vw;
         width: 50vw;
         height: 20vh;
     }
     .transfertoken{
         
-        left: 22vw;
+        left: 15vw;
         width: 50vw;
         top:92vh;
     }
@@ -267,8 +267,8 @@
         width: 30vw;
     }
     .Wallet{
-        left: 5vw;
-        width: 90vw;
+        left: 10vw;
+        width: 80vw;
         height: 140vh;
         margin-bottom: 10vh;
     }
