@@ -1,6 +1,6 @@
 import { Box, Step, StepLabel, Stepper, Button } from "@mui/material";
 import { Container } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Sidebar1 from "../../../components/sidebar1/Sidebar1";
 // import HorizontalLabelPositionBelowStepper from '../../../components/stepper/HorizontalLabelPositionBelowStepper'
@@ -12,6 +12,8 @@ import df from "../../../assets/dframe.png";
 import Drawer from "../../../components/sidebar1/Drawer";
 
 export default function KYC3() {
+  
+  
   return (
     <Container>
       <Sidebar1 />

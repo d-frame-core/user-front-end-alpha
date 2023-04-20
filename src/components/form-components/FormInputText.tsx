@@ -1,8 +1,11 @@
+//importing the required packages 
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import { FormInputProps } from "./FormInputProps";
 import FormControl from "@mui/material/FormControl";
+
+//Declaring the function for the input text
 export const FormInputText = ({ name, control, label }: FormInputProps) => {
   return (
     <FormControl sx={{ borderRadius: "1vh" }}>

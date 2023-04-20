@@ -5,11 +5,12 @@ import { Box, Button, Container, Step, StepLabel, Stepper , TextField} from '@mu
 import df from '../../../assets/dframe.png'
 import data from '../data'
 import { Backdrop } from '@mui/material'
-
+import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
 import Drawer from '../../../components/sidebar1/Drawer'
+import Cookies from 'js-cookie'
 
 
 
@@ -28,41 +29,27 @@ export default function KYC1() {
 
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = (data:any) => {
+       
+        
+        console.log(data); 
+        
+        const token = Cookies.get('token');
+        const id = Cookies.get('_id')
+        console.log(token)
+          axios.post(`http://localhost:3000/kyc1/step1/${id}`,data,{
+            headers: {
+              Authorization: `Bearer ${Cookies.get('token')}` // set the Authorization header with the JWT token stored in localStorage
+            }
+          })
+        .then((res)=>{
+          console.log(res)
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
 
-    if(firstname === ''){
-      setField('First Name');
-      setFieldOpen(true);
-    }
-    else if(lastname === ''){
-      setField('Last Name');
-      setFieldOpen(true);
-    }
-    else if(username === ''){
-      setField('User Name');
-      setFieldOpen(true);
-    }
-    else if(email === ''){
-      setField('Email');
-      setFieldOpen(true);
-    }
-    else if(number === ''){
-      setField('Phone Number');
-      setFieldOpen(true);
-    }
-   
-    else{
-        userdata={
-          F1:firstname,
-        }
-        setarlist(userdata);
-        console.log(userdata);
-        navigate('/kyc2');
-        console.log(arlist);
-    }
-
-    console.log(data); 
-    navigate('/kyc2'); 
+   navigate('/kyc2');
   };
 
   const[firstname, setfirstName]= useState('');
@@ -77,40 +64,8 @@ export default function KYC1() {
   
   // const navigate = useNavigate();
   
-  const handleSubmit_form=(e:any)=>{
-    e.preventDefault();
 
-    if(firstname === ''){
-      setField('First Name');
-      setFieldOpen(true);
-    }
-    else if(lastname === ''){
-      setField('Last Name');
-      setFieldOpen(true);
-    }
-    else if(username === ''){
-      setField('User Name');
-      setFieldOpen(true);
-    }
-    else if(email === ''){
-      setField('Email');
-      setFieldOpen(true);
-    }
-    else if(number === ''){
-      setField('Phone Number');
-      setFieldOpen(true);
-    }
-   
-    else{
-        userdata={
-          F1:firstname,
-        }
-        setarlist(userdata);
-        console.log(userdata);
-        navigate('/kyc2');
-        console.log(arlist);
-    }
-}
+
 
   return (
     <>
@@ -152,7 +107,6 @@ export default function KYC1() {
                   {/* <input className='in' type='tel' name='number' value={number} onChange={(e)=>setnumber(e.target.value)} required={true} /> */}
                   </a>
                   </div>
-            
             
             <button  type='submit' className='btnup'>Submit</button>
             {/* <input type="submit" /> */}

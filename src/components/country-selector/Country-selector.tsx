@@ -1,14 +1,16 @@
+//importing required packages
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState, useEffect } from 'react';
 import { useFormContext, Controller } from "react-hook-form";
 
-
+//function for the country selector
 export default function CountrySelector() {
 
+  //creating the useState variable
   const [country, setCountry] = useState("");
-
+  //creating the event handling function
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCountry(event.target.value);
     
@@ -21,6 +23,7 @@ export default function CountrySelector() {
 
 
   return (
+    //using the MUI autocomplete
     <Autocomplete
       id="country-select-demo"
       sx={{ borderRadius:'10px', width: 350, backgroundColor:'white',boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" }}
@@ -56,6 +59,7 @@ export default function CountrySelector() {
   );
 }
 
+//creating interface for the country detials
 interface CountryType {
   code: string;
   label: string;
@@ -64,6 +68,7 @@ interface CountryType {
 }
 
 // From https://bitbucket.org/atlassian/atlaskit-mk-2/raw/4ad0e56649c3e6c973e226b7efaeb28cb240ccb0/packages/core/select/src/data/countries.js
+// creating the country coordinates
 const countries: readonly CountryType[] = [
   { code: 'AD', label: 'Andorra', phone: '376' },
   {

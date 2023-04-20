@@ -54,7 +54,7 @@
 }
 .Image-warnings{
     position: absolute;
-    width: 30vw;
+    width: 25vw;
     top: 6vh;
     left: 0vw;
 }
@@ -118,6 +118,9 @@
     .logo-step-2{
         left: 44vw;
     }
+    .Image-warnings{
+        left: 1vw;
+    }
 }
 @media only screen and (max-width:770px){
     .ky2rectangle{
@@ -148,5 +151,8 @@
     }
     .up{
         left: 50vw;
+    }
+    .Image-warnings{
+        left: 4vw;
     }
 }

@@ -1,3 +1,4 @@
+//Importing the required packages 
 import React from "react";
 import { Controller } from "react-hook-form";
 import InputLabel from "@mui/material/InputLabel";
@@ -7,6 +8,8 @@ import FormControl from "@mui/material/FormControl";
 import { FormInputProps } from "./FormInputProps";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+
+//declaring a function
 export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
   name,
   control,
@@ -73,6 +76,7 @@ export const FormInputDropdownCountries: React.FC<FormInputProps> = ({
   );
 };
 
+//creating the country coordinates
 const options = [
   { value: "AD", label: "Andorra", phone: "376" },
   {

@@ -1,5 +1,5 @@
+//Importing the required packages 
 import React from "react";
-
 import { useFormContext, Controller } from "react-hook-form";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -21,6 +21,7 @@ const options = [
   },
 ];
 
+//declraing the function for input dropdown
 export const FormInputDropdown: React.FC<FormInputProps> = ({
   name,
   control,

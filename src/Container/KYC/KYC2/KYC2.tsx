@@ -26,6 +26,8 @@ import { FormInputDate } from "../../../components/form-components/FormInputDate
 import { FormInputDropdownCountries } from "../../../components/form-components/FormDropdownCountries";
 import {useNavigate} from 'react-router-dom'
 import Drawer from "../../../components/sidebar1/Drawer";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 interface IFormInput {
   gender: string;
@@ -54,6 +56,20 @@ export default function KYC2() {
   const onSubmit = (data: IFormInput) =>{
     
     console.log(data);
+    const token = Cookies.get('token');
+    const id = Cookies.get('_id')
+        console.log(token)
+          axios.post(`http://localhost:3000/kyc1/step2/${id}`,data,{
+            headers: {
+              Authorization: `Bearer ${Cookies.get('token')}` // set the Authorization header with the JWT token stored in localStorage
+            }
+          })
+        .then((res)=>{
+          console.log(res)
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
     navigate('/kyc3'); 
   };
 

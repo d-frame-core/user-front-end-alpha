@@ -1,4 +1,4 @@
-import React from "react";
+//importing the required packages
 import {
   LineChart,
   Line,
@@ -10,24 +10,26 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-
+//Function for linechart
 export default function Linecharts(linedata:any,linehi:any,linewi:any) {
   return (
     <ResponsiveContainer height={linehi} width={linewi}>
-    <LineChart className="linechart1"
-     
+     <LineChart className="linechart1"
       data={linedata}
       margin={{
         top: 5,
         right: 30,
         left: 20,
         bottom: 5
-      }}
-    >
+              }}
+     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name"  />
       <YAxis/>
       <Tooltip />
+
+      {/*Delaring lines */}
+      
       <Line
         type="monotone"
         dataKey="All"
@@ -53,6 +55,7 @@ export default function Linecharts(linedata:any,linehi:any,linewi:any) {
         activeDot={{ r: 8 }}
       />
 
-    </LineChart></ResponsiveContainer>
+    </LineChart>
+    </ResponsiveContainer>
   );
 }

@@ -1,3 +1,4 @@
+//Importing the required packages  
 import React from "react";
 import TextField from "@mui/material/TextField";
 // import {
@@ -9,6 +10,7 @@ import { FormInputProps } from "./FormInputProps";
 import FormControl from "@mui/material/FormControl";
 const DATE_FORMAT = "dd-MMM-yy";
 
+//declaring the function for forminputdate
 export const FormInputDate = ({ name, control, label }: FormInputProps) => {
   return (
     <FormControl sx={{ borderRadius: "1vh", width: "250px" }}>

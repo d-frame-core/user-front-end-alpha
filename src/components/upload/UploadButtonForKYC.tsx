@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 // import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 import { useState } from "react";
+import axios from "axios";
 export default function UploadButtonForKYC() {
   const [preview, setpreview] = useState<File | null>(null);
 
@@ -17,48 +18,41 @@ export default function UploadButtonForKYC() {
     else setpreview(event.target.files[0]);
   };
 
+const onSum = (event:any) =>{
+  event.preventDefault();
+  const formData = new FormData();
+    axios.post("http://localhost:3000/uploads/uploadProfilePicture",formData)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
   return (
     <div>
-      <Button
+      <form >
 
-       
-      
-        sx={{
+      <input
+          type="file"
+          onChange={handleChange}
+          required
+        />
+      <button
+        style={{
           backgroundColor:  preview ? "rgba(92, 15, 255, 0.66)":  "#017EFA",
           borderRadius: "10px",
           textTransform: "inherit",
           width: "100px",
         }}
-        variant="contained"
-        component="label"
+        type="submit"  
+        onClick={onSum}
       >
-        {preview ? "Reupload" : "Upload"}
-        
-        <input
-          hidden
-          accept="image/*"
-          type="file"
-          id="file"
-          onChange={handleChange}
-          required
-        />
-      </Button>
+       Upload
+      </button>
 
-      {preview && 
-
-        <div style={{position:'absolute',left:'10vw',top:'-10vh'}}>
-             <img
-             style={{
-               width: "120px",
-               height: "110px",
-               objectFit: "contain",
-               
-             
-             }}
-             src={preview === null ? "" : URL.createObjectURL(preview)}
-             alt="document preview"
-           />
-        
+     
            {/* <Button
            onClick={() => {
              setpreview(null);
@@ -77,10 +71,9 @@ export default function UploadButtonForKYC() {
            X
          </Button> */}
 
-         </div>
-       }
+      
 
-     
+      </form>
 
      
     </div>

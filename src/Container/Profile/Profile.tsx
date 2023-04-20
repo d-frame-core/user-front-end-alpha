@@ -12,7 +12,7 @@ import { authentication } from "../../Firebase";
 import CloseIcon from "@mui/icons-material/Close";
 import Backdrop from "@mui/material/Backdrop/Backdrop";
 import { userdata } from "./FirstPage";
-
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import EditButton from "../../components/upload/EditButton";
 import UploadButtons from "../../components/upload/UploadButtonForKYC";
@@ -20,6 +20,7 @@ import Drawer from "../../components/sidebar1/Drawer";
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
+  var {address, isConnected } : any = useAccount();
 
   let [gmail, setgmail] = useState("");
 
@@ -111,6 +112,7 @@ function Profile() {
     e.preventDefault();
     setAddress1(e.target.value);
   };
+  
 
   return (
     <div>
