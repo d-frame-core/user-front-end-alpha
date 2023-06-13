@@ -7,6 +7,8 @@ import analyticsdata from '../analyticsdata'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Drawer from '../../../components/sidebar1/Drawer'
+import Header from '../../../components/Header/Header'
+
 
 
 export default function Topsite() {
@@ -18,7 +20,9 @@ export default function Topsite() {
     setToggleState(i);
   }
   return (
-   <div><>{Sidebar1(5)}</>
+   <div>
+    <Header/>
+    <>{Sidebar1(5)}</>
    <a className='smopen'>
     {Drawer(5)}
     </a>

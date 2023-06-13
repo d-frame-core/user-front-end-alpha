@@ -18,62 +18,63 @@ export default function UploadButtonForKYC() {
     else setpreview(event.target.files[0]);
   };
 
-const onSum = (event:any) =>{
-  event.preventDefault();
-  const formData = new FormData();
-    axios.post("http://localhost:3000/uploads/uploadProfilePicture",formData)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+  const onSum = (event: React.ChangeEvent<HTMLInputElement>) =>{
+    event.preventDefault();
+    const file = event.target.files![0];
+
+    const formData = new FormData();
+    formData.append("image", file);
+      axios.post("http://localhost:3000/uploads/uploadProfilePicture",formData)
+      .then((response) => {
+        console.log(response);
+        (window as any).alert("Image Uploaded")
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
 
   return (
     <div>
-      <form >
+     <Button
+      sx={{ backgroundColor:  preview ? "rgba(92, 15, 255, 0.66)":  "#017EFA",
+      borderRadius: "10px",
+      textTransform: "inherit",
+      width: "100px",
+    }}
+    variant="contained"
+    component="label"
+    
+    >
+       Upload
 
-      <input
+          <input
+          hidden
+          accept="image/*"
           type="file"
-          onChange={handleChange}
+          id="file"
+          onChange={onSum}
           required
         />
-      <button
-        style={{
-          backgroundColor:  preview ? "rgba(92, 15, 255, 0.66)":  "#017EFA",
-          borderRadius: "10px",
-          textTransform: "inherit",
-          width: "100px",
-        }}
-        type="submit"  
-        onClick={onSum}
-      >
-       Upload
-      </button>
+        
+</Button>
+    
+     {preview && 
 
-     
-           {/* <Button
-           onClick={() => {
-             setpreview(null);
+      <div style={{position:'absolute',left:'10vw',top:'-10vh'}}>
+           <img
+           style={{
+             width: "120px",
+             height: "110px",
+             objectFit: "contain",
+
+
            }}
-           variant="text"
-           size="large"
-           sx={{
-             color:'#fa2a55',
-             position:'absolute',
-             left:'8rem',
-             top:"2.3rem",
-             
-             fontWeight: "800",
-           }}
-         >
-           X
-         </Button> */}
-
-      
-
-      </form>
+           src={preview === null ? "" : URL.createObjectURL(preview)}
+           alt="document preview"
+         />
+         </div>
+         }
 
      
     </div>

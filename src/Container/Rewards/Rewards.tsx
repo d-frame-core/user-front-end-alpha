@@ -6,6 +6,8 @@ import Linechart from '../../components/charts/linechart/Linechart'
 import { borderColor } from '@mui/system'
 import df from '../../assets/dframe.png';
 import Drawer from '../../components/sidebar1/Drawer'
+import Header from '../../components/Header/Header'
+
 
 const rewarddata: any[]=[
   { name: "All", value: 4300,long: 'DFT (earned)' },
@@ -84,6 +86,7 @@ function Rewards() {
   }
   return (
     <div>
+      <Header/>
       <>{Sidebar1(4)}</>
       <a className='smopen'>
         {Drawer(4)}

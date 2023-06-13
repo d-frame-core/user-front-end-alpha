@@ -7,10 +7,13 @@ import Sidebar1 from '../../components/sidebar1/Sidebar1'
 import './success.css'
 import data from './data'
 import Drawer from '../../components/sidebar1/Drawer'
+import Header from '../../components/Header/Header'
+
 
 export default function Success() {
   return (
     <Container>
+      <Header/>
         <Sidebar1/>
         <a className='smopen'>
           {Drawer(0)}

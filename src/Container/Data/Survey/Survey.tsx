@@ -11,6 +11,7 @@ import { useTheme } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import Typography from '@mui/material/Typography';
 import Drawer from "../../../components/sidebar1/Drawer";
+import Header from '../../../components/Header/Header'
 
 
 const style = {
@@ -109,6 +110,7 @@ export default function Survey() {
   };
   return (
     <div>
+      <Header/>
       <>{Sidebar1(9)}</>
       <a className='smopen'>
         {Drawer(9)}

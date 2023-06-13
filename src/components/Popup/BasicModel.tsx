@@ -21,7 +21,7 @@ const style = {
 };
 
 
-const BasicModal=(props: { name: string ;paragraph: string; }) => {
+const BasicModel=(props: { name: string ;paragraph: string; }) => {
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -56,4 +56,4 @@ const BasicModal=(props: { name: string ;paragraph: string; }) => {
     </div>
   );
 }
-export default BasicModal;
+export default BasicModel;

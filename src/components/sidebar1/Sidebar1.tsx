@@ -52,7 +52,6 @@ export default function Sidebar1(index : any) {
     
   return (
     <>
-      <Header/>
     {side && <div>
       
         <Box className='side'>

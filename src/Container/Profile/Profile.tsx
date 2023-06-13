@@ -17,12 +17,17 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import EditButton from "../../components/upload/EditButton";
 import UploadButtons from "../../components/upload/UploadButtonForKYC";
 import Drawer from "../../components/sidebar1/Drawer";
+import { useNavigate } from "react-router-dom";
+import Header from '../../components/Header/Header'
+
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
   var {address, isConnected } : any = useAccount();
 
   let [gmail, setgmail] = useState("");
+
+  var [ref,setRef] = useState("");
 
   const [popshow, setPopShow] = useState(false);
 
@@ -112,10 +117,14 @@ function Profile() {
     e.preventDefault();
     setAddress1(e.target.value);
   };
+
+  const navigate = useNavigate();
+
   
 
   return (
     <div>
+      <Header/>
       <>{Sidebar1(1)}</>
       <a className='smopen'>
         {Drawer(1)}
@@ -218,6 +227,12 @@ function Profile() {
               <a className="pr">Wallet Address</a>
               <a className="colon1">:</a>
               <a className="prfont">0x000000000000000</a>
+            </div>
+            <div>
+              <a className="pr">Refferel Code</a>
+              <a className="colon1">:</a>
+              <a className="prfont"><input name="refferel" onChange={(e)=>setRef(e.target.value)} /></a>
+              <button className="refbtn">Send</button>
             </div>
           </Container>
         </Container>

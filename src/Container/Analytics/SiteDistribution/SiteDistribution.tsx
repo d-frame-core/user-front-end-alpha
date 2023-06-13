@@ -5,6 +5,8 @@ import { useState } from 'react'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Drawer from '../../../components/sidebar1/Drawer'
+import Header from '../../../components/Header/Header'
+
 var a: any[]=[];
 const Crypto=[
   {name:'Bitcoin',per:35,value: 35,col:'#361495'},
@@ -77,23 +79,18 @@ var a: any[];
   return (
     <div>
    <>{Sidebar1(6)}</>
+   <Header/>
    <a className='smopen'>
     {Drawer(6)}
     </a>
   
  
-    <div className='sites'>
-      
+    <div className='sites'>  
       <div onClick={()=> toggleTab(3)} className={toggleState === 3? "cryptoactive":"crypto"}>Crypto</div>
-      <Divider variant='middle' orientation='vertical' light={true}/>
       <div onClick={()=> toggleTab(4)} className={toggleState === 4? "cryptoactive":"crypto"}>Gender</div>
-      <Divider variant='middle' orientation='vertical' light={true}/>
       <div onClick={()=> toggleTab(5)} className={toggleState === 5? "cryptoactive":"crypto"}>Age Group</div>
-      <Divider variant='middle' orientation='vertical' light={true}/>     
       <div onClick={()=> toggleTab(6)} className={toggleState === 6? "cryptoactive":"crypto"}>Sports</div>
-      <Divider variant='middle' orientation='vertical' light={true}/>
       <div onClick={()=> toggleTab(7)} className={toggleState === 7? "cryptoactive":"crypto"}>Social Media</div>
-      <Divider variant='middle' orientation='vertical' light={true} />
       <div onClick={()=> toggleTab(8)} className={toggleState === 8? "cryptoactive":"crypto"}>Finance</div>
     </div>
   <Box className='sdbox1'>

@@ -5,6 +5,7 @@ import { FormControlLabel, Switch, Box, Radio, FormControl, RadioGroup } from '@
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import { Container } from '@mui/system';
 import Drawer from '../../components/sidebar1/Drawer';
+import Header from '../../components/Header/Header'
 
 export default function Permission(){
   
@@ -21,6 +22,7 @@ export default function Permission(){
     }
   return (
       <>
+      <Header/>
       <>{Sidebar1(3)}</>
       <a className='smopen'>
       {Drawer(3)}

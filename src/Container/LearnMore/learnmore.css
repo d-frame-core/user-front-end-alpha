@@ -1,42 +1,109 @@
-.learnmorerect{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    row-gap: 3vh;
-    top: 15vh;
-    left: 22vw;
-    text-align: left;
-    font-size: 3vh;
-    height: 80vh;
-    width: 73vw;
-}
-.lmtitle{
+.learnBox {
     position: relative;
-    font-size: 5vh;
-    width: 18vw;
-    font-weight: 600;
-    top: 5vh;
-    left: 1vw;
-    margin-left: 2vw;
-    z-index: 1;
-}
-
-.lmrect{
-    position: absolute;
+    height: 91vh;
+    width: 84vw;
     top: 9vh;
     left: 16vw;
-    height: 91vh;
-    width: 82vw;
-    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);;
+    text-align: left;
+    
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   
+    
+  }
+  .learnTitle {
+    position: relative;
+    left: 3vw;
+    top: 4vh;
+    font-size: 5vh;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 2vh;
+  }
+  .learnItemContent {
+    position: relative;
+    top: 3vh;
+    font-size: 3vh;
+    padding: 3vh;
+    background-color: white;
+    margin: 3vh 2vw;
+    width: 85%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    cursor: pointer;
+  }
+  .learnContent {
+    
+    padding-top: 1vh;
+    padding-left: 2vw;
+  }
+  .modalContainer {
+    position: fixed;
+    top: 50;
+    left: 50;
+    width: 30%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modalTitle {
+    font-size: 3vh;
+    font-weight: 600;
+    color: #1c1f37;
+    margin-bottom: 2vh;
+  }
+  hr {
+    border: 1px solid #1c1f37;
+    width: 100%;
+    margin: 0;
+  }
+  .modalText {
+    font-size: 2vh;
+    font-weight: 400;
+    color: #1c1f37;
+    margin-top: 2vh;
+  }
+  .modalClose {
+    box-shadow: "0 2px 12px 0 rgba(0 0 0 / 0.2)";
+    border-radius: 50%;
+  }
+  .modalContainerFAQ {
+    position: fixed;
+    width: 40%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 60%;
+  }
+  .modalSubHeading {
+    font-size: 2.5vh;
+    font-weight: 600;
+    color: #1c1f37;
+    margin-top: 2vh;
+  }
+  .modalTextFAQ {
+    font-size: 2vh;
+    font-weight: 400;
+    color: #1c1f37;
+    margin: 1vh 0;
+  }
+  
+@media only screen and (max-width: 1000px){
+  .learnBox{
+    left: 20vw;
+    width: 80vw;
+  }
 }
-@media only screen and (max-width: 1000px) {
-    .lmtitle{
-        width: 22vw;
-    }
-}
-@media only screen and (max-width: 770px) {
-    .lmtitle{
-        width: 38vw;
-       
-    }
+@media only screen and (max-width: 770px){
+  .learnBox{
+    
+    left: 0vw;
+    width: 100vw;
+  }
 }

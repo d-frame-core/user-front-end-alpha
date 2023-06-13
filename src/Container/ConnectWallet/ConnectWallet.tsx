@@ -67,6 +67,7 @@ const WallectConnect =()=> {
       connectWallet();
       navigate("/profile");
     }
+    
 
     
    

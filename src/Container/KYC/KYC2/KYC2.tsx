@@ -28,21 +28,33 @@ import {useNavigate} from 'react-router-dom'
 import Drawer from "../../../components/sidebar1/Drawer";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Header from '../../../components/Header/Header'
+
 
 interface IFormInput {
   gender: string;
-  income: string;
-  date: Date;
-  address: string;
   country: string;
+  state:string;
+  city:string;
+  street:string;
+  doorno: string
+  pincode:string;
+  dob: Date;
+  annualIncome: string;
+  permanentAddress: string;
 };
 
 const defaultValues = {
   gender:"",
-  income:"",
-  date: new Date(),
-  address:"",
   country:"",
+  state:"",
+  city:"",
+  street:"",
+  doorno:"",
+  pincode:"",
+  dob: new Date(),
+  annualIncome:"",
+  permanentAddress:"",
 }
 
 export default function KYC2() {
@@ -75,7 +87,8 @@ export default function KYC2() {
 
   return (
     <>
-      <Sidebar1 />
+    <Header/>
+      <div className="sb"><Sidebar1 /></div>
       <a className='smopen'>
         {Drawer(0)}
       </a>
@@ -110,31 +123,81 @@ export default function KYC2() {
                 </div>
               </div>
               <div className="ktext3">
-                Date of Birth &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                :<div className="stin">
+                <FormInputText name="state" control={control} label="State"/>
+                </div>
+              </div>
+              <div className="ktext4">
+                City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                :<div className="citin">
+                <FormInputText name="city" control={control} label="City"/>
+                </div>
+              </div>
+              <div className="ktext5">
+                Street &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
+                :<div className="streetin">
+                <FormInputText name="street" control={control} label="Street"/>
+                </div>
+              </div>
+              <div className="ktext6">
+                House no &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                :<div className="doin">
+                <FormInputText name="doorno" control={control} label="Door no"/>
+                </div>
+              </div>
+              <div className="ktext9">
+                Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 
                 <div className="date-picker">
-                <FormInputDate name="date" control={control} label=""/>
+                <FormInputDate name="dob" control={control} label=""/>
                 </div>
                 
               </div>
-              <div className="ktext4">
+              <div className="ktext10">
                 Annual Income &nbsp; &nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 <div className="i select-gender">
                   
                   <FormInputIncome
-                     name="income"
+                     name="annualIncome"
                      control={control}
                      label="Select"
                   />
                 </div>
               </div>
-              <div className="ktext5">
+              <div className="ktext7">
                 Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 <div className="i address-label">
                   
-                  <FormInputText name="address" control={control} label="Address"/>
+                  <FormInputText name="permanentAddress" control={control} label="Address"/>
+                </div>
+              </div>
+
+              <div className="ktext8">
+                Pincode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                :<div className="pinin">
+                <FormInputText name="pincode" control={control} label="Pincode"/>
                 </div>
               </div>
 

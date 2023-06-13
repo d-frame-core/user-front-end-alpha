@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router,Routes,Route,Navigate } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route,Navigate, useNavigate } from 'react-router-dom';
 import Help from './Container/Help/Help';
 import LearnMore from './Container/LearnMore/LearnMore';
 import Permission from './Container/Permission/Permission';
@@ -19,6 +19,7 @@ import KYC3 from './Container/KYC/KYC3/KYC3';
 import Success from './Container/KYC/Success';
 import FirstPage from './Container/Profile/FirstPage';
 import Charts2 from './components/charts/Charts2/Charts2';
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import WallectConnect from './Container/ConnectWallet/ConnectWallet';
 import {
   EthereumClient,
@@ -31,6 +32,8 @@ import { Web3Modal } from "@web3modal/react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 
 import { arbitrum, mainnet, polygon } from "wagmi/chains";
+import Acc from './Container/KYC/KYC3/Acc';
+import Header from './components/Header/Header';
 
 const chains = [arbitrum, mainnet, polygon];
 
@@ -53,9 +56,10 @@ const wagmiClient = createClient({
 const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 function App() {
+ 
   return (
     <div className="App">
-
+      
 <WagmiConfig client={wagmiClient}>
         
       
@@ -78,6 +82,7 @@ function App() {
           <Route path='/help' element={<Help/>}/>
           <Route path='/permission' element={<Permission/>}/>
           <Route path='/learnmore' element={<LearnMore/>}/>
+          <Route path='/ACC' element={<Acc/>}/>
           
         </Routes>
       </Router>

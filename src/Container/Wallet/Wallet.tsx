@@ -5,16 +5,27 @@ import './wallet.css';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import walletdata from './walletdata';
 import Drawer from '../../components/sidebar1/Drawer';
+import { useNavigate } from "react-router-dom";
+import Header from '../../components/Header/Header'
+
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
+
 
 export default function Wallet() {
   const userdata={
     dft:' 10 DFT ',
     userad:'0xnu989njbknk989sbuikjdbcksdvsdlvk '
   }
- 
+  const navigate = useNavigate();
+  var {address, isConnected } : any = useAccount();
+  if(!isConnected){
+    navigate('/')
+  }
+  
   var cl='us';
   return (
     <div>
+      <Header/>
       
       <>{Sidebar1(2)}</>     
       <div className='Wallet'>

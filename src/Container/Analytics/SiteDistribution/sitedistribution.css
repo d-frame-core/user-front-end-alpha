@@ -67,11 +67,10 @@
     position: absolute;
     top: 9vh;
     left: 16vw;
-    min-width: 84vw;
-    font-size: 2vh;
+    min-width:84vw;
     display: flex;
-    flex-direction: row;
-    font-family: 'Alata';
+    
+    
     
 }
 .crypto{
@@ -83,6 +82,7 @@
    
     background-color: #0A194E;
    color: white;
+   border-left: 1px white solid;
 }
 .cryptoactive{
     height: 5vh;

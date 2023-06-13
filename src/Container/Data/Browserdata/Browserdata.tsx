@@ -7,6 +7,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Drawer from '../../../components/sidebar1/Drawer';
+import Header from '../../../components/Header/Header'
 
 var b:any={};
   const browser={
@@ -58,6 +59,7 @@ function Browserdata() {
   return (
     <div>
         <>{Sidebar1(8)}</>
+        <Header/>
         <a className='smopen'>
         {Drawer(8)}
       </a>

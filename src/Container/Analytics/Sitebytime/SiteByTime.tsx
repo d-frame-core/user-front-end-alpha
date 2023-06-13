@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 import Charts2 from '../../../components/charts/Charts2/Charts2'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Drawer from '../../../components/sidebar1/Drawer'
+import Header from '../../../components/Header/Header'
 
 export default function SiteByTime() {
   const ma = useMediaQuery('(min-width:880px)');
@@ -23,6 +24,7 @@ export default function SiteByTime() {
   return (
     <div>
       <>{Sidebar1(5)}</>
+      <Header/>
       <a className='smopen'>
     {Drawer(5)}
     </a>

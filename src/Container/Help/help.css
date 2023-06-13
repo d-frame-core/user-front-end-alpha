@@ -1,84 +1,53 @@
-
-.helprect{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    row-gap: 3vh;
-    top: 9vh;
-    left: 4vw;
-    text-align: left;
-    font-size: 3vh;
-    
-    width: 73vw;
-}
-.inf{
-    padding: 3vh;
-    
-    border-radius: 2vh;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-color: #ffffff;
-}
-.hrect{
-    position: relative;
-    top: 9vh;
-    left: 16vw;
+.helpBox {
+    position: absolute;
     height: 91vh;
     width: 84vw;
-    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);;
-
-}
-.htitle{
-    position: relative;
-    font-size: 5vh;
-    width: 6vw;
-    font-weight: 600;
-    top: 5vh;
-    left: 1vw;
-    margin-left: 2vw;
-    z-index: 1;
-}
-.btncl1{
-    position: relative;
-    height: 6vh;
-    width:6vw;
-    background-color:#017EFA ;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 2.5vh;
+    top: 9vh;
+    left: 16vw;
+    text-align: left;
+    background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
     
-}
-.btncl{
+  }
+  .helpTitle {
     position: relative;
-    height: 6vh;
-    width:6vw;
-    background-color:#017EFA ;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 2.5vh;
-    left:80%;
-}
-@media only screen and (max-width: 1000px) {
-    .hrect{
-        width: 80vw;
-        left: 20vw;
+    left: 3vw;
+    top: 4vh;
+    font-size: 5vh;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2vh;
+  }
+  .helpItem {
+    position: relative;
+    top:3vh;
+    background-color: white;
+   
+    margin: 3vh 2vw;
+    width: 85%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1vh;
+    cursor: pointer;
+    font-size: 3vh;
+    padding: 3vh;
+  }
+  .helpItemContent {
+    font-size: 3vh;
+    padding: 3vh;
+    margin-left: 4vw;
+  }
+  .helpContent {
+    padding-top: 1vh;
+    padding-left: 2vw;
+  }
+  @media only screen and (max-width: 1000px){
+    .helpBox{
+      left: 20vw;
+      width: 80vw;
     }
-    @media only screen and (max-width: 770px) {
-        .hrect{
-            width: 100vw;
-            left: 0vw;
-        }
-        .btncl{
-            width: 11vw;
-        }
-        .btncl1{
-            width: 11vw;
-            right: 2vw;
-        }
-        .inf{
-            
-            width: 84vw;
-        }
+  }
+  @media only screen and (max-width: 770px){
+    .helpBox{
+      left: 0vw;
+      width: 100vw;
     }
-}
+  }

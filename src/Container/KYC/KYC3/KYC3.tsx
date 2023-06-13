@@ -10,12 +10,16 @@ import data from "../data";
 import "./kyc3.css";
 import df from "../../../assets/dframe.png";
 import Drawer from "../../../components/sidebar1/Drawer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Header from '../../../components/Header/Header'
+
 
 export default function KYC3() {
-  
-  
+
   return (
     <Container>
+      <Header/>
       <Sidebar1 />
       <a className='smopen'>
         {Drawer(0)}
@@ -46,7 +50,7 @@ export default function KYC3() {
           <div className="up">
             <div className='cbtn'>
             <UploadButtonForKYC />
-            </div>
+                        </div>
             <span
               className="Image-warnings"
               style={{ fontSize: "0.8rem", fontWeight: 400 }}
@@ -105,7 +109,8 @@ export default function KYC3() {
           >
             Submit
           </Button>
-        </NavLink>
+          </NavLink>
+       
         <NavLink style={{ textDecoration: "none" }} to="/kyc2">
           <Button
             sx={{

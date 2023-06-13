@@ -11,7 +11,7 @@ fieldset{
 .ky1rectangle {
     position: relative;
     display: flex;
-    height: 110vh;
+    height: 160vh;
     border-radius: 1.1vh;
     width: 75vw;
     top: 12vh;
@@ -108,12 +108,76 @@ fieldset{
   }
   .captcha {
     position: absolute;
-    top: 63vh;
+    top: 110vh;
     left: 25vw;
+  }
+  .ktext6{
+    position: absolute;
+    height: 5vh;
+    top: 62vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  .ktext7{
+    position: absolute;
+    height: 5vh;
+    top: 72vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  .ktext8{
+    position: absolute;
+    height: 5vh;
+    top: 82vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  .ktext9{
+    position: absolute;
+    height: 5vh;
+    top: 92vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  .ktext10{
+    position: absolute;
+    height: 5vh;
+    top: 102vh;
+    font-size: 28px;
+    font-weight: 350;
+    left: 10vw;
+  }
+  .pinin{
+    position: absolute;
+    top: 0%;
+    left: 30vw;
+    width: 35vh;
+  }
+  .stin{
+    position: absolute;
+    top: 0%;
+    left: 30vw;
+    width: 35vh;
+  }
+  .citin,.doin{
+    position: absolute;
+    top: 0%;
+    left: 30vw;
+    width: 35vh;
+  }
+  .streetin{
+    position: absolute;
+    top: 0%;
+    left: 30vw;
+    width: 35vh;
   }
   .label {
     position: absolute;
-    top: 85vh;
+    top: 135vh;
     left: 10vw;
     width: 30vh;
     z-index: 1;
@@ -122,7 +186,7 @@ fieldset{
     position: absolute;
     height: 5vh;
     width: 10vh;
-    top: 95vh;
+    top: 145vh;
     left: 60vw;
     background-color: rgba(91, 15, 255, 0.66);
     color: white;
@@ -132,11 +196,11 @@ fieldset{
     z-index: 2;
   }
   .btn{
-    top: 95vh;
+    top: 145vh;
   }
 @media only screen and (max-width:1000px){
   .ky1rectangle{
-    height: 105vh;
+    height: 160vh;
   }
   .i{
     left: 30vw;
@@ -160,15 +224,18 @@ fieldset{
   .ktext5{
     font-size: 3vh;
   }
+  .ktext6,.ktext7,.ktext8,.ktext9,.ktext10{
+    font-size: 3vh;
+  }
   .kybtn{
     left:60vw;
-    top: 95vh;
+    top: 145vh;
   }
   .btn{
-    top:95vh;
+    top:145vh;
   }
   .label{
-    top: 85vh;
+    top: 135vh;
     width: 25%;
   }
   .kyc1{
@@ -180,6 +247,7 @@ fieldset{
 @media only screen and (max-width:770px){
   .ky1rectangle{
     left: 5vw;
+    height: 160vh;
     width: 90vw;
   }
   .i{
@@ -190,6 +258,9 @@ fieldset{
   .date-picker{
     left: 35vw;
     
+  }
+  .pinin,.citin,.stin,.streetin,.doin{
+    left: 35vw;
   }
   .gender-input{
     left: 10vw;
@@ -207,18 +278,18 @@ fieldset{
     left: 10vw;
     font-size: 3vh;
   }
-  .ktext5{
+  .ktext5,.ktext6,.ktext7,.ktext8,.ktext9,.ktext10{
     left: 10vw;
     font-size: 3vh;
   }
   .btn{
-    top: 95vh;
+    top: 145vh;
   }
   .kybtn{
-    top:95vh;
+    top:145vh;
   }
   .label{
-    top:85vh;
+    top:135vh;
     width: 25%;
   }
   .kyc1{
@@ -230,6 +301,8 @@ fieldset{
 @media only screen and (max-width:600px){
   .ky1rectangle{
     left: 5vw;
+    height: 160vh;
+
     width: 90vw;
   }
   .i{
@@ -246,7 +319,16 @@ fieldset{
     left: 3vw;
     font-size: 100%;
   }
+  .pinin,.citin,.stin,.streetin,.doin{
+    left: 34vw;
+    
+  }
   .ktext2{
+    left: 3vw;
+    line-height: 1vh;
+    font-size: 100%;
+  }
+  .ktext6{
     left: 3vw;
     font-size: 100%;
   }
@@ -258,20 +340,20 @@ fieldset{
     left: 3vw;
     font-size: 100%;
   }
-  .ktext5{
+  .ktext5,.ktext6,.ktext7,.ktext8,.ktext9,.ktext10{
     left: 3vw;
     font-size: 100%;
   }
 .label{
-  top:85vh;
+  top:135vh;
   left: 6vw;
   width: 30%;
 }
 .kybtn{
-  top:95vh;
+  top:145vh;
 }
 .btn{
-  top: 95vh;
+  top: 145vh;
 }
 .kyc1{
   top:78vh;
