@@ -1,287 +1,329 @@
-.head{
-    padding: 2vh;
-    position: absolute;
-    left: 2vw;
-    font-weight: 600;
-    font-size: 5vh;
-}
-.Wallet{
-    position: absolute;
-    height: 80vh;
-    width: 70vw;
-    top: 15vh;
-    left: 23vw;
-    background: #E3DAF6;
-    text-align: left;
-    border-radius: 1vh;
+/** @format */
 
-}
-.trans{
-    position: absolute;
-    top: 10vh;
-    bottom: 7vh;
-    text-align: center;
-    left: 7vw;
-    font-size: 3vh;
-    width: 25vw;
-    background-color: white;
-    border-radius: 2vh;
-    overflow-y: hidden;
-   border: 2px solid white;
-}
-.trans1{
-    padding: 2vh;
-    font-size: 24px;
-    font-weight: 600;
-    z-index: 1; 
+.head {
+  padding: 2vh;
+  position: absolute;
+  left: 2vw;
+  font-weight: 600;
+  font-size: 5vh;
 }
 
-.walbox{
-    position: relative;
-    left:10%;
-    border-radius: 1vh;
-    top: 2vh;
-    margin-bottom: 2vh;
-    font-size: 2vh;
-    height: 10vh;
-    width: 20vw;
-    background-color: #E3DAF6;
-    overflow: hidden;
-}
-.walbox2{
-    position: absolute;
-    top: 10vh;
-    height: 15vh;
-    width: 25vw;
-    background-color: white;
-    left: 37vw;
-    text-align: center;
-    border-radius: 2vh;
-    font-size: 3vh;
-}
-.wabo{
-    height: 55vh;
-    width: 25vw;
-    overflow-y: scroll;
-    z-index: 2;
-}
-.wabo::-webkit-scrollbar{
-    border-radius: 2vh;
-    right: 1px;
-}
-.wabo::-webkit-scrollbar-thumb{
-    background-color: #E3DAF6;
-    border-radius: 2vh;
-    border: .25em solid white;
-}
-.to{
-    position: absolute;
-    margin-top: 1vh;
-    margin-left: 1vw;
-}
-.add{
-    position: absolute;
-    margin-top: 1vh;
-    margin-left: 7vh;
-    width: 6vw;
-    overflow: hidden;
-    height: 3vh;
-}
-.dat{
-    position: absolute;
-    margin-top: 1vh;
-    margin-left: 14vw;
-    font-size: 2vh;
-}
-.dft1{
-    position: absolute;
-    margin-top: 6vh;
-    margin-left: 2vw;
-    color: #1B2B65;
-}
-.time{
-    position: absolute;
-    margin-top: 6vh;
-    margin-left: 8vw;
-    font-size: 90%;
-    font-weight: 500;
-}
-.stat-red{
-    position: absolute;
-    margin-top: 6vh;
-    margin-left: 14vw;
-    width: 5vw;
-    color: red;
-}
-.stat-green{
-    position: absolute;
-    margin-top: 6vh;
-    margin-left: 14vw;
-    width: 5vw;
-    color: green;
-}
-.transfertoken{
-    position: relative;
-    top: 28vh;
-    left: 37vw;
-    height: 45vh;
-    width: 25vw;
-    border-radius: 2vh;
-    background-color: white;
-    text-align: center;
-
-}
-.wad{
-    display: flex;
-    flex-direction: column;
-    row-gap: 2vh;
-    top: 2vh;
-    position: relative;
-    height: 12vh;
-    width: 15vw;
-    left: 5vw;
-    align-items: center;
-    
-}
-.trans2{
-    padding: 2vh;
-    font-size: 24px;
-    font-weight: 600;
-}
-.il{
-    border: none;
-    width: 16vw;
-    height: 4vh;
-    border-radius: 1vh;
-    background-color: #E3DAF6;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    outline: none;
-    text-indent: 1vw;
-
-}
-.walbtn{
-    position: relative;
-    top: 4vh;
-    height: 6vh;
-    font-size: 100%;
-    width: 6vw;
-    color: white;
-    background-color: #017EFA;
-    border: none;
-    border-radius: 1vh;
-}
-.us{
-    position: absolute;
-    font-size: 2vh;
-    left: 5vw;
-    width: 12vw;
-    height: 3vh;
-    top: 9vh;
-    font-weight: 400;
-    border: none;
+.Wallet {
+  position: absolute;
+  height: 80vh;
+  width: 70vw;
+  top: 15vh;
+  left: 23vw;
+  background: #e3daf6;
+  text-align: left;
+  border-radius: 1vh;
 }
 
-.icus{
-    position: absolute;
-    top: 9vh;
-    left: 18vw;
-    color:#E3DAF6;
+.trans {
+  position: absolute;
+  top: 10vh;
+  bottom: 7vh;
+  text-align: center;
+  left: 7vw;
+  font-size: 3vh;
+  width: 25vw;
+  background-color: white;
+  border-radius: 2vh;
+  overflow-y: hidden;
+  border: 2px solid white;
 }
-.wa{
-    font-size: 120%;
-    font-weight: 600;
+
+.trans1 {
+  padding: 2vh;
+  font-size: 24px;
+  font-weight: 600;
+  z-index: 1;
 }
+
+.walbox {
+  position: relative;
+  left: 10%;
+  border-radius: 1vh;
+  top: 2vh;
+  margin-bottom: 2vh;
+  font-size: 2vh;
+  height: 10vh;
+  width: 20vw;
+  background-color: #e3daf6;
+  overflow: hidden;
+}
+
+.walbox2 {
+  position: absolute;
+  top: 10vh;
+  height: 15vh;
+  width: 25vw;
+  background-color: white;
+  left: 37vw;
+  text-align: center;
+  border-radius: 2vh;
+  font-size: 3vh;
+}
+
+.wabo {
+  height: 55vh;
+  width: 25vw;
+  overflow-y: scroll;
+  z-index: 2;
+}
+
+.wabo::-webkit-scrollbar {
+  border-radius: 2vh;
+  right: 1px;
+}
+
+.wabo::-webkit-scrollbar-thumb {
+  background-color: #e3daf6;
+  border-radius: 2vh;
+  border: 0.25em solid white;
+}
+
+.to {
+  position: absolute;
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+
+.add {
+  position: absolute;
+  margin-top: 1vh;
+  margin-left: 7vh;
+  width: 6vw;
+  overflow: hidden;
+  height: 3vh;
+}
+
+.dat {
+  position: absolute;
+  margin-top: 1vh;
+  margin-left: 14vw;
+  font-size: 2vh;
+}
+
+.dft1 {
+  position: absolute;
+  margin-top: 6vh;
+  margin-left: 2vw;
+  color: #1b2b65;
+}
+
+.time {
+  position: absolute;
+  margin-top: 6vh;
+  margin-left: 8vw;
+  font-size: 90%;
+  font-weight: 500;
+}
+
+.stat-red {
+  position: absolute;
+  margin-top: 6vh;
+  margin-left: 14vw;
+  width: 5vw;
+  color: red;
+}
+
+.stat-green {
+  position: absolute;
+  margin-top: 6vh;
+  margin-left: 14vw;
+  width: 5vw;
+  color: green;
+}
+
+.transfertoken {
+  position: relative;
+  top: 28vh;
+  left: 37vw;
+  height: 45vh;
+  width: 25vw;
+  border-radius: 2vh;
+  background-color: white;
+  text-align: center;
+}
+
+.wad {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  top: 2vh;
+  position: relative;
+  height: 12vh;
+  width: 15vw;
+  left: 5vw;
+  align-items: center;
+}
+
+.trans2 {
+  padding: 2vh;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.il {
+  border: none;
+  width: 16vw;
+  height: 4vh;
+  border-radius: 1vh;
+  background-color: #e3daf6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  outline: none;
+  text-indent: 1vw;
+}
+
+.walbtn {
+  position: relative;
+  top: 4vh;
+  height: 6vh;
+  font-size: 100%;
+  width: 6vw;
+  color: white;
+  background-color: #017efa;
+  border: none;
+  border-radius: 1vh;
+}
+
+.us {
+  position: absolute;
+  font-size: 2vh;
+  left: 5vw;
+  width: 12vw;
+  height: 3vh;
+  top: 9vh;
+  font-weight: 400;
+  border: none;
+}
+
+.icus {
+  position: absolute;
+  top: 9vh;
+  left: 18vw;
+  color: #e3daf6;
+  cursor: pointer;
+}
+
+.wa {
+  font-size: 120%;
+  font-weight: 600;
+}
+
 @media only screen and (max-width: 1000px) {
-    .wa{
-        font-size: 80%;
-    }
-    .stat-green{
+  .wa {
+    font-size: 80%;
+  }
+
+  .stat-green {
     margin-left: 13vw;
-    }
-    .dft1{
-        margin-left: 1vw;
-    }
-    .time{
-        margin-left: 6vw;
-    }
-    .dat{
-        margin-left: 12vw;
-    }
-}@media only screen and (max-width: 770px) {
-    .trans{
-        top:35vh;
-        left:15vw;
-        width: 50vw;
-        height: 50vh;
-    }
-    .wabo{
-        
-        width: 50vw;
-    }
-    .walbox{
-        
-        left: 2vw;
-        width: 46vw;
-    }
-    .add{
-        left: -2vw;
-        width:15vw;
-    }
-    .dat{
-        left: 17vw;
-    }
-    .stat-red{
-        left: 18vw;
-    }
-    .stat-green{
-        left: 17vw;
-    }
-    .time{
-        top: 4%;
-        left: 10vh;
-    }
-    .dft1{
-        left: 4vw;
-    }
-    .walbox2{
-        left: 15vw;
-        width: 50vw;
-        height: 20vh;
-    }
-    .transfertoken{
-        
-        left: 15vw;
-        width: 50vw;
-        top:92vh;
-    }
-    .wad{
-        left: 2vw;
-        width: 46vw;
-    }
-    .walbtn{
-        top: 1vh;
-        height:5vh;
-        width: 10vw;
-    }
-    .il{
-        width: 30vw;
-    }
-    .Wallet{
-        left: 10vw;
-        width: 80vw;
-        height: 140vh;
-        margin-bottom: 10vh;
-    }
-    .wa{
-        font-size: 3vh;
-    }
-    .us{
-        top: 12vh;
-        left: 8vw;
-        width: 30vw;
-    }
-    .icus{
-        top:12vh;
-        left: 38vw;
-    }
+  }
+
+  .dft1 {
+    margin-left: 1vw;
+  }
+
+  .time {
+    margin-left: 6vw;
+  }
+
+  .dat {
+    margin-left: 12vw;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .trans {
+    top: 35vh;
+    left: 15vw;
+    width: 50vw;
+    height: 50vh;
+  }
+
+  .wabo {
+    width: 50vw;
+  }
+
+  .walbox {
+    left: 2vw;
+    width: 46vw;
+  }
+
+  .add {
+    left: -2vw;
+    width: 15vw;
+  }
+
+  .dat {
+    left: 17vw;
+  }
+
+  .stat-red {
+    left: 18vw;
+  }
+
+  .stat-green {
+    left: 17vw;
+  }
+
+  .time {
+    top: 4%;
+    left: 10vh;
+  }
+
+  .dft1 {
+    left: 4vw;
+  }
+
+  .walbox2 {
+    left: 15vw;
+    width: 50vw;
+    height: 20vh;
+  }
+
+  .transfertoken {
+    left: 15vw;
+    width: 50vw;
+    top: 92vh;
+  }
+
+  .wad {
+    left: 2vw;
+    width: 46vw;
+  }
+
+  .walbtn {
+    top: 1vh;
+    height: 5vh;
+    width: 10vw;
+    cursor: pointer;
+  }
+
+  .il {
+    width: 30vw;
+  }
+
+  .Wallet {
+    left: 10vw;
+    width: 80vw;
+    height: 140vh;
+    margin-bottom: 10vh;
+  }
+
+  .wa {
+    font-size: 3vh;
+  }
+
+  .us {
+    top: 12vh;
+    left: 8vw;
+    width: 30vw;
+  }
+
+  .icus {
+    top: 12vh;
+    left: 38vw;
+  }
 }
