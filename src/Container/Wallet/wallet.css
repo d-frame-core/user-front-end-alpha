@@ -93,9 +93,9 @@
 }
 
 .transactionBox::-webkit-scrollbar-thumb {
-  background-color: #dde2ea;
+  background-color: #e3daf6;
   border-radius: 2vh;
-  border: 0.25em solid #dde2ea;
+  border: 0.25em solid #e3daf6;
 }
 
 .to {
@@ -341,4 +341,103 @@
     top: 12vh;
     left: 38vw;
   }
+}
+
+
+
+.transactionList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 25%;
+  border-radius: 10px;
+  background-color: #e3daf6;
+  font-size: 70%;
+  margin: 4% auto;
+  cursor: pointer;
+  /* border: 1px solid blue; */
+  margin-top: 2%;
+}
+
+.transactionListTop {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  overflow: hidden;
+  font-size: 70%;
+  /* border: 1px solid red; */
+  width: 95%;
+  height: 40%;
+  font-weight: 500;
+}
+
+.transactionListTopLeft {
+  /* border: 1px solid blue; */
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transactionListTopRight {
+  /* border: 1px solid blue; */
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transactionListBottomLeft {
+  /* border: 1px solid blue; */
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.transactionListBottomCenter {
+  /* border: 1px solid blue; */
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.transactionListBottomRight {
+  /* border: 1px solid blue; */
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.transactionListBottom {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  overflow: hidden;
+  font-size: 75%;
+  /* border: 1px solid red; */
+  width: 95%;
+  height: 40%;
+  font-weight: 500;
+  padding-bottom: 1%;
+}
+
+.transactionListBottomRightTextSent {
+  color: #f43434;
+  font-weight: 600;
+  font-family: "IBM Plex Sans Devanagari";
+  /* border: 1px solid blue; */
+}
+
+.transactionListBottomRightTextreceived {
+  color: green;
+  font-weight: 600;
+  font-family: "IBM Plex Sans Devanagari";
+  /* border: 1px solid blue; */
 }
