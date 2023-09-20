@@ -44,8 +44,9 @@
   position: relative;
   left: 10%;
   border-radius: 1vh;
-  top: 2vh;
-  margin-bottom: 2vh;
+  top: 1vh;
+  margin-bottom: 1.5vh;
+  cursor: pointer;
   font-size: 2vh;
   height: 10vh;
   width: 20vw;

@@ -18,6 +18,7 @@ export default function Wallet() {
   const [walletBalance, setWalletBalance] = useState<any>('');
   const [walletToSendDFT, setWalletToSendDFT] = useState<any>('');
   const [amountToSendDFT, setAmountToSendDFT] = useState<any>('');
+  const [transactionEvents, setTransactionEvents] = useState<any>([]);
   const userdata = {
     dft: ' 10 DFT ',
     userad: '0xnu989njbknk989sbuikjdbcksdvsdlvk ',
@@ -308,12 +309,11 @@ export default function Wallet() {
     const balanceInKFormat =
       Math.trunc((balanceInEth as any) / 1000).toString() + 'K';
     setWalletBalance(balanceInKFormat);
-    console.log(balanceInKFormat);
-    console.log(walletBalance);
   }
 
   useEffect(() => {
     getBalance();
+    getPastEvents();
   }, []);
 
   async function sendDFTFunction() {
@@ -616,6 +616,320 @@ export default function Wallet() {
     setWalletToSendDFT('');
   }
 
+  async function getPastEvents() {
+    // initialize the Web3 provider
+    const web3 = new Web3(
+      'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
+    );
+    const _walletAddress = address.toString();
+    // set the contract address of the DFT token
+    const dframeAddress = '0x0B6163c61D095b023EC3b52Cc77a9099f6231FCC';
+
+    // set the ABI for the DFT token contract
+    const dframeABI = [
+      { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'owner',
+            type: 'address',
+          },
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'spender',
+            type: 'address',
+          },
+          {
+            indexed: false,
+            internalType: 'uint256',
+            name: 'value',
+            type: 'uint256',
+          },
+        ],
+        name: 'Approval',
+        type: 'event',
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'previousOwner',
+            type: 'address',
+          },
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'newOwner',
+            type: 'address',
+          },
+        ],
+        name: 'OwnershipTransferred',
+        type: 'event',
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: false,
+            internalType: 'uint256',
+            name: 'id',
+            type: 'uint256',
+          },
+        ],
+        name: 'Snapshot',
+        type: 'event',
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'from',
+            type: 'address',
+          },
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'to',
+            type: 'address',
+          },
+          {
+            indexed: false,
+            internalType: 'uint256',
+            name: 'value',
+            type: 'uint256',
+          },
+        ],
+        name: 'Transfer',
+        type: 'event',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'owner', type: 'address' },
+          { internalType: 'address', name: 'spender', type: 'address' },
+        ],
+        name: 'allowance',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'spender', type: 'address' },
+          { internalType: 'uint256', name: 'amount', type: 'uint256' },
+        ],
+        name: 'approve',
+        outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [{ internalType: 'address', name: 'account', type: 'address' }],
+        name: 'balanceOf',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'account', type: 'address' },
+          { internalType: 'uint256', name: 'snapshotId', type: 'uint256' },
+        ],
+        name: 'balanceOfAt',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [{ internalType: 'uint256', name: 'amount', type: 'uint256' }],
+        name: 'burn',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'account', type: 'address' },
+          { internalType: 'uint256', name: 'amount', type: 'uint256' },
+        ],
+        name: 'burnFrom',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'decimals',
+        outputs: [{ internalType: 'uint8', name: '', type: 'uint8' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'spender', type: 'address' },
+          {
+            internalType: 'uint256',
+            name: 'subtractedValue',
+            type: 'uint256',
+          },
+        ],
+        name: 'decreaseAllowance',
+        outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'spender', type: 'address' },
+          { internalType: 'uint256', name: 'addedValue', type: 'uint256' },
+        ],
+        name: 'increaseAllowance',
+        outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'name',
+        outputs: [{ internalType: 'string', name: '', type: 'string' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'owner',
+        outputs: [{ internalType: 'address', name: '', type: 'address' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'renounceOwnership',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'snapshot',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'symbol',
+        outputs: [{ internalType: 'string', name: '', type: 'string' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'totalSupply',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'uint256', name: 'snapshotId', type: 'uint256' },
+        ],
+        name: 'totalSupplyAt',
+        outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'to', type: 'address' },
+          { internalType: 'uint256', name: 'amount', type: 'uint256' },
+        ],
+        name: 'transfer',
+        outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'from', type: 'address' },
+          { internalType: 'address', name: 'to', type: 'address' },
+          { internalType: 'uint256', name: 'amount', type: 'uint256' },
+        ],
+        name: 'transferFrom',
+        outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          { internalType: 'address', name: 'newOwner', type: 'address' },
+        ],
+        name: 'transferOwnership',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+    ];
+
+    // get the DFT token contract instance
+    const dframeContract = new web3.eth.Contract(
+      dframeABI as any,
+      dframeAddress
+    );
+    setdftCA(dframeContract);
+    // get the transfer events of the MATIC token for the specified wallet address
+    const transferFromEvents = await dframeContract.getPastEvents('Transfer', {
+      fromBlock: 0,
+      toBlock: 'latest',
+      filter: {
+        from: _walletAddress,
+      },
+    });
+
+    //  get the transfer events of the MATIC token for the specified wallet address
+    const eventFromPromises = transferFromEvents.map(async (event) => {
+      const block = await web3.eth.getBlock(event.blockNumber);
+      return {
+        ...event,
+        timestamp: block.timestamp,
+      };
+    });
+
+    // get the transfer events of the MATIC token for the specified wallet address
+    const eventsFromWithTimestamps = await Promise.all(eventFromPromises);
+    const transferToEvents = await dframeContract.getPastEvents('Transfer', {
+      fromBlock: 0,
+      toBlock: 'latest',
+      filter: {
+        to: _walletAddress,
+      },
+    });
+
+    // get the transfer events of the MATIC token for the specified wallet address
+    const eventToPromises = transferToEvents.map(async (event) => {
+      const block = await web3.eth.getBlock(event.blockNumber);
+      return {
+        ...event,
+        timestamp: block.timestamp,
+      };
+    });
+
+    // get the transfer events of the MATIC token for the specified wallet address
+    const eventsToWithTimestamps = await Promise.all(eventToPromises);
+    const allEvents = [...eventsFromWithTimestamps, ...eventsToWithTimestamps];
+    const sortedEvents = allEvents.sort(
+      (a, b) => (b as any).timestamp - (a as any).timestamp
+    );
+    setTransactionEvents(sortedEvents);
+  }
+
   var cl = 'us';
   return (
     <div>
@@ -630,19 +944,28 @@ export default function Wallet() {
             <Divider sx={{ width: '24vw', margin: 'auto' }} />
             <Box className='wabo'>
               <div>
-                {walletdata.map((item) => {
+                {transactionEvents.map((event: any) => {
+                  console.log(event);
                   return (
-                    <div className='walbox'>
+                    <div
+                      className='walbox'
+                      onClick={() => {
+                        window.open(
+                          'https://polygonscan.com/tx/' + event.transactionHash,
+                          '_blank'
+                        );
+                      }}>
                       <p className='to'>To :</p>
-                      <p className='add'> {item.add}</p>
-                      <p className='dat'>{item.date}</p>
-                      <p className='dft1'>{item.DFT}</p>
-                      <p className='time'>{item.time}</p>
+                      <p className='add'> Address</p>
+                      <p className='dat'>Date</p>
+                      <p className='dft1'>10 DFT</p>
+                      <p className='time'>6pm</p>
                       <p
-                        className={
-                          item.status === 'Sent' ? 'stat-red' : 'stat-green'
-                        }>
-                        {item.status}
+                        // className={
+                        //   item.status === 'Sent' ? 'stat-red' : 'stat-green'
+                        // }
+                        className='stat-green'>
+                        Sent
                       </p>
                     </div>
                   );
