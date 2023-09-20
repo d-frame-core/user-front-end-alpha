@@ -1,5 +1,5 @@
-.prbox1{
-    position: relative; 
+.prbox1 {
+    position: relative;
     max-width: 65vw;
     top: 12vh;
     left: 18vw;
@@ -7,30 +7,33 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
     display: flex;
-flex-direction: column;
+    flex-direction: column;
 }
-.profilebox{
-position: absolute;
-display: flex;
-flex-direction: column;
-row-gap: 5vh;
-width: 80vw;
+
+.profilebox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
 }
-.prtext1{
+
+.prtext1 {
     position: absolute;
     font-size: 5vh;
     padding: 2vh;
     left: 2vw;
     font-weight: 600;
 }
-.primg{
+
+.primg {
     position: absolute;
     height: 15vh;
     top: 10vh;
-left: 10vw;
-    
+    left: 10vw;
+
 }
-.contitem{
+
+.contitem {
     max-width: 40vw;
     position: relative;
     text-align: left;
@@ -43,36 +46,44 @@ left: 10vw;
     font-size: 3vh;
     padding-bottom: 4vh;
 }
-.pr{
+
+.pr {
     position: relative;
     width: 20vw;
     right: 4vw;
 }
-.colon1{
-    position: absolute;left: 12vw;
+
+.colon1 {
+    position: absolute;
+    left: 12vw;
 }
-.prfont{
-   position: absolute;
+
+.prfont {
+    position: absolute;
     color: #1B2B65;
     font-size: 100%;
     font-weight: 400;
-    left:14vw;
-    
-    
+    left: 14vw;
+
+
 }
-.colonpop{
+
+.colonpop {
     position: absolute;
     left: 18vw;
 }
-.kycitem{
+
+.kycitem {
     position: relative;
     top: 10vh;
     max-width: 65vw;
-    left: 18vw;    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 18vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-   border-radius: 1.1vh;
+    border-radius: 1.1vh;
 }
-.pbtn1{
+
+.pbtn1 {
     position: relative;
     height: 6vh;
     width: 7vw;
@@ -82,16 +93,19 @@ left: 10vw;
     border-radius: 6px;
     border: none;
 }
-p{
+
+p {
     top: 0vh;
     font-weight: 500;
 }
-.kyctitle{
+
+.kyctitle {
     font-weight: 600;
     font-size: 4vh;
     padding-top: 2vh;
 }
-.update{
+
+.update {
     position: absolute;
     height: 90vh;
     width: 60vw;
@@ -100,9 +114,10 @@ p{
     font-size: 26px;
     background-color: #E3DAF6;
     border-radius: 10px;
-    
+
 }
-.update1{
+
+.update1 {
     position: absolute;
     height: 90vh;
     width: 60vw;
@@ -111,15 +126,17 @@ p{
     font-size: 26px;
     background-color: #E3DAF6;
     border-radius: 10px;
-    
+
 }
-.uphead{
+
+.uphead {
     position: relative;
     top: 4vh;
     font-size: 40px;
     font-weight: 500;
 }
-.upa{
+
+.upa {
     position: relative;
     height: 18vh;
     text-indent: 10vw;
@@ -128,9 +145,10 @@ p{
     display: flex;
     flex-direction: column;
     row-gap: 4vh;
-    
+
 }
-.uin{
+
+.uin {
     position: absolute;
     left: 30vw;
     height: 6vh;
@@ -141,9 +159,10 @@ p{
     border: none;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.7);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.upbtn{
+
+.upbtn {
     position: relative;
     top: 1vh;
     border: none;
@@ -155,7 +174,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: white;
     background-color: #017EFA;
 }
-.upbtn1{
+
+.upbtn1 {
     position: relative;
     top: 1vh;
     border: none;
@@ -167,125 +187,153 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: white;
     background-color: #017EFA;
 }
-.cross{
+
+.cross {
     position: absolute;
     top: 8%;
     right: 4vw;
-   
+
 }
-.upa1{
+
+.upa1 {
     position: relative;
     display: flex;
     flex-direction: row;
     column-gap: 10vw;
 }
-.field{
+
+.field {
     position: absolute;
     right: 12vw;
     color: black;
 }
-.refbtn{
+
+.refbtn {
     position: relative;
     left: 20vw;
     height: 5vh;
     width: 4vw;
     border: none;
-    color:white;
+    color: white;
     background-color: #017EFA;
     border-radius: 5px;
 }
+
 @media only screen and (max-width:1000px) {
-    .colon1{
+    .colon1 {
         left: 15vw;
     }
-    .primg{
+
+    .primg {
         left: 4vw;
     }
-    .pr{
+
+    .pr {
         right: 6vw;
     }
-    .prfont{
+
+    .prfont {
         left: 18vw;
         width: 15vw;
         overflow: hidden;
     }
-    .pbtn1{
-       top: -2vh;
-       width: 8vw;
+
+    .pbtn1 {
+        top: -2vh;
+        width: 8vw;
     }
-    .update{
+
+    .update {
         width: 70vw;
         left: 10vw;
-     }
-     .upa{
+    }
+
+    .upa {
         top: 10vh;
         font-size: 85%;
         left: -3vw;
-     }
-     .colonpop{
+    }
+
+    .colonpop {
         left: 24vw;
-     }
-     .uin{
-        left:38vw;
-     }
-     .upbtn{
+    }
+
+    .uin {
+        left: 38vw;
+    }
+
+    .upbtn {
         font-size: 60%;
         width: 12vw;
         height: 6vh;
-     }
+    }
 }
+
 @media only screen and (max-width: 770px) {
-    .profilebox{
+    .profilebox {
         right: 18vw;
         width: 110%;
     }
-    .colon1{
-        left:28vw;
+
+    .colon1 {
+        left: 28vw;
     }
-    .prbox1{
+
+    .prbox1 {
         left: 23vw;
     }
-    .kycitem{
+
+    .kycitem {
         left: 23vw;
     }
-    .pr{
+
+    .pr {
         right: 2vw;
     }
-    .prfont{
+
+    .prfont {
         left: 30vw;
         width: 26vw;
     }
-    .editicon{
+
+    .editicon {
         position: relative;
         top: 0vh;
         right: 0vw;
     }
-    .pbtn1{
+
+    .pbtn1 {
         top: -2vh;
         width: 10vw;
-     }
-     .update{
+    }
+
+    .update {
         width: 80vw;
         left: 10vw;
-     }
-     .upa{
+    }
+
+    .upa {
         top: 10vh;
         font-size: 85%;
         left: -3vw;
-     }
-     .colonpop{
+    }
+
+    .colonpop {
         left: 30vw;
-     }
-     .uin{
-        left:44vw;
-     }
-     .upbtn{
+    }
+
+    .uin {
+        left: 44vw;
+    }
+
+    .upbtn {
         font-size: 60%;
         width: 12vw;
         height: 6vh;
-     }
-     .contitem{
+    }
+
+    .contitem {
         left: 10vw;
         max-width: 65vw;
-     }
+    }
 }
