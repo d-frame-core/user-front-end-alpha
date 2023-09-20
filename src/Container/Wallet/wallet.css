@@ -374,6 +374,37 @@
   font-weight: 500;
 }
 
+@media only screen and (max-width: 768px) {
+  .transactionListTopRightText {
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .transactionListBottomCenterText {
+    display: none
+  }
+
+  .transactionListBottomLeftText {
+    font-size: 90%;
+  }
+
+  .transactionListBottomRightTextSent {
+    font-size: 90%;
+  }
+
+  .transactionListBottomRightTextreceived {
+    font-size: 90%;
+  }
+
+  .transactionListTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
 .transactionListTopLeft {
   /* border: 1px solid blue; */
   height: 80%;
