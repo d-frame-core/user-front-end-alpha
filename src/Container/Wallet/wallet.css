@@ -20,6 +20,17 @@
 }
 
 .trans {
+  /* position: absolute;
+  top: 10vh;
+  bottom: 7vh;
+  text-align: center;
+  left: 7vw;
+  font-size: 3vh;
+  background-color: white;
+  border-radius: 2vh;
+  overflow-y: auto;
+  height: 60vh;
+  padding-bottom: 2vh; */
   position: absolute;
   top: 10vh;
   bottom: 7vh;
@@ -29,8 +40,9 @@
   width: 25vw;
   background-color: white;
   border-radius: 2vh;
-  overflow-y: hidden;
-  border: 2px solid white;
+  border: 4px solid white;
+  font-family: "IBM Plex Sans Devanagari";
+  height: 60vh;
 }
 
 .trans1 {
@@ -66,22 +78,24 @@
   font-size: 3vh;
 }
 
-.wabo {
-  height: 55vh;
-  width: 25vw;
-  overflow-y: scroll;
-  z-index: 2;
+.transactionBox {
+  /* border: 1px solid red; */
+  height: 83%;
+  width: 100%;
+  overflow-y: auto;
+  flex-direction: column;
+  position: inherit;
 }
 
-.wabo::-webkit-scrollbar {
+.transactionBox::-webkit-scrollbar {
   border-radius: 2vh;
   right: 1px;
 }
 
-.wabo::-webkit-scrollbar-thumb {
-  background-color: #e3daf6;
+.transactionBox::-webkit-scrollbar-thumb {
+  background-color: #dde2ea;
   border-radius: 2vh;
-  border: 0.25em solid white;
+  border: 0.25em solid #dde2ea;
 }
 
 .to {

@@ -33,11 +33,6 @@ export default function Wallet() {
     const web3 = new Web3(
       'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
     );
-    // const web3 = new Web3((window as any).ethereum);
-    // const web3 = new Web3((window as any).ethereum);
-    // const web3 = new Web3("https://polygon-rpc.com");
-
-    // set the wallet address to query
     const _walletAddress = address;
     // set the contract address of the DFT token
     const dframeAddress = '0x0B6163c61D095b023EC3b52Cc77a9099f6231FCC';
@@ -942,37 +937,161 @@ export default function Wallet() {
           <Box className='trans'>
             <div className='trans1'>Transaction</div>
             <Divider sx={{ width: '24vw', margin: 'auto' }} />
-            <Box className='wabo'>
+            <Box className='transactionBox'>
               <div>
                 {transactionEvents.map((event: any) => {
-                  console.log(event);
-                  return (
-                    <div
-                      className='walbox'
-                      onClick={() => {
-                        window.open(
-                          'https://polygonscan.com/tx/' + event.transactionHash,
-                          '_blank'
-                        );
-                      }}>
-                      <p className='to'>To :</p>
-                      <p className='add'> Address</p>
-                      <p className='dat'>Date</p>
-                      <p className='dft1'>10 DFT</p>
-                      <p className='time'>6pm</p>
-                      <p
-                        // className={
-                        //   item.status === 'Sent' ? 'stat-red' : 'stat-green'
-                        // }
-                        className='stat-green'>
-                        Sent
-                      </p>
-                    </div>
-                  );
+                  if (
+                    event.returnValues.from.toString().toLowerCase() ===
+                    address.toString().toLowerCase()
+                  ) {
+                    return (
+                      <div
+                        className='walbox'
+                        onClick={() => {
+                          window.open(
+                            'https://polygonscan.com/tx/' +
+                              event.transactionHash,
+                            '_blank'
+                          );
+                        }}
+                        key={event.transactionHash}>
+                        <p className='to'>To :</p>
+                        <p className='add'>
+                          {event.returnValues.to.slice(0, 7)}....
+                          {event.returnValues.to.slice(-7)}{' '}
+                        </p>
+                        <p className='dat'>
+                          {' '}
+                          On:{' '}
+                          {new Date(event.timestamp * 1000).toLocaleDateString(
+                            'en-US',
+                            {
+                              month: '2-digit',
+                              day: '2-digit',
+                              year: '2-digit',
+                            }
+                          )}
+                        </p>
+                        <p className='dft1'>
+                          {' '}
+                          Amount:{' '}
+                          {(Web3.utils.fromWei(
+                            event.returnValues.value,
+                            'ether'
+                          ) as any) >= 1000
+                            ? (Web3.utils.fromWei(
+                                event.returnValues.value,
+                                'ether'
+                              ) as any) /
+                                1000 +
+                              'K'
+                            : Web3.utils.fromWei(
+                                event.returnValues.value,
+                                'ether'
+                              )}{' '}
+                          DFT
+                        </p>
+                        <p className='time'>
+                          {' '}
+                          At:{' '}
+                          {new Date(event.timestamp * 1000).toLocaleTimeString(
+                            undefined,
+                            {
+                              hour: '2-digit',
+                              minute: '2-digit',
+                              second: '2-digit',
+                              hour12: false,
+                              timeZone:
+                                Intl.DateTimeFormat().resolvedOptions()
+                                  .timeZone,
+                            }
+                          )}
+                        </p>
+                        <p
+                          // className={
+                          //   item.status === 'Sent' ? 'stat-red' : 'stat-green'
+                          // }
+                          className='stat-red'>
+                          Sent
+                        </p>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        className='walbox'
+                        onClick={() => {
+                          window.open(
+                            'https://polygonscan.com/tx/' +
+                              event.transactionHash,
+                            '_blank'
+                          );
+                        }}
+                        key={event.transactionHash}>
+                        <p className='to'>From :</p>
+                        <p className='add'>
+                          {event.returnValues.from.slice(0, 7)}....
+                          {event.returnValues.from.slice(-6)}
+                        </p>
+                        <p className='dat'>
+                          On:{' '}
+                          {new Date(event.timestamp * 1000).toLocaleDateString(
+                            'en-US',
+                            {
+                              month: '2-digit',
+                              day: '2-digit',
+                              year: '2-digit',
+                            }
+                          )}
+                        </p>
+                        <p className='dft1'>
+                          Amount:{' '}
+                          {(Web3.utils.fromWei(
+                            event.returnValues.value,
+                            'ether'
+                          ) as any) >= 1000
+                            ? (Web3.utils.fromWei(
+                                event.returnValues.value,
+                                'ether'
+                              ) as any) /
+                                1000 +
+                              'K'
+                            : Web3.utils.fromWei(
+                                event.returnValues.value,
+                                'ether'
+                              )}{' '}
+                          DFT
+                        </p>
+                        <p className='time'>
+                          At:{' '}
+                          {new Date(event.timestamp * 1000).toLocaleTimeString(
+                            undefined,
+                            {
+                              hour: '2-digit',
+                              minute: '2-digit',
+                              second: '2-digit',
+                              hour12: false,
+                              timeZone:
+                                Intl.DateTimeFormat().resolvedOptions()
+                                  .timeZone,
+                            }
+                          )}
+                        </p>
+                        <p
+                          // className={
+                          //   item.status === 'Sent' ? 'stat-red' : 'stat-green'
+                          // }
+                          className='stat-green'>
+                          Received
+                        </p>
+                      </div>
+                    );
+                  }
                 })}
               </div>
             </Box>
           </Box>
+
           <Box className='walbox2'>
             <p className='wa'>Wallet Balance: {walletBalance}</p>
             <div>
