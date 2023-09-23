@@ -55,7 +55,7 @@ export default function LearnMore() {
 
   async function fetchFAQs() {
     await axios
-      .get('http://localhost:3000/F&Q/faq/')
+      .get('http://localhost:3000/api/faq/getall')
       .then((res) => {
         setFaqData(res.data);
       })
