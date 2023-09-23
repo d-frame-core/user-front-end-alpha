@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import './wallet.css';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import walletdata from './walletdata';
 import Drawer from '../../components/sidebar1/Drawer';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { useAccount } from 'wagmi';
 import Web3 from 'web3';
@@ -19,10 +19,9 @@ export default function Wallet() {
   const [walletToSendDFT, setWalletToSendDFT] = useState<any>('');
   const [amountToSendDFT, setAmountToSendDFT] = useState<any>('');
   const [transactionEvents, setTransactionEvents] = useState<any>([]);
-  const userdata = {
-    dft: ' 10 DFT ',
-    userad: '0xnu989njbknk989sbuikjdbcksdvsdlvk ',
-  };
+  const [loadingTransactions, setLoadingTransactions] =
+    useState<boolean>(false);
+  const [sendingTransaction, setSendingTransaction] = useState<boolean>(false);
   const navigate = useNavigate();
   var { address, isConnected }: any = useAccount();
   if (!isConnected) {
@@ -316,6 +315,7 @@ export default function Wallet() {
       alert('Please enter the required fields');
       return;
     }
+    setSendingTransaction(true);
     const web3 = new Web3((window as any).ethereum);
 
     // set the wallet address to query
@@ -609,10 +609,13 @@ export default function Wallet() {
     await tx;
     setAmountToSendDFT('');
     setWalletToSendDFT('');
+    getPastEvents();
+    setSendingTransaction(false);
   }
 
   async function getPastEvents() {
     // initialize the Web3 provider
+    setLoadingTransactions(true);
     const web3 = new Web3(
       'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
     );
@@ -923,6 +926,7 @@ export default function Wallet() {
       (a, b) => (b as any).timestamp - (a as any).timestamp
     );
     setTransactionEvents(sortedEvents);
+    setLoadingTransactions(false);
   }
 
   var cl = 'us';
@@ -938,185 +942,202 @@ export default function Wallet() {
             <div className='trans1'>Transaction</div>
             <Divider sx={{ width: '24vw', margin: 'auto' }} />
             <Box className='transactionBox'>
-              <div>
-                {transactionEvents.map((event: any) => {
-                  if (
-                    event.returnValues.from.toString().toLowerCase() ===
-                    address.toString().toLowerCase()
-                  ) {
-                    return (
-                      <div className='transactionBox'>
-                        {transactionEvents.map((event: any) => {
-                          if (
-                            event.returnValues.from.toString().toLowerCase() ===
-                            address.toString().toLowerCase()
-                          ) {
-                            return (
-                              <div
-                                className='transactionList'
-                                onClick={() => {
-                                  // redirect to the transaction details page
-                                  window.open(
-                                    'https://polygonscan.com/tx/' +
-                                      event.transactionHash,
-                                    '_blank'
-                                  );
-                                }}
-                                key={event.transactionHash}>
+              {!loadingTransactions && (
+                <div>
+                  {transactionEvents.map((event: any) => {
+                    if (
+                      event.returnValues.from.toString().toLowerCase() ===
+                      address.toString().toLowerCase()
+                    ) {
+                      return (
+                        <div className='transactionBox'>
+                          {transactionEvents.map((event: any) => {
+                            if (
+                              event.returnValues.from
+                                .toString()
+                                .toLowerCase() ===
+                              address.toString().toLowerCase()
+                            ) {
+                              return (
                                 <div
-                                  className='transactionListTop'
+                                  className='transactionList'
+                                  onClick={() => {
+                                    // redirect to the transaction details page
+                                    window.open(
+                                      'https://polygonscan.com/tx/' +
+                                        event.transactionHash,
+                                      '_blank'
+                                    );
+                                  }}
                                   key={event.transactionHash}>
-                                  <div className='transactionListTopLeft'>
-                                    <p className='transactionListTopLeftText'>
-                                      To: {event.returnValues.to.slice(0, 7)}
-                                      ....
-                                      {event.returnValues.to.slice(-7)}
-                                    </p>
+                                  <div
+                                    className='transactionListTop'
+                                    key={event.transactionHash}>
+                                    <div className='transactionListTopLeft'>
+                                      <p className='transactionListTopLeftText'>
+                                        To: {event.returnValues.to.slice(0, 7)}
+                                        ....
+                                        {event.returnValues.to.slice(-7)}
+                                      </p>
+                                    </div>
+                                    <div className='transactionListTopRight'>
+                                      <p className='transactionListTopRightText'>
+                                        On:{' '}
+                                        {new Date(
+                                          event.timestamp * 1000
+                                        ).toLocaleDateString('en-US', {
+                                          month: '2-digit',
+                                          day: '2-digit',
+                                          year: '2-digit',
+                                        })}
+                                      </p>
+                                    </div>
                                   </div>
-                                  <div className='transactionListTopRight'>
-                                    <p className='transactionListTopRightText'>
-                                      On:{' '}
-                                      {new Date(
-                                        event.timestamp * 1000
-                                      ).toLocaleDateString('en-US', {
-                                        month: '2-digit',
-                                        day: '2-digit',
-                                        year: '2-digit',
-                                      })}
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className='transactionListBottom'>
-                                  <div className='transactionListBottomLeft'>
-                                    <p className='transactionListBottomLeftText'>
-                                      Amount:
-                                      {(Web3.utils.fromWei(
-                                        event.returnValues.value,
-                                        'ether'
-                                      ) as any) >= 1000
-                                        ? (Web3.utils.fromWei(
-                                            event.returnValues.value,
-                                            'ether'
-                                          ) as any) /
-                                            1000 +
-                                          'K'
-                                        : Web3.utils.fromWei(
-                                            event.returnValues.value,
-                                            'ether'
-                                          )}
-                                      DFT
-                                    </p>
-                                  </div>
-                                  <div className='transactionListBottomCenter'>
-                                    <p className='transactionListBottomCenterText'>
-                                      At:
-                                      {new Date(
-                                        event.timestamp * 1000
-                                      ).toLocaleTimeString(undefined, {
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        second: '2-digit',
-                                        hour12: false,
-                                        timeZone:
-                                          Intl.DateTimeFormat().resolvedOptions()
-                                            .timeZone,
-                                      })}
-                                    </p>
-                                  </div>
-                                  <div className='transactionListBottomRight'>
-                                    <p className='transactionListBottomRightTextSent'>
-                                      Sent
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          } else {
-                            return (
-                              <div
-                                className='transactionList'
-                                onClick={() => {
-                                  // redirect to the transaction details page
-                                  window.open(
-                                    'https://polygonscan.com/tx/' +
-                                      event.transactionHash,
-                                    '_blank'
-                                  );
-                                }}
-                                key={event.transactionHash}>
-                                <div className='transactionListTop'>
-                                  <div className='transactionListTopLeft'>
-                                    <p className='transactionListTopLeftText'>
-                                      From:{' '}
-                                      {event.returnValues.from.slice(0, 7)}....
-                                      {event.returnValues.from.slice(-6)}
-                                    </p>
-                                  </div>
-                                  <div className='transactionListTopRight'>
-                                    <p className='transactionListTopRightText'>
-                                      On:{' '}
-                                      {new Date(
-                                        event.timestamp * 1000
-                                      ).toLocaleDateString('en-US', {
-                                        month: '2-digit',
-                                        day: '2-digit',
-                                        year: '2-digit',
-                                      })}
-                                    </p>
+                                  <div className='transactionListBottom'>
+                                    <div className='transactionListBottomLeft'>
+                                      <p className='transactionListBottomLeftText'>
+                                        Amount:
+                                        {(Web3.utils.fromWei(
+                                          event.returnValues.value,
+                                          'ether'
+                                        ) as any) >= 1000
+                                          ? (Web3.utils.fromWei(
+                                              event.returnValues.value,
+                                              'ether'
+                                            ) as any) /
+                                              1000 +
+                                            'K'
+                                          : Web3.utils.fromWei(
+                                              event.returnValues.value,
+                                              'ether'
+                                            )}
+                                        DFT
+                                      </p>
+                                    </div>
+                                    <div className='transactionListBottomCenter'>
+                                      <p className='transactionListBottomCenterText'>
+                                        At:
+                                        {new Date(
+                                          event.timestamp * 1000
+                                        ).toLocaleTimeString(undefined, {
+                                          hour: '2-digit',
+                                          minute: '2-digit',
+                                          second: '2-digit',
+                                          hour12: false,
+                                          timeZone:
+                                            Intl.DateTimeFormat().resolvedOptions()
+                                              .timeZone,
+                                        })}
+                                      </p>
+                                    </div>
+                                    <div className='transactionListBottomRight'>
+                                      <p className='transactionListBottomRightTextSent'>
+                                        Sent
+                                      </p>
+                                    </div>
                                   </div>
                                 </div>
-                                <div className='transactionListBottom'>
-                                  <div className='transactionListBottomLeft'>
-                                    <p className='transactionListBottomLeftText'>
-                                      Amount:
-                                      {(Web3.utils.fromWei(
-                                        event.returnValues.value,
-                                        'ether'
-                                      ) as any) >= 1000
-                                        ? (Web3.utils.fromWei(
-                                            event.returnValues.value,
-                                            'ether'
-                                          ) as any) /
-                                            1000 +
-                                          'K'
-                                        : Web3.utils.fromWei(
-                                            event.returnValues.value,
-                                            'ether'
-                                          )}
-                                      DFT
-                                    </p>
+                              );
+                            } else {
+                              return (
+                                <div
+                                  className='transactionList'
+                                  onClick={() => {
+                                    // redirect to the transaction details page
+                                    window.open(
+                                      'https://polygonscan.com/tx/' +
+                                        event.transactionHash,
+                                      '_blank'
+                                    );
+                                  }}
+                                  key={event.transactionHash}>
+                                  <div className='transactionListTop'>
+                                    <div className='transactionListTopLeft'>
+                                      <p className='transactionListTopLeftText'>
+                                        From:{' '}
+                                        {event.returnValues.from.slice(0, 7)}
+                                        ....
+                                        {event.returnValues.from.slice(-6)}
+                                      </p>
+                                    </div>
+                                    <div className='transactionListTopRight'>
+                                      <p className='transactionListTopRightText'>
+                                        On:{' '}
+                                        {new Date(
+                                          event.timestamp * 1000
+                                        ).toLocaleDateString('en-US', {
+                                          month: '2-digit',
+                                          day: '2-digit',
+                                          year: '2-digit',
+                                        })}
+                                      </p>
+                                    </div>
                                   </div>
-                                  <div className='transactionListBottomCenter'>
-                                    <p className='transactionListBottomCenterText'>
-                                      At:
-                                      {new Date(
-                                        event.timestamp * 1000
-                                      ).toLocaleTimeString(undefined, {
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        second: '2-digit',
-                                        hour12: false,
-                                        timeZone:
-                                          Intl.DateTimeFormat().resolvedOptions()
-                                            .timeZone,
-                                      })}
-                                    </p>
-                                  </div>
-                                  <div className='transactionListBottomRight'>
-                                    <p className='transactionListBottomRightTextreceived'>
-                                      Received
-                                    </p>
+                                  <div className='transactionListBottom'>
+                                    <div className='transactionListBottomLeft'>
+                                      <p className='transactionListBottomLeftText'>
+                                        Amount:
+                                        {(Web3.utils.fromWei(
+                                          event.returnValues.value,
+                                          'ether'
+                                        ) as any) >= 1000
+                                          ? (Web3.utils.fromWei(
+                                              event.returnValues.value,
+                                              'ether'
+                                            ) as any) /
+                                              1000 +
+                                            'K'
+                                          : Web3.utils.fromWei(
+                                              event.returnValues.value,
+                                              'ether'
+                                            )}
+                                        DFT
+                                      </p>
+                                    </div>
+                                    <div className='transactionListBottomCenter'>
+                                      <p className='transactionListBottomCenterText'>
+                                        At:
+                                        {new Date(
+                                          event.timestamp * 1000
+                                        ).toLocaleTimeString(undefined, {
+                                          hour: '2-digit',
+                                          minute: '2-digit',
+                                          second: '2-digit',
+                                          hour12: false,
+                                          timeZone:
+                                            Intl.DateTimeFormat().resolvedOptions()
+                                              .timeZone,
+                                        })}
+                                      </p>
+                                    </div>
+                                    <div className='transactionListBottomRight'>
+                                      <p className='transactionListBottomRightTextreceived'>
+                                        Received
+                                      </p>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            );
-                          }
-                        })}
-                      </div>
-                    );
-                  }
-                })}
-              </div>
+                              );
+                            }
+                          })}
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              )}
+              {loadingTransactions && (
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  }}>
+                  <p>Loading Transactions</p>
+                  <CircularProgress />
+                </div>
+              )}
             </Box>
           </Box>
 
@@ -1130,7 +1151,7 @@ export default function Wallet() {
               />
               <a
                 onClick={() => {
-                  navigator.clipboard.writeText(userdata.userad);
+                  navigator.clipboard.writeText(address);
                 }}>
                 <div style={{ cursor: 'pointer' }}>
                   <ContentCopyIcon className='icus' />
@@ -1158,12 +1179,19 @@ export default function Wallet() {
                   onChange={(e) => setAmountToSendDFT(e.target.value)}
                 />
               </div>
-              <button
-                className='walbtn'
-                onClick={sendDFTFunction}
-                style={{ cursor: 'pointer' }}>
-                Send
-              </button>
+              {!sendingTransaction && (
+                <button
+                  className='walbtn'
+                  onClick={sendDFTFunction}
+                  style={{ cursor: 'pointer' }}>
+                  Send
+                </button>
+              )}
+              {sendingTransaction && (
+                <button className='walbtn'>
+                  <CircularProgress style={{ color: 'white' }} />
+                </button>
+              )}
             </div>
           </Box>
         </Box>
