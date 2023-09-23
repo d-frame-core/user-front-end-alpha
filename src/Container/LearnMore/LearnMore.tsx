@@ -1,8 +1,10 @@
-import React from "react";
-import { Box } from "@mui/material";
-import "./learnmore.css";
-import Sidebar from "../../components/sidebar1/Sidebar1";
-import BasicModel from "../../components/Popup/BasicModel";
+/** @format */
+
+import React from 'react';
+import { Box } from '@mui/material';
+import './learnmore.css';
+import Sidebar from '../../components/sidebar1/Sidebar1';
+import BasicModel from '../../components/Popup/BasicModel';
 import {
   Dialog,
   DialogActions,
@@ -11,19 +13,19 @@ import {
   DialogProps,
   DialogTitle,
   Divider,
-} from "@mui/material";
-import axios from "axios";
-import ModalWithLink from "../../components/ModalWithLink/ModalWithLink";
-import Sidebar1 from "../../components/sidebar1/Sidebar1";
-import Drawer from "../../components/sidebar1/Drawer";
-import Header from '../../components/Header/Header'
+} from '@mui/material';
+import axios from 'axios';
+import ModalWithLink from '../../components/ModalWithLink/ModalWithLink';
+import Sidebar1 from '../../components/sidebar1/Sidebar1';
+import Drawer from '../../components/sidebar1/Drawer';
+import Header from '../../components/Header/Header';
 
 export default function LearnMore() {
   const [fetchedData, setFetchedData] = React.useState<any[]>([]);
   const [open, setOpen] = React.useState(false);
-  const [scroll, setScroll] = React.useState<DialogProps["scroll"]>("paper");
+  const [scroll, setScroll] = React.useState<DialogProps['scroll']>('paper');
   const [faqData, setFaqData] = React.useState<any[]>([]);
-  const handleClickOpen = (scrollType: DialogProps["scroll"]) => () => {
+  const handleClickOpen = (scrollType: DialogProps['scroll']) => () => {
     setOpen(true);
     setScroll(scrollType);
   };
@@ -42,7 +44,7 @@ export default function LearnMore() {
   }, [open]);
   async function fetchDataFromBackend() {
     await axios
-      .get("http://localhost:3000/Learnmore")
+      .get('http://localhost:3000/api/learnmore/getall')
       .then((res) => {
         setFetchedData(res.data);
       })
@@ -53,7 +55,7 @@ export default function LearnMore() {
 
   async function fetchFAQs() {
     await axios
-      .get("http://localhost:3000/F&Q/faq/")
+      .get('http://localhost:3000/F&Q/faq/')
       .then((res) => {
         setFaqData(res.data);
       })
@@ -75,51 +77,49 @@ export default function LearnMore() {
   }, [faqData]);
   return (
     <div>
-      <Header/>
-      <>{Sidebar1(0)}</>
-      <a className='smopen'>
-        {Drawer(0)}
-      </a>
-      <div className="learnBox">
+      <div className='smopen'>{Drawer(0)}</div>
+      <Header />
+      <>{Sidebar(0)}</>
+      <div className='learnBox'>
         <Box>
-          <div className="learnTitle">Learn More</div>
-          <div className="learnContent">
+          <div className='learnTitle'>Learn More</div>
+          <div className='learnContent'>
             {fetchedData.map((item) =>
-              item.title !== "How does campaigns pricing work?" ? (
-                <div className="learnItemContent">
-                  <BasicModel name={item.title} paragraph={item.text} />
+              item.title !== 'How does campaigns pricing work?' ? (
+                <div className='learnItemContent'>
+                  <BasicModel
+                    name={item.title}
+                    paragraph={item.text}
+                  />
                 </div>
               ) : (
-                <div className="learnItemContent">
+                <div className='learnItemContent'>
                   <ModalWithLink
                     name={item.title}
                     paragraph={item.text}
-                    webLink="https://dframe.org/white-paper-v1-1/"
-                    webLinkName="White Paper :  "
+                    webLink='https://dframe.org/white-paper-v1-1/'
+                    webLinkName='White Paper :  '
                   />
                 </div>
               )
             )}
             <div
-              className="learnItemContent"
-              onClick={handleClickOpen("paper")}
-            >
+              className='learnItemContent'
+              onClick={handleClickOpen('paper')}>
               FAQs
             </div>
             <Dialog
               open={open}
               onClose={handleClose}
               scroll={scroll}
-              aria-labelledby="scroll-dialog-title"
-              aria-describedby="scroll-dialog-description"
-            >
+              aria-labelledby='scroll-dialog-title'
+              aria-describedby='scroll-dialog-description'>
               <DialogTitle>FAQs</DialogTitle>
-              <DialogContent dividers={scroll === "paper"}>
+              <DialogContent dividers={scroll === 'paper'}>
                 <DialogContentText
-                  id="scroll-dialog-description"
+                  id='scroll-dialog-description'
                   ref={descriptionElementRef}
-                  tabIndex={-1}
-                >
+                  tabIndex={-1}>
                   {faqData.map((item) => (
                     <div>
                       <strong>
@@ -135,7 +135,9 @@ export default function LearnMore() {
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
-                <button onClick={handleClose} className="btncl1">
+                <button
+                  onClick={handleClose}
+                  className='btncl1'>
                   Close
                 </button>
               </DialogActions>
