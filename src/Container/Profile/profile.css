@@ -10,6 +10,17 @@
     flex-direction: column;
 }
 
+.img {
+    position: absolute;
+    height: 17vh;
+    top: 8vh;
+    left: 6vw;
+    border-radius: 50%;
+    margin-top: 20px;
+    width: 120px;
+    border: 5px solid rgba(92, 15, 255, 0.63);
+}
+
 .profilebox {
     position: absolute;
     display: flex;
@@ -75,8 +86,8 @@
 
 .kycitem {
     position: relative;
-    top: 10vh;
     max-width: 65vw;
+    top: 14vh;
     left: 18vw;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);

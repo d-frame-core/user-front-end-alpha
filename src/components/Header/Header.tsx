@@ -11,7 +11,6 @@ import { useDisconnect } from 'wagmi';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, Menu, MenuItem } from '@mui/material';
-//declaring the function Header
 export default function Header() {
   const { disconnect } = useDisconnect();
   const navigate = useNavigate();
@@ -23,13 +22,12 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //creating the useState component
 
   const [logout, setLogout] = useState(false);
 
   const handleDisconnect = async () => {
-    disconnect();
     // Disconnect from the provider when the button is clicked
+    disconnect();
     if ((window as any).ethereum) {
       (window as any).ethereum.removeAllListeners();
     }
@@ -57,6 +55,7 @@ export default function Header() {
           className='user1'
           src={user}
           alt=''></img>
+        {/* Dropdown menu */}
         <Menu
           id='basic-menu'
           anchorEl={anchorEl}

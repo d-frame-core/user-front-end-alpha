@@ -1,56 +1,122 @@
-import React, { useState } from "react";
-import "./profile.css";
-import user from "../../assets/user.png";
-import { NavLink } from "react-router-dom";
-import Sidebar1 from "../../components/sidebar1/Sidebar1";
-import { Box, Button } from "@mui/material";
-import { Container } from "@mui/system";
-import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
-import { OAuthCredential, signInWithPhoneNumber } from "firebase/auth";
-import { RecaptchaVerifier } from "firebase/auth";
-import { authentication } from "../../Firebase";
-import CloseIcon from "@mui/icons-material/Close";
-import Backdrop from "@mui/material/Backdrop/Backdrop";
-import { userdata } from "./FirstPage";
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import EditButton from "../../components/upload/EditButton";
-import UploadButtons from "../../components/upload/UploadButtonForKYC";
-import Drawer from "../../components/sidebar1/Drawer";
-import { useNavigate } from "react-router-dom";
-import Header from '../../components/Header/Header'
+/** @format */
 
+import React, { useEffect, useState } from 'react';
+import './profile.css';
+import user from '../../assets/user.png';
+import { NavLink } from 'react-router-dom';
+import Sidebar1 from '../../components/sidebar1/Sidebar1';
+import { Box, Button } from '@mui/material';
+import { Container } from '@mui/system';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import { OAuthCredential, signInWithPhoneNumber } from 'firebase/auth';
+import { RecaptchaVerifier } from 'firebase/auth';
+import { authentication } from '../../Firebase';
+import CloseIcon from '@mui/icons-material/Close';
+import Backdrop from '@mui/material/Backdrop/Backdrop';
+import { userdata } from './FirstPage';
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import EditButton from '../../components/upload/EditButton';
+import UploadButtons from '../../components/upload/UploadButtonForKYC';
+import Drawer from '../../components/sidebar1/Drawer';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import axios from 'axios';
+import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyCYpkhlVsy1eO1vVuRNpa6l1CWONEKiXU8',
+  authDomain: 'client-dashboard-2.firebaseapp.com',
+  projectId: 'client-dashboard-2',
+  storageBucket: 'client-dashboard-2.appspot.com',
+  messagingSenderId: '578943720826',
+  appId: '1:578943720826:web:d6d52242c9743e540d0ac3',
+};
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
-  var {address, isConnected } : any = useAccount();
+  var { address, isConnected }: any = useAccount();
 
-  let [gmail, setgmail] = useState("");
+  let [gmail, setgmail] = useState('');
 
-  var [ref,setRef] = useState("");
+  var [ref, setRef] = useState('');
 
   const [popshow, setPopShow] = useState(false);
 
   const [popshow1, setPopShow1] = useState(false);
 
-  const [address1, setAddress1] = useState("");
+  const [userExists, setUserExists] = useState(false);
 
-  const [address2, setAddress2] = useState("");
+  const [updatedUser, setUpdatedUser] = useState({});
 
-  authentication.languageCode = "en";
+  const [userDataa, setUserData] = useState({});
 
-  const countrycode = "+91";
+  const [address1, setAddress1] = useState('');
 
-  const [otp, setOtp] = useState("");
+  const [address2, setAddress2] = useState('');
+
+  authentication.languageCode = 'en';
+
+  const countrycode = '+91';
+
+  const [otp, setOtp] = useState('');
 
   const [phonenumber, setPhoneNumber] = useState(countrycode);
 
+  const [confirmationResult, setConfirmationResult] = useState(null);
+
+  const [updatedField, setUpdatedField] = useState({});
+
+  const [updatedPhoneNumber, setUpdatedPhoneNumber] = useState('');
+
+  /* OTP GENERATE AND VERIFY */
+  // initializing firebase
+  // const app = initializeApp(firebaseConfig); // initializing firebase app
+  // const auth = getAuth(); // getting auth object from firebase
+  // auth.languageCode = 'en'; // setting language code to english
+  // const [recaptchaVerifier, setRecaptchaVerifier] = useState(false);
+
+  // let appVerifier = (window as any).recaptchaVerifier; // defining recaptcha verifier
+
+  // //  function to handle submit phone number
+  // const handleSubmitPhoneNumber = async (event: any) => {
+  //   event.preventDefault();
+  //   setRecaptchaVerifier(true);
+  //   appVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth);
+  //   console.log('appVerifier', appVerifier);
+  //   try {
+  //     const result = await signInWithPhoneNumber(
+  //       auth,
+  //       phonenumber,
+  //       appVerifier
+  //     );
+  //     console.log(result);
+  //     setConfirmationResult(result as any);
+  //     setRecaptchaVerifier(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  // //  function to handle submit otp
+  // const handleSubmitOtp = async (event: any) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const result = await (confirmationResult as any).confirm(otp);
+  //     console.log(result);
+  //     alert('Phone number verified successfully');
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   const generaterecaptcha = () => {
     (window as any).recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
+      'recaptcha-container',
       {
-        size: "invisible",
-        lang: "https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key&lang=en",
+        size: 'invisible',
+        lang: 'https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key&lang=en',
         callback: (response: any) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
         },
@@ -65,7 +131,11 @@ function Profile() {
 
     let appVerifier = (window as any).recaptchaVerifier;
 
-    signInWithPhoneNumber(authentication, phonenumber, appVerifier)
+    signInWithPhoneNumber(
+      authentication,
+      `+91${updatedPhoneNumber}`,
+      appVerifier
+    )
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
@@ -88,21 +158,42 @@ function Profile() {
       .then((result: any) => {
         // User signed in successfully.
         const user = result.user;
-        console.log("it is working");
         setPopShow(false);
-        // ...
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        axios
+          .patch(`http://localhost:3000/api/users/detail/${address}`, {
+            phonenumber: String(updatedPhoneNumber),
+          })
+          .then((response: any) => {
+            console.log(response);
+            setUpdatedField({});
+            setOtp('');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((error: any) => {
         // User couldn't sign in (bad verification code?)
         // ...
       });
   };
-  const signInWithGoogle = () => {
+  const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(authentication, provider)
       .then((result: any) => {
         const user = result.user;
         setgmail(user.email);
+        axios
+          .patch(`http://localhost:3000/api/users/detail/${address}`, {
+            email: String(user.email),
+          })
+          .then((result) => console.log(result))
+          .catch((err) => console.log(err));
       })
       .catch((error: any) => {
         console.log(error);
@@ -119,53 +210,127 @@ function Profile() {
   };
 
   const navigate = useNavigate();
+  async function getUserDetails() {
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/users/detail/${address}`
+      );
+      const data = response.data;
+      if (data.message == 'User exists') {
+        setUserExists(true);
+        setUserData(data.data);
+        setUpdatedUser(data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhoneNumber(e.target.value);
+    setUpdatedUser({
+      ...updatedUser,
+      [e.target.name]: e.target.value,
+    });
+    setUpdatedField({ [e.target.name]: e.target.value });
+  };
 
-  
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+  useEffect(() => {
+    getUserDetails();
+  }, [address]);
+
+  async function handleAddressUpdate(e: React.MouseEvent<HTMLDivElement>) {
+    e.preventDefault();
+    console.log(address1, address2);
+    const vars = address1.toString() + ' ' + address2.toString();
+    vars.toString();
+    try {
+      await axios
+        .patch(`http://localhost:3000/api/users/detail/${address}`, {
+          address: String(vars),
+        })
+        .then((res) => {
+          console.log('Updated address', res);
+        })
+        .catch((err) => {
+          console.log('Error updating address', err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    setAddress1('');
+    setAddress2('');
+    setPopShow1(false);
+    getUserDetails();
+  }
 
   return (
     <div>
-      <Header/>
+      <Header />
       <>{Sidebar1(1)}</>
-      <a className='smopen'>
-        {Drawer(1)}
-      </a>
-      <Box className="profilebox" sx={{ display: "flex" }}>
+      <a className='smopen'>{Drawer(1)}</a>
+      <Box
+        className='profilebox'
+        sx={{ display: 'flex' }}>
         <Container
           maxWidth={false}
-          sx={{ maxWidth: "85%", display: "flex" }}
-          className="prbox1"
-        >
-          <div className="prtext1">Profile</div>
+          sx={{ maxWidth: '85%', display: 'flex' }}
+          className='prbox1'>
+          <div className='prtext1'>Profile</div>
 
-          <img src={user} alt="" className="primg" />
+          <div className='profileImage'>
+            {user ? (
+              <img
+                src={user}
+                alt='user'
+                className='img'
+                id='profilePicture'
+              />
+            ) : (
+              <img
+                src={user}
+                alt='user'
+                className='img'
+                id='profilePicture'
+              />
+            )}
+          </div>
 
           <Container
             maxWidth={false}
-            sx={{ display: "flex" }}
-            className="contitem"
-          >
+            sx={{ display: 'flex' }}
+            className='contitem'>
             <div>
-              <a className="pr">First Name</a>
-              <a className="colon1">:</a>
-              <a className="prfont">Niranjan</a>
+              <a className='pr'>First Name</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {userExists ? (userDataa as any)?.firstName : 'Niranjan'}
+              </a>
             </div>
             <div>
-              <a className="pr">Last Name</a>
-              <a className="colon1">:</a>
-              <a className="prfont">babu</a>
+              <a className='pr'>Last Name</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {userExists ? (userDataa as any)?.lastName : 'babu'}
+              </a>
             </div>
             <div>
-              <a className="pr">Number</a>
-              <a className="colon1">:</a>
-              <a className="prfont">
-                {phonenumber}
+              <a className='pr'>Number</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {userExists
+                  ? `${phonenumber}${(userDataa as any)?.phoneNumber}`
+                  : phonenumber}
                 <a onClick={() => setPopShow(true)}>
                   <CreateOutlinedIcon
                     sx={{
-                      color: "#47B5FF",
-                      top: "4px",
-                      left: "0%",
-                      position: "relative",
+                      color: '#47B5FF',
+                      top: '4px',
+                      left: '0%',
+                      position: 'relative',
+                      cursor: 'pointer',
                     }}
                     className='editicon'
                   />
@@ -173,66 +338,80 @@ function Profile() {
               </a>
             </div>
             <div>
-              <a className="pr">Email</a>
-              <a className="colon1">:</a>
-              <a className="prfont">
-                {gmail}
+              <a className='pr'>Email</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {userExists ? (userDataa as any)?.email : gmail}
                 <a onClick={signInWithGoogle}>
                   <CreateOutlinedIcon
                     sx={{
-                      color: "#47B5FF",
-                      top: "4px",
-                      left: "5%",
-                      position: "relative",
+                      color: '#47B5FF',
+                      top: '4px',
+                      left: '5%',
+                      position: 'relative',
+                      cursor: 'pointer',
                     }}
                   />
                 </a>
               </a>
             </div>
             <div>
-              <a className="pr">Address 1</a>
-              <a className="colon1">:</a>
-              <a className="prfont">
-                {address1}{" "}
+              <a className='pr'>Address</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {userExists ? (userDataa as any)?.address : address1}
                 <a onClick={() => setPopShow1(true)}>
                   <CreateOutlinedIcon
                     sx={{
-                      color: "#47B5FF",
-                      top: "4px",
-                      left: "5%",
-                      position: "relative",
+                      color: '#47B5FF',
+                      top: '4px',
+                      left: '5%',
+                      position: 'relative',
+                      cursor: 'pointer',
                     }}
                   />
                 </a>
               </a>
             </div>
-            <div>
-              <a className="pr">Address 2</a>
-              <a className="colon1">:</a>
-              <a className="prfont">
-                {address2}{" "}
+            {/* <div>
+              <a className='pr'>Address 2</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {address2}{' '}
                 <a onClick={() => setPopShow1(true)}>
                   <CreateOutlinedIcon
                     sx={{
-                      color: "#47B5FF",
-                      top: "4px",
-                      left: "5%",
-                      position: "relative",
+                      color: '#47B5FF',
+                      top: '4px',
+                      left: '5%',
+                      position: 'relative',
                     }}
                   />
                 </a>
               </a>
+            </div> */}
+            <div>
+              <a className='pr'>Wallet Address</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                {' '}
+                {userExists
+                  ? (userDataa as any)?.publicAddress.slice(0, 12) +
+                    '...' +
+                    (userDataa as any)?.publicAddress.slice(-12)
+                  : '0x0000000000'}
+              </a>
             </div>
             <div>
-              <a className="pr">Wallet Address</a>
-              <a className="colon1">:</a>
-              <a className="prfont">0x000000000000000</a>
-            </div>
-            <div>
-              <a className="pr">Refferel Code</a>
-              <a className="colon1">:</a>
-              <a className="prfont"><input name="refferel" onChange={(e)=>setRef(e.target.value)} /></a>
-              <button className="refbtn">Send</button>
+              <a className='pr'>Refferel Code</a>
+              <a className='colon1'>:</a>
+              <a className='prfont'>
+                <input
+                  name='refferel'
+                  onChange={(e) => setRef(e.target.value)}
+                />
+              </a>
+              <button className='refbtn'>Send</button>
             </div>
           </Container>
         </Container>
@@ -240,11 +419,10 @@ function Profile() {
         {!successful && (
           <Container
             maxWidth={false}
-            sx={{ maxWidth: "85%", minHeight: "24vh" }}
-            className="kycitem"
-          >
+            sx={{ maxWidth: '85%', minHeight: '24vh' }}
+            className='kycitem'>
             <>
-              <div className="kyctitle">KYC Verification</div>
+              <div className='kyctitle'>KYC Verification</div>
 
               <p>
                 This Verification makes us aware that you are a valid user. It
@@ -252,98 +430,173 @@ function Profile() {
               </p>
 
               <NavLink
-                to="/kyc1"
+                to='/kyc1'
                 style={{
-                  textDecoration: "none",
-                  position: "relative",
-                  top: "1vh",
-                }}
-              >
-                <button className="pbtn1">Verify</button>
+                  textDecoration: 'none',
+                  position: 'relative',
+                  top: '1vh',
+                }}>
+                <button className='pbtn1'>Verify</button>
               </NavLink>
               {}
             </>
           </Container>
         )}
-
-       
       </Box>
       {popshow && (
         <Backdrop
           open={popshow}
-          sx={{ zIndex: (theme: { zIndex: { drawer: number; }; }) => theme.zIndex.drawer + 1 }}
-        >
-          <Box className="update">
-            <div className="uphead">Update Number</div>
-            <a className="upa">
-              Phone Number<a className="colonpop">:</a>{" "}
+          sx={{
+            zIndex: (theme: { zIndex: { drawer: number } }) =>
+              theme.zIndex.drawer + 1,
+          }}>
+          <Box className='update'>
+            <div className='uphead'>Update Number</div>
+            <a className='upa'>
+              Phone Number<a className='colonpop'>:</a>{' '}
               <input
-                className="uin"
-                name="phonenumber"
-                type="tel"
-                value={phonenumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                className='uin'
+                name='phoneNumber'
+                type='tel'
+                value={updatedPhoneNumber}
+                onChange={(e) => setUpdatedPhoneNumber(e.target.value)}
               />
             </a>
-            <button className="upbtn" onClick={sendotp}>
+            <button
+              className='upbtn'
+              onClick={sendotp}>
               Send OTP
             </button>
-            <a className="upa">
-              Enter Reason<a className="colonpop">:</a>
-              <input className="uin" />
+            <a className='upa'>
+              Enter Reason<a className='colonpop'>:</a>
+              <input className='uin' />
             </a>
-            <div id="recaptcha-container"></div>
-            <a className="upa">
-              Enter OTP <a className="colonpop">:</a>
+            <div style={{ margin: 'auto' }}>
+              <div id='recaptcha-container'></div>
+            </div>
+            <a className='upa'>
+              Enter OTP <a className='colonpop'>:</a>
               <input
-                className="uin"
-                name="otp"
+                className='uin'
+                name='otp'
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
               />
             </a>
-            <button className="upbtn" onClick={verifyOtp}>
+            <button
+              className='upbtn'
+              onClick={verifyOtp}>
               Save
             </button>
 
-            <CloseIcon onClick={() => setPopShow(false)} className="cross" />
+            <CloseIcon
+              onClick={() => setPopShow(false)}
+              className='cross'
+            />
           </Box>
         </Backdrop>
       )}
-         {popshow1 && <><Backdrop open={popshow1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+      {popshow1 && (
+        <>
+          <Backdrop
+            open={popshow1}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Box className='update1'>
-
               <div className='uphead'>Update Address</div>
               <form>
-                <a className='upa'>Enter Address 1<a className="colonpop">:</a> 
-                <input className='uin' name='address1' type='text' value={address1} onChange={(e) => setAddress1(e.target.value)} required /></a>
-
+                <a className='upa'>
+                  Enter Address 1<a className='colonpop'>:</a>
+                  <input
+                    className='uin'
+                    name='address1'
+                    type='text'
+                    value={address1}
+                    onChange={(e) => setAddress1(e.target.value)}
+                    required
+                  />
+                </a>
 
                 <div className='upbtn1'>
-                  <Button variant="contained" component="label" sx={{ textTransform: 'none', bgcolor: '#017EFA', width: '15vw', height: '7vh', fontSize: '18px', borderRadius: "10px" }}>
+                  <Button
+                    variant='contained'
+                    component='label'
+                    sx={{
+                      textTransform: 'none',
+                      bgcolor: '#017EFA',
+                      width: '15vw',
+                      height: '7vh',
+                      fontSize: '18px',
+                      borderRadius: '10px',
+                    }}>
                     Address Proof 1
-                    <input className='field' accept="image/*" name='proof1' multiple type="file" required />
+                    <input
+                      className='field'
+                      accept='image/*'
+                      name='proof1'
+                      multiple
+                      type='file'
+                    />
                   </Button>
                 </div>
-                <a className='upa'>Enter Address 2<a className="colonpop">:</a><input className='uin' name='address2' type='text' value={address2} onChange={(e) => setAddress2(e.target.value)} required /></a>
+                <a className='upa'>
+                  Enter Address 2<a className='colonpop'>:</a>
+                  <input
+                    className='uin'
+                    name='address2'
+                    type='text'
+                    value={address2}
+                    onChange={(e) => setAddress2(e.target.value)}
+                    required
+                  />
+                </a>
 
                 <div className='upbtn1'>
-                  <Button variant="contained" component="label" sx={{ textTransform: 'none', bgcolor: '#017EFA', width: '15vw', height: '7vh', fontSize: '18px', borderRadius: "10px" }}>
+                  <Button
+                    variant='contained'
+                    component='label'
+                    sx={{
+                      textTransform: 'none',
+                      bgcolor: '#017EFA',
+                      width: '15vw',
+                      height: '7vh',
+                      fontSize: '18px',
+                      borderRadius: '10px',
+                    }}>
                     Address Proof 2
-                    <input className='field' accept="image/*" name='proof2' multiple type="file" required={true} />
-                  </Button></div>
+                    <input
+                      className='field'
+                      accept='image/*'
+                      name='proof2'
+                      multiple
+                      type='file'
+                    />
+                  </Button>
+                </div>
                 <br />
-                <button className='upbtn' disabled={false}>Update</button><br />
+                <button
+                  className='upbtn'
+                  disabled={false}
+                  onClick={(e: any) => handleAddressUpdate(e)}>
+                  Update
+                </button>
+                <br />
               </form>
-              <CloseIcon onClick={() => setPopShow1(false)} className='cross' />
+              <CloseIcon
+                onClick={() => setPopShow1(false)}
+                className='cross'
+              />
             </Box>
-            <br/>
-          </Backdrop><div className="upbtn1">
-              <UploadButtons />
-            </div><CloseIcon onClick={() => setPopShow1(false)} className="cross" />
-          
+            <br />
+          </Backdrop>
+          <div className='upbtn1'>
+            <UploadButtons />
+          </div>
+          <CloseIcon
+            onClick={() => setPopShow1(false)}
+            className='cross'
+          />
         </>
-}
+      )}
     </div>
   );
 }
