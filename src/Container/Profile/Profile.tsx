@@ -37,6 +37,9 @@ function Profile() {
   const [successful, setSuccessful] = useState(false);
   var { address, isConnected }: any = useAccount();
 
+  const [files, setFiles] = useState(user);
+  const [image, setImage] = useState(null);
+
   let [gmail, setgmail] = useState('');
 
   var [ref, setRef] = useState('');
@@ -69,47 +72,57 @@ function Profile() {
 
   const [updatedPhoneNumber, setUpdatedPhoneNumber] = useState('');
 
-  /* OTP GENERATE AND VERIFY */
-  // initializing firebase
-  // const app = initializeApp(firebaseConfig); // initializing firebase app
-  // const auth = getAuth(); // getting auth object from firebase
-  // auth.languageCode = 'en'; // setting language code to english
-  // const [recaptchaVerifier, setRecaptchaVerifier] = useState(false);
+  const connectToPolygonMainnet = async () => {
+    if ((window as any).ethereum) {
+      const chainId = await (window as any).ethereum.request({
+        method: 'eth_chainId',
+      });
 
-  // let appVerifier = (window as any).recaptchaVerifier; // defining recaptcha verifier
+      // Check if connected to a different network (not Polygon mainnet)
+      if (chainId !== '0x89') {
+        // ChainId of Polygon mainnet is '0x89'
+        try {
+          await (window as any).ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: '0x89' }],
+          });
+        } catch (error) {
+          // Handle error
+          console.log('Error while switching to Polygon mainnet:', error);
+        }
+      }
+    } else {
+      // Handle case where window.ethereum is not available (e.g., Metamask is not installed)
+      console.log('Metamask not available');
+    }
+  };
 
-  // //  function to handle submit phone number
-  // const handleSubmitPhoneNumber = async (event: any) => {
-  //   event.preventDefault();
-  //   setRecaptchaVerifier(true);
-  //   appVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth);
-  //   console.log('appVerifier', appVerifier);
-  //   try {
-  //     const result = await signInWithPhoneNumber(
-  //       auth,
-  //       phonenumber,
-  //       appVerifier
-  //     );
-  //     console.log(result);
-  //     setConfirmationResult(result as any);
-  //     setRecaptchaVerifier(false);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const checkMetamaskConnection = () => {
+    if (!(window as any).ethereum?.selectedAddress) {
+      // Metamask wallet disconnected, redirect to root route
+      navigate('/');
+    }
+  };
+  const handleWalletDisconnect = () => {
+    if (!(window as any).ethereum?.selectedAddress) {
+      // Metamask wallet disconnected
+      navigate('/');
+    }
+  };
 
-  // //  function to handle submit otp
-  // const handleSubmitOtp = async (event: any) => {
-  //   event.preventDefault();
+  useEffect(() => {
+    // Listen for changes in the selected address property
+    if ((window as any).ethereum) {
+      (window as any).ethereum.on('accountsChanged', handleWalletDisconnect);
+    }
+    checkMetamaskConnection();
+    connectToPolygonMainnet();
+  }, [(window as any).ethereum]);
 
-  //   try {
-  //     const result = await (confirmationResult as any).confirm(otp);
-  //     console.log(result);
-  //     alert('Phone number verified successfully');
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  useEffect(() => {
+    checkMetamaskConnection();
+    connectToPolygonMainnet();
+  }, []);
 
   const generaterecaptcha = () => {
     (window as any).recaptchaVerifier = new RecaptchaVerifier(
@@ -166,12 +179,13 @@ function Profile() {
         };
         axios
           .patch(`http://localhost:3000/api/users/detail/${address}`, {
-            phonenumber: String(updatedPhoneNumber),
+            phoneNumber: String(updatedPhoneNumber),
           })
           .then((response: any) => {
             console.log(response);
             setUpdatedField({});
             setOtp('');
+            getUserDetails();
           })
           .catch((err) => {
             console.log(err);
@@ -212,31 +226,19 @@ function Profile() {
   const navigate = useNavigate();
   async function getUserDetails() {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/api/users/detail/${address}`
-      );
-      const data = response.data;
-      if (data.message == 'User exists') {
-        setUserExists(true);
-        setUserData(data.data);
-        setUpdatedUser(data.data);
-      }
+      await axios
+        .get(`http://localhost:3000/api/get/${address}`)
+        .then((res) => {
+          setUserData(res.data);
+        });
     } catch (error) {
       console.log(error);
     }
   }
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPhoneNumber(e.target.value);
-    setUpdatedUser({
-      ...updatedUser,
-      [e.target.name]: e.target.value,
-    });
-    setUpdatedField({ [e.target.name]: e.target.value });
-  };
-
   useEffect(() => {
     getUserDetails();
   }, []);
+  console.log(userDataa);
   useEffect(() => {
     getUserDetails();
   }, [address]);
@@ -280,23 +282,37 @@ function Profile() {
           className='prbox1'>
           <div className='prtext1'>Profile</div>
 
-          <div className='profileImage'>
-            {user ? (
+          {image ? (
+            <div className='profileImage'>
               <img
-                src={user}
+                src={image}
                 alt='user'
-                className='img'
                 id='profilePicture'
+                className='img'
               />
-            ) : (
+              <input
+                type='file'
+                accept='image/*'
+                // onChange={handleFileChange}
+                className='fileInput'
+              />
+            </div>
+          ) : (
+            <div className='profileImage'>
               <img
-                src={user}
+                src={files}
                 alt='user'
-                className='img'
                 id='profilePicture'
+                className='img'
               />
-            )}
-          </div>
+              <input
+                type='file'
+                accept='image/*'
+                // onChange={handleFileChange2}
+                className='fileInput'
+              />
+            </div>
+          )}
 
           <Container
             maxWidth={false}
@@ -306,14 +322,14 @@ function Profile() {
               <a className='pr'>First Name</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists ? (userDataa as any)?.firstName : 'Niranjan'}
+                {userExists ? (userDataa as any)?.firstName : ''}
               </a>
             </div>
             <div>
               <a className='pr'>Last Name</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists ? (userDataa as any)?.lastName : 'babu'}
+                {userExists ? (userDataa as any)?.lastName : ''}
               </a>
             </div>
             <div>
@@ -359,7 +375,8 @@ function Profile() {
               <a className='pr'>Address</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists ? (userDataa as any)?.address : address1}
+                {(userDataa as any)?.address1.data}{' '}
+                {(userDataa as any)?.address2.data}
                 <a onClick={() => setPopShow1(true)}>
                   <CreateOutlinedIcon
                     sx={{
@@ -395,11 +412,9 @@ function Profile() {
               <a className='colon1'>:</a>
               <a className='prfont'>
                 {' '}
-                {userExists
-                  ? (userDataa as any)?.publicAddress.slice(0, 12) +
-                    '...' +
-                    (userDataa as any)?.publicAddress.slice(-12)
-                  : '0x0000000000'}
+                {(userDataa as any).publicAddress.slice(0, 12) +
+                  '...' +
+                  (userDataa as any).publicAddress.slice(-12)}
               </a>
             </div>
             <div>

@@ -30,33 +30,21 @@ const WallectConnect = () => {
       navigate('/profile');
     }
   }, [address]);
-  useEffect(() => {
-    if (address) {
-      navigate('/profile');
-    }
-  }, []);
   async function connectWallet(): Promise<void> {
     try {
-      const response = await axios.post('http://localhost:3000/users/signup', {
-        walletAddress: address,
-      });
+      if (address) {
+        const response = await axios.post(
+          `http://localhost:3000/api/signup/${address}`
+        );
 
-      const token = response.data.token;
-      Cookies.set('token', token);
-      console.log(token);
+        const token = response.data.token;
+        Cookies.set('token', token);
+        console.log(token);
 
-      {
-        const data = response.data.user;
-        console.log(data);
-        Cookies.set('_id', data._id);
-        console.log(Cookies.get('_id'));
-        await setFirstName(data.firstName);
-        await setLastName(data.lastName);
-        await setNumber(data.number);
-        await setUserAddress1(data.userAddress1);
-        await setUserAddress2(data.userAddress2);
-        await setUserEmail(data.userEmail);
-        await setWalletAddress(data.walletAddress);
+        {
+          const data = response.data.user;
+          console.log(data);
+        }
       }
     } catch (error) {
       console.log(error);

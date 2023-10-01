@@ -21,6 +21,20 @@
     border: 5px solid rgba(92, 15, 255, 0.63);
 }
 
+.fileInput {
+    position: absolute;
+    height: 17vh;
+    top: 8vh;
+    left: 6vw;
+    border-radius: 50%;
+    margin-top: 20px;
+    width: 120px;
+    cursor: pointer;
+    display: hidden;
+    opacity: 0;
+    min-height: 17vh;
+}
+
 .profilebox {
     position: absolute;
     display: flex;
