@@ -24,27 +24,12 @@ const WallectConnect = () => {
   const [userAddress1, setUserAddress1] = useState('');
   const [userAddress2, setUserAddress2] = useState('');
   const [token, setToken] = useState('');
-
-  useEffect(() => {
-    if (address) {
-      navigate('/profile');
-    }
-  }, [address]);
   async function connectWallet(): Promise<void> {
     try {
       if (address) {
         const response = await axios.post(
           `http://localhost:3000/api/signup/${address}`
         );
-
-        const token = response.data.token;
-        Cookies.set('token', token);
-        console.log(token);
-
-        {
-          const data = response.data.user;
-          console.log(data);
-        }
       }
     } catch (error) {
       console.log(error);
@@ -55,7 +40,10 @@ const WallectConnect = () => {
   });
   if (isConnected) {
     connectWallet();
-    navigate('/profile');
+
+    setTimeout(() => {
+      navigate('/profile');
+    }, 3000);
   }
 
   return (

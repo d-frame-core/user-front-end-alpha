@@ -48,11 +48,9 @@ function Profile() {
 
   const [popshow1, setPopShow1] = useState(false);
 
-  const [userExists, setUserExists] = useState(false);
+  const [userDataa, setUserData] = useState<any>(null);
 
   const [updatedUser, setUpdatedUser] = useState({});
-
-  const [userDataa, setUserData] = useState({});
 
   const [address1, setAddress1] = useState('');
 
@@ -322,21 +320,21 @@ function Profile() {
               <a className='pr'>First Name</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists ? (userDataa as any)?.firstName : ''}
+                {userDataa ? (userDataa as any)?.firstName : ''}
               </a>
             </div>
             <div>
               <a className='pr'>Last Name</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists ? (userDataa as any)?.lastName : ''}
+                {userDataa ? (userDataa as any)?.lastName : ''}
               </a>
             </div>
             <div>
               <a className='pr'>Number</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists
+                {userDataa
                   ? `${phonenumber}${(userDataa as any)?.phoneNumber}`
                   : phonenumber}
                 <a onClick={() => setPopShow(true)}>
@@ -357,7 +355,7 @@ function Profile() {
               <a className='pr'>Email</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userExists ? (userDataa as any)?.email : gmail}
+                {userDataa ? (userDataa as any)?.email : gmail}
                 <a onClick={signInWithGoogle}>
                   <CreateOutlinedIcon
                     sx={{
@@ -375,7 +373,7 @@ function Profile() {
               <a className='pr'>Address</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {(userDataa as any)?.address1.data}{' '}
+                {userDataa && (userDataa as any)?.address1.data}{' '}
                 {(userDataa as any)?.address2.data}
                 <a onClick={() => setPopShow1(true)}>
                   <CreateOutlinedIcon
@@ -412,21 +410,47 @@ function Profile() {
               <a className='colon1'>:</a>
               <a className='prfont'>
                 {' '}
-                {(userDataa as any).publicAddress.slice(0, 12) +
-                  '...' +
-                  (userDataa as any).publicAddress.slice(-12)}
+                {userDataa &&
+                  (userDataa as any).publicAddress.slice(0, 12) +
+                    '...' +
+                    (userDataa as any).publicAddress.slice(-12)}
               </a>
             </div>
             <div>
               <a className='pr'>Refferel Code</a>
               <a className='colon1'>:</a>
-              <a className='prfont'>
-                <input
-                  name='refferel'
-                  onChange={(e) => setRef(e.target.value)}
-                />
-              </a>
-              <button className='refbtn'>Send</button>
+              {userDataa.referrals ? (
+                <div className='prfont1'>
+                  {userDataa.referrals} Code applied
+                </div>
+              ) : (
+                <>
+                  <a className='prfont'>
+                    <input
+                      name='refferel'
+                      onChange={(e) => setRef(e.target.value)}
+                    />
+                  </a>
+                  <button
+                    className='refbtn'
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      await axios
+                        .patch(
+                          `http://localhost:3000/api/referral/${userDataa.publicAddress}`,
+                          {
+                            referral: ref,
+                          }
+                        )
+                        .then((response) => console.log(response))
+                        .catch((err) => console.log(err));
+
+                      setRef('');
+                    }}>
+                    Send
+                  </button>
+                </>
+              )}
             </div>
           </Container>
         </Container>

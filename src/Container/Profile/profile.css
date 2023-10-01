@@ -93,6 +93,15 @@
 
 }
 
+.prfont1 {
+    position: absolute;
+    color: #1B2B65;
+    font-size: 100%;
+    font-weight: 400;
+    top: 50.3vh;
+    left: 14vw;
+}
+
 .colonpop {
     position: absolute;
     left: 18vw;
