@@ -6,13 +6,17 @@ import user from '../../assets/user.png';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-import { useDisconnect } from 'wagmi';
+import { useContext, useEffect, useState } from 'react';
+import { useAccount, useDisconnect } from 'wagmi';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, Menu, MenuItem } from '@mui/material';
+import { Web3Button } from '@web3modal/react';
+import { MyContext } from '../context/Context';
 export default function Header() {
   const { disconnect } = useDisconnect();
+  const { userDataa } = useContext(MyContext);
+  var { address, isConnected }: any = useAccount();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -27,7 +31,7 @@ export default function Header() {
 
   const handleDisconnect = async () => {
     // Disconnect from the provider when the button is clicked
-    disconnect();
+
     if ((window as any).ethereum) {
       (window as any).ethereum.removeAllListeners();
     }
@@ -37,7 +41,15 @@ export default function Header() {
     // navigate to home page
     navigate('/');
   };
-
+  useEffect(() => {
+    if (address == undefined) {
+      navigate('/');
+      disconnect();
+      if ((window as any).ethereum) {
+        (window as any).ethereum.removeAllListeners();
+      }
+    }
+  }, [address]);
   return (
     <div>
       <Box className='header'>
@@ -50,7 +62,9 @@ export default function Header() {
           onClick={(e) => handleClick(e as any)}>
           <KeyboardArrowDownIcon />
         </IconButton>
-        <div className='head1'>Username</div>
+        <div className='head1'>
+          {userDataa ? userDataa.userName : 'UserName'}
+        </div>
         <img
           className='user1'
           src={user}
@@ -65,7 +79,9 @@ export default function Header() {
             'aria-labelledby': 'basic-button',
           }}>
           <MenuItem onClick={() => handleClose()}>
-            <div onClick={() => handleDisconnect()}>Logout</div>
+            <div>
+              <Web3Button />
+            </div>
           </MenuItem>
         </Menu>
       </Box>

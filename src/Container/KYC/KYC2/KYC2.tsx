@@ -73,12 +73,16 @@ export default function KYC2() {
     axios
       .patch(`http://localhost:3000/api/kyc2/${userDataa.publicAddress}`, data)
       .then((res) => {
+        alert('Submitted KYC2 data successfully');
         console.log(res);
       })
       .catch((error) => {
+        alert('Error submitting KYC2 data');
         console.log(error);
       });
-    navigate('/kyc3');
+    setTimeout(() => {
+      navigate('/kyc3');
+    }, 1000);
   };
 
   return (

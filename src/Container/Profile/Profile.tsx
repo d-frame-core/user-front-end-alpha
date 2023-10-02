@@ -40,7 +40,7 @@ function Profile() {
   var { address, isConnected }: any = useAccount();
 
   const [files, setFiles] = useState(user);
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<any>(null);
 
   let [gmail, setgmail] = useState('');
 
@@ -52,9 +52,13 @@ function Profile() {
 
   const [updatedUser, setUpdatedUser] = useState({});
 
-  const [address1, setAddress1] = useState('');
+  const [addressImage1, setAddressImage1] = useState<string | null>(null);
+  const [addressImage2, setAddressImage2] = useState<string | null>(null);
 
+  const [address1, setAddress1] = useState('');
   const [address2, setAddress2] = useState('');
+  const [addressProof1File, setAddressProof1File] = useState<File | null>(null);
+  const [addressProof2File, setAddressProof2File] = useState<File | null>(null);
 
   authentication.languageCode = 'en';
 
@@ -229,6 +233,10 @@ function Profile() {
         .then((res) => {
           setUserData(res.data.user);
           localStorage.setItem('userToken', res.data.token);
+          localStorage.setItem('userAddress', res.data.user.publicAddress);
+          setTimeout(() => {
+            getUserImage();
+          }, 1000);
         });
     } catch (error) {
       console.log(error);
@@ -237,34 +245,183 @@ function Profile() {
   useEffect(() => {
     getUserDetails();
   }, []);
-  console.log(userDataa);
   useEffect(() => {
     getUserDetails();
   }, [address]);
 
-  async function handleAddressUpdate(e: React.MouseEvent<HTMLDivElement>) {
-    e.preventDefault();
-    console.log(address1, address2);
-    const vars = address1.toString() + ' ' + address2.toString();
-    vars.toString();
-    try {
-      await axios
-        .patch(`http://localhost:3000/api/users/detail/${address}`, {
-          address: String(vars),
-        })
-        .then((res) => {
-          console.log('Updated address', res);
-        })
-        .catch((err) => {
-          console.log('Error updating address', err);
-        });
-    } catch (error) {
-      console.log(error);
+  // async function handleAddressUpdate(e: React.MouseEvent<HTMLDivElement>) {
+  //   e.preventDefault();
+  //   console.log(address1, address2);
+  //   const vars = address1.toString() + ' ' + address2.toString();
+  //   vars.toString();
+  //   try {
+  //     await axios
+  //       .patch(`http://localhost:3000/api/users/detail/${address}`, {
+  //         address: String(vars),
+  //       })
+  //       .then((res) => {
+  //         console.log('Updated address', res);
+  //       })
+  //       .catch((err) => {
+  //         console.log('Error updating address', err);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //   setAddress1('');
+  //   setAddress2('');
+  //   setPopShow1(false);
+  //   getUserDetails();
+  // }
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedImage = e.target.files?.[0]; // Get the selected image file
+    if (selectedImage) {
+      try {
+        // Create a FormData object to send the image file
+        const formData = new FormData();
+        formData.append('image', selectedImage);
+
+        // Send a PATCH request to your backend to upload the image
+        await axios
+          .patch(
+            `http://localhost:3000/api/image/${userDataa.publicAddress}`,
+            formData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+            }
+          )
+          .then((response) => {})
+          .catch((error) => {
+            console.log(error);
+            alert('Error uploading');
+          });
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
     }
-    setAddress1('');
-    setAddress2('');
-    setPopShow1(false);
-    getUserDetails();
+  };
+
+  const getUserImage = async () => {
+    // Make an HTTP GET request to fetch the user's image
+    const addr =
+      localStorage.getItem('userAddress') || userDataa.publicAddress || address;
+    axios
+      .get(`http://localhost:3000/api/image/${addr}`, {
+        responseType: 'blob', // Set responseType to 'blob' for image data
+      })
+      .then((response) => {
+        // Check if the request was successful
+        console.log(response);
+        console.log('Entered then');
+        if (response.status === 200) {
+          // Create a URL for the Blob
+          const imageUrl = URL.createObjectURL(response.data);
+
+          // Set the image URL in the state
+          setImage(imageUrl);
+        } else {
+          // Handle the case where the request was not successful
+          console.error('Failed to fetch user image:', response.status);
+          // Handle the error as needed
+        }
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the request
+        console.error('Error fetching user image:', error);
+        // Handle the error as needed
+      });
+  };
+
+  const handleAddressUpdate = async (e: any) => {
+    e.preventDefault();
+
+    // Create a FormData object to send the data and files
+    const formData = new FormData();
+    formData.append('address1', address1);
+    formData.append('address2', address2);
+    formData.append('addressProof1', addressProof1File as any);
+    formData.append('addressProof2', addressProof2File as any);
+
+    try {
+      // Make a PATCH request to the backend
+      const publicAddress =
+        localStorage.getItem('userAddress') ||
+        userDataa.publicAddress ||
+        address;
+
+      console.log(formData);
+      const response = await axios.patch(
+        `http://localhost:3000/api/address/${publicAddress}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        // Handle success
+        console.log('Address updated successfully');
+        alert('Updated');
+        setAddress1('');
+        setAddress2('');
+        setPopShow1(false);
+        getUserDetails();
+        // await axios
+        //   .patch(`http://localhost:3000/api/update-address/${publicAddress}`, {
+        //     address1: address1,
+        //     address2: address2,
+        //   })
+        //   .then((response) => {
+        //     console.log(response);
+        //   })
+        //   .then(() => {
+
+        //   })
+        //   .catch((error) => {
+        //     alert('Error in second call');
+        //     console.log(error);
+        //   });
+      } else {
+        // Handle errors
+        console.error('Failed to update address:', response.data.error);
+        alert('Error');
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error('Error updating address:', error);
+      alert('Error');
+    }
+  };
+
+  async function fetchAddressImages() {
+    // Make an HTTP request to fetch the images
+    const publicAddress =
+      localStorage.getItem('userAddress') || userDataa.publicAddress || address;
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/address/images/${publicAddress}`,
+        { responseType: 'arraybuffer' }
+      );
+
+      if (response.status === 200) {
+        // Create object URLs for displaying the images
+        const image1Blob = new Blob([
+          response.data.slice(0, response.data.length / 2),
+        ]);
+        const image2Blob = new Blob([
+          response.data.slice(response.data.length / 2),
+        ]);
+        setAddressImage1(URL.createObjectURL(image1Blob));
+        setAddressImage2(URL.createObjectURL(image2Blob));
+      }
+    } catch (error) {
+      console.error('Error fetching address images:', error);
+    }
   }
 
   return (
@@ -284,7 +441,7 @@ function Profile() {
           {image ? (
             <div className='profileImage'>
               <img
-                src={image}
+                src={'http://localhost:3000/uploads/1696229051389.png'}
                 alt='user'
                 id='profilePicture'
                 className='img'
@@ -307,7 +464,7 @@ function Profile() {
               <input
                 type='file'
                 accept='image/*'
-                // onChange={handleFileChange2}
+                onChange={handleImageUpload}
                 className='fileInput'
               />
             </div>
@@ -396,6 +553,7 @@ function Profile() {
                       alert('Complete KYC1 First to edit info');
                       return;
                     } else {
+                      fetchAddressImages();
                       setPopShow1(true);
                     }
                   }}>
@@ -584,7 +742,14 @@ function Profile() {
                     required
                   />
                 </a>
-
+                <div>
+                  {addressImage1 && (
+                    <img
+                      src={addressImage1}
+                      width={50}
+                    />
+                  )}
+                </div>
                 <div className='upbtn1'>
                   <Button
                     variant='contained'
@@ -604,6 +769,12 @@ function Profile() {
                       name='proof1'
                       multiple
                       type='file'
+                      required
+                      onChange={(e) =>
+                        setAddressProof1File(
+                          e.target.files ? e.target.files[0] : null
+                        )
+                      }
                     />
                   </Button>
                 </div>
@@ -618,7 +789,14 @@ function Profile() {
                     required
                   />
                 </a>
-
+                <div>
+                  {addressImage2 && (
+                    <img
+                      src={addressImage2}
+                      width={50}
+                    />
+                  )}
+                </div>
                 <div className='upbtn1'>
                   <Button
                     variant='contained'
@@ -638,6 +816,12 @@ function Profile() {
                       name='proof2'
                       multiple
                       type='file'
+                      required
+                      onChange={(e) =>
+                        setAddressProof2File(
+                          e.target.files ? e.target.files[0] : null
+                        )
+                      }
                     />
                   </Button>
                 </div>

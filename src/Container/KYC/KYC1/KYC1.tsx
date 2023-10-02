@@ -54,9 +54,11 @@ export default function KYC1() {
     axios
       .patch(`http://localhost:3000/api/kyc1/${userDataa.publicAddress}`, data)
       .then((res) => {
+        alert('Submitted KYC1 data successfully');
         console.log(res);
       })
       .catch((error) => {
+        alert('Error submitting KYC1 data');
         console.log(error);
       });
 
