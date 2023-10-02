@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './profile.css';
 import user from '../../assets/user.png';
 import { NavLink } from 'react-router-dom';
@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import axios from 'axios';
 import { initializeApp } from 'firebase/app';
+import { MyContext } from '../../components/context/Context';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCYpkhlVsy1eO1vVuRNpa6l1CWONEKiXU8',
@@ -35,6 +36,7 @@ const firebaseConfig = {
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
+  const { userDataa, setUserData } = useContext(MyContext);
   var { address, isConnected }: any = useAccount();
 
   const [files, setFiles] = useState(user);
@@ -47,8 +49,6 @@ function Profile() {
   const [popshow, setPopShow] = useState(false);
 
   const [popshow1, setPopShow1] = useState(false);
-
-  const [userDataa, setUserData] = useState<any>(null);
 
   const [updatedUser, setUpdatedUser] = useState({});
 
@@ -227,7 +227,8 @@ function Profile() {
       await axios
         .get(`http://localhost:3000/api/get/${address}`)
         .then((res) => {
-          setUserData(res.data);
+          setUserData(res.data.user);
+          localStorage.setItem('userToken', res.data.token);
         });
     } catch (error) {
       console.log(error);
@@ -334,10 +335,16 @@ function Profile() {
               <a className='pr'>Number</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa
-                  ? `${phonenumber}${(userDataa as any)?.phoneNumber}`
-                  : phonenumber}
-                <a onClick={() => setPopShow(true)}>
+                {userDataa ? `${(userDataa as any)?.phoneNumber}` : phonenumber}
+                <a
+                  onClick={() => {
+                    if (userDataa.kyc1.status === false) {
+                      alert('Complete KYC1 First to edit info');
+                      return;
+                    } else {
+                      setPopShow(true);
+                    }
+                  }}>
                   <CreateOutlinedIcon
                     sx={{
                       color: '#47B5FF',
@@ -356,7 +363,15 @@ function Profile() {
               <a className='colon1'>:</a>
               <a className='prfont'>
                 {userDataa ? (userDataa as any)?.email : gmail}
-                <a onClick={signInWithGoogle}>
+                <a
+                  onClick={() => {
+                    if (userDataa.kyc1.status === false) {
+                      alert('Complete KYC1 First to edit info');
+                      return;
+                    } else {
+                      signInWithGoogle();
+                    }
+                  }}>
                   <CreateOutlinedIcon
                     sx={{
                       color: '#47B5FF',
@@ -375,7 +390,15 @@ function Profile() {
               <a className='prfont'>
                 {userDataa && (userDataa as any)?.address1.data}{' '}
                 {(userDataa as any)?.address2.data}
-                <a onClick={() => setPopShow1(true)}>
+                <a
+                  onClick={() => {
+                    if (userDataa.kyc1.status === false) {
+                      alert('Complete KYC1 First to edit info');
+                      return;
+                    } else {
+                      setPopShow1(true);
+                    }
+                  }}>
                   <CreateOutlinedIcon
                     sx={{
                       color: '#47B5FF',
@@ -419,7 +442,7 @@ function Profile() {
             <div>
               <a className='pr'>Refferel Code</a>
               <a className='colon1'>:</a>
-              {userDataa.referrals ? (
+              {userDataa && userDataa.referrals ? (
                 <div className='prfont1'>
                   {userDataa.referrals} Code applied
                 </div>
@@ -468,16 +491,23 @@ function Profile() {
                 may take upto 24 hours.
               </p>
 
-              <NavLink
-                to='/kyc1'
-                style={{
-                  textDecoration: 'none',
-                  position: 'relative',
-                  top: '1vh',
-                }}>
-                <button className='pbtn1'>Verify</button>
-              </NavLink>
-              {}
+              {userDataa && (
+                <NavLink
+                  to={
+                    userDataa.kyc1.status === false
+                      ? '/kyc1'
+                      : userDataa.kyc2.status === false
+                      ? '/kyc2'
+                      : '/kyc3'
+                  }
+                  style={{
+                    textDecoration: 'none',
+                    position: 'relative',
+                    top: '1vh',
+                  }}>
+                  <button className='pbtn1'>Verify</button>
+                </NavLink>
+              )}
             </>
           </Container>
         )}

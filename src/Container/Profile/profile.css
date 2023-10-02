@@ -126,6 +126,7 @@
     background-color: #017EFA;
     border-radius: 6px;
     border: none;
+    cursor: pointer;
 }
 
 p {
