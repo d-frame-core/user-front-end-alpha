@@ -28,7 +28,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import Header from '../../../components/Header/Header';
 import { MyContext } from '../../../components/context/Context';
-
+import toast from 'react-hot-toast';
 export var userdata: any = {};
 
 type FormValues = {
@@ -45,33 +45,42 @@ export default function KYC1() {
   const { userDataa, setUserData } = useContext(MyContext);
   const { register, handleSubmit } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data: any) => {
-    console.log(userDataa);
     if (!userDataa) {
       alert('Sign In Again');
       navigate('/');
       return;
     }
+    if (userDataa.kyc1.status === true) {
+      navigate('/kyc2');
+      return;
+    }
+    if (
+      data.firstName.length < 1 ||
+      data.lastName.length < 1 ||
+      data.email.length < 1 ||
+      !data.phoneNumer ||
+      data.userName.length < 1
+    ) {
+      toast.error('Fill all Details');
+      return;
+    }
+    toast.loading('Submitting KYC1 Data', { id: '1' });
     axios
       .patch(`http://localhost:3000/api/kyc1/${userDataa.publicAddress}`, data)
       .then((res) => {
-        alert('Submitted KYC1 data successfully');
+        toast.success('Submitted KYC1 data successfully', { id: '1' });
         console.log(res);
       })
       .catch((error) => {
-        alert('Error submitting KYC1 data');
+        toast.error('Error submitting KYC1 data', { id: '1' });
         console.log(error);
       });
-
-    navigate('/kyc2');
+    setTimeout(() => {
+      toast.remove();
+      navigate('/kyc2');
+    }, 1000);
   };
 
-  const [firstname, setfirstName] = useState('');
-  const [lastname, setlastName] = useState('');
-  const [username, setuserName] = useState('');
-  const [email, setEmail] = useState('');
-
-  const [address, setAddress] = useState('');
-  const [arlist, setarlist] = useState({});
   const [field, setField] = useState('');
   const [fieldopen, setFieldOpen] = useState(false);
 
@@ -152,87 +161,106 @@ export default function KYC1() {
                 sx={{ top: '45vh' }}
                 className='fbox1'>
                 <div className='ftitle'>KYC Level-1:</div>
+
                 <form
                   className='fbox2'
                   onSubmit={handleSubmit(onSubmit)}>
-                  <div className='alignleft'>
-                    First Name
-                    <a className='colon'>
-                      :
-                      <input
-                        className='in'
-                        {...register('firstName')}
-                        required={true}
-                      />
-                      {/* <input className='in' type='text' name='firstname' value={firstname} onChange={(e)=>setfirstName(e.target.value)} required={true} /> */}
-                    </a>
-                  </div>
-                  <div className='alignleft'>
-                    Last Name
-                    <a className='colon'>
-                      :
-                      <input
-                        className='in'
-                        {...register('lastName')}
-                        required={true}
-                      />
-                      {/* <input className='in' type='text' name='lastname' value={lastname} onChange={(e)=>setlastName(e.target.value)} required={true} /> */}
-                    </a>
-                  </div>
-                  <div className='alignleft'>
-                    User Name
-                    <a className='colon'>
-                      :
-                      <input
-                        className='in'
-                        {...register('userName')}
-                        required={true}
-                      />
-                      {/* <input className='in' type='text' name='username' value={username} onChange={(e)=>setuserName(e.target.value)} required={true} /> */}
-                    </a>
-                  </div>
+                  {userDataa && userDataa.kyc1.status && (
+                    <div className='submittedDiv'>
+                      <div>You have already submitted your KYC1 details.</div>
+                      <button
+                        onClick={() => navigate('/kyc2')}
+                        className='submittedButton'>
+                        Next
+                      </button>
+                    </div>
+                  )}
+                  {userDataa && !userDataa.kyc1.status && (
+                    <>
+                      <div className='alignleft'>
+                        First Name
+                        <a className='colon'>
+                          :
+                          <input
+                            className='in'
+                            {...register('firstName')}
+                            required={true}
+                          />
+                          {/* <input className='in' type='text' name='firstname' value={firstname} onChange={(e)=>setfirstName(e.target.value)} required={true} /> */}
+                        </a>
+                      </div>
+                      <div className='alignleft'>
+                        Last Name
+                        <a className='colon'>
+                          :
+                          <input
+                            className='in'
+                            {...register('lastName')}
+                            required={true}
+                          />
+                          {/* <input className='in' type='text' name='lastname' value={lastname} onChange={(e)=>setlastName(e.target.value)} required={true} /> */}
+                        </a>
+                      </div>
+                      <div className='alignleft'>
+                        User Name
+                        <a className='colon'>
+                          :
+                          <input
+                            className='in'
+                            {...register('userName')}
+                            required={true}
+                          />
+                          {/* <input className='in' type='text' name='username' value={username} onChange={(e)=>setuserName(e.target.value)} required={true} /> */}
+                        </a>
+                      </div>
 
-                  <div className='alignleft'>
-                    Phone Number
-                    <a className='colon'>
-                      :{/*<input className='in'  required={true}/>*/}
-                      {
-                        <input
-                          className='in'
-                          type='tel'
-                          {...register('phoneNumber')}
-                          value={number}
-                          onChange={(e) => setnumber(e.target.value)}
-                          required={true}
-                        />
-                      }
-                    </a>
-                  </div>
+                      <div className='alignleft'>
+                        Phone Number
+                        <a className='colon'>
+                          :{/*<input className='in'  required={true}/>*/}
+                          {
+                            <input
+                              className='in'
+                              type='tel'
+                              {...register('phoneNumber')}
+                              value={number}
+                              onChange={(e) => setnumber(e.target.value)}
+                              required={true}
+                            />
+                          }
+                        </a>
+                      </div>
 
-                  <div className='alignleft'>
-                    Email
-                    <a className='colon'>
-                      :
-                      <input
-                        className='in'
-                        {...register('email')}
-                        required={true}
-                      />
-                      {/* <input className='in' type='email' name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required={true} /> */}
-                    </a>
-                  </div>
-                  <button
-                    type='submit'
-                    className='btnup'>
-                    Submit
-                  </button>
+                      <div className='alignleft'>
+                        Email
+                        <a className='colon'>
+                          :
+                          <input
+                            className='in'
+                            {...register('email')}
+                            required={true}
+                          />
+                          {/* <input className='in' type='email' name='email' value={email} onChange={(e)=>setEmail(e.target.value)} required={true} /> */}
+                        </a>
+                      </div>
+                    </>
+                  )}
+                  {userDataa && !userDataa.kyc1.status && (
+                    <button
+                      type='submit'
+                      className='btnup'>
+                      Submit
+                    </button>
+                  )}
                   {/* <input type="submit" /> */}
                 </form>
-                <button
-                  className='verifyph'
-                  onClick={() => setPopShow(true)}>
-                  Verify
-                </button>
+                {userDataa && !userDataa.kyc1.status && (
+                  <button
+                    className='verifyph'
+                    onClick={() => setPopShow(true)}>
+                    Verify
+                  </button>
+                )}
               </Box>
               <Backdrop open={fieldopen}>
                 <Box className='fillbox'>

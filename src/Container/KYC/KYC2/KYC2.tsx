@@ -30,6 +30,7 @@ import axios from 'axios';
 import Header from '../../../components/Header/Header';
 import { MyContext } from '../../../components/context/Context';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 
 interface IFormInput {
   gender: string;
@@ -64,23 +65,46 @@ export default function KYC2() {
   const methods = useForm<IFormInput>({ defaultValues: defaultValues });
   const { handleSubmit, control } = methods;
   const onSubmit = (data: IFormInput) => {
+    console.log(data);
     console.log(userDataa);
+
     if (!userDataa) {
       alert('Sign In Again');
       navigate('/');
       return;
     }
+    if (userDataa.kyc2.status === true) {
+      navigate('/kyc3');
+      return;
+    }
+    if (
+      data.gender.length < 1 ||
+      data.annualIncome.length < 1 ||
+      data.city.length < 1 ||
+      data.country.length < 1 ||
+      !data.dob ||
+      data.doorno.length < 1 ||
+      data.permanentAddress.length < 1 ||
+      data.state.length < 1 ||
+      data.street.length < 1 ||
+      data.pincode.length < 1
+    ) {
+      toast.error('Fill all fields');
+      return;
+    }
+    toast.loading('Submitting KYC2 Data', { id: '1' });
     axios
       .patch(`http://localhost:3000/api/kyc2/${userDataa.publicAddress}`, data)
       .then((res) => {
-        alert('Submitted KYC2 data successfully');
+        toast.success('Submitted KYC2 Data Succesfully', { id: '1' });
         console.log(res);
       })
       .catch((error) => {
-        alert('Error submitting KYC2 data');
+        toast.error('Error Submitting KYC2 Data', { id: '1' });
         console.log(error);
       });
     setTimeout(() => {
+      toast.remove();
       navigate('/kyc3');
     }, 1000);
   };
@@ -96,131 +120,144 @@ export default function KYC2() {
         <div className='container'>
           <Box className='ky1rectangle'>
             <div className='level'>KYC Level-2:</div>
+            {userDataa.kyc2.status && (
+              <div className='submittedInfo'>
+                You have already submitted your KYC2 details.
+              </div>
+            )}
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* <input type="submit"/> */}
-              <div className='gender-input'>
-                Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                <div className='i select-gender'>
-                  <FormInputDropdown
-                    name='gender'
-                    control={control}
-                    label='Select'
-                  />
-                </div>
-              </div>
-              <div className='ktext2'>
-                Country &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                <div className='i select-country'>
-                  <FormInputDropdownCountries
-                    name='country'
-                    control={control}
-                    label='Select Your Country'
-                  />
-                </div>
-              </div>
-              <div className='ktext3'>
-                State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; :
-                <div className='stin'>
-                  <FormInputText
-                    name='state'
-                    control={control}
-                    label='State'
-                  />
-                </div>
-              </div>
-              <div className='ktext4'>
-                City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                <div className='citin'>
-                  <FormInputText
-                    name='city'
-                    control={control}
-                    label='City'
-                  />
-                </div>
-              </div>
-              <div className='ktext5'>
-                Street &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; :
-                <div className='streetin'>
-                  <FormInputText
-                    name='street'
-                    control={control}
-                    label='Street'
-                  />
-                </div>
-              </div>
-              <div className='ktext6'>
-                House no &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                <div className='doin'>
-                  <FormInputText
-                    name='doorno'
-                    control={control}
-                    label='Door no'
-                  />
-                </div>
-              </div>
-              <div className='ktext9'>
-                Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                <div className='date-picker'>
-                  <FormInputDate
-                    name='dob'
-                    control={control}
-                    label=''
-                  />
-                </div>
-              </div>
-              <div className='ktext10'>
-                Annual Income &nbsp; &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                <div className='i select-gender'>
-                  <FormInputIncome
-                    name='annualIncome'
-                    control={control}
-                    label='Select'
-                  />
-                </div>
-              </div>
-              <div className='ktext7'>
-                Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                <div className='i address-label'>
-                  <FormInputText
-                    name='permanentAddress'
-                    control={control}
-                    label='Address'
-                  />
-                </div>
-              </div>
+              {!userDataa.kyc2.status && (
+                <>
+                  <div className='gender-input'>
+                    Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    <div className='i select-gender'>
+                      <FormInputDropdown
+                        name='gender'
+                        control={control}
+                        label='Select'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext2'>
+                    Country &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    <div className='i select-country'>
+                      <FormInputDropdownCountries
+                        name='country'
+                        control={control}
+                        label='Select Your Country'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext3'>
+                    State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; :
+                    <div className='stin'>
+                      <FormInputText
+                        name='state'
+                        control={control}
+                        label='State'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext4'>
+                    City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                    <div className='citin'>
+                      <FormInputText
+                        name='city'
+                        control={control}
+                        label='City'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext5'>
+                    Street &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; :
+                    <div className='streetin'>
+                      <FormInputText
+                        name='street'
+                        control={control}
+                        label='Street'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext6'>
+                    House no &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;:
+                    <div className='doin'>
+                      <FormInputText
+                        name='doorno'
+                        control={control}
+                        label='Door no'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext9'>
+                    Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    <div className='date-picker'>
+                      <FormInputDate
+                        name='dob'
+                        control={control}
+                        label=''
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext10'>
+                    Annual Income &nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    <div className='i select-gender'>
+                      <FormInputIncome
+                        name='annualIncome'
+                        control={control}
+                        label='Select'
+                      />
+                    </div>
+                  </div>
+                  <div className='ktext7'>
+                    Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    <div className='i address-label'>
+                      <FormInputText
+                        name='permanentAddress'
+                        control={control}
+                        label='Address'
+                      />
+                    </div>
+                  </div>
 
-              <div className='ktext8'>
-                Pincode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
-                <div className='pinin'>
-                  <FormInputText
-                    name='pincode'
-                    control={control}
-                    label='Pincode'
+                  <div className='ktext8'>
+                    Pincode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                    <div className='pinin'>
+                      <FormInputText
+                        name='pincode'
+                        control={control}
+                        label='Pincode'
+                      />
+                    </div>
+                  </div>
+
+                  <ReCAPTCHA
+                    className='captcha'
+                    sitekey='6LcBCP8jAAAAANnWNyJx7ERLW5IlR5yRO6v4HWfX'
                   />
-                </div>
-              </div>
-
-              <ReCAPTCHA
-                className='captcha'
-                sitekey='6LcBCP8jAAAAANnWNyJx7ERLW5IlR5yRO6v4HWfX'
-              />
-
+                </>
+              )}
               <Button
                 sx={{
                   backgroundColor: '#017EFA',

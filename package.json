@@ -30,6 +30,7 @@
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.43.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.5.0",
     "react-scripts": "^5.0.1",
     "react-webcam": "^7.0.1",

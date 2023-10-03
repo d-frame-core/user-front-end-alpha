@@ -1,364 +1,450 @@
-
-fieldset{
+fieldset {
   border: none !important;
   outline: none !important;
 }
 
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
   padding: 11.5px 14px !important;
 }
 
 .ky1rectangle {
-    position: relative;
-    display: flex;
-    height: 160vh;
-    border-radius: 1.1vh;
-    width: 75vw;
-    top: 12vh;
-    left: 21vw;
-    background: linear-gradient(
-      180deg,
+  position: relative;
+  display: flex;
+  height: 160vh;
+  border-radius: 1.1vh;
+  width: 75vw;
+  top: 12vh;
+  left: 21vw;
+  background: linear-gradient(180deg,
       rgba(227, 218, 246, 0.6) 0%,
-      rgba(227, 218, 246, 0.6) 100%
-    );
-  }
-  
-  .kyc1 {
-    position: absolute;
-    height: 6vh;
-    width: 4vw;
-    top: 76vh;
-    left: 25vw;
-  }
-  .gender-input {
-    position: absolute;
-    height: 15vh;
-    top: 12vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .i {
-    position: absolute;
-    margin-top: 0rem;
-    width: 35vh;
-    left: 30vw;
-    border: none;
-    border-radius: 1.1vh;
-  }
-  .ktext2 {
-    position: absolute;
-    height: 5vh;
-    top: 22vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  
-  .ktext3 {
-    position: absolute;
-    height: 5vh;
-    top: 32vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  
-  .date-picker {
-    position: absolute;
-    top: 0vh;
-    left: 30vw;
-    
-    font-weight: 350;
-    border: none;
-    border-radius: 1.1vh;
-    background-color: white;
-  }
-  
-  .ktext4 {
-    position: absolute;
-    font-weight: 350;
-    font-size: 28px;
-  
-    top: 42vh;
-    left: 10vw;
-  }
-  
-  .select-country {
-    position: absolute;
-    top: 0%;
-    width: 35vh;
-  }
-  .select-gender {
-    position: absolute;
-    top: 0%;
-    width: 35vh;
-  }
-  .address-label{
-      top: 0%;
-  }
-  
-  .ktext5 {
-    position: absolute;
-    height: 5vh;
-    top: 52vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .captcha {
-    position: absolute;
-    top: 110vh;
-    left: 25vw;
-  }
-  .ktext6{
-    position: absolute;
-    height: 5vh;
-    top: 62vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .ktext7{
-    position: absolute;
-    height: 5vh;
-    top: 72vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .ktext8{
-    position: absolute;
-    height: 5vh;
-    top: 82vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .ktext9{
-    position: absolute;
-    height: 5vh;
-    top: 92vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .ktext10{
-    position: absolute;
-    height: 5vh;
-    top: 102vh;
-    font-size: 28px;
-    font-weight: 350;
-    left: 10vw;
-  }
-  .pinin{
-    position: absolute;
-    top: 0%;
-    left: 30vw;
-    width: 35vh;
-  }
-  .stin{
-    position: absolute;
-    top: 0%;
-    left: 30vw;
-    width: 35vh;
-  }
-  .citin,.doin{
-    position: absolute;
-    top: 0%;
-    left: 30vw;
-    width: 35vh;
-  }
-  .streetin{
-    position: absolute;
-    top: 0%;
-    left: 30vw;
-    width: 35vh;
-  }
-  .label {
-    position: absolute;
-    top: 135vh;
-    left: 10vw;
-    width: 30vh;
-    z-index: 1;
-  }
-  .kybtn {
-    position: absolute;
-    height: 5vh;
-    width: 10vh;
-    top: 145vh;
-    left: 60vw;
-    background-color: rgba(91, 15, 255, 0.66);
-    color: white;
-    border: none;
-    font-size: 2vh;
-    border-radius: 1.1vh;
-    z-index: 2;
-  }
-  .btn{
-    top: 145vh;
-  }
-@media only screen and (max-width:1000px){
-  .ky1rectangle{
+      rgba(227, 218, 246, 0.6) 100%);
+}
+
+.kyc1 {
+  position: absolute;
+  height: 6vh;
+  width: 4vw;
+  top: 76vh;
+  left: 25vw;
+}
+
+.gender-input {
+  position: absolute;
+  height: 15vh;
+  top: 12vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.i {
+  position: absolute;
+  margin-top: 0rem;
+  width: 35vh;
+  left: 30vw;
+  border: none;
+  border-radius: 1.1vh;
+}
+
+.ktext2 {
+  position: absolute;
+  height: 5vh;
+  top: 22vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.ktext3 {
+  position: absolute;
+  height: 5vh;
+  top: 32vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.date-picker {
+  position: absolute;
+  top: 0vh;
+  left: 30vw;
+
+  font-weight: 350;
+  border: none;
+  border-radius: 1.1vh;
+  background-color: white;
+}
+
+.ktext4 {
+  position: absolute;
+  font-weight: 350;
+  font-size: 28px;
+
+  top: 42vh;
+  left: 10vw;
+}
+
+.select-country {
+  position: absolute;
+  top: 0%;
+  width: 35vh;
+}
+
+.select-gender {
+  position: absolute;
+  top: 0%;
+  width: 35vh;
+}
+
+.address-label {
+  top: 0%;
+}
+
+.ktext5 {
+  position: absolute;
+  height: 5vh;
+  top: 52vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.captcha {
+  position: absolute;
+  top: 110vh;
+  left: 25vw;
+}
+
+.ktext6 {
+  position: absolute;
+  height: 5vh;
+  top: 62vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.ktext7 {
+  position: absolute;
+  height: 5vh;
+  top: 72vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.ktext8 {
+  position: absolute;
+  height: 5vh;
+  top: 82vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.ktext9 {
+  position: absolute;
+  height: 5vh;
+  top: 92vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.ktext10 {
+  position: absolute;
+  height: 5vh;
+  top: 102vh;
+  font-size: 28px;
+  font-weight: 350;
+  left: 10vw;
+}
+
+.pinin {
+  position: absolute;
+  top: 0%;
+  left: 30vw;
+  width: 35vh;
+}
+
+.stin {
+  position: absolute;
+  top: 0%;
+  left: 30vw;
+  width: 35vh;
+}
+
+.citin,
+.doin {
+  position: absolute;
+  top: 0%;
+  left: 30vw;
+  width: 35vh;
+}
+
+.streetin {
+  position: absolute;
+  top: 0%;
+  left: 30vw;
+  width: 35vh;
+}
+
+.label {
+  position: absolute;
+  top: 135vh;
+  left: 10vw;
+  width: 30vh;
+  z-index: 1;
+}
+
+.submittedInfo {
+  position: absolute;
+  font-size: 200%;
+  left: 15vw;
+  top: 50vh;
+  font-style: italic;
+}
+
+.kybtn {
+  position: absolute;
+  height: 5vh;
+  width: 10vh;
+  top: 145vh;
+  left: 60vw;
+  background-color: rgba(91, 15, 255, 0.66);
+  color: white;
+  border: none;
+  font-size: 2vh;
+  border-radius: 1.1vh;
+  z-index: 2;
+}
+
+.btn {
+  top: 145vh;
+}
+
+@media only screen and (max-width:1000px) {
+  .ky1rectangle {
     height: 160vh;
   }
-  .i{
+
+  .i {
     left: 30vw;
 
   }
-  .date-picker{
+
+  .date-picker {
     left: 30vw;
   }
-  .gender-input{
+
+  .gender-input {
     font-size: 3vh;
   }
-  .ktext2{
+
+  .ktext2 {
     font-size: 3vh;
   }
-  .ktext3{
+
+  .ktext3 {
     font-size: 3vh;
   }
-  .ktext4{
+
+  .ktext4 {
     font-size: 3vh;
   }
-  .ktext5{
+
+  .ktext5 {
     font-size: 3vh;
   }
-  .ktext6,.ktext7,.ktext8,.ktext9,.ktext10{
+
+  .ktext6,
+  .ktext7,
+  .ktext8,
+  .ktext9,
+  .ktext10 {
     font-size: 3vh;
   }
-  .kybtn{
-    left:60vw;
+
+  .kybtn {
+    left: 60vw;
     top: 145vh;
   }
-  .btn{
-    top:145vh;
+
+  .btn {
+    top: 145vh;
   }
-  .label{
+
+  .label {
     top: 135vh;
     width: 25%;
   }
-  .kyc1{
-    top:77vh;
+
+  .kyc1 {
+    top: 77vh;
     left: 34vw;
   }
 
 }
-@media only screen and (max-width:770px){
-  .ky1rectangle{
+
+@media only screen and (max-width:770px) {
+  .ky1rectangle {
     left: 5vw;
     height: 160vh;
     width: 90vw;
   }
-  .i{
-    
+
+  .i {
+
     left: 35vw;
 
   }
-  .date-picker{
+
+  .date-picker {
     left: 35vw;
-    
+
   }
-  .pinin,.citin,.stin,.streetin,.doin{
+
+  .pinin,
+  .citin,
+  .stin,
+  .streetin,
+  .doin {
     left: 35vw;
   }
-  .gender-input{
+
+  .gender-input {
     left: 10vw;
     font-size: 3vh;
   }
-  .ktext2{
+
+  .ktext2 {
     left: 10vw;
     font-size: 3vh;
   }
-  .ktext3{
+
+  .ktext3 {
     left: 10vw;
     font-size: 3vh;
   }
-  .ktext4{
+
+  .ktext4 {
     left: 10vw;
     font-size: 3vh;
   }
-  .ktext5,.ktext6,.ktext7,.ktext8,.ktext9,.ktext10{
+
+  .ktext5,
+  .ktext6,
+  .ktext7,
+  .ktext8,
+  .ktext9,
+  .ktext10 {
     left: 10vw;
     font-size: 3vh;
   }
-  .btn{
+
+  .btn {
     top: 145vh;
   }
-  .kybtn{
-    top:145vh;
+
+  .kybtn {
+    top: 145vh;
   }
-  .label{
-    top:135vh;
+
+  .label {
+    top: 135vh;
     width: 25%;
   }
-  .kyc1{
-    top:78vh;
+
+  .kyc1 {
+    top: 78vh;
     left: 37vw;
     width: 7vw;
+  }
 }
-}
-@media only screen and (max-width:600px){
-  .ky1rectangle{
+
+@media only screen and (max-width:600px) {
+  .ky1rectangle {
     left: 5vw;
     height: 160vh;
 
     width: 90vw;
   }
-  .i{
+
+  .i {
     top: -1vh;
     left: 34vw;
 
   }
-  .date-picker{
+
+  .date-picker {
     top: -1vh;
     left: 34vw;
-    
+
   }
-  .gender-input{
+
+  .gender-input {
     left: 3vw;
     font-size: 100%;
   }
-  .pinin,.citin,.stin,.streetin,.doin{
+
+  .pinin,
+  .citin,
+  .stin,
+  .streetin,
+  .doin {
     left: 34vw;
-    
+
   }
-  .ktext2{
+
+  .ktext2 {
     left: 3vw;
     line-height: 1vh;
     font-size: 100%;
   }
-  .ktext6{
-    left: 3vw;
-    font-size: 100%;
-  }
-  .ktext3{
-    left: 3vw;
-    font-size: 100%;
-  }
-  .ktext4{
-    left: 3vw;
-    font-size: 100%;
-  }
-  .ktext5,.ktext6,.ktext7,.ktext8,.ktext9,.ktext10{
-    left: 3vw;
-    font-size: 100%;
-  }
-.label{
-  top:135vh;
-  left: 6vw;
-  width: 30%;
-}
-.kybtn{
-  top:145vh;
-}
-.btn{
-  top: 145vh;
-}
-.kyc1{
-  top:78vh;
-  width: 8vw;
-  left: 32vw;
 
-}
+  .ktext6 {
+    left: 3vw;
+    font-size: 100%;
+  }
+
+  .ktext3 {
+    left: 3vw;
+    font-size: 100%;
+  }
+
+  .ktext4 {
+    left: 3vw;
+    font-size: 100%;
+  }
+
+  .ktext5,
+  .ktext6,
+  .ktext7,
+  .ktext8,
+  .ktext9,
+  .ktext10 {
+    left: 3vw;
+    font-size: 100%;
+  }
+
+  .label {
+    top: 135vh;
+    left: 6vw;
+    width: 30%;
+  }
+
+  .kybtn {
+    top: 145vh;
+  }
+
+  .btn {
+    top: 145vh;
+  }
+
+  .kyc1 {
+    top: 78vh;
+    width: 8vw;
+    left: 32vw;
+
+  }
 }

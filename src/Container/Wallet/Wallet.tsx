@@ -12,6 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import { useAccount } from 'wagmi';
 import Web3 from 'web3';
+import toast from 'react-hot-toast';
 
 export default function Wallet() {
   const [dftCA, setdftCA] = useState<any>('');
@@ -315,6 +316,7 @@ export default function Wallet() {
       alert('Please enter the required fields');
       return;
     }
+    toast.loading('Sending Transaction', { id: '1' });
     setSendingTransaction(true);
     const web3 = new Web3((window as any).ethereum);
 
@@ -607,10 +609,15 @@ export default function Wallet() {
       });
     // wait for the tx on metamask to be completed then recall the getBalance function to update the balance and getpastevents function
     await tx;
-    setAmountToSendDFT('');
-    setWalletToSendDFT('');
-    getPastEvents();
-    setSendingTransaction(false);
+    toast.success('Sent Transaction', { id: '1' });
+    setTimeout(() => {
+      toast.remove();
+
+      setAmountToSendDFT('');
+      setWalletToSendDFT('');
+      getPastEvents();
+      setSendingTransaction(false);
+    }, 1000);
   }
 
   async function getPastEvents() {

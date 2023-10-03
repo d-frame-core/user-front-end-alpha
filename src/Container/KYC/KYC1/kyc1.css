@@ -39,7 +39,7 @@ body {
     position: relative;
     font-size: 5vh;
     top: 0vh;
-    left: -10vw;
+    left: -8.5vw;
     font-weight: 600;
     padding: 5vh;
     align-items: left;
@@ -101,6 +101,30 @@ body {
     max-width: 15%;
     color: white;
     background-color: #017EFA;
+}
+
+.submittedButton {
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    height: 6vh;
+    font-size: 16px;
+    width: 5vw;
+    color: white;
+    background-color: #017EFA;
+}
+
+.submittedDiv {
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+    left: 15vw;
+    flex-direction: column;
+    top: 50vh;
+    gap: 5vh;
+    font-style: italic;
 }
 
 .fillbox {
