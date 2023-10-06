@@ -1,38 +1,38 @@
-.percont{
+.percont {
     position: absolute;
     height: 75%;
     max-width: 70%;
     left: 23vw;
     top: 17vh;
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
 
-.pertitle{
+.pertitle {
     position: absolute;
-    padding: 3vh;   
+    padding: 3vh;
     left: 0vw;
-    font-size:4vh;
-    font-weight: 700; 
+    font-size: 4vh;
+    font-weight: 700;
 }
 
-.perbox{
+.perbox {
     position: relative;
     min-height: 15vh;
     max-width: 30vw;
     left: 8vw;
-    top:12vh;
+    top: 12vh;
     display: flex;
     flex-direction: column;
     row-gap: 4vh;
     text-align: left;
-    font-size:3vh;
+    font-size: 3vh;
 }
 
-.perinput{
+.perinput {
     position: absolute;
-    right:-2vw;
+    right: -2vw;
     border: none;
     border-radius: 7px;
     height: 4vh;
@@ -42,26 +42,26 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.pertog{
+.pertog {
     position: absolute;
     height: 4vh;
     width: 15vw;
     right: -4vw;
 }
 
-.pertog1{
+.pertog1 {
     position: absolute;
     height: 4vh;
     width: 15vw;
     left: 4vw;
 }
 
-.percol{
+.percol {
     position: absolute;
     right: 14vw;
 }
 
-.perbtn{
+.perbtn {
     position: relative;
     height: 4vh;
     top: 0vh;
@@ -75,49 +75,61 @@
     color: #FFFFFF;
     z-index: 2;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
 
 }
+
 @media only screen and (max-width:1000px) {
-    .percol{
+    .percol {
         right: 12vw;
     }
-    .pertog{
+
+    .pertog {
         left: 21vw;
-        
+
     }
-    .pertog1{
+
+    .pertog1 {
         left: 8vw;
     }
-    .percont{
+
+    .percont {
         left: 25vw;
     }
 }
+
 @media only screen and (max-width: 770px) {
-    .perbox{
+    .perbox {
         row-gap: 6vh;
     }
-    .percol{
-        
+
+    .percol {
+
         left: 27vw;
     }
-    .pertog{
+
+    .pertog {
         left: 40vw;
     }
-    .pertog1{
+
+    .pertog1 {
         top: -1vh;
         left: 13vw;
     }
-    .percont{
+
+    .percont {
         top: 12vh;
         height: 85%;
         max-width: 84vw;
         left: 8vw;
-        text-align: left ;
+        text-align: left;
     }
-    .perbox{
+
+    .perbox {
         left: 8vw;
     }
-    .perbtn{
+
+    .perbtn {
         top: -3vh;
         width: 8vw;
     }

@@ -58,7 +58,6 @@ export default function KYC1() {
       data.firstName.length < 1 ||
       data.lastName.length < 1 ||
       data.email.length < 1 ||
-      !data.phoneNumer ||
       data.userName.length < 1
     ) {
       toast.error('Fill all Details');

@@ -2,7 +2,7 @@
 
 import { Box, Step, StepLabel, Stepper, Button } from '@mui/material';
 import { Container } from '@mui/system';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Sidebar1 from '../../../components/sidebar1/Sidebar1';
 // import HorizontalLabelPositionBelowStepper from '../../../components/stepper/HorizontalLabelPositionBelowStepper'
@@ -15,8 +15,10 @@ import Drawer from '../../../components/sidebar1/Drawer';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../../components/Header/Header';
+import { MyContext } from '../../../components/context/Context';
 
 export default function KYC3() {
+  const { captureImage } = useContext(MyContext);
   return (
     <Container>
       <Header />

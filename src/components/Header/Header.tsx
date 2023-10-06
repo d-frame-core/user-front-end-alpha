@@ -15,7 +15,7 @@ import { Web3Button } from '@web3modal/react';
 import { MyContext } from '../context/Context';
 export default function Header() {
   const { disconnect } = useDisconnect();
-  const { userDataa } = useContext(MyContext);
+  const { userDataa, image } = useContext(MyContext);
   var { address, isConnected }: any = useAccount();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -63,11 +63,11 @@ export default function Header() {
           <KeyboardArrowDownIcon />
         </IconButton>
         <div className='head1'>
-          {userDataa ? userDataa.userName : 'UserName'}
+          {userDataa ? userDataa.kyc1.details.userName : 'UserName'}
         </div>
         <img
           className='user1'
-          src={user}
+          src={image}
           alt=''></img>
         {/* Dropdown menu */}
         <Menu

@@ -2,7 +2,7 @@
 
 import React, { useContext, useEffect, useState } from 'react';
 import './profile.css';
-import user from '../../assets/user.png';
+
 import { NavLink } from 'react-router-dom';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import { Box, Button } from '@mui/material';
@@ -37,11 +37,8 @@ const firebaseConfig = {
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
-  const { userDataa, setUserData } = useContext(MyContext);
+  const { userDataa, setUserData, image, setImage } = useContext(MyContext);
   var { address, isConnected }: any = useAccount();
-
-  const [files, setFiles] = useState(user);
-  const [image, setImage] = useState<any>(null);
 
   let [gmail, setgmail] = useState('');
 
@@ -51,14 +48,8 @@ function Profile() {
 
   const [popshow1, setPopShow1] = useState(false);
 
-  const [updatedUser, setUpdatedUser] = useState({});
-
-  const [addressImage1, setAddressImage1] = useState<string | null>(null);
-  const [addressImage2, setAddressImage2] = useState<string | null>(null);
-
   const [address1, setAddress1] = useState<string | null | any>('');
   const [address2, setAddress2] = useState<string | null | any>('');
-  const [addressProof1File, setAddressProof1File] = useState<File | null>(null);
   const [addressProof2File, setAddressProof2File] = useState<File | null>(null);
 
   authentication.languageCode = 'en';
@@ -219,18 +210,19 @@ function Profile() {
 
   const navigate = useNavigate();
   async function getUserDetails() {
+    const publicAddress = localStorage.getItem('userAddress') || address;
     try {
       await axios
-        .get(`http://localhost:3000/api/get/${address}`)
-        .then((res) => {
+        .get(`http://localhost:3000/api/user/${address}`)
+        .then(async (res) => {
+          console.log(res.data);
           setUserData(res.data.user);
           setAddress1(res.data.user.address1.data);
           setAddress2(res.data.user.address2.data);
           localStorage.setItem('userToken', res.data.token);
           localStorage.setItem('userAddress', res.data.user.publicAddress);
-          setTimeout(() => {
-            fetchImage();
-          }, 5000);
+          setImage(localStorage.getItem('userProfileImage') || null);
+          await fetchImage();
         });
     } catch (error) {
       console.log(error);
@@ -246,7 +238,16 @@ function Profile() {
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     toast.loading('Uploading Image', { id: '1' });
     const selectedImage = e.target.files?.[0]; // Get the selected image file
+
     if (selectedImage) {
+      const allowedExtensions = ['jpeg', 'png'];
+      const fileExtension = selectedImage.name.split('.').pop()?.toLowerCase();
+
+      if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
+        // Invalid file type, show an error toast
+        toast.error('Only JPEG and PNG files are supported', { id: '1' });
+        return;
+      }
       try {
         // Create a FormData object to send the image file
         const formData = new FormData();
@@ -258,15 +259,11 @@ function Profile() {
           userDataa.publicAddress ||
           address;
         await axios
-          .post(
-            `http://localhost:3000/api/profile-image/${publicAddress}`,
-            formData,
-            {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
-            }
-          )
+          .patch(`http://localhost:3000/api/image/${publicAddress}`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
           .then((response) => {
             console.log(response);
             toast.success('Uploaded Image Succesfully', { id: '1' });
@@ -281,6 +278,7 @@ function Profile() {
       }
       setTimeout(() => {
         toast.remove();
+        fetchImage();
       }, 1000);
     }
   };
@@ -291,7 +289,7 @@ function Profile() {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/profile-image/${publicAddress}`,
+        `http://localhost:3000/api/image/${publicAddress}`,
         {
           responseType: 'blob',
         }
@@ -299,112 +297,54 @@ function Profile() {
 
       const imageUrlObject = URL.createObjectURL(response.data);
       setImage(imageUrlObject);
+      localStorage.setItem('userProfileImage', imageUrlObject);
+      setImage(imageUrlObject);
     } catch (error) {
       console.error(error);
     }
   };
 
-  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    toast.loading('Updating Image', { id: '3' });
-    const selectedImage = e.target.files?.[0]; // Get the selected image file
-    if (selectedImage) {
-      try {
-        // Create a FormData object to send the image file
-        const formData = new FormData();
-        formData.append('image', selectedImage);
-
-        // Send a POST request to your backend to upload the image
-        const publicAddress =
-          localStorage.getItem('userAddress') ||
-          userDataa.publicAddress ||
-          address;
-        await axios
-          .patch(
-            `http://localhost:3000/api/profile-image/${publicAddress}`,
-            formData,
-            {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
-            }
-          )
-          .then((response) => {
-            console.log(response);
-            toast.loading('Updating Image', { id: '3' });
-          })
-          .catch((error) => {
-            console.log(error);
-            toast.error('Error Updating Image', { id: '3' });
-            setTimeout(() => {
-              fetchImage();
-              toast.remove();
-            }, 1000);
-          });
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        toast.error('Error Updating Image', { id: '3' });
-        setTimeout(() => {
-          fetchImage();
-          toast.remove();
-        }, 1000);
-      }
-    }
-  }
-
   const handleAddressProof = async (e: any) => {
     e.preventDefault();
     toast.loading('Uploading Address Proof', { id: '4' });
     try {
+      const data = address1 + address2;
       // Create a FormData object to send the images
       const formData = new FormData();
-      formData.append('images', addressProof1File as any);
-      formData.append('images', addressProof2File as any);
-
+      formData.append('image', addressProof2File as any);
+      formData.append('data', address1 + ' ' + ' ' + address2);
       const publicAddress =
         localStorage.getItem('userAddress') ||
         userDataa.publicAddress ||
         address;
       // Send a POST request to the backend to upload the images
       await axios
-        .post(
-          `http://localhost:3000/api/address-proof/${publicAddress}`,
-          formData,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
-          }
-        )
-        .then(async (response) => {
-          // Handle the response from the backend
-          console.log(response.data);
-          await axios
-            .patch(
-              `http://localhost:3000/api/update-address/${publicAddress}`,
-              {
-                address1: String(address1),
-                address2: String(address2),
-              }
-            )
-            .then((response) =>
-              toast.success('Uploaded Address Proof', { id: '4' })
-            )
-            .catch((error) => {
-              toast.error('Error in Uploading Address Proof', { id: '4' });
-              console.log(error);
-            });
+        .post(`http://localhost:3000/api/address/${publicAddress}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((res) => {
+          toast.success('Uploaded Address Proof', { id: '4' });
+          setPopShow1(false);
+          setTimeout(() => {
+            toast.remove();
+            getUserDetails();
+          }, 1000);
         });
-      setPopShow1(false);
-      setTimeout(() => {
-        toast.remove();
-        getUserDetails();
-      }, 1000);
     } catch (error) {
       console.error('Error uploading images:', error);
       toast.error('Error in Uploading Address Proof', { id: '4' });
     }
   };
 
+  useEffect(() => {
+    fetchImage();
+  }, []);
+
+  useEffect(() => {
+    fetchImage();
+  }, [userDataa]);
   return (
     <div>
       <Header />
@@ -419,37 +359,20 @@ function Profile() {
           className='prbox1'>
           <div className='prtext1'>Profile</div>
 
-          {image ? (
-            <div className='profileImage'>
-              <img
-                src={image}
-                alt='user'
-                id='profilePicture'
-                className='img'
-              />
-              <input
-                type='file'
-                accept='image/*'
-                onChange={handleFileChange}
-                className='fileInput'
-              />
-            </div>
-          ) : (
-            <div className='profileImage'>
-              <img
-                src={files}
-                alt='user'
-                id='profilePicture'
-                className='img'
-              />
-              <input
-                type='file'
-                accept='image/*'
-                onChange={handleImageUpload}
-                className='fileInput'
-              />
-            </div>
-          )}
+          <div className='profileImage'>
+            <img
+              src={image}
+              alt='user'
+              id='profilePicture'
+              className='img'
+            />
+            <input
+              type='file'
+              accept='image/*'
+              onChange={handleImageUpload}
+              className='fileInput'
+            />
+          </div>
 
           <Container
             maxWidth={false}
@@ -459,21 +382,23 @@ function Profile() {
               <a className='pr'>First Name</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa ? (userDataa as any)?.firstName : ''}
+                {userDataa ? (userDataa as any).kyc1?.details.firstName : ''}
               </a>
             </div>
             <div>
               <a className='pr'>Last Name</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa ? (userDataa as any)?.lastName : ''}
+                {userDataa ? (userDataa as any)?.kyc1.details.lastName : ''}
               </a>
             </div>
             <div>
               <a className='pr'>Number</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa ? `${(userDataa as any)?.phoneNumber}` : phonenumber}
+                {userDataa
+                  ? `${(userDataa as any)?.kyc1.details.phoneNumber}`
+                  : phonenumber}
                 <a
                   onClick={() => {
                     if (userDataa.kyc1.status === false) {
@@ -503,7 +428,7 @@ function Profile() {
               <a className='pr'>Email</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa ? (userDataa as any)?.email : gmail}
+                {userDataa ? (userDataa as any)?.kyc1.details.email : gmail}
                 <a
                   onClick={() => {
                     if (userDataa.kyc1.status === false) {
@@ -532,8 +457,7 @@ function Profile() {
               <a className='pr'>Address</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa && (userDataa as any)?.address1.data}{' '}
-                {(userDataa as any)?.address2.data}
+                {userDataa && (userDataa as any)?.address.data}
                 <a
                   onClick={() => {
                     setPopShow1(true);
@@ -581,9 +505,9 @@ function Profile() {
             <div>
               <a className='pr'>Refferel Code</a>
               <a className='colon1'>:</a>
-              {userDataa && userDataa.referrals ? (
+              {userDataa && userDataa.referralCode ? (
                 <div className='prfont1'>
-                  {userDataa.referrals} Code applied
+                  {userDataa.referralCode} Code applied
                 </div>
               ) : (
                 <>
@@ -597,17 +521,29 @@ function Profile() {
                     className='refbtn'
                     onClick={async (e) => {
                       e.preventDefault();
+                      toast.loading('Updating Referral Code', { id: '7' });
                       await axios
                         .patch(
                           `http://localhost:3000/api/referral/${userDataa.publicAddress}`,
                           {
-                            referral: ref,
+                            referralCode: ref,
                           }
                         )
-                        .then((response) => console.log(response))
-                        .catch((err) => console.log(err));
+                        .then((response) =>
+                          toast.success('Updated Referral Code', { id: '7' })
+                        )
+                        .catch((err) => {
+                          console.log(err);
+                          toast.error('Error Updating Referral Code', {
+                            id: '7',
+                          });
+                        });
 
-                      setRef('');
+                      setTimeout(() => {
+                        toast.remove();
+                        setRef('');
+                        getUserDetails();
+                      }, 1000);
                     }}>
                     Send
                   </button>
@@ -712,159 +648,125 @@ function Profile() {
           </Box>
         </Backdrop>
       )}
-      {popshow1 &&
-        !userDataa.address1.submitted &&
-        !userDataa.address2.submitted && (
-          <>
-            <Backdrop
-              open={popshow1}
-              sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-              <Box className='update1'>
-                <div className='uphead'>Update Address</div>
-                <form>
-                  <a className='upa'>
-                    Enter Address 1<a className='colonpop'>:</a>
+      {popshow1 && !userDataa.address.submitted && (
+        <>
+          <Backdrop
+            open={popshow1}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+            <Box className='update1'>
+              <div className='uphead'>Update Address</div>
+              <form>
+                <a className='upa'>
+                  Enter Address 1<a className='colonpop'>:</a>
+                  <input
+                    className='uin'
+                    name='address1'
+                    type='text'
+                    value={address1}
+                    onChange={(e) => setAddress1(e.target.value)}
+                    required
+                  />
+                </a>
+                <a className='upa'>
+                  Enter Address 2<a className='colonpop'>:</a>
+                  <input
+                    className='uin'
+                    name='address2'
+                    type='text'
+                    value={address2}
+                    onChange={(e) => setAddress2(e.target.value)}
+                    required
+                  />
+                </a>
+                <div className='upbtn1'>
+                  <Button
+                    variant='contained'
+                    component='label'
+                    sx={{
+                      textTransform: 'none',
+                      bgcolor: '#017EFA',
+                      width: '15vw',
+                      height: '7vh',
+                      fontSize: '18px',
+                      borderRadius: '10px',
+                    }}>
+                    Address Proof
                     <input
-                      className='uin'
-                      name='address1'
-                      type='text'
-                      value={address1}
-                      onChange={(e) => setAddress1(e.target.value)}
+                      className='field'
+                      accept='image/*'
+                      name='proof2'
+                      multiple
+                      type='file'
                       required
+                      onChange={(e) =>
+                        setAddressProof2File(
+                          e.target.files ? e.target.files[0] : null
+                        )
+                      }
                     />
-                  </a>
-                  <div className='upbtn1'>
-                    <Button
-                      variant='contained'
-                      component='label'
-                      sx={{
-                        textTransform: 'none',
-                        bgcolor: '#017EFA',
-                        width: '15vw',
-                        height: '7vh',
-                        fontSize: '18px',
-                        borderRadius: '10px',
-                      }}>
-                      Address Proof 1
-                      <input
-                        className='field'
-                        accept='image/*'
-                        name='proof1'
-                        multiple
-                        type='file'
-                        required
-                        onChange={(e) =>
-                          setAddressProof1File(
-                            e.target.files ? e.target.files[0] : null
-                          )
-                        }
-                      />
-                    </Button>
-                  </div>
-                  <a className='upa'>
-                    Enter Address 2<a className='colonpop'>:</a>
-                    <input
-                      className='uin'
-                      name='address2'
-                      type='text'
-                      value={address2}
-                      onChange={(e) => setAddress2(e.target.value)}
-                      required
-                    />
-                  </a>
-                  <div className='upbtn1'>
-                    <Button
-                      variant='contained'
-                      component='label'
-                      sx={{
-                        textTransform: 'none',
-                        bgcolor: '#017EFA',
-                        width: '15vw',
-                        height: '7vh',
-                        fontSize: '18px',
-                        borderRadius: '10px',
-                      }}>
-                      Address Proof 2
-                      <input
-                        className='field'
-                        accept='image/*'
-                        name='proof2'
-                        multiple
-                        type='file'
-                        required
-                        onChange={(e) =>
-                          setAddressProof2File(
-                            e.target.files ? e.target.files[0] : null
-                          )
-                        }
-                      />
-                    </Button>
-                  </div>
-                  {(userDataa as any).address1.submitted &&
-                    (userDataa as any).address2.submitted && (
-                      <div>**You have Submitted Data earlier</div>
-                    )}
-                  <br />
-                  <button
-                    className='upbtn'
-                    disabled={false}
-                    onClick={(e) => handleAddressProof(e)}>
-                    Update
-                  </button>
-                  <br />
-                </form>
-                <CloseIcon
-                  onClick={() => setPopShow1(false)}
-                  className='cross'
-                />
-              </Box>
-              <br />
-            </Backdrop>
-            <div className='upbtn1'>
-              <UploadButtons />
-            </div>
-            <CloseIcon
-              onClick={() => setPopShow1(false)}
-              className='cross'
-            />
-          </>
-        )}
-      {popshow1 &&
-        userDataa.address1.submitted &&
-        userDataa.address2.submitted && (
-          <>
-            <Backdrop
-              open={popshow1}
-              sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-              <Box className='update11'>
-                <p
-                  style={{
-                    fontSize: '4vh',
-                    color: 'red',
-                    position: 'absolute',
-                    right: '4vh',
-                    top: '-3vh',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => setPopShow1(false)}>
-                  X
-                </p>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    marginTop: '7vh',
-                  }}>
-                  <h3>
-                    <b>{`**Your Address Proof is already submitted.**`}</b>
-                  </h3>
-                  <p>{userDataa.address1.data}</p>
-                  <p>{userDataa.address2.data}</p>
+                  </Button>
                 </div>
-              </Box>
-            </Backdrop>
-          </>
-        )}
+                {(userDataa as any).address.submitted && (
+                  <div>**You have Submitted Data earlier</div>
+                )}
+                <br />
+                <button
+                  className='upbtn'
+                  disabled={false}
+                  onClick={(e) => handleAddressProof(e)}>
+                  Update
+                </button>
+                <br />
+              </form>
+              <CloseIcon
+                onClick={() => setPopShow1(false)}
+                className='cross'
+              />
+            </Box>
+            <br />
+          </Backdrop>
+          <div className='upbtn1'>
+            <UploadButtons />
+          </div>
+          <CloseIcon
+            onClick={() => setPopShow1(false)}
+            className='cross'
+          />
+        </>
+      )}
+      {popshow1 && userDataa.address.submitted && (
+        <>
+          <Backdrop
+            open={popshow1}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+            <Box className='update11'>
+              <p
+                style={{
+                  fontSize: '4vh',
+                  color: 'red',
+                  position: 'absolute',
+                  right: '4vh',
+                  top: '-3vh',
+                  cursor: 'pointer',
+                }}
+                onClick={() => setPopShow1(false)}>
+                X
+              </p>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginTop: '7vh',
+                }}>
+                <h3>
+                  <b>{`**Your Address Proof is already submitted.**`}</b>
+                </h3>
+                <p>{userDataa.address.data}</p>
+              </div>
+            </Box>
+          </Backdrop>
+        </>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { createContext, useState } from 'react';
-
+import user from '../../assets/user.png';
 const MyContext = createContext();
 
 function MyContextProvider(props) {
@@ -15,6 +15,9 @@ function MyContextProvider(props) {
   const [userAddress2, setUserAddress2] = useState('');
   const [token, setToken] = useState('');
   const [userDataa, setUserData] = useState(null);
+  const [captureImage, setCaptureImage] = useState(null);
+
+  const [image, setImage] = useState(user);
   return (
     <MyContext.Provider
       value={{
@@ -37,7 +40,11 @@ function MyContextProvider(props) {
         token,
         setToken,
         userDataa,
+        image,
+        setImage,
         setUserData,
+        captureImage,
+        setCaptureImage,
       }}>
       {props.children}
     </MyContext.Provider>

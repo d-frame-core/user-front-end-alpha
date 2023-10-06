@@ -1,56 +1,227 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React ,{ useState }  from 'react'; 
+/**
+ * eslint-disable jsx-a11y/anchor-is-valid
+ *
+ * @format
+ */
+
+import React, { useState, useContext, useEffect } from 'react';
 import './permission.css';
-import { FormControlLabel, Switch, Box, Radio, FormControl, RadioGroup } from '@mui/material';
+import {
+  FormControlLabel,
+  Switch,
+  Box,
+  Radio,
+  FormControl,
+  RadioGroup,
+} from '@mui/material';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import { Container } from '@mui/system';
 import Drawer from '../../components/sidebar1/Drawer';
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/Header';
+import { MyContext } from '../../components/context/Context';
+import { useAccount } from 'wagmi';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
-export default function Permission(){
-  
-  const[checked,setChecked] = useState('true');
-  const [value, setValue] = React.useState('aws');
-  const handlesubmit=(e: any) => { 
+export default function Permission() {
+  const { userDataa, setUserData } = useContext(MyContext);
+  var { address, isConnected }: any = useAccount();
+  const [formData, setFormData] = useState<any>({
+    location: true,
+    cookies: true,
+    callDataSharing: true,
+    emailSharing: true,
+    notification: true,
+    storageOption: 'GCP',
+  });
+
+  const handlesubmit = async (e: any) => {
     e.preventDefault();
+    toast.loading('Updating permissions', { id: '1' });
+
+    try {
+      const publicAddress =
+        localStorage.getItem('userAddress') ||
+        userDataa.publicAddress ||
+        address;
+
+      await axios
+        .patch(
+          `http://localhost:3000/api/permissions/${publicAddress}`,
+          formData
+        )
+        .then((response) => {
+          toast.success('Updated permissions', { id: '1' });
+          console.log(response);
+          getUserDetails();
+        });
+
+      // You can display a success message or redirect the user as needed
+    } catch (error) {
+      console.error('Error updating permissions:', error);
+      toast.error('Error Updating permissions', { id: '1' });
+      // Display an error message or handle the error as needed
     }
-    
-  const handleChange = (event:any) => {
-      setChecked(event.target.checked)
-      setValue((event.target as HTMLInputElement).value);
-      console.log({checked})
+    setTimeout(() => {
+      toast.remove();
+    }, 1000);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, checked } = event.target;
+
+    setFormData({
+      ...formData,
+      [name]: name === 'storageOption' ? value : checked,
+    });
+  };
+
+  async function getUserDetails() {
+    const publicAddress = localStorage.getItem('userAddress') || address;
+    try {
+      await axios
+        .get(`http://localhost:3000/api/user/${address}`)
+        .then(async (res) => {
+          console.log(res.data);
+          setUserData(res.data.user);
+          localStorage.setItem('userToken', res.data.token);
+          localStorage.setItem('userAddress', res.data.user.publicAddress);
+          setFormData(res.data.user.permissions);
+        });
+    } catch (error) {
+      console.log(error);
     }
+  }
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+  useEffect(() => {
+    getUserDetails();
+  }, [address]);
   return (
-      <>
-      <Header/>
+    <>
+      <Header />
       <>{Sidebar1(3)}</>
-      <a className='smopen'>
-      {Drawer(3)}
-    </a>
-      <Container maxWidth={false}  className="percont">
-      <a className="pertitle">Permission</a> 
-        <Box><form className="perbox" onSubmit={handlesubmit}>
-
-          <a>Location<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
-          <a>Cookies<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
-          <a>Call Data Sharing<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
-          <a>Email Sharing<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
-          <a>Notification<a className="percol">:</a><FormControlLabel className="pertog" control={<Switch defaultChecked onChange={handleChange} />} label="" /></a>
-          <a>Storage Option<a className="percol">:</a>
-            <FormControl>
-              <RadioGroup aria-labelledby="demo-controlled-radio-buttons-group" name="controlled-radio-buttons-group" value={value} onChange={handleChange} className='pertog1'>
-                 <FormControlLabel value="aws" control={<Radio />} label="AWS" />
-                  <FormControlLabel value="ipfs" control={<Radio />} label="IPFS" />
+      <a className='smopen'>{Drawer(3)}</a>
+      <Container
+        maxWidth={false}
+        className='percont'>
+        <a className='pertitle'>Permissions</a>
+        <Box>
+          <form
+            className='perbox'
+            onSubmit={handlesubmit}>
+            <a>
+              Location<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                control={
+                  <Switch
+                    name='location'
+                    checked={formData.location}
+                    onChange={handleChange}
+                  />
+                }
+                label=''
+              />
+            </a>
+            <a>
+              Cookies<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                control={
+                  <Switch
+                    name='cookies'
+                    checked={formData.cookies}
+                    onChange={handleChange}
+                  />
+                }
+                label=''
+              />
+            </a>
+            <a>
+              Call Data Sharing<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                control={
+                  <Switch
+                    name='callDataSharing'
+                    checked={formData.callDataSharing}
+                    onChange={handleChange}
+                  />
+                }
+                label=''
+              />
+            </a>
+            <a>
+              Email Sharing<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                control={
+                  <Switch
+                    name='emailSharing'
+                    checked={formData.emailSharing}
+                    onChange={handleChange}
+                  />
+                }
+                label=''
+              />
+            </a>
+            <a>
+              Notification<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                control={
+                  <Switch
+                    name='notification'
+                    checked={formData.notification}
+                    onChange={handleChange}
+                  />
+                }
+                label=''
+              />
+            </a>
+            <a>
+              Storage Option<a className='percol'>:</a>
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby='demo-controlled-radio-buttons-group'
+                  name='storageOption'
+                  value={formData.storageOption}
+                  onChange={handleChange}
+                  className='pertog1'>
+                  <FormControlLabel
+                    value='GCP'
+                    control={<Radio />}
+                    label='GCP'
+                  />
+                  <FormControlLabel
+                    value='IPFS'
+                    control={<Radio />}
+                    label='IPFS'
+                  />
                 </RadioGroup>
-            </FormControl>
-          </a>
-          <a>Devices<a className="percol">:</a><FormControlLabel className="pertog" disabled control={<Switch />} label="(In&nbsp;Progress)" /></a>
-          
-          <button onClick={handlesubmit} type="submit" className="perbtn">Save</button>
+              </FormControl>
+            </a>
+            <a>
+              Devices<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                disabled
+                control={<Switch />}
+                label='(In&nbsp;Progress)'
+              />
+            </a>
 
+            <button
+              onClick={handlesubmit}
+              type='submit'
+              className='perbtn'>
+              Save
+            </button>
           </form>
         </Box>
       </Container>
-      </>
+    </>
   );
 }
