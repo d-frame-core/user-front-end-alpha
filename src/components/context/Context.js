@@ -18,6 +18,7 @@ function MyContextProvider(props) {
   const [captureImage, setCaptureImage] = useState(null);
 
   const [image, setImage] = useState(user);
+  const [userToken, setUserToken] = useState(null);
   return (
     <MyContext.Provider
       value={{
@@ -45,6 +46,8 @@ function MyContextProvider(props) {
         setUserData,
         captureImage,
         setCaptureImage,
+        userToken,
+        setUserToken,
       }}>
       {props.children}
     </MyContext.Provider>

@@ -37,7 +37,8 @@ const firebaseConfig = {
 
 function Profile() {
   const [successful, setSuccessful] = useState(false);
-  const { userDataa, setUserData, image, setImage } = useContext(MyContext);
+  const { userDataa, setUserData, image, setImage, setUserToken } =
+    useContext(MyContext);
   var { address, isConnected }: any = useAccount();
 
   let [gmail, setgmail] = useState('');
@@ -210,19 +211,21 @@ function Profile() {
 
   const navigate = useNavigate();
   async function getUserDetails() {
-    const publicAddress = localStorage.getItem('userAddress') || address;
     try {
       await axios
         .get(`http://localhost:3000/api/user/${address}`)
         .then(async (res) => {
-          console.log(res.data);
+          console.log('PRINTING ADDRESS', res.data.user.publicAddress);
           setUserData(res.data.user);
           setAddress1(res.data.user.address1.data);
           setAddress2(res.data.user.address2.data);
           localStorage.setItem('userToken', res.data.token);
-          localStorage.setItem('userAddress', res.data.user.publicAddress);
+          setUserToken(res.data.token);
+          localStorage.setItem(
+            'userPublicAddress',
+            res.data.user.publicAddress
+          );
           setImage(localStorage.getItem('userProfileImage') || null);
-          await fetchImage();
         });
     } catch (error) {
       console.log(error);
@@ -255,7 +258,7 @@ function Profile() {
 
         // Send a POST request to your backend to upload the image
         const publicAddress =
-          localStorage.getItem('userAddress') ||
+          localStorage.getItem('userPublicAddress') ||
           userDataa.publicAddress ||
           address;
         await axios
@@ -285,7 +288,9 @@ function Profile() {
 
   const fetchImage = async () => {
     const publicAddress =
-      localStorage.getItem('userAddress') || userDataa.publicAddress || address;
+      localStorage.getItem('userPublicAddress') ||
+      userDataa.publicAddress ||
+      address;
 
     try {
       const response = await axios.get(
@@ -302,6 +307,7 @@ function Profile() {
     } catch (error) {
       console.error(error);
     }
+    console.log('running fetch image');
   };
 
   const handleAddressProof = async (e: any) => {
@@ -314,7 +320,7 @@ function Profile() {
       formData.append('image', addressProof2File as any);
       formData.append('data', address1 + ' ' + ' ' + address2);
       const publicAddress =
-        localStorage.getItem('userAddress') ||
+        localStorage.getItem('userPublicAddress') ||
         userDataa.publicAddress ||
         address;
       // Send a POST request to the backend to upload the images
@@ -339,11 +345,9 @@ function Profile() {
   };
 
   useEffect(() => {
-    fetchImage();
-  }, []);
-
-  useEffect(() => {
-    fetchImage();
+    setTimeout(() => {
+      fetchImage();
+    }, 1000);
   }, [userDataa]);
   return (
     <div>
