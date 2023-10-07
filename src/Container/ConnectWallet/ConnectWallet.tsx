@@ -38,13 +38,16 @@ const WallectConnect = () => {
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });
-  if (isConnected) {
-    connectWallet();
 
-    setTimeout(() => {
-      navigate('/profile');
-    }, 3000);
-  }
+  useEffect(() => {
+    if (isConnected) {
+      connectWallet();
+
+      setTimeout(() => {
+        navigate('/profile');
+      }, 3000);
+    }
+  }, []);
 
   return (
     <div className='connectwallet'>

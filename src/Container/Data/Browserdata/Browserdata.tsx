@@ -115,7 +115,7 @@ function Browserdata() {
       <Box className='brrect2'>
         {b.detial}:
         <Box className='brbox'>
-          {eventData != null ? (
+          {toggleState1 === 9 && eventData != null ? (
             <span>
               {Object.keys(eventData).map((key) => (
                 <div
@@ -128,7 +128,7 @@ function Browserdata() {
               ))}
             </span>
           ) : (
-            <p>Your Broswing History will be displayed soon</p>
+            <p>Will be released in BETA update</p>
           )}
         </Box>
       </Box>
