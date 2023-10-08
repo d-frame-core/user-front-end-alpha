@@ -405,7 +405,7 @@ function Profile() {
                   : phonenumber}
                 <a
                   onClick={() => {
-                    if (userDataa.kyc1.status === false) {
+                    if (userDataa.kyc1.status === 'unsubmitted') {
                       toast.error('Complete KYC1 First to edit info');
                       setTimeout(() => {
                         toast.remove();
@@ -435,7 +435,7 @@ function Profile() {
                 {userDataa ? (userDataa as any)?.kyc1.details.email : gmail}
                 <a
                   onClick={() => {
-                    if (userDataa.kyc1.status === false) {
+                    if (userDataa.kyc1.status === 'unsubmitted') {
                       toast.error('Complete KYC1 First to edit info');
                       setTimeout(() => {
                         toast.remove();
@@ -557,37 +557,51 @@ function Profile() {
           </Container>
         </Container>
 
-        {!successful && (
+        {userDataa && (
           <Container
             maxWidth={false}
             sx={{ maxWidth: '85%', minHeight: '24vh' }}
             className='kycitem'>
-            <>
-              <div className='kyctitle'>KYC Verification</div>
+            {userDataa.kyc1.status === 'unsubmitted' &&
+              userDataa.kyc2.status === 'unsubmitted' &&
+              userDataa.kyc3.status === 'unsubmitted' && (
+                <>
+                  <div className='kyctitle'>KYC Verification</div>
 
-              <p>
-                This Verification makes us aware that you are a valid user. It
-                may take upto 24 hours.
-              </p>
+                  <p>
+                    This Verification makes us aware that you are a valid user.
+                    It may take upto 24 hours.
+                  </p>
 
-              {userDataa && (
-                <NavLink
-                  to={
-                    userDataa.kyc1.status === false
-                      ? '/kyc1'
-                      : userDataa.kyc2.status === false
-                      ? '/kyc2'
-                      : '/kyc3'
-                  }
-                  style={{
-                    textDecoration: 'none',
-                    position: 'relative',
-                    top: '1vh',
-                  }}>
-                  <button className='pbtn1'>Verify</button>
-                </NavLink>
+                  <NavLink
+                    to={
+                      userDataa.kyc1.status === 'unsubmitted'
+                        ? '/kyc1'
+                        : userDataa.kyc2.status === 'unsubmitted'
+                        ? '/kyc2'
+                        : userDataa.kyc3.status === 'unsubmitted'
+                        ? '/kyc3'
+                        : '/successful'
+                    }
+                    style={{
+                      textDecoration: 'none',
+                      position: 'relative',
+                      top: '1vh',
+                    }}>
+                    <button className='pbtn1'>Verify</button>
+                  </NavLink>
+                </>
               )}
-            </>
+            {userDataa.kyc1.status === 'unverified' &&
+              userDataa.kyc2.status === 'unverified' &&
+              userDataa.kyc3.status === 'unverified' && (
+                <div className='kyctitle'>You have submitted the details</div>
+              )}
+            {userDataa.kyc1.status === 'verified' &&
+              userDataa.kyc2.status === 'verified' &&
+              userDataa.kyc3.status === 'verified' && (
+                <div className='kyctitle'>You details are verified</div>
+              )}
           </Container>
         )}
       </Box>

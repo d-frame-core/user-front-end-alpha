@@ -69,6 +69,7 @@ function Browserdata() {
         // alert("Page script received message: \"" + event.data.message + "\"");
         if (event.data.message != null || undefined) {
           setEventData(event.data.message);
+          console.log(event.data.message);
         }
       }
     });

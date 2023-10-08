@@ -302,7 +302,7 @@ export default function Wallet() {
       .call();
     const balanceInEth = web3.utils.fromWei(balance, 'ether');
     const balanceInKFormat =
-      Math.trunc((balanceInEth as any) / 1000).toString() + 'K';
+      Math.trunc((balanceInEth as any) / 1000).toString() + 'k';
     setWalletBalance(balanceInKFormat);
   }
 
@@ -1017,7 +1017,7 @@ export default function Wallet() {
                                           : Web3.utils.fromWei(
                                               event.returnValues.value,
                                               'ether'
-                                            )}
+                                            )}{' '}
                                         DFT
                                       </p>
                                     </div>
@@ -1097,7 +1097,7 @@ export default function Wallet() {
                                           : Web3.utils.fromWei(
                                               event.returnValues.value,
                                               'ether'
-                                            )}
+                                            )}{' '}
                                         DFT
                                       </p>
                                     </div>

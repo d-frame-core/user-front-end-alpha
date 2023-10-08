@@ -120,14 +120,14 @@ export default function KYC2() {
         <div className='container'>
           <Box className='ky1rectangle'>
             <div className='level'>KYC Level-2:</div>
-            {userDataa.kyc2.status && (
+            {userDataa.kyc2.status == 'unverified' && (
               <div className='submittedInfo'>
                 You have already submitted your KYC2 details.
               </div>
             )}
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* <input type="submit"/> */}
-              {!userDataa.kyc2.status && (
+              {userDataa.kyc2.status == 'unsubmitted' && (
                 <>
                   <div className='gender-input'>
                     Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

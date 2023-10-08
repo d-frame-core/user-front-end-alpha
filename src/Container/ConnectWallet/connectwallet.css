@@ -1,16 +1,18 @@
-.connectwallet{
+.connectwallet {
     position: absolute;
-    top:50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
-.cwtitle{
+
+.cwtitle {
     font-size: 7vh;
     font-weight: 600;
     color: #000;
 }
-.cwlogin{
+
+.cwlogin {
     font-size: 6vh;
     font-weight: 500;
     color: #000;

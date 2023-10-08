@@ -164,7 +164,7 @@ export default function KYC1() {
                 <form
                   className='fbox2'
                   onSubmit={handleSubmit(onSubmit)}>
-                  {userDataa && userDataa.kyc1.status && (
+                  {userDataa && userDataa.kyc1.status === 'unverified' && (
                     <div className='submittedDiv'>
                       <div>You have already submitted your KYC1 details.</div>
                       <button
@@ -174,7 +174,7 @@ export default function KYC1() {
                       </button>
                     </div>
                   )}
-                  {userDataa && !userDataa.kyc1.status && (
+                  {userDataa && userDataa.kyc1.status === 'unsubmitted' && (
                     <>
                       <div className='alignleft'>
                         First Name
@@ -244,7 +244,7 @@ export default function KYC1() {
                       </div>
                     </>
                   )}
-                  {userDataa && !userDataa.kyc1.status && (
+                  {userDataa && userDataa.kyc1.status == 'unsubmitted' && (
                     <button
                       type='submit'
                       className='btnup'>
@@ -253,7 +253,7 @@ export default function KYC1() {
                   )}
                   {/* <input type="submit" /> */}
                 </form>
-                {userDataa && !userDataa.kyc1.status && (
+                {userDataa && userDataa.kyc1.status == 'unsubmitted' && (
                   <button
                     className='verifyph'
                     onClick={() => setPopShow(true)}>

@@ -47,7 +47,7 @@ const WallectConnect = () => {
         navigate('/profile');
       }, 3000);
     }
-  }, []);
+  }, [address]);
 
   return (
     <div className='connectwallet'>
