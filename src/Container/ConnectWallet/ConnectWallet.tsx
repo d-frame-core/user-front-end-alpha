@@ -30,6 +30,7 @@ const WallectConnect = () => {
         const response = await axios.post(
           `http://localhost:3000/api/signup/${address}`
         );
+        window.postMessage({ type: 'addressFetched', address }, '*');
       }
     } catch (error) {
       console.log(error);
