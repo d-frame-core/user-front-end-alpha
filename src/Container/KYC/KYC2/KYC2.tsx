@@ -42,7 +42,6 @@ interface IFormInput {
   pincode: string;
   dob: Date;
   annualIncome: string;
-  permanentAddress: string;
 }
 
 const defaultValues = {
@@ -55,7 +54,6 @@ const defaultValues = {
   pincode: '',
   dob: new Date(),
   annualIncome: '',
-  permanentAddress: '',
 };
 
 export default function KYC2() {
@@ -84,7 +82,6 @@ export default function KYC2() {
       data.country.length < 1 ||
       !data.dob ||
       data.doorno.length < 1 ||
-      data.permanentAddress.length < 1 ||
       data.state.length < 1 ||
       data.street.length < 1 ||
       data.pincode.length < 1
@@ -205,7 +202,7 @@ export default function KYC2() {
                       />
                     </div>
                   </div>
-                  <div className='ktext9'>
+                  <div className='ktext7'>
                     Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                     <div className='date-picker'>
@@ -216,7 +213,7 @@ export default function KYC2() {
                       />
                     </div>
                   </div>
-                  <div className='ktext10'>
+                  <div className='ktext9'>
                     Annual Income &nbsp; &nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                     <div className='i select-gender'>
@@ -227,17 +224,6 @@ export default function KYC2() {
                       />
                     </div>
                   </div>
-                  <div className='ktext7'>
-                    Permanent Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                    <div className='i address-label'>
-                      <FormInputText
-                        name='permanentAddress'
-                        control={control}
-                        label='Address'
-                      />
-                    </div>
-                  </div>
-
                   <div className='ktext8'>
                     Pincode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

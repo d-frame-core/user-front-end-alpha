@@ -465,7 +465,13 @@ function Profile() {
               <a className='pr'>Address</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa && (userDataa as any)?.address.data}
+                {userDataa && (userDataa as any)?.address.data.length > 5
+                  ? userDataa.address.data
+                  : userDataa.kyc2.details.city +
+                    ' ' +
+                    userDataa.kyc2.details.state +
+                    ' ' +
+                    userDataa.kyc2.details.country}
                 <a
                   onClick={() => {
                     setPopShow1(true);
