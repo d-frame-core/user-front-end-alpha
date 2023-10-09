@@ -217,12 +217,6 @@ function Profile() {
         .then(async (res) => {
           console.log('PRINTING ADDRESS', res.data.user.publicAddress);
           setUserData(res.data.user);
-          window.postMessage(
-            { type: 'addressFetched', address: res.data.user.publicAddress },
-            '*'
-          );
-          setAddress1(res.data.user.address1.data);
-          setAddress2(res.data.user.address2.data);
           localStorage.setItem('userToken', res.data.token);
           setUserToken(res.data.token);
           localStorage.setItem(

@@ -125,6 +125,7 @@ export default function KYC1() {
   };
   const verifyOtp = (e: any) => {
     e.preventDefault();
+    toast.loading('Verifying OTP', { id: '5' });
 
     let confirmationResult = (window as any).confirmationResult;
 
@@ -133,14 +134,18 @@ export default function KYC1() {
       .then((result: any) => {
         // User signed in successfully.
         const user = result.user;
-        console.log('it is working');
+        toast.success('Verified OTP', { id: '5' });
         setPopShow(false);
         // setDis(false);
         // ...
+        setTimeout(() => {
+          toast.remove();
+        }, 1000);
       })
       .catch((error: any) => {
         // User couldn't sign in (bad verification code?)
         // ...
+        toast.error('Error verifying code', { id: '5' });
       });
   };
 
@@ -288,7 +293,7 @@ export default function KYC1() {
                       name='phoneNumber'
                       type='tel'
                       value={number}
-                      readOnly={true}
+                      onChange={(e: any) => setnumber(e.target.value)}
                     />
                   </a>
                   <button
