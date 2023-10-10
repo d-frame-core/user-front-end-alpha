@@ -1,9 +1,26 @@
-const analyticsdata: any[]=[
-    { name: "YouTube",time1: 40,per: '22%',long: '117 minutes',long1:117,col:'#361495' },
-  { name: "Netflix",time1: 32,per: '18%',long: '112 minutes',long1:112,col:"#7518A1"},
-  { name: "Codechef",time1: 28,per: '17%',long: '108 minutes',long1:108,col:"#017EFA"},
-  { name: "Flipkart",time1: 25,per: '13%' ,long: '98 minutes',long1:98,col:'#0B3B82'},
-  { name: "Team",time1: 25,per: '12%',long: '74 minutes',long1:74,col:'#6D3277'},
-  { name: "TATA NEU",time1: 18,per: '10%' ,long: '69 minutes',long1:69,col:'#f23384'}
+/** @format */
+
+const analyticsdata: any[] = [
+  { name: 'YouTube', visits: 40 },
+  {
+    name: 'Netflix',
+    visits: 32,
+  },
+  {
+    name: 'Codechef',
+    visits: 28,
+  },
+  {
+    name: 'Flipkart',
+    visits: 25,
+  },
+  {
+    name: 'Team',
+    visits: 25,
+  },
+  {
+    name: 'TATA NEU',
+    visits: 18,
+  },
 ];
 export default analyticsdata;
