@@ -56,7 +56,7 @@ export default function Permission() {
           getUserDetails();
         });
 
-      // You can display a success message or redirect the user as needed
+      // You can display a succesFs message or redirect the user as needed
     } catch (error) {
       console.error('Error updating permissions:', error);
       toast.error('Error Updating permissions', { id: '1' });
@@ -126,7 +126,7 @@ export default function Permission() {
               />
             </a>
             <a>
-              Cookies<a className='percol'>:</a>
+              Browser Data<a className='percol'>:</a>
               <FormControlLabel
                 className='pertog'
                 control={
@@ -139,48 +139,7 @@ export default function Permission() {
                 label=''
               />
             </a>
-            <a>
-              Call Data Sharing<a className='percol'>:</a>
-              <FormControlLabel
-                className='pertog'
-                control={
-                  <Switch
-                    name='callDataSharing'
-                    checked={formData.callDataSharing}
-                    onChange={handleChange}
-                  />
-                }
-                label=''
-              />
-            </a>
-            <a>
-              Email Sharing<a className='percol'>:</a>
-              <FormControlLabel
-                className='pertog'
-                control={
-                  <Switch
-                    name='emailSharing'
-                    checked={formData.emailSharing}
-                    onChange={handleChange}
-                  />
-                }
-                label=''
-              />
-            </a>
-            <a>
-              Notification<a className='percol'>:</a>
-              <FormControlLabel
-                className='pertog'
-                control={
-                  <Switch
-                    name='notification'
-                    checked={formData.notification}
-                    onChange={handleChange}
-                  />
-                }
-                label=''
-              />
-            </a>
+
             <a>
               Storage Option<a className='percol'>:</a>
               <FormControl>
@@ -204,6 +163,33 @@ export default function Permission() {
               </FormControl>
             </a>
             <a>
+              CallData Sharing<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                disabled
+                control={<Switch />}
+                label='(In&nbsp;Progress)'
+              />
+            </a>
+            <a>
+              Email Sharing<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                disabled
+                control={<Switch />}
+                label='(In&nbsp;Progress)'
+              />
+            </a>
+            <a>
+              Notifications<a className='percol'>:</a>
+              <FormControlLabel
+                className='pertog'
+                disabled
+                control={<Switch />}
+                label='(In&nbsp;Progress)'
+              />
+            </a>
+            <a>
               Devices<a className='percol'>:</a>
               <FormControlLabel
                 className='pertog'
@@ -212,7 +198,6 @@ export default function Permission() {
                 label='(In&nbsp;Progress)'
               />
             </a>
-
             <button
               onClick={handlesubmit}
               type='submit'

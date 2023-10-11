@@ -505,7 +505,7 @@ function Profile() {
               </a>
             </div>
             <div>
-              <a className='pr'>Refferel Code</a>
+              <a className='pr'>Referral Code</a>
               <a className='colon1'>:</a>
               {userDataa && userDataa.referralCode ? (
                 <div className='prfont1'>

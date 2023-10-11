@@ -89,15 +89,15 @@ export default function KYC2() {
       toast.error('Fill all fields');
       return;
     }
-    toast.loading('Submitting KYC2 Data', { id: '1' });
+    toast.loading('Submitting KYC level 2', { id: '1' });
     axios
       .patch(`http://localhost:3000/api/kyc2/${userDataa.publicAddress}`, data)
       .then((res) => {
-        toast.success('Submitted KYC2 Data Succesfully', { id: '1' });
+        toast.success('Submitted KYC level 2 Succesfully', { id: '1' });
         console.log(res);
       })
       .catch((error) => {
-        toast.error('Error Submitting KYC2 Data', { id: '1' });
+        toast.error('Error Submitting KYC level 2', { id: '1' });
         console.log(error);
       });
     setTimeout(() => {
@@ -191,8 +191,7 @@ export default function KYC2() {
                     </div>
                   </div>
                   <div className='ktext6'>
-                    House no &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    House number &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;:
                     <div className='doin'>
                       <FormInputText

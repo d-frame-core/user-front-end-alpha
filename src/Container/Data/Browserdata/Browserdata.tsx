@@ -79,7 +79,9 @@ function Browserdata() {
       <>{Sidebar1(8)}</>
       <Header />
       <a className='smopen'>{Drawer(8)}</a>
-      <div className='arm'>
+      <div
+        className='arm'
+        style={{ cursor: 'pointer' }}>
         <Box
           className={toggleState1 === 9 ? 'bract' : 'brnot'}
           onClick={() => toggleTab1(9)}>
@@ -104,13 +106,9 @@ function Browserdata() {
         <a
           href='#'
           onClick={Open}
-          style={{ textDecoration: 'none', color: '#017EFA' }}>
-          <InfoOutlinedIcon
-            className='icon'
-            onMouseEnter={() => setHoverOpen(true)}
-            onMouseLeave={() => setHoverOpen(false)}
-          />
-          {hoverOpen && <p className={o}>Privacy Policy</p>}
+          style={{ textDecoration: 'none', color: '#017EFA' }}
+          title='Privacy Policy'>
+          <InfoOutlinedIcon className='icon' />
         </a>
       </div>
       <Box className='brrect2'>
