@@ -1,7 +1,7 @@
 /** @format */
 
 import { Box, Container, Divider } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Sidebar1 from '../../components/sidebar1/Sidebar1';
 import './wallet.css';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -13,8 +13,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useAccount } from 'wagmi';
 import Web3 from 'web3';
 import toast from 'react-hot-toast';
+import { MyContext } from '../../components/context/Context';
 
 export default function Wallet() {
+  const { userDataa, setUserData, image, setImage, setUserToken } =
+    useContext(MyContext);
   const [dftCA, setdftCA] = useState<any>('');
   const [walletBalance, setWalletBalance] = useState<any>('');
   const [walletToSendDFT, setWalletToSendDFT] = useState<any>('');
@@ -33,7 +36,10 @@ export default function Wallet() {
     const web3 = new Web3(
       'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
     );
-    const _walletAddress = address;
+    const _walletAddress =
+      userDataa.publicAddress ||
+      localStorage.getItem('userPublicAddress') ||
+      address;
     // set the contract address of the DFT token
     const dframeAddress = '0x0B6163c61D095b023EC3b52Cc77a9099f6231FCC';
 
@@ -321,7 +327,10 @@ export default function Wallet() {
     const web3 = new Web3((window as any).ethereum);
 
     // set the wallet address to query
-    const _walletAddress = address.toString();
+    const _walletAddress =
+      userDataa.publicAddress ||
+      localStorage.getItem('userPublicAddress') ||
+      address;
     // set the contract address of the DFRAME token
     const dframeAddress = '0x0B6163c61D095b023EC3b52Cc77a9099f6231FCC';
 
@@ -626,7 +635,10 @@ export default function Wallet() {
     const web3 = new Web3(
       'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
     );
-    const _walletAddress = address.toString();
+    const _walletAddress =
+      userDataa.publicAddress ||
+      localStorage.getItem('userPublicAddress') ||
+      address;
     // set the contract address of the DFT token
     const dframeAddress = '0x0B6163c61D095b023EC3b52Cc77a9099f6231FCC';
 

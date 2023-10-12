@@ -280,7 +280,7 @@ function Profile() {
       setTimeout(() => {
         toast.remove();
         fetchImage();
-      }, 1000);
+      }, 700);
     }
   };
 
