@@ -57,7 +57,7 @@ const WallectConnect = () => {
         alt='dframe'
       />
       <div>
-        <h1 className='cwtitle'>Welcome to DFrame</h1>
+        <h1 className='cwtitle'>Welcome to D Frame</h1>
       </div>
       <div className='cwlogin'>Connect Wallet to Login</div>
       <Web3Button />

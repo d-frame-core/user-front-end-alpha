@@ -152,12 +152,12 @@ export default function Permission() {
                   <FormControlLabel
                     value='GCP'
                     control={<Radio />}
-                    label='GCP'
+                    label='Google Cloud'
                   />
                   <FormControlLabel
                     value='IPFS'
                     control={<Radio />}
-                    label='IPFS'
+                    label='Blockchain'
                   />
                 </RadioGroup>
               </FormControl>

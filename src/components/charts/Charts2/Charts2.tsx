@@ -20,6 +20,7 @@ import './chart2.css';
 //declaring the colors for the chart
 const COLORS = [
   '#361495',
+  '#c71585',
   '#7518A1',
   '#017EFA',
   '#0B3B82',
@@ -28,13 +29,12 @@ const COLORS = [
   '#002147',
   '#551a8b',
   '#003366',
-  '#f5f5dc',
-  '#c71585',
   '#702963',
+  '#f5f5dc',
 ];
 const style = {
   top: '4vh',
-  right: '0vw',
+  right: '-2vw',
   lineHeight: '34px',
 };
 const RADIAN = Math.PI / 180;
@@ -47,7 +47,6 @@ export default function Charts2(
   wid: number,
   legendbool: boolean
 ) {
-  console.log('indata', indata);
   return (
     <PieChart
       width={wid}

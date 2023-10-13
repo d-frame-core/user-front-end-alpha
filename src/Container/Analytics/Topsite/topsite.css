@@ -1,4 +1,4 @@
-.tsbox1{
+.tsbox1 {
     position: absolute;
     min-height: 55vh;
     width: 74vw;
@@ -7,7 +7,8 @@
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
     border-radius: 10px;
 }
-.tsbox2{
+
+.tsbox2 {
     position: absolute;
     text-align: left;
     font-size: 3vh;
@@ -19,168 +20,193 @@
     background: linear-gradient(180deg, rgba(227, 218, 246, 0.6) 0%, rgba(227, 218, 246, 0.6) 100%);
 }
 
-.tschart{
+.tschart {
     position: absolute;
-    width: 68vw;
-    top:6vh;
-    left: 3vw;
-    z-index: 1;
+    width: 90vw;
+    top: 6vh;
+
     background-color: white;
 }
-.list{
+
+.list {
     position: relative;
     left: 5vw;
     font-size: 3.5vh;
 }
-.space{
+
+.space {
     position: absolute;
-   left: 30vw;
+    left: 30vw;
 }
-.top1{
+
+.top1 {
     position: absolute;
     top: 9vh;
     left: 16vw;
     min-width: 84vw;
     height: 7vh;
-    background-color:#0A194E ;
+    background-color: #0A194E;
 }
-.tab1{
+
+.tab1 {
     position: absolute;
     width: 41vw;
-    left:0vw;
+    left: 0vw;
     padding: 1vh;
-    background-color:#0A194E;
-   height: 5vh;
+    background-color: #0A194E;
+    height: 5vh;
     font-size: 3vh;
     color: white;
-    
+
 }
-.tab2{
+
+.tab2 {
     position: absolute;
     top: 0vh;
     right: 3px;
     width: 41vw;
     padding: 1vh;
     height: 5vh;
-    background-color:#0A194E ;
+    background-color: #0A194E;
     font-size: 3vh;
     color: white;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
 }
-.tab1active{
+
+.tab1active {
     position: absolute;
     left: 2px;
     bottom: 0px;
     width: 41vw;
     padding: 1vh;
-    background-color:white;
-    height: 65%;    font-size: 3vh;
+    background-color: white;
+    height: 65%;
+    font-size: 3vh;
     color: black;
     border-top-left-radius: 1vh;
     border-top-right-radius: 1vh;
     z-index: 1;
 }
-.tab2active{
+
+.tab2active {
     position: absolute;
     bottom: 0px;
     right: 2px;
     width: 41vw;
     padding: 1vh;
     height: 65%;
-    background-color:white ;
+    background-color: white;
     font-size: 3vh;
     color: black;
     border-top-left-radius: 1vh;
     z-index: 1;
     border-top-right-radius: 1vh;
 }
+
 @media only screen and (max-width:1200px) {
-    .tschart{
+    .tschart {
         left: 5vw;
         width: 64vw;
         height: 45vh;
-        
+
     }
 }
+
 @media only screen and (max-width:1100px) {
-    .sdbox1{
+    .sdbox1 {
         left: 18vw;
         width: 80vw;
     }
-    .tschart{
+
+    .tschart {
         left: 4vw;
         width: 72vw;
         height: 45vh;
-        
+
     }
 
 }
+
 @media only screen and (max-width:1000px) {
-    .tsbox1{
+    .tsbox1 {
         left: 23vw;
     }
-    
-    .top1{
+
+    .top1 {
         width: 80vw;
         left: 20vw;
     }
-    .tab1{
+
+    .tab1 {
         width: 38vw;
     }
-    .tab1active{
+
+    .tab1active {
         width: 38vw;
     }
-    .tab2{
+
+    .tab2 {
         width: 38vw;
     }
-    .tab2active{
+
+    .tab2active {
         width: 38vw;
     }
-    .tschart{
+
+    .tschart {
         width: 70vw;
         left: -5vw;
-       background-color: transparent;
+        background-color: transparent;
     }
-    
+
 }
+
 @media only screen and (max-width:770px) {
-    .top1{
+    .top1 {
         width: 100vw;
         left: 0vw;
     }
-    .tab1{
+
+    .tab1 {
         width: 48vw;
     }
-    .tab1active{
+
+    .tab1active {
         width: 47vw;
     }
-    .tab2{
+
+    .tab2 {
         width: 48vw;
     }
-    .tab2active{
+
+    .tab2active {
         width: 47vw;
     }
-    .tsbox1{
+
+    .tsbox1 {
         width: 70vw;
         left: 28vw;
     }
 }
+
 @media only screen and (max-width:670px) {
-    .tschart{
+    .tschart {
         left: -9vw;
-        
+
     }
 }
+
 @media only screen and (max-width:570px) {
-    .tschart{
+    .tschart {
         left: -14vw;
-        
+
     }
 }
+
 @media only screen and (max-width:500px) {
-    .tschart{
+    .tschart {
         left: -22vw;
-        
+
     }
 }
