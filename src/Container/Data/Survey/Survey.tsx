@@ -144,8 +144,18 @@ export default function Survey() {
       <div className='surbox1'>
         <a className='stext1'>Survey</a>
       </div>
+      <div
+        style={{
+          fontSize: '5vh',
+          marginTop: '2vh',
+          position: 'absolute',
+          top: '25vh',
+          left: '85vh',
+        }}>
+        Will be released soon
+      </div>
       <div>
-        <div className='surect1'>
+        {/* <div className='surect1'>
           <p className='surtext2'>{newqs[arrayIndex].qs1}</p>
           <button
             className='subtn1'
@@ -401,7 +411,7 @@ export default function Survey() {
             sx={{ textTransform: 'inherit' }}>
             Close
           </Button>
-        </Backdrop>
+        </Backdrop> */}
       </div>
     </div>
   );

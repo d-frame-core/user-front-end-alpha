@@ -34,7 +34,7 @@ export default function Wallet() {
 
   async function getBalance() {
     const web3 = new Web3(
-      'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
+      'https://polygon-mainnet.g.alchemy.com/v2/nHyM53VqfExPfPNYL5VLT1urCiUOunq_'
     );
     const _walletAddress =
       userDataa.publicAddress ||
@@ -633,7 +633,7 @@ export default function Wallet() {
     // initialize the Web3 provider
     setLoadingTransactions(true);
     const web3 = new Web3(
-      'https://polygon-mainnet.g.alchemy.com/v2/Ygfvgz118Xr9j6j_F3ZIMFye6SNTgJr8'
+      'https://polygon-mainnet.g.alchemy.com/v2/nHyM53VqfExPfPNYL5VLT1urCiUOunq_'
     );
     const _walletAddress =
       userDataa.publicAddress ||

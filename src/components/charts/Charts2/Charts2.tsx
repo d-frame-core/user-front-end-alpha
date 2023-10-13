@@ -34,7 +34,7 @@ const COLORS = [
 ];
 const style = {
   top: '4vh',
-  right: '-2vw',
+  right: '-4.2vw',
   lineHeight: '34px',
 };
 const RADIAN = Math.PI / 180;
