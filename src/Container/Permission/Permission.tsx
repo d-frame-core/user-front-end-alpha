@@ -163,7 +163,7 @@ export default function Permission() {
               </FormControl>
             </a>
             <a>
-              CallData Sharing<a className='percol'>:</a>
+              Call Data Sharing<a className='percol'>:</a>
               <FormControlLabel
                 className='pertog'
                 disabled

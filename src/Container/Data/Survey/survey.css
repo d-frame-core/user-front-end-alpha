@@ -6,22 +6,23 @@
   left: 24vw;
   border-radius: 1.1vh;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(227, 218, 246, 0.6) 0%,
-    rgba(227, 218, 246, 0.6) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(227, 218, 246, 0.6) 0%,
+      rgba(227, 218, 246, 0.6) 100%);
 }
+
 .stext1 {
   position: relative;
   font-size: 5vh;
-    left: -24vw;
-    top: 3vh;
+  left: -24vw;
+  top: 3vh;
   font-weight: 600;
 }
+
 .surectangle {
   display: flex;
 }
+
 .surect1 {
   position: absolute;
   height: 20.7vh;
@@ -33,6 +34,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
 }
+
 .surtext2 {
   position: relative;
   top: 2vh;
@@ -45,7 +47,7 @@
   width: 23vw;
   top: 18vh;
   left: 67vw;
-  
+
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -76,6 +78,7 @@
   border: none;
   border-radius: 1.1vh;
   background: #b26fff;
+  cursor: pointer;
   color: #ffffff;
   z-index: 2;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -89,6 +92,7 @@
   left: 16vw;
   border: none;
   font-size: 2.4vh;
+  cursor: pointer;
   border-radius: 1.1vh;
   background: #017efa;
   color: #ffffff;
@@ -122,6 +126,7 @@
   font-weight: 700;
   z-index: 4;
 }
+
 .surbtn2 {
   position: absolute;
   height: 2vh;
@@ -132,6 +137,7 @@
   font-weight: 500;
   z-index: 4;
 }
+
 .surbtn3 {
   position: absolute;
   height: 2vh;
@@ -142,21 +148,24 @@
   font-weight: 500;
   z-index: 4;
 }
-.surtitle{
+
+.surtitle {
   position: absolute;
   top: 0vh;
   left: 13vw;
   font-size: 4vh;
   font-weight: 500;
 }
+
 .insurtext {
   position: absolute;
-  left:5vw;
+  left: 5vw;
   top: 14vh;
   font-size: 21px;
   font-weight: 500;
   margin: auto;
 }
+
 .insurbtn1 {
   position: absolute;
   height: 5vh;
@@ -171,6 +180,7 @@
   z-index: 2;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 .insurbtn2 {
   position: absolute;
   height: 5vh;
@@ -185,16 +195,18 @@
   z-index: 2;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-.insurper{
+
+.insurper {
   position: absolute;
-  left:23vw;
-  top:44vh;
+  left: 23vw;
+  top: 44vh;
   font-size: 25px;
 }
-.closeButton{
+
+.closeButton {
   position: absolute;
-  top:26vh;
-  left:25vw;
+  top: 26vh;
+  left: 25vw;
   background-color: #017efa;
   justify-content: center;
   align-items: center;
@@ -212,36 +224,43 @@
   border-radius: 1vh;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 .survey {
   position: absolute;
   margin-left: 1vw;
   margin-top: 1vh;
 }
+
 .dft {
   position: absolute;
   margin-left: 10vw;
   margin-top: 1vh;
   color: #1b2b65;
 }
+
 .datafrom {
   position: relative;
   top: 1vh;
   left: -8vw;
 }
+
 .sitename {
   position: relative;
   top: 6.5vh;
   left: -4vw;
 }
+
 .noques {
   position: relative;
   top: -50%;
   left: 26%;
 }
+
 .d {
   padding: 2vh;
   font-size: 3vh;
 }
+
 .option1 {
   display: flex;
   flex-direction: column;
@@ -249,122 +268,148 @@
   position: relative;
 }
 
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:1000px) {
   .stext1 {
     position: relative;
     font-size: 5vh;
     left: -24vw;
     top: 3vh;
-   
-  
+
+
   }
-  .subtn1{
+
+  .subtn1 {
     width: 6vw;
   }
-  .subtn2{
+
+  .subtn2 {
     width: 6vw;
   }
-  .surect2{
+
+  .surect2 {
     width: 28vw;
     left: 62vw;
   }
-  .surect3{
+
+  .surect3 {
     left: 62vw;
     width: 28vw;
   }
-  .databox{
+
+  .databox {
     width: 24vw;
   }
-  .datafrom{
+
+  .datafrom {
     left: -10vw;
   }
-  .dft{
+
+  .dft {
     left: 4vw;
   }
-  .sitename{
+
+  .sitename {
     left: -4vw;
   }
-  .subtn3{
+
+  .subtn3 {
     left: 11vw;
     width: 6vw;
   }
-  .surbtn1{
+
+  .surbtn1 {
     left: 64vw;
   }
-  .surbtn2{
+
+  .surbtn2 {
     left: 54vw;
   }
-  .surbtn3{
+
+  .surbtn3 {
     left: 44vw;
   }
 }
 
-@media only screen and (max-width:770px){
-  .stext1{
+@media only screen and (max-width:770px) {
+  .stext1 {
     top: 1vh;
-   left: 0vw;
-   
+    left: 0vw;
+
   }
-  .surbox1{
+
+  .surbox1 {
     height: 130vh;
     width: 86vw;
     left: 7vw;
   }
-  .surect1{
+
+  .surect1 {
     top: 50vh;
     left: 20vw;
     width: 60vw;
   }
-  .surect2{
+
+  .surect2 {
     text-align: center;
     top: 25vh;
     left: 20vw;
     width: 60vw;
   }
-  .surect3{
+
+  .surect3 {
     top: 80vh;
     left: 20vw;
     width: 60vw;
   }
-  .subtn1{
+
+  .subtn1 {
     left: 10vw;
     width: 10vw;
   }
-  .subtn2{
+
+  .subtn2 {
     left: 40vw;
     width: 10vw;
   }
- 
-  .databox{
+
+  .databox {
     left: 5vw;
     width: 50vw;
   }
-  .datafrom{
+
+  .datafrom {
     left: -20vw;
   }
-  .dft{
+
+  .dft {
     left: 20vw;
   }
-  .sitename{
+
+  .sitename {
     left: -10vw;
   }
-  .subtn3{
+
+  .subtn3 {
     left: 22vw;
     width: 10vw;
   }
-  .surbtn1{
+
+  .surbtn1 {
     left: 64vw;
     visibility: hidden;
   }
-  .surbtn2{
+
+  .surbtn2 {
     left: 54vw;
     visibility: hidden;
   }
-  .surbtn3{
+
+  .surbtn3 {
     left: 44vw;
     visibility: hidden;
   }
-  .surtext1{
+
+  .surtext1 {
     text-align: center;
     left: 50%;
   }

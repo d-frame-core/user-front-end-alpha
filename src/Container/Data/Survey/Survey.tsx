@@ -110,7 +110,7 @@ export default function Survey() {
 
   const optionClicked = () => {
     setDFT(dft + 1);
-    setArrayIndex(arrayIndex + 1);
+    setArrayIndex((arrayIndex % 5) + 1);
   };
 
   const optionClicked1 = () => {
@@ -144,18 +144,8 @@ export default function Survey() {
       <div className='surbox1'>
         <a className='stext1'>Survey</a>
       </div>
-      <div
-        style={{
-          fontSize: '5vh',
-          marginTop: '2vh',
-          position: 'absolute',
-          top: '25vh',
-          left: '85vh',
-        }}>
-        Will be released soon
-      </div>
       <div>
-        {/* <div className='surect1'>
+        <div className='surect1'>
           <p className='surtext2'>{newqs[arrayIndex].qs1}</p>
           <button
             className='subtn1'
@@ -174,7 +164,7 @@ export default function Survey() {
           <p>Total DFT Earned &emsp;&emsp;&emsp; {dft}</p>
         </div>
 
-        <Box className='surect3'>
+        {/* <Box className='surect3'>
           <div text-align='left'>
             <h3>More Surveys</h3>
           </div>
@@ -198,9 +188,9 @@ export default function Survey() {
             </div>
             <button className='subtn3'>More</button>
           </Box>
-        </Box>
+        </Box> */}
 
-        <Button
+        {/* <Button
           onClick={handleOpen1}
           className='surbtn1'
           sx={{ textTransform: 'inherit', color: 'black' }}>
@@ -215,16 +205,16 @@ export default function Survey() {
               return (
                 <div>
                   <h1 className='surtitle'>Amazon Survey</h1>
-                  <p className='insurtext'>{Survey1[arrayIndex1].qs1}</p>
+                  <p className='insurtext'>{item.qs1}</p>
                   <button
                     className='insurbtn1'
                     onClick={optionClicked1}>
-                    {Survey1[arrayIndex1].an1}
+                    {item.an1}
                   </button>
                   <button
                     className='insurbtn2'
                     onClick={optionClicked1}>
-                    {Survey1[arrayIndex1].an2}
+                    {item.an2}
                   </button>
                 </div>
               );

@@ -224,36 +224,46 @@ function Rewards() {
       <a className='smopen'>{Drawer(4)}</a>
       <div className='rewtitle'>Rewards</div>
       <Box className='rewcont'>
-        <div style={{ fontSize: '5vh', marginTop: '2vh' }}>
-          Will be released soon
+        <div className='ltext2'>4300</div>
+
+        <a className='rewhead'>Total Rewards Earning in DFT</a>
+
+        <div className='linechart'>
+          <>{Linechart(ab, linehi, linewi)}</>
         </div>
-        {/* 
-      <div className='ltext2'>4300</div>
 
-      <a className="rewhead">Total Rewards Earning in DFT</a>
-      
-      <div className='linechart'><>{Linechart(ab,linehi,linewi)}</></div>
+        <ButtonGroup
+          className='rewtabs'
+          size='small'
+          variant='text'
+          aria-label='text button group'
+          sx={{ '.MuiButton-text': { color: '#000000' } }}>
+          <Button onClick={() => toggleTab(3)}>Daily</Button>
+          <Button onClick={() => toggleTab(4)}>Weekly</Button>
+          <Button onClick={() => toggleTab(5)}>Monthly</Button>
+        </ButtonGroup>
 
-      <ButtonGroup  className='rewtabs' size='small' variant="text" aria-label='text button group' sx={{".MuiButton-text":{color:'#000000'}}} >
-        <Button onClick={()=> toggleTab(3)}>Daily</Button>
-        <Button onClick={()=> toggleTab(4)}>Weekly</Button>
-        <Button onClick={()=> toggleTab(5)}>Monthly</Button> 
-      </ButtonGroup>
-
-      <Box className='rerect'>
-      <Box className='redbox'>
-      <span> {
-           rewarddata.map(item=>{
-              return (<>
-              <div className='rgap'>
-              {item.name}
-              <a className='rgap1'>{item.value}{item.long}</a>
-              </div>
-             <Divider/></> );
-            })
-            }</span>
-      </Box>
-      </Box> */}
+        <Box className='rerect'>
+          <Box className='redbox'>
+            <span>
+              {' '}
+              {rewarddata.map((item) => {
+                return (
+                  <>
+                    <div className='rgap'>
+                      {item.name}
+                      <a className='rgap1'>
+                        {item.value}
+                        {item.long}
+                      </a>
+                    </div>
+                    <Divider />
+                  </>
+                );
+              })}
+            </span>
+          </Box>
+        </Box>
       </Box>
     </div>
   );
