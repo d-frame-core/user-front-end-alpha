@@ -173,9 +173,12 @@ function Profile() {
           },
         };
         axios
-          .patch(`http://localhost:3000/api/users/detail/${address}`, {
-            phoneNumber: String(updatedPhoneNumber),
-          })
+          .patch(
+            `https://user-backend-402016.el.r.appspot.com/user/api/users/detail/${address}`,
+            {
+              phoneNumber: String(updatedPhoneNumber),
+            }
+          )
           .then((response: any) => {
             console.log(response);
             setUpdatedField({});
@@ -198,9 +201,12 @@ function Profile() {
         const user = result.user;
         setgmail(user.email);
         axios
-          .patch(`http://localhost:3000/api/users/detail/${address}`, {
-            email: String(user.email),
-          })
+          .patch(
+            `https://user-backend-402016.el.r.appspot.com/user/api/users/detail/${address}`,
+            {
+              email: String(user.email),
+            }
+          )
           .then((result) => console.log(result))
           .catch((err) => console.log(err));
       })
@@ -213,7 +219,9 @@ function Profile() {
   async function getUserDetails() {
     try {
       await axios
-        .get(`http://localhost:3000/api/user/${address}`)
+        .get(
+          `https://user-backend-402016.el.r.appspot.com/user/api/user/${address}`
+        )
         .then(async (res) => {
           console.log('PRINTING ADDRESS', res.data.user.publicAddress);
           setUserData(res.data.user);
@@ -260,11 +268,15 @@ function Profile() {
           userDataa.publicAddress ||
           address;
         await axios
-          .patch(`http://localhost:3000/api/image/${publicAddress}`, formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
-          })
+          .patch(
+            `https://user-backend-402016.el.r.appspot.com/user/api/image/${publicAddress}`,
+            formData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+            }
+          )
           .then((response) => {
             console.log(response);
             toast.success('Uploaded Image Succesfully', { id: '1' });
@@ -292,7 +304,7 @@ function Profile() {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/image/${publicAddress}`,
+        `https://user-backend-402016.el.r.appspot.com/user/api/image/${publicAddress}`,
         {
           responseType: 'blob',
         }
@@ -323,11 +335,15 @@ function Profile() {
         address;
       // Send a POST request to the backend to upload the images
       await axios
-        .post(`http://localhost:3000/api/address/${publicAddress}`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
+        .post(
+          `https://user-backend-402016.el.r.appspot.com/user/api/address/${publicAddress}`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        )
         .then((res) => {
           toast.success('Uploaded Address Proof', { id: '4' });
           setPopShow1(false);
@@ -526,7 +542,7 @@ function Profile() {
                       toast.loading('Updating Referral Code', { id: '7' });
                       await axios
                         .patch(
-                          `http://localhost:3000/api/referral/${userDataa.publicAddress}`,
+                          `https://user-backend-402016.el.r.appspot.com/user/api/referral/${userDataa.publicAddress}`,
                           {
                             referralCode: ref,
                           }

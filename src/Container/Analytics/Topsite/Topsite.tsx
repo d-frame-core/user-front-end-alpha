@@ -31,7 +31,9 @@ export default function Topsite() {
       userDataa.publicAddress ||
       address;
     await axios
-      .get(`http://localhost:3000/api/user-data/top-sites/${publicAddress}`)
+      .get(
+        `https://user-backend-402016.el.r.appspot.com/user/api/user-data/top-sites/${publicAddress}`
+      )
       .then((response) => setTopSites(response.data))
       .catch((error) => console.log(error));
   }

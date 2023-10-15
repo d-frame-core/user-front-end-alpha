@@ -39,7 +39,9 @@ export default function SiteByTime() {
       userDataa.publicAddress ||
       address;
     await axios
-      .get(`http://localhost:3000/api/user-data/top-times/${publicAddress}`)
+      .get(
+        `https://user-backend-402016.el.r.appspot.com/user/api/user-data/top-times/${publicAddress}`
+      )
       .then((response) => setTopSites(response.data))
       .catch((error) => console.log(error));
   }
