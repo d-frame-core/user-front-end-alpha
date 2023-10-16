@@ -32,10 +32,17 @@ export default function Topsite() {
       address;
     await axios
       .get(
-        `https://user-backend-402016.el.r.appspot.com/user/api/user-data/top-sites/${publicAddress}`
+        `http://localhost:8080/user/api/user-data/top-sites/${publicAddress}`
       )
-      .then((response) => setTopSites(response.data))
-      .catch((error) => console.log(error));
+      .then((response) => {
+        setTopSites(response.data);
+        console.log('SUCCESFULLY FETCHED TOP SITES');
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log('ERRORR FETCHING TOP SITES');
+        console.log(error);
+      });
   }
   useEffect(() => {
     fetchTopSites();

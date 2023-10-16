@@ -25,6 +25,7 @@ import axios from 'axios';
 import { initializeApp } from 'firebase/app';
 import { MyContext } from '../../components/context/Context';
 import toast from 'react-hot-toast';
+import KYC2 from '../KYC/KYC2/KYC2';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCYpkhlVsy1eO1vVuRNpa6l1CWONEKiXU8',
@@ -51,6 +52,8 @@ function Profile() {
 
   const [address1, setAddress1] = useState<string | null | any>('');
   const [address2, setAddress2] = useState<string | null | any>('');
+
+  const [imageSelected, setImageSelected] = useState(false);
   const [addressProof2File, setAddressProof2File] = useState<File | null>(null);
 
   authentication.languageCode = 'en';
@@ -60,6 +63,10 @@ function Profile() {
   const [otp, setOtp] = useState('');
 
   const [phonenumber, setPhoneNumber] = useState(countrycode);
+
+  const [profileImage, setProfileImage] = useState<any>('');
+
+  const [userImage, setUserImage] = useState<any>(null);
 
   const [confirmationResult, setConfirmationResult] = useState(null);
 
@@ -173,12 +180,9 @@ function Profile() {
           },
         };
         axios
-          .patch(
-            `https://user-backend-402016.el.r.appspot.com/user/api/users/detail/${address}`,
-            {
-              phoneNumber: String(updatedPhoneNumber),
-            }
-          )
+          .patch(`http://localhost:8080/user/api/users/detail/${address}`, {
+            phoneNumber: String(updatedPhoneNumber),
+          })
           .then((response: any) => {
             console.log(response);
             setUpdatedField({});
@@ -201,12 +205,9 @@ function Profile() {
         const user = result.user;
         setgmail(user.email);
         axios
-          .patch(
-            `https://user-backend-402016.el.r.appspot.com/user/api/users/detail/${address}`,
-            {
-              email: String(user.email),
-            }
-          )
+          .patch(`http://localhost:8080/user/api/users/detail/${address}`, {
+            email: String(user.email),
+          })
           .then((result) => console.log(result))
           .catch((err) => console.log(err));
       })
@@ -219,9 +220,7 @@ function Profile() {
   async function getUserDetails() {
     try {
       await axios
-        .get(
-          `https://user-backend-402016.el.r.appspot.com/user/api/user/${address}`
-        )
+        .get(`http://localhost:8080/user/api/user/${address}`)
         .then(async (res) => {
           console.log('PRINTING ADDRESS', res.data.user.publicAddress);
           setUserData(res.data.user);
@@ -231,7 +230,6 @@ function Profile() {
             'userPublicAddress',
             res.data.user.publicAddress
           );
-          setImage(localStorage.getItem('userProfileImage') || null);
         });
     } catch (error) {
       console.log(error);
@@ -245,124 +243,110 @@ function Profile() {
   }, [address]);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    // e.preventDefault();
     toast.loading('Uploading Image', { id: '1' });
-    const selectedImage = e.target.files?.[0]; // Get the selected image file
-
-    if (selectedImage) {
-      const allowedExtensions = ['jpeg', 'png'];
-      const fileExtension = selectedImage.name.split('.').pop()?.toLowerCase();
-
-      if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
-        // Invalid file type, show an error toast
-        toast.error('Only JPEG and PNG files are supported', { id: '1' });
-        return;
-      }
-      try {
-        // Create a FormData object to send the image file
-        const formData = new FormData();
-        formData.append('image', selectedImage);
-
-        // Send a POST request to your backend to upload the image
-        const publicAddress =
-          localStorage.getItem('userPublicAddress') ||
-          userDataa.publicAddress ||
-          address;
-        await axios
-          .patch(
-            `https://user-backend-402016.el.r.appspot.com/user/api/image/${publicAddress}`,
-            formData,
-            {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
-            }
-          )
-          .then((response) => {
-            console.log(response);
-            toast.success('Uploaded Image Succesfully', { id: '1' });
-          })
-          .catch((error) => {
-            console.log(error);
-            toast.error('Error Uploading Image', { id: '1' });
-          });
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        toast.error('Error Uploading Image', { id: '1' });
-      }
-      setTimeout(() => {
-        toast.remove();
-      }, 1000);
-      fetchImage();
+    const allowedExtensions = ['jpeg', 'png'];
+    const fileExtension = profileImage.name.split('.').pop()?.toLowerCase();
+    console.log('profileImage', profileImage);
+    if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
+      // Invalid file type, show an error toast
+      toast.error('Only JPEG and PNG files are supported', { id: '1' });
+      return;
     }
-  };
-
-  const fetchImage = async () => {
-    const publicAddress =
-      localStorage.getItem('userPublicAddress') ||
-      userDataa.publicAddress ||
-      address;
-
     try {
-      const response = await axios.get(
-        `https://user-backend-402016.el.r.appspot.com/user/api/image/${publicAddress}`,
-        {
-          responseType: 'blob',
-        }
-      );
-
-      const imageUrlObject = URL.createObjectURL(response.data);
-      setImage(imageUrlObject);
-      localStorage.setItem('userProfileImage', imageUrlObject);
-      setImage(imageUrlObject);
-    } catch (error) {
-      console.error(error);
-    }
-    console.log('running fetch image');
-  };
-
-  const handleAddressProof = async (e: any) => {
-    e.preventDefault();
-    toast.loading('Uploading Address Proof', { id: '4' });
-    try {
-      const data = address1 + address2;
-      // Create a FormData object to send the images
       const formData = new FormData();
-      formData.append('image', addressProof2File as any);
-      formData.append('data', address1 + ' ' + ' ' + address2);
+      formData.append('profile-image', profileImage);
+
+      // Send a POST request to your backend to upload the image
       const publicAddress =
         localStorage.getItem('userPublicAddress') ||
         userDataa.publicAddress ||
         address;
-      // Send a POST request to the backend to upload the images
-      await axios
-        .post(
-          `https://user-backend-402016.el.r.appspot.com/user/api/address/${publicAddress}`,
-          formData,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
-          }
-        )
-        .then((res) => {
-          toast.success('Uploaded Address Proof', { id: '4' });
-          setPopShow1(false);
-          setTimeout(() => {
-            toast.remove();
-            getUserDetails();
-          }, 1000);
-        });
+
+      const response = await axios.patch(
+        `http://localhost:8080/user/api/image/${publicAddress}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data', // Set the content type to multipart/form-data
+          },
+        }
+      );
+      toast.success('Uploaded Image', { id: '1' });
+      console.log('Posted Image Details', response.data);
+      getUserDetails();
+      setImageSelected(false);
     } catch (error) {
-      console.error('Error uploading images:', error);
-      toast.error('Error in Uploading Address Proof', { id: '4' });
+      console.error('Error uploading image:', error);
+      toast.error('Error Uploading Image', { id: '1' });
     }
+    setTimeout(() => {
+      toast.remove();
+    }, 1000);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetchImage();
-    }, 1000);
-  }, [userDataa]);
+  // const fetchImage = async () => {
+  //   const publicAddress =
+  //     localStorage.getItem('userPublicAddress') ||
+  //     userDataa.publicAddress ||
+  //     address;
+
+  //   try {
+  //     const response = await axios.get(
+  //       `http://localhost:8080/user/api/image/${publicAddress}`,
+  //       {
+  //         responseType: 'blob',
+  //       }
+  //     );
+
+  //     const imageUrlObject = URL.createObjectURL(response.data);
+  //     setImage(imageUrlObject);
+  //     localStorage.setItem('userProfileImage', imageUrlObject);
+  //     setImage(imageUrlObject);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  //   console.log('running fetch image');
+  // };
+
+  // const handleAddressProof = async (e: any) => {
+  //   e.preventDefault();
+  //   toast.loading('Uploading Address Proof', { id: '4' });
+  //   try {
+  //     const data = address1 + address2;
+  //     // Create a FormData object to send the images
+  //     const formData = new FormData();
+  //     formData.append('image', addressProof2File as any);
+  //     formData.append('data', address1 + ' ' + ' ' + address2);
+  //     const publicAddress =
+  //       localStorage.getItem('userPublicAddress') ||
+  //       userDataa.publicAddress ||
+  //       address;
+  //     // Send a POST request to the backend to upload the images
+  //     await axios
+  //       .post(
+  //         `http://localhost:8080/user/api/address/${publicAddress}`,
+  //         formData,
+  //         {
+  //           headers: {
+  //             'Content-Type': 'multipart/form-data',
+  //           },
+  //         }
+  //       )
+  //       .then((res) => {
+  //         toast.success('Uploaded Address Proof', { id: '4' });
+  //         setPopShow1(false);
+  //         setTimeout(() => {
+  //           toast.remove();
+  //           getUserDetails();
+  //         }, 1000);
+  //       });
+  //   } catch (error) {
+  //     console.error('Error uploading images:', error);
+  //     toast.error('Error in Uploading Address Proof', { id: '4' });
+  //   }
+  // };
+
   return (
     <div>
       <Header />
@@ -376,22 +360,46 @@ function Profile() {
           sx={{ maxWidth: '85%', display: 'flex' }}
           className='prbox1'>
           <div className='prtext1'>Profile</div>
+          {userDataa && (
+            <div className='profileImage'>
+              <img
+                src={
+                  userDataa?.profileImage.toString().length < 3
+                    ? image
+                    : userDataa.profileImage
+                }
+                alt='user'
+                id='profilePicture'
+                className='img'
+              />
+              <input
+                type='file'
+                accept='image/jpeg, image/png'
+                onChange={(e: any) => {
+                  setProfileImage(e.target.files[0]);
+                  setImageSelected(true);
+                }}
+                className='fileInput'
+              />
+            </div>
+          )}
 
-          <div className='profileImage'>
-            <img
-              src={image}
-              alt='user'
-              id='profilePicture'
-              className='img'
-            />
-            <input
-              type='file'
-              accept='image/*'
-              onChange={handleImageUpload}
-              className='fileInput'
-            />
-          </div>
-
+          {imageSelected && (
+            <button
+              onClick={(e: any) => handleImageUpload(e)}
+              style={{
+                position: 'absolute',
+                top: '33vh',
+                left: '8vw',
+                padding: '5px',
+                borderRadius: '10px',
+                cursor: 'pointer',
+                color: 'white',
+                background: '#017EFA',
+              }}>
+              Edit Button
+            </button>
+          )}
           <Container
             maxWidth={false}
             sx={{ display: 'flex' }}
@@ -475,21 +483,10 @@ function Profile() {
               <a className='pr'>Address</a>
               <a className='colon1'>:</a>
               <a className='prfont'>
-                {userDataa && (userDataa as any)?.address.data}
-                <a
-                  onClick={() => {
-                    setPopShow1(true);
-                  }}>
-                  <CreateOutlinedIcon
-                    sx={{
-                      color: '#47B5FF',
-                      top: '4px',
-                      left: '5%',
-                      position: 'relative',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </a>
+                {userDataa &&
+                  (userDataa as any)?.kyc2.details.city +
+                    ' ' +
+                    (userDataa as any)?.kyc2.details.country}
               </a>
             </div>
             {/* <div>
@@ -542,7 +539,7 @@ function Profile() {
                       toast.loading('Updating Referral Code', { id: '7' });
                       await axios
                         .patch(
-                          `https://user-backend-402016.el.r.appspot.com/user/api/referral/${userDataa.publicAddress}`,
+                          `http://localhost:8080/user/api/referral/${userDataa.publicAddress}`,
                           {
                             referralCode: ref,
                           }
@@ -576,46 +573,42 @@ function Profile() {
             maxWidth={false}
             sx={{ maxWidth: '85%', minHeight: '24vh' }}
             className='kycitem'>
-            {userDataa.kyc1.status === 'unsubmitted' &&
-              userDataa.kyc2.status === 'unsubmitted' &&
-              userDataa.kyc3.status === 'unsubmitted' && (
-                <>
-                  <div className='kyctitle'>KYC Verification</div>
-
-                  <p>
-                    This Verification makes us aware that you are a valid user.
-                    It may take upto 24 hours.
-                  </p>
-
-                  <NavLink
-                    to={
-                      userDataa.kyc1.status === 'unsubmitted'
-                        ? '/kyc1'
-                        : userDataa.kyc2.status === 'unsubmitted'
-                        ? '/kyc2'
-                        : userDataa.kyc3.status === 'unsubmitted'
-                        ? '/kyc3'
-                        : '/successful'
-                    }
-                    style={{
-                      textDecoration: 'none',
-                      position: 'relative',
-                      top: '1vh',
-                    }}>
-                    <button className='pbtn1'>Verify</button>
-                  </NavLink>
-                </>
-              )}
             {userDataa.kyc1.status === 'unverified' &&
-              userDataa.kyc2.status === 'unverified' &&
-              userDataa.kyc3.status === 'unverified' && (
-                <div className='kyctitle'>You have submitted the details</div>
-              )}
-            {userDataa.kyc1.status === 'verified' &&
+            userDataa.kyc2.status === 'unverified' &&
+            userDataa.kyc3.status === 'unverified' ? (
+              <div className='kyctitle'>You have submitted the details</div>
+            ) : userDataa.kyc1.status === 'verified' &&
               userDataa.kyc2.status === 'verified' &&
-              userDataa.kyc3.status === 'verified' && (
-                <div className='kyctitle'>You details are verified</div>
-              )}
+              userDataa.kyc3.status === 'verified' ? (
+              <div className='kyctitle'>You details are verified</div>
+            ) : (
+              <>
+                <div className='kyctitle'>KYC Verification</div>
+
+                <p>
+                  This Verification makes us aware that you are a valid user. It
+                  may take upto 24 hours.
+                </p>
+
+                <NavLink
+                  to={
+                    userDataa.kyc1.status === 'unsubmitted'
+                      ? '/kyc1'
+                      : userDataa.kyc2.status === 'unsubmitted'
+                      ? '/kyc2'
+                      : userDataa.kyc3.status === 'unsubmitted'
+                      ? '/kyc3'
+                      : '/successful'
+                  }
+                  style={{
+                    textDecoration: 'none',
+                    position: 'relative',
+                    top: '1vh',
+                  }}>
+                  <button className='pbtn1'>Verify</button>
+                </NavLink>
+              </>
+            )}
           </Container>
         )}
       </Box>
@@ -680,7 +673,7 @@ function Profile() {
           </Box>
         </Backdrop>
       )}
-      {popshow1 && !userDataa.address.submitted && (
+      {popshow1 && (
         <>
           <Backdrop
             open={popshow1}
@@ -738,14 +731,13 @@ function Profile() {
                     />
                   </Button>
                 </div>
-                {(userDataa as any).address.submitted && (
+                {/* {(userDataa as any).address.submitted && (
                   <div>**You have Submitted Data earlier</div>
-                )}
+                )} */}
                 <br />
                 <button
                   className='upbtn'
-                  disabled={false}
-                  onClick={(e) => handleAddressProof(e)}>
+                  disabled={false}>
                   Update
                 </button>
                 <br />
@@ -766,7 +758,7 @@ function Profile() {
           />
         </>
       )}
-      {popshow1 && userDataa.address.submitted && (
+      {popshow1 && (
         <>
           <Backdrop
             open={popshow1}
@@ -793,7 +785,7 @@ function Profile() {
                 <h3>
                   <b>{`**Your Address Proof is already submitted.**`}</b>
                 </h3>
-                <p>{userDataa.address.data}</p>
+                {/* <p>{userDataa.address.data}</p> */}
               </div>
             </Box>
           </Backdrop>

@@ -28,7 +28,7 @@ const WallectConnect = () => {
     try {
       if (address) {
         const response = await axios.post(
-          `https://user-backend-402016.el.r.appspot.com/user/api/signup/${address}`
+          `http://localhost:8080/user/api/signup/${address}`
         );
         window.postMessage({ type: 'addressFetched', address }, '*');
       }

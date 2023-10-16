@@ -67,7 +67,13 @@ export default function Header() {
         </div>
         <img
           className='user1'
-          src={image}
+          src={
+            userDataa
+              ? userDataa.profileImage.toString().length < 3
+                ? image
+                : userDataa.profileImage
+              : image
+          }
           alt=''></img>
         {/* Dropdown menu */}
         <Menu

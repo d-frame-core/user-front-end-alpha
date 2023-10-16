@@ -27,11 +27,7 @@ export default function Permission() {
   const { userDataa, setUserData } = useContext(MyContext);
   var { address, isConnected }: any = useAccount();
   const [formData, setFormData] = useState<any>({
-    location: true,
-    cookies: true,
-    callDataSharing: true,
-    emailSharing: true,
-    notification: true,
+    browserData: true,
     storageOption: 'GCP',
   });
 
@@ -47,7 +43,7 @@ export default function Permission() {
 
       await axios
         .patch(
-          `https://user-backend-402016.el.r.appspot.com/user/api/permissions/${publicAddress}`,
+          `http://localhost:8080/user/api/permissions/${publicAddress}`,
           formData
         )
         .then((response) => {
@@ -80,9 +76,7 @@ export default function Permission() {
     const publicAddress = localStorage.getItem('userAddress') || address;
     try {
       await axios
-        .get(
-          `https://user-backend-402016.el.r.appspot.com/user/api/user/${address}`
-        )
+        .get(`http://localhost:8080/user/api/user/${address}`)
         .then(async (res) => {
           console.log(res.data);
           setUserData(res.data.user);
@@ -114,27 +108,13 @@ export default function Permission() {
             className='perbox'
             onSubmit={handlesubmit}>
             <a>
-              Location<a className='percol'>:</a>
-              <FormControlLabel
-                className='pertog'
-                control={
-                  <Switch
-                    name='location'
-                    checked={formData.location}
-                    onChange={handleChange}
-                  />
-                }
-                label=''
-              />
-            </a>
-            <a>
               Browser Data<a className='percol'>:</a>
               <FormControlLabel
                 className='pertog'
                 control={
                   <Switch
                     name='cookies'
-                    checked={formData.cookies}
+                    checked={formData.browserData}
                     onChange={handleChange}
                   />
                 }

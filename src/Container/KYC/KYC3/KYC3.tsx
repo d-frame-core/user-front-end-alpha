@@ -50,8 +50,8 @@ export default function KYC3() {
     }
 
     const formData = new FormData();
-    formData.append('governmentProof1', governmentProof1);
-    formData.append('governmentProof2', governmentProof2);
+    formData.append('idProof', governmentProof1);
+    formData.append('addressProof', governmentProof2);
     formData.append('userPhoto', userPhoto);
 
     try {
@@ -60,11 +60,15 @@ export default function KYC3() {
         userDataa.publicAddress ||
         address;
       await axios
-        .patch(`http://localhost:3000/api/kyc3/${publicAddress}`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
+        .patch(
+          `http://localhost:8080/user/api/kyc3/${publicAddress}`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        )
         .then((response) => {
           console.log(response);
           toast.success('Uploaded Image Succesfully', { id: '1' });
@@ -111,7 +115,7 @@ export default function KYC3() {
         <div
           className='k1'
           style={{ fontSize: '24px', fontWeight: 500 }}>
-          Government Verification 1:
+          ID Proof:
           <br />
           <span
             style={{ fontSize: '0.9rem', textAlign: 'left', fontWeight: 400 }}>
@@ -137,7 +141,7 @@ export default function KYC3() {
         <div
           className='k2'
           style={{ fontSize: '24px', fontWeight: 500 }}>
-          Government Verification 2:
+          Address Proof:
           <br />
           <span
             style={{ fontSize: '0.9rem', textAlign: 'left', fontWeight: 400 }}>

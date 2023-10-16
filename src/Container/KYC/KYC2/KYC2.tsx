@@ -91,7 +91,10 @@ export default function KYC2() {
     }
     toast.loading('Submitting KYC level 2', { id: '1' });
     axios
-      .patch(`http://localhost:3000/api/kyc2/${userDataa.publicAddress}`, data)
+      .patch(
+        `http://localhost:8080/user/api/kyc2/${userDataa.publicAddress}`,
+        data
+      )
       .then((res) => {
         toast.success('Submitted KYC level 2 Succesfully', { id: '1' });
         console.log(res);

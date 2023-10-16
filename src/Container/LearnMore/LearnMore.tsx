@@ -44,9 +44,7 @@ export default function LearnMore() {
   }, [open]);
   async function fetchDataFromBackend() {
     await axios
-      .get(
-        'https://user-backend-402016.el.r.appspot.com/learnmore/api/learnmore/getall'
-      )
+      .get('http://localhost:8080/learnmore/api/learnmore/getall')
       .then((res) => {
         setFetchedData(res.data);
       })
@@ -57,7 +55,7 @@ export default function LearnMore() {
 
   async function fetchFAQs() {
     await axios
-      .get('https://user-backend-402016.el.r.appspot.com/faq/api/faq/getall')
+      .get('http://localhost:8080/faq/api/faq/getall')
       .then((res) => {
         setFaqData(res.data);
       })
