@@ -179,17 +179,32 @@ function Profile() {
             'Content-Type': 'application/json',
           },
         };
+
+        const publicAddress =
+          localStorage.getItem('userPublicAddress') ||
+          userDataa.publicAddress ||
+          address;
+        toast.loading('Updating Phone Number', { id: '9' });
         axios
-          .patch(`http://localhost:8080/user/api/users/detail/${address}`, {
-            phoneNumber: String(updatedPhoneNumber),
-          })
+          .patch(
+            `https://user-backend-402016.el.r.appspot.com/user/api/kyc1/${publicAddress}`,
+            {
+              firstName: userDataa.kyc1.details.firstName,
+              lastName: userDataa.kyc1.details.lastName,
+              userName: userDataa.kyc1.details.userName,
+              phoneNumber: updatedPhoneNumber,
+              email: userDataa.kyc1.details.email,
+            }
+          )
           .then((response: any) => {
             console.log(response);
             setUpdatedField({});
             setOtp('');
+            toast.success('Updated Phone Number', { id: '9' });
             getUserDetails();
           })
           .catch((err) => {
+            toast.error('Error Updating Phone Number', { id: '9' });
             console.log(err);
           });
       })
@@ -204,12 +219,33 @@ function Profile() {
       .then((result: any) => {
         const user = result.user;
         setgmail(user.email);
+        const publicAddress =
+          localStorage.getItem('userPublicAddress') ||
+          userDataa.publicAddress ||
+          address;
+        toast.loading('Updating Email Id', { id: '10' });
         axios
-          .patch(`http://localhost:8080/user/api/users/detail/${address}`, {
-            email: String(user.email),
+          .patch(
+            `https://user-backend-402016.el.r.appspot.com/user/api/kyc1/${publicAddress}`,
+            {
+              firstName: userDataa.kyc1.details.firstName,
+              lastName: userDataa.kyc1.details.lastName,
+              userName: userDataa.kyc1.details.userName,
+              phoneNumber: userDataa.kyc1.details.phoneNumber,
+              email: user.email,
+            }
+          )
+          .then((response: any) => {
+            console.log(response);
+            setUpdatedField({});
+            setOtp('');
+            toast.success('Updated Email Id', { id: '10' });
+            getUserDetails();
           })
-          .then((result) => console.log(result))
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            toast.error('Error Updating Email Id', { id: '10' });
+            console.log(err);
+          });
       })
       .catch((error: any) => {
         console.log(error);
@@ -220,7 +256,9 @@ function Profile() {
   async function getUserDetails() {
     try {
       await axios
-        .get(`http://localhost:8080/user/api/user/${address}`)
+        .get(
+          `https://user-backend-402016.el.r.appspot.com/user/api/user/${address}`
+        )
         .then(async (res) => {
           console.log('PRINTING ADDRESS', res.data.user.publicAddress);
           setUserData(res.data.user);
@@ -264,7 +302,7 @@ function Profile() {
         address;
 
       const response = await axios.patch(
-        `http://localhost:8080/user/api/image/${publicAddress}`,
+        `https://user-backend-402016.el.r.appspot.com/user/api/image/${publicAddress}`,
         formData,
         {
           headers: {
@@ -293,7 +331,7 @@ function Profile() {
 
   //   try {
   //     const response = await axios.get(
-  //       `http://localhost:8080/user/api/image/${publicAddress}`,
+  //       `https://user-backend-402016.el.r.appspot.com/user/api/image/${publicAddress}`,
   //       {
   //         responseType: 'blob',
   //       }
@@ -325,7 +363,7 @@ function Profile() {
   //     // Send a POST request to the backend to upload the images
   //     await axios
   //       .post(
-  //         `http://localhost:8080/user/api/address/${publicAddress}`,
+  //         `https://user-backend-402016.el.r.appspot.com/user/api/address/${publicAddress}`,
   //         formData,
   //         {
   //           headers: {
@@ -396,8 +434,11 @@ function Profile() {
                 cursor: 'pointer',
                 color: 'white',
                 background: '#017EFA',
+                textDecoration: 'none',
+                outline: 'none',
+                border: 'none',
               }}>
-              Edit Button
+              Edit Image
             </button>
           )}
           <Container
@@ -539,7 +580,7 @@ function Profile() {
                       toast.loading('Updating Referral Code', { id: '7' });
                       await axios
                         .patch(
-                          `http://localhost:8080/user/api/referral/${userDataa.publicAddress}`,
+                          `https://user-backend-402016.el.r.appspot.com/user/api/referral/${userDataa.publicAddress}`,
                           {
                             referralCode: ref,
                           }

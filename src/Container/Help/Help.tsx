@@ -46,8 +46,8 @@ export default function Help() {
 
   async function fetchDataFromBackend() {
     await axios
-      .get('http://localhost:8080/help/api/help/getall')
-      // .get('http://localhost:8080/user/api/help/getall')
+      .get('https://user-backend-402016.el.r.appspot.com/help/api/help/getall')
+      // .get('https://user-backend-402016.el.r.appspot.com/user/api/help/getall')
       .then((res) => {
         setHelpData(res.data);
       })
@@ -57,7 +57,7 @@ export default function Help() {
   }
   async function fetchFAQs() {
     await axios
-      .get('http://localhost:8080/faq/api/faq/getall')
+      .get('https://user-backend-402016.el.r.appspot.com/faq/api/faq/getall')
       .then((res) => {
         setFaqData(res.data);
       })

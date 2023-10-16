@@ -61,7 +61,7 @@ export default function KYC3() {
         address;
       await axios
         .patch(
-          `http://localhost:8080/user/api/kyc3/${publicAddress}`,
+          `https://user-backend-402016.el.r.appspot.com/user/api/kyc3/${publicAddress}`,
           formData,
           {
             headers: {

@@ -92,7 +92,7 @@ export default function KYC2() {
     toast.loading('Submitting KYC level 2', { id: '1' });
     axios
       .patch(
-        `http://localhost:8080/user/api/kyc2/${userDataa.publicAddress}`,
+        `https://user-backend-402016.el.r.appspot.com/user/api/kyc2/${userDataa.publicAddress}`,
         data
       )
       .then((res) => {

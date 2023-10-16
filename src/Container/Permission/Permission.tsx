@@ -43,7 +43,7 @@ export default function Permission() {
 
       await axios
         .patch(
-          `http://localhost:8080/user/api/permissions/${publicAddress}`,
+          `https://user-backend-402016.el.r.appspot.com/user/api/permissions/${publicAddress}`,
           formData
         )
         .then((response) => {
@@ -76,7 +76,9 @@ export default function Permission() {
     const publicAddress = localStorage.getItem('userAddress') || address;
     try {
       await axios
-        .get(`http://localhost:8080/user/api/user/${address}`)
+        .get(
+          `https://user-backend-402016.el.r.appspot.com/user/api/user/${address}`
+        )
         .then(async (res) => {
           console.log(res.data);
           setUserData(res.data.user);
@@ -113,7 +115,7 @@ export default function Permission() {
                 className='pertog'
                 control={
                   <Switch
-                    name='cookies'
+                    name='browserData'
                     checked={formData.browserData}
                     onChange={handleChange}
                   />

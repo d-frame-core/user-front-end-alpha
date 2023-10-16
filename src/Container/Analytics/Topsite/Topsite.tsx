@@ -32,7 +32,7 @@ export default function Topsite() {
       address;
     await axios
       .get(
-        `http://localhost:8080/user/api/user-data/top-sites/${publicAddress}`
+        `https://user-backend-402016.el.r.appspot.com/user/api/user-data/top-sites/${publicAddress}`
       )
       .then((response) => {
         setTopSites(response.data);
