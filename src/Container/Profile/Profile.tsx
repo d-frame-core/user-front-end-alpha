@@ -260,10 +260,11 @@ function Profile() {
           `https://user-backend-402016.el.r.appspot.com/user/api/user/${address}`
         )
         .then(async (res) => {
-          console.log('PRINTING ADDRESS', res.data.user.publicAddress);
           setUserData(res.data.user);
           localStorage.setItem('userToken', res.data.token);
           setUserToken(res.data.token);
+          console.log('dframeUserId', res.data.user.id);
+          localStorage.setItem('dframeUserId', res.data.user.id);
           localStorage.setItem(
             'userPublicAddress',
             res.data.user.publicAddress

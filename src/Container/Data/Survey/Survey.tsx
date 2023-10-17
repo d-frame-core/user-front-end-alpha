@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Sidebar1 from '../../../components/sidebar1/Sidebar1';
 import './survey.css';
 import surveydata from './surveydata';
@@ -14,6 +14,11 @@ import MobileStepper from '@mui/material/MobileStepper';
 import Typography from '@mui/material/Typography';
 import Drawer from '../../../components/sidebar1/Drawer';
 import Header from '../../../components/Header/Header';
+import { useAccount } from 'wagmi';
+import { MyContext } from '../../../components/context/Context';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -85,6 +90,11 @@ export default function Survey() {
   const [arrayIndex, setArrayIndex] = useState(0);
   const [arrayIndex1, setArrayIndex1] = useState(0);
   const [arrayIndex2, setArrayIndex2] = useState(0);
+  const [userSurvey, setUserSurvey] = useState<any>(null);
+
+  const { userDataa } = useContext(MyContext);
+  var { address, isConnected }: any = useAccount();
+  const [surveyId, setSurveyId] = useState<any>(null);
   const [arrayIndex3, setArrayIndex3] = useState(0);
 
   const [open, setOpen] = React.useState(false);
@@ -107,11 +117,7 @@ export default function Survey() {
   const totalSteps2 = 6;
 
   var newqs: any = questions;
-
-  const optionClicked = () => {
-    setDFT(dft + 1);
-    setArrayIndex((arrayIndex % 5) + 1);
-  };
+  const navigate = useNavigate();
 
   const optionClicked1 = () => {
     setArrayIndex1(arrayIndex1 + 1);
@@ -135,6 +141,107 @@ export default function Survey() {
   const getProgressPercentage2 = () => {
     return Math.round((activeStep2 / (totalSteps2 - 1)) * 100);
   };
+
+  async function getLatestSurveyId() {
+    const publicAddress =
+      localStorage.getItem('userPublicAddress') ||
+      userDataa.publicAddress ||
+      address;
+    await axios
+      .get(`http://localhost:8080/user/api/get-latest-survey/${publicAddress}`)
+      .then((response) => {
+        setSurveyId(response.data.surveyId);
+        console.log('surve id is', response.data.surveyId);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  async function surveyById() {
+    await axios
+      .get(`  http://localhost:8080/survey/api/survey-by-id/${surveyId}`)
+      .then((response) => {
+        setUserSurvey(response.data);
+        console.log('survey BY ID is', response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    getLatestSurveyId();
+  }, []);
+
+  useEffect(() => {
+    if (surveyId) {
+      setTimeout(() => {
+        surveyById();
+      }, 2000);
+    }
+  }, [surveyId]);
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const selectedOptions = useRef<Array<string[]>>([]);
+
+  const optionClicked = (option: string) => {
+    selectedOptions.current[currentQuestionIndex] =
+      selectedOptions.current[currentQuestionIndex] || [];
+    selectedOptions.current[currentQuestionIndex].push(option);
+    // Copy the previous selected options and add the current option
+    if (currentQuestionIndex + 1 < userSurvey.totalQues.length) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      // Handle completion, e.g., show a completion message
+      // You can replace the alert with any other suitable action.
+
+      toast.success('Survey Completed! Thank you.');
+      setTimeout(() => {
+        toast.remove();
+      }, 1000);
+      setTimeout(() => {
+        updateSurveyBackend();
+      }, 1000);
+    }
+  };
+  async function updateSurveyBackend() {
+    toast.loading('Submitting Survey', { id: '1' });
+    const userId = localStorage.getItem('dframeUserId');
+
+    console.log('SELECTED FINAL', selectedOptions);
+    let finalOptions = selectedOptions.current;
+    let options = [];
+    for (let i = 0; i < finalOptions.length; i++) {
+      options.push(finalOptions[i][0]);
+    }
+    const publicAddress =
+      localStorage.getItem('userPublicAddress') ||
+      userDataa.publicAddress ||
+      address;
+    // console.log(options);
+    await axios
+      .post(`http://localhost:8080/survey/api/update-survey/${surveyId}`, {
+        options: options,
+        userId: userId,
+        publicAddress: publicAddress,
+      })
+      .then((respons) => {
+        toast.success('Submitted Survey', { id: '1' });
+        console.log('SUCCESFULLY UPDATED', respons);
+        setTimeout(() => {
+          toast.remove();
+          navigate('/profile');
+        }, 1000);
+      })
+      .catch((err) => {
+        toast.error('Error Submitting Survey', { id: '1' });
+        console.log(err);
+        setTimeout(() => {
+          toast.remove();
+        }, 1000);
+      });
+  }
+
   return (
     <div>
       <Header />
@@ -144,27 +251,30 @@ export default function Survey() {
       <div className='surbox1'>
         <a className='stext1'>Survey</a>
       </div>
-      <div>
-        <div className='surect1'>
-          <p className='surtext2'>{newqs[arrayIndex].qs1}</p>
-          <button
-            className='subtn1'
-            onClick={optionClicked}>
-            {newqs[arrayIndex].an1}
-          </button>
-          <button
-            className='subtn2'
-            onClick={optionClicked}>
-            {newqs[arrayIndex].an2}
-          </button>
-        </div>
+      {userSurvey && (
+        <div>
+          <div className='surect1'>
+            <p className='surtext2'>
+              {userSurvey.totalQues[currentQuestionIndex].title}
+            </p>
+            {userSurvey.totalQues[currentQuestionIndex].options.map(
+              (option: any, index: any) => (
+                <button
+                  className={`subtn${index + 1}`}
+                  key={index}
+                  onClick={() => optionClicked(option)}>
+                  {option}
+                </button>
+              )
+            )}
+          </div>
 
-        <div className='surect2'>
-          <p>Total Survey Answer &emsp;&emsp; {arrayIndex + 1} </p>
-          <p>Total DFT Earned &emsp;&emsp;&emsp; {dft}</p>
-        </div>
-
-        {/* <Box className='surect3'>
+          <div className='surect2'>
+            <p>Total Survey Answer &emsp;&emsp; {currentQuestionIndex + 1} </p>
+            <p>Total DFT Rewards &emsp;&emsp;&emsp; {userSurvey.totalReward}</p>
+            <p>{surveyId}</p>
+          </div>
+          {/* <Box className='surect3'>
           <div text-align='left'>
             <h3>More Surveys</h3>
           </div>
@@ -189,8 +299,7 @@ export default function Survey() {
             <button className='subtn3'>More</button>
           </Box>
         </Box> */}
-
-        {/* <Button
+          {/* <Button
           onClick={handleOpen1}
           className='surbtn1'
           sx={{ textTransform: 'inherit', color: 'black' }}>
@@ -402,7 +511,19 @@ export default function Survey() {
             Close
           </Button>
         </Backdrop> */}
-      </div>
+        </div>
+      )}
+      {!userSurvey && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '30vh',
+            left: '40vw',
+            fontSize: '6vh',
+          }}>
+          No survey found for you
+        </div>
+      )}
     </div>
   );
 }

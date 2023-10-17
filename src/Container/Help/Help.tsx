@@ -80,7 +80,9 @@ export default function Help() {
   return (
     <div>
       <div className='smopen'>{Drawer(0)}</div>
+      <Header />
       <>{Sidebar1(0)}</>
+
       <div className='helpBox'>
         <Box>
           <div className='helpTitle'>Help</div>
