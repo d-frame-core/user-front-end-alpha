@@ -148,7 +148,9 @@ export default function Survey() {
       userDataa.publicAddress ||
       address;
     await axios
-      .get(`http://localhost:8080/user/api/get-latest-survey/${publicAddress}`)
+      .get(
+        `https://user-backend-402016.el.r.appspot.com/user/api/get-latest-survey/${publicAddress}`
+      )
       .then((response) => {
         setSurveyId(response.data.surveyId);
         console.log('surve id is', response.data.surveyId);
@@ -159,7 +161,9 @@ export default function Survey() {
   }
   async function surveyById() {
     await axios
-      .get(`  http://localhost:8080/survey/api/survey-by-id/${surveyId}`)
+      .get(
+        `  https://user-backend-402016.el.r.appspot.com/survey/api/survey-by-id/${surveyId}`
+      )
       .then((response) => {
         setUserSurvey(response.data);
         console.log('survey BY ID is', response.data);
@@ -220,11 +224,14 @@ export default function Survey() {
       address;
     // console.log(options);
     await axios
-      .post(`http://localhost:8080/survey/api/update-survey/${surveyId}`, {
-        options: options,
-        userId: userId,
-        publicAddress: publicAddress,
-      })
+      .post(
+        `https://user-backend-402016.el.r.appspot.com/survey/api/update-survey/${surveyId}`,
+        {
+          options: options,
+          userId: userId,
+          publicAddress: publicAddress,
+        }
+      )
       .then((respons) => {
         toast.success('Submitted Survey', { id: '1' });
         console.log('SUCCESFULLY UPDATED', respons);
@@ -272,7 +279,7 @@ export default function Survey() {
           <div className='surect2'>
             <p>Total Survey Answer &emsp;&emsp; {currentQuestionIndex + 1} </p>
             <p>Total DFT Rewards &emsp;&emsp;&emsp; {userSurvey.totalReward}</p>
-            <p>{surveyId}</p>
+            {/* <p>{surveyId}</p> */}
           </div>
           {/* <Box className='surect3'>
           <div text-align='left'>

@@ -33,6 +33,7 @@ import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { arbitrum, mainnet, polygon } from '@wagmi/core/chains';
 import Acc from './Container/KYC/KYC3/Acc';
 import Header from './components/Header/Header';
+import CID from './Container/CID/CID';
 
 const chains = [polygon];
 const projectId = '71bc6971bc716face67cc727e08e5670';
@@ -117,6 +118,10 @@ function App() {
             <Route
               path='/ACC'
               element={<Acc />}
+            />
+            <Route
+              path='/CID'
+              element={<CID />}
             />
           </Routes>
         </Router>

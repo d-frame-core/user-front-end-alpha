@@ -9,6 +9,7 @@ import Header from '../Header/Header';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
@@ -156,6 +157,16 @@ export default function Sidebar1(index: any) {
                   onClick={() => toggleTab(9)}>
                   <PaddingOutlinedIcon className='ic' />
                   Survey
+                </div>
+              </NavLink>
+              <NavLink
+                to='/CID'
+                style={{ textDecoration: 'none', color: 'white' }}>
+                <div
+                  className={toggleState === 10 ? 'act1' : 'notActive'}
+                  onClick={() => toggleTab(10)}>
+                  <ViewInArIcon className='ic' />
+                  Blockchain
                 </div>
               </NavLink>
             </div>
